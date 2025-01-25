@@ -1,3 +1,7 @@
 /venv/
 /__pycache__/
+/lib/__pycache__/
+/lib/mods/__pycache__/
 /key.json
+/config.py
+/logs/

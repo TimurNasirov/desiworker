@@ -1,21 +1,26 @@
-from .log import Log
-from .mods.timemod import time_is, wait
+from lib.log import Log
+from lib.mods.timemod import time_is, wait
+from lib.mods.firemod import init_db
 from time import sleep
-from firebase_admin.credentials import Certificate
-from firebase_admin.firestore import client
-from firebase_admin import initialize_app
 
 from .changeoil import *; from .excel import *; from .insurance import *; from .latepayment import *; from .odometer import *
-from .payday import *; from .post import *; from .registartion import *; from .saldo import *; from .toll import *;  from .word import *
-from .supadesi import *
+from .payday import *; from .post import *; from .registartion import *; from .saldo import *; from .toll import *;
+from .word import *; from .supadesi import *
 
 logdata = Log('main.py')
 print = logdata.print
-cred = Certificate('key.json')
-initialize_app(cred)
-db = client()
+
+db: client = init_db()
 
 def run_checking(run):
+    last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
+    
+    print('checking subprocesses on last update.')
+    if 'changeoil' in run:
+        check_changeoil(last_update_data)
+    if 'insurance' in run:
+        check_insurance(last_update_data)
+    
     while True:
         if time_is('11:57'):
             start_rentacar(run)

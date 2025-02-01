@@ -1,4 +1,6 @@
 USER = 'python'
+TEMPAPP_DOCUMENT_ID = 'vPHKtqC5mppukNZWplBl'
+SETTINGAPP_DOCUMENT_ID = 'Mo7VMvpoEdLB7ao9XnAo'
 
 # changeoil
 CHANGE_OIL_TASK_COMMENT = 'Change oil, current odometer: {odometer} ({changeoil_end})'
@@ -23,3 +25,5 @@ PAYDAY_IMAGE = "https://firebasestorage.googleapis.com/v0/b/rentacar-qmt96z.apps
 -4b23-80b5-96e5df540f5e"
 PAYLIMIT_NAME_PAY = 'Extra mil: {limit} mil'
 PAYLIMIT_SUM_COEFFICIENT = 0.15
+PAYDAY_HISTORY_CHANGE = 'Update payday_odom'
+PAYDAY_HISTORY_EDIT = 'old odom: {old_odometer}, new odom: {new_odometer}{extra}'

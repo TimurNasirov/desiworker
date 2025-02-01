@@ -38,7 +38,7 @@ def send_sms(phone: str, text: str):
         # )
         print(f'send SMS to phone {phone}.')
     else:
-        print('SMS not sent because of --no-sms flag.')
+        print('SMS not sent because of "--no-sms" flag.')
     
 
 def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str):

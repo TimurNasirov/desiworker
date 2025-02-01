@@ -1,6 +1,6 @@
 from lib.log import Log
 from lib.mods.timemod import time_is, wait
-from lib.mods.firemod import init_db
+from lib.mods.firemod import init_db, bucket
 from time import sleep
 
 from .changeoil import *; from .excel import *; from .insurance import *; from .latepayment import *; from .odometer import *
@@ -11,15 +11,30 @@ logdata = Log('main.py')
 print = logdata.print
 
 db: client = init_db()
+bucket = bucket()
 
 def run_checking(run):
     last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
     
     print('checking subprocesses on last update.')
     if 'changeoil' in run:
-        check_changeoil(last_update_data)
+        check_changeoil(last_update_data, db)
     if 'insurance' in run:
-        check_insurance(last_update_data)
+        check_insurance(last_update_data, db)
+    if 'latepayment' in run:
+        check_latepayment(last_update_data, db)
+    if 'payday' in run:
+        check_payday(last_update_data, db)
+    if 'odometer' in run:
+        #check_odometer(last_update_data, db)
+        pass
+    
+    print('initialize listeners.')
+    if 'odometer' in run:
+        odometer_listener(db)
+    if 'exword' in run:
+        excel_listener(db, bucket)
+        word_listener(db, bucket)
     
     while True:
         if time_is('11:57'):
@@ -64,3 +79,7 @@ def start_rentacar(run):
         start_saldo(db)
     if 'latepayment' in run:
         start_latepayment(db)
+
+if __name__ == '__main__':
+    print('Run main process -> python watcher.py')
+    print('There is not mean to activate this file, because this is doing nothing.')

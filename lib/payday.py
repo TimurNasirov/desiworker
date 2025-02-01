@@ -9,7 +9,7 @@ from lib.log import Log
 from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract, get_car
 from lib.mods.sms import send_sms, add_inbox, PAYDAY_TEXT
-from lib.str_config import PAYDAY_IMAGE, PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_NAME_TASK, PAYDAY_TASK_COMMENT, PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT
+from lib.str_config import PAYDAY_IMAGE, PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_NAME_TASK, PAYDAY_TASK_COMMENT, PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT, USER, PAYDAY_HISTORY_CHANGE, PAYDAY_HISTORY_EDIT
 
 logdata = Log('payday.py')
 print = logdata.print
@@ -47,8 +47,13 @@ def start_payday(db: client):
         
         if car['odometer'] - begin_odometer > contract['limit'] and contract['limit'] != 0:
             create_paylimit(db, car['odometer'], begin_odometer, contract['limit'], contract)
+        
+        if '--read-only' not in argv:
+            db.collection('Contract').document(contract['_firebase_document_id']).update({
+                'Payday_odom': car['odometer']
+            })
     
-    print(f'Total payday contracts: {len(contracts)}')
+    print(f'total payday contracts: {len(contracts)}')
     
     if '--read-only' not in argv:
         db.collection('Last_update_python').doc('last_update').update({'payday_update': dt.now(texas_tz)})
@@ -83,7 +88,7 @@ def create_payday(db: client, contract: dict, odometer: int):
             'owner': True
         })
     else:
-        print('payday task and pay not created because of --read-only flag.')
+        print('payday task and pay not created because of "--read-only" flag.')
     
     if has_key(contract, 'renternumber') and not '--read-only' in argv:
         send_sms(contract['renternumber'][0], PAYDAY_TEXT),
@@ -97,6 +102,7 @@ def create_payday(db: client, contract: dict, odometer: int):
 
 def create_paylimit(db: client, current_odometer: int, begin_odometer: int, limit: int, contract: dict):
     if '--read-only' not in argv:
+        print(f'write paylimit {contract["nickname"]}, old odometer: {begin_odometer}, new odometer: {current_odometer}, limit: {limit}, extra mil: {current_odometer - begin_odometer - limit}.')
         db.collection('Pay_contract').add({
             'ContractName': contract['ContractName'],
             'date': dt.now(texas_tz),
@@ -109,7 +115,21 @@ def create_paylimit(db: client, current_odometer: int, begin_odometer: int, limi
             'owner': True
         })
     else:
-        print('paylimit pay not created because of --read-only flag.')
+        print('paylimit pay not created because of "--read-only" flag.')
+
+def create_history(db: client, begin_odometer: int, current_odometer: int, limit: int, contract: dict):
+    extra_mil = current_odometer - begin_odometer - limit
+    if '--read-only' not in argv:
+        db.collection('History').add({
+            'change': PAYDAY_HISTORY_CHANGE,
+            'edit': PAYDAY_HISTORY_EDIT.replace('{old_odometer}', begin_odometer).replace('{new_odometer}', current_odometer).replace('{extra}', f', extra: {extra_mil}' if extra_mil > 0 else ''),
+            'date': dt.now(texas_tz),
+            'nickname': contract['nickname'],
+            'ContractName': contract['ContractName'],
+            'user': USER
+        })
+    else:
+        print('history not created because of "--read-only" flag.')
 
 def check_payday(last_update_data: dict, db: client, log: bool = False):
     if log:

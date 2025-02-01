@@ -1,12 +1,11 @@
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
-from random import randint
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, now_with_payday, to_MY_format
+from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format, get_last_day
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract, get_car
 from lib.mods.sms import send_sms, add_inbox, LATEPAYMENT_TEXT
 from lib.str_config import LATEPAYMENT_NAME_PAY, USER
@@ -41,32 +40,34 @@ def start_latepayment(db: client):
         car = [car for car in cars if car['nickname'] == contract['nickname']]
         if car == []: car = {'odometer': -1}
         else: car = car[0]
-        if contract['ContractName'] == 'Contract-49M-TEST-1':
-            print(now_with_payday(contract['pay_day']) + timedelta(days=3))
-            print(dt.now(texas_tz))
         
         now = dt.now()
-        if dt(year=now.year, month=now.month, day=contract['pay_day'].day) + timedelta(days=5) == dt(year=now.year, month=now.month, day=now.day) and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price']:
+        last_day = get_last_day()
+        payday = contract['pay_day'].day
+        if payday > get_last_day():
+            payday = get_last_day()
+            
+        if payday + 5 == now.day and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price']:
             latepayment_count += 1
             create_pay(db, contract, car)
         
-        elif dt(year=now.year, month=now.month, day=contract['pay_day'].day) + timedelta(days=3) == dt(year=now.year, month=now.month, day=now.day) and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price'] and has_key(contract, 'renternumber'):
+        elif payday + 3 == now.day and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price'] and has_key(contract, 'renternumber'):
             prelatepayment_count += 1
-            print(f'send pre-latepayment sms, nickname: {contract["nickname"]}')
+            print(f'send pre-latepayment sms - nickname: {contract["nickname"]}')
             if not '--read-only' in argv:
                 send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo'])),
                 if has_key(contract, 'renter'):
-                    add_inbox(db, contract['renternumber'][0], contract['ContractName'], contract['renter'], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']))
-                else:
                     add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']), contract['ContractName'], contract['renter'])
+                else:
+                    add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']), contract['ContractName'], None)
             else:
                 print('sms not sent because of "--read-only" flag.')
     
-    print(f'Total latepayment contracts: {latepayment_count}')
-    print(f'Total pre-latepayment contracts: {prelatepayment_count}')
+    print(f'total latepayment contracts: {latepayment_count}')
+    print(f'total pre-latepayment contracts: {prelatepayment_count}')
     
     if '--read-only' not in argv:
-        db.collection('Last_update_python').doc('last_update').update({'latepayment_update': dt.now(texas_tz)})
+        db.collection('Last_update_python').document('last_update').update({'latepayment_update': dt.now(texas_tz)})
     else:
         print('latepayment last update not updated because of "--read-only" flag.')
     print('set last latepayment update.')

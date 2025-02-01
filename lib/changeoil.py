@@ -45,10 +45,10 @@ def start_changeoil(db: client):
     for car in cars:
         create_task(db, car)
     
-    print(f'Total changeoil cars: {len(cars)}')
+    print(f'total changeoil cars: {len(cars)}')
     
     if '--read-only' not in argv:
-        db.collection('Last_update_python').doc('last_update').update({'changeoil_update': dt.now(texas_tz)})
+        db.collection('Last_update_python').document('last_update').update({'changeoil_update': dt.now(texas_tz)})
     else:
         print('changeoil last update not updated because of "--read-only" flag.')
     print('set last changeoil update.')

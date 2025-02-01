@@ -45,10 +45,10 @@ def start_insurance(db: client):
     for contract in contracts:
         create_task(db, contract)
     
-    print(f'Total insurance contracts: {len(contracts)}')
+    print(f'total insurance contracts: {len(contracts)}')
     
     if '--read-only' not in argv:
-        db.collection('Last_update_python').doc('last_update').update({'insurance_update': dt.now(texas_tz)})
+        db.collection('Last_update_python').document('last_update').update({'insurance_update': dt.now(texas_tz)})
     else:
         print('insurance last update not updated because of "--read-only" flag.')
     print('set last insurance update.')
@@ -70,7 +70,7 @@ def create_task(db: client, contract: dict):
         })
         
     else:
-        print('task not created because of --read-only flag.')
+        print('task not created because of "--read-only" flag.')
     
     if has_key(contract, 'renternumber') and not '--read-only' in argv:
         send_sms(contract['renternumber'][0], INSURANCE_TEXT),

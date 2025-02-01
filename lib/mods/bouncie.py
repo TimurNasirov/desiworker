@@ -1,0 +1,39 @@
+from lib.log import Log
+from json import loads
+from requests import post, get
+from config import *
+from .firemod import has_key
+from .timemod import dt, timedelta
+
+logdata = Log('mods/bouncie.py')
+print = logdata.print
+
+def get_apikey(code: str):
+    print('get apikey from bouncie.')
+    json_data = BOUCNIE_HEADERS
+    json_data['code'] = code
+    return loads(post(BOUNCIE_API_URL, json=json_data).text)['access_token']
+
+def get_odometer(key, imei):
+    print(f'get odometer from {imei} imei.')
+    try:
+        starts = dt.now().strftime('%Y-%m-%d 23:59:59')
+        ends = (dt.now() - timedelta(days=6)).strftime('%Y-%m-%d 23:59:59')
+        data = loads(get(BOUNCIE_TRIP_URL, headers={
+            'Authorization': key
+        }, params={
+            'imei': imei,
+            'starts_after': starts,
+            'ends_before': ends,
+            'gps-format': 'polyline'
+        }).text)
+        try:
+            if has_key(data[0], 'endOdometer'):
+                return data[0]['endOdometer'] if data[0]['endOdometer'] != None else data[0]['startOdometer'] if data[0]['startOdometer'] != None else 'keep'
+            else:
+                return data[0]['startOdometer'] if data[0]['startOdometer'] != None else 'keep'
+        except IndexError:
+            return 'keep'
+    except Exception as e:
+        print(f'Raised {e} when getting odometer from {imei}. Odometer of this car will not updated.')
+        return 'keep'

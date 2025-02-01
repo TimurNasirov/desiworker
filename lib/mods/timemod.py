@@ -3,6 +3,8 @@ from time import sleep, time
 from lib.log import Log
 from datetime import timedelta
 from pytz import timezone
+from calendar import monthrange
+
 texas_tz = timezone('US/Central')
 
 logdata = Log('mods/timemod.py')
@@ -22,8 +24,9 @@ def timeit(func):
         print(f'Time: {round(b - a, 3)} seconds (function: {func.__name__}).')
     return wrapper
 
-def now_with_payday(payday: dt):
-    return dt.now(texas_tz).replace(day=int(payday.strftime('%#d')))
-
 def to_MY_format(date: dt):
     return date.strftime('%m.%Y')
+
+def get_last_day():
+    now = dt.now()
+    return monthrange(now.year, now.month)[1]

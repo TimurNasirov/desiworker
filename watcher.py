@@ -3,9 +3,11 @@ try:
     from lib.log import Log
     from sys import argv
     from lib.main import *
+
     logdata = Log('watcher.py')
     print = logdata.print
     logdata.logfile('\n')
+    
     command = ''
     for i in argv:
         command += i + ' '
@@ -109,3 +111,6 @@ except Exception as e:
     line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
     module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
     print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).')
+
+except KeyboardInterrupt:
+    print('main process stopped.')

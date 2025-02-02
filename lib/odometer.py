@@ -1,7 +1,18 @@
+'''
+ODOMETER
+Update all odometers of cars from bouncie. Starts at launch time and when actual_dometer is True in firebase.
+If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
+After check all contracts, odometer_last_update will update to current time.
+
+Collection: cars
+Group: rentacar
+Launch time: 11:50, 23:51, 6:00 [odometer]
+Marks: last-update, listener, no-writing
+'''
+
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
-from random import randint
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
@@ -10,6 +21,7 @@ from lib.mods.timemod import dt, timedelta, texas_tz, sleep
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, document
 from lib.str_config import TEMPAPP_DOCUMENT_ID, SETTINGAPP_DOCUMENT_ID
 from lib.mods.bouncie import get_apikey, get_odometer
+from traceback import format_exception
 
 logdata = Log('odometer.py')
 print = logdata.print
@@ -98,9 +110,15 @@ if __name__ == '__main__':
         print('')
         print('default flags:')
         print(' - -h: show help')
-        print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --odometer-only -t)')
+        print('')
+        print('Description:')
+        instruction = __doc__.split('\n')
+        instruction.remove('')
+        instruction.remove('ODOMETER')
+        for i in instruction:
+            print(i)
     else:
         db: client = init_db()
         if '--test' in argv:

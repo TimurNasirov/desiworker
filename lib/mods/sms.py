@@ -15,6 +15,7 @@ INSURANCE_TEXT = "DESICARS: Hi. It's time to renew the car insurance. Please sen
 it's ready. Thank you!"
 LATEPAYMENT_TEXT = "DESICARS: Hi! Payment was due 3 days ago. Confirm via TG: t.me/Desi_rental_cars after payment. Debt: ${debt}. Late \
 fee in 2 days."
+REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Please visit the office to complete this. Thank you!"
 
 def send_sms(phone: str, text: str):
     if '--no-sms' not in argv:

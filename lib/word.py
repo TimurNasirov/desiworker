@@ -1,3 +1,20 @@
+'''
+WORD
+When new contract creates, owner need an agreement with renter. In DesiCars app, there is button, and after owner created contract he need to
+click in this button, he can download agreement word file and print it on printer.
+Word file will appear in firebase storage and its link will be in setting_app.
+Activate:
+ 1. Choose contract (word_contract) in setting_app.
+ 2. Change word_active to True.
+ 3. Wait, and after few seconds link of word file will appear in word_url.
+
+
+Collection: setting-app
+Group: exword
+Launch time: - [exword] (snapshots only)
+Marks: listener
+'''
+
 from sys import path, argv
 from os.path import dirname, abspath, join
 from os import get_terminal_size
@@ -9,6 +26,7 @@ from lib.log import Log
 from lib.mods.timemod import dt, timedelta
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client
+from traceback import format_exception
 
 logdata = Log('word.py')
 print = logdata.print
@@ -35,7 +53,7 @@ def build(db: client, contractName: str):
     else:
         plate = ''
         
-    if has_key('limit'):
+    if has_key(contract, 'limit'):
         if contract['limit'] > 0:
             limit = contract['limit']
         else:
@@ -87,7 +105,7 @@ def build(db: client, contractName: str):
         'insurance': contract['insurance'],
         'insurance_number': contract['insurance_number'],
         'sum': str(contract['renta_price']),
-        'payday': contract['pay_day'].strftime('%-d'),
+        'payday': contract['pay_day'].strftime('%#d'),
         'deposit': str(contract['zalog']),
         'limit': limit,
         'phone': phone,
@@ -107,7 +125,7 @@ def word_listener(db: client, bucket):
             doc = document[0].to_dict()
             if doc['word_active'] == True:
                 print(f'write docx {doc["word_contract"]}')
-                build(doc['word_contract'], db)
+                build(db, doc['word_contract'])
                 blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
                 blob.upload_from_filename(join(folder, 'data.docx'))
                 blob.make_public()

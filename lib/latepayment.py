@@ -1,3 +1,16 @@
+'''
+LATE PAYMENT
+If renter don`t pay the charging of rental, 3 days after payday this programm will send sms to renter about he need to pay the charging of rental,
+and if he don`t pay this program will add penalty of 50$. And, when renter come to office, he need to pay for charging of rental and this penalty.
+If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
+After check all contracts, latepayment_last_update will update to current time.
+
+Collection: Contract
+Group: rentacar
+Launch time: 11:57 [rentacar]
+Marks: last-update, sms limit-28-upd
+'''
+
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
@@ -6,7 +19,7 @@ path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
 from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format, get_last_day
-from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract, get_car
+from lib.mods.firemod import to_dict_all, has_key, client, init_db
 from lib.mods.sms import send_sms, add_inbox, LATEPAYMENT_TEXT
 from lib.str_config import LATEPAYMENT_NAME_PAY, USER
 
@@ -42,7 +55,6 @@ def start_latepayment(db: client):
         else: car = car[0]
         
         now = dt.now()
-        last_day = get_last_day()
         payday = contract['pay_day'].day
         if payday > get_last_day():
             payday = get_last_day()
@@ -124,6 +136,13 @@ if __name__ == '__main__':
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --latepayment-only -t)')
+        print('')
+        print('Description:')
+        instruction = __doc__.split('\n')
+        instruction.remove('')
+        instruction.remove('LATE PAYMENT')
+        for i in instruction:
+            print(i)
     else:
         db: client = init_db()
         if '--test' in argv:

@@ -3,7 +3,7 @@ CHANGE OIL
 If car odometer more than oil change end, this program will create change oil task for this car and send sms to renter about he
 need to change oil in the car.
 If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
-After check all cars, changeoil_last_update will update to current time.
+After check all cars, registration_last_update will update to current time.
 
 Collection: cars
 Group: rentacar
@@ -19,22 +19,22 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz
+from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
-from lib.mods.sms import send_sms, add_inbox, CHANGE_OIL_TEXT
-from lib.str_config import CHANGE_OIL_TASK_COMMENT, CHANGE_OIL_NAME_TASK, USER, CHANGE_OIL_IMAGE
+from lib.mods.sms import send_sms, add_inbox, REGISTRATION_TEXT
+from lib.str_config import REGISTRATION_TASK_COMMENT, REGISTRATION_NAME_TASK, USER, REGISTRATION_IMAGE
 
-logdata = Log('changeoil.py')
+logdata = Log('registration.py')
 print = logdata.print
 
-def start_changeoil(db: client):
-    print('start changeoil.')
+def start_registration(db: client):
+    print('start registration.')
     cars: list[dict] = to_dict_all(db.collection('cars').get())
     
     # filtering cars
     for car in cars.copy():
-        if has_key(car, 'Oil_changeEnd'):
-            if car['odometer'] < car['Oil_changeEnd'] or car['Oil_changeEnd'] == 0:
+        if has_key(car, 'TO_end'):
+            if car['TO_end'].astimezone(texas_tz) > dt.now(texas_tz):
                 cars.remove(car)
         else:
             cars.remove(car)
@@ -42,41 +42,37 @@ def start_changeoil(db: client):
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
     #remove tasks
     for task in tasks.copy():
-        if not has_key(task, 'post'):
-            if task['status'] == False:
-                tasks.remove(task)
-        else:
-            if task['post'] == False and task['status'] == False:
-                tasks.remove(task)
+        if to_MY_format(task['date']) != to_MY_format(dt.now(texas_tz)):
+            tasks.remove(task)
             
     for car in cars.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
-        # check if car where its nickname in tasks thats name_task is "Change oil"
-        if car['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'Change oil']:
+        # check if car where its nickname in tasks thats name_task is "Registration"
+        if car['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'Registration']:
             cars.remove(car)
             
     for car in cars:
         create_task(db, car)
     
-    print(f'total changeoil cars: {len(cars)}')
+    print(f'total registration cars: {len(cars)}')
     
     if '--read-only' not in argv:
-        db.collection('Last_update_python').document('last_update').update({'changeoil_update': dt.now(texas_tz)})
+        db.collection('Last_update_python').document('last_update').update({'registration_update': dt.now(texas_tz)})
     else:
-        print('changeoil last update not updated because of "--read-only" flag.')
-    print('set last changeoil update.')
+        print('registration last update not updated because of "--read-only" flag.')
+    print('set last registration update.')
 
 def create_task(db: client, car: dict):
-    print(f'write changeoil - nickname: {car["nickname"]}')
+    print(f'write registration - nickname: {car["nickname"]}')
     contract = get_contract(db, car['nickname'])
     if '--read-only' not in argv:
         db.collection('Task').add({
-            'id': randint(0, 10000),
-            'comment': CHANGE_OIL_TASK_COMMENT.replace('{odometer}', car['odometer']).replace('{changeoil_end}', car['Oil_changeEnd']),
-            'name_task': CHANGE_OIL_NAME_TASK,
+            'id': randint(30000, 40000),
+            'comment': REGISTRATION_TASK_COMMENT,
+            'name_task': REGISTRATION_NAME_TASK,
             'nickname': car['nickname'],
             'date': dt.now(texas_tz),
-            'photo_task': [CHANGE_OIL_IMAGE],
+            'photo_task': [REGISTRATION_IMAGE],
             'status': True,
             'post': False,
             'user': USER,
@@ -87,24 +83,24 @@ def create_task(db: client, car: dict):
         print('task not created because of "--read-only" flag.')
     
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
-        send_sms(contract['renternumber'][0], CHANGE_OIL_TEXT),
+        send_sms(contract['renternumber'][0], REGISTRATION_TEXT),
         if has_key(contract, 'renter'):
-            add_inbox(db, contract['renternumber'][0], CHANGE_OIL_TEXT, contract['ContractName'], contract['renter'])
+            add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
         else:
-            add_inbox(db, contract['renternumber'][0], CHANGE_OIL_TEXT, contract['ContractName'], None)
+            add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], None)
     else:
         if '--read-only' in argv:
             print('sms not sent because of "--read-only" flag.')
 
-def check_changeoil(last_update_data: dict, db: client, log: bool = False):
+def check_registration(last_update_data: dict, db: client, log: bool = False):
     if log:
-        print('check changeoil last update.')
-    if last_update_data['changeoil_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
-        print('changeoil has not been started for a long time: starting...')
-        start_changeoil(db)
+        print('check registration last update.')
+    if last_update_data['registration_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
+        print('registration has not been started for a long time: starting...')
+        start_registration(db)
     else:
         if log:
-            print('changeoil was started recently. All is ok.')
+            print('registration was started recently. All is ok.')
 
 if __name__ == '__main__':
     logdata.logfile('\n')
@@ -113,7 +109,7 @@ if __name__ == '__main__':
         command += i + ' '
     logdata.log_init(command)
 
-    print('start subprocess changeoil.')
+    print('start subprocess registration.')
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
@@ -124,28 +120,27 @@ if __name__ == '__main__':
         print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
         print('')
         print('-> for start main process, run watcher.py')
-        print('--test: test (start change oil).')
-        print('--check: check change oil last update.')
+        print('--test: test (start registration).')
+        print('--check: check registration last update.')
         print('')
         print('default flags:')
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --changeoil-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --registration-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
         instruction.remove('')
-        instruction.remove('CHANGE OIL')
+        instruction.remove('REGISTRATION')
         for i in instruction:
             print(i)
     else:
         db: client = init_db()
         if '--test' in argv:
-            start_changeoil(db)
+            start_registration(db)
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
-            check_changeoil(last_update_data, db, True)
+            check_registration(last_update_data, db, True)
             
-    print('changeoil subprocess stopped successfully.')
-        
+    print('registration subprocess stopped successfully.')

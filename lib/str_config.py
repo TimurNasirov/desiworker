@@ -27,3 +27,9 @@ PAYLIMIT_NAME_PAY = 'Extra mil: {limit} mil'
 PAYLIMIT_SUM_COEFFICIENT = 0.15
 PAYDAY_HISTORY_CHANGE = 'Update payday_odom'
 PAYDAY_HISTORY_EDIT = 'old odom: {old_odometer}, new odom: {new_odometer}{extra}'
+
+#registartion
+REGISTRATION_TASK_COMMENT = 'Registration expired'
+REGISTRATION_NAME_TASK = 'Registration'
+REGISTRATION_IMAGE = "https://firebasestorage.googleapis.com/v0/b/rentacar-qmt96z.appspot.com/o/insur.PNG?alt=media&token=fd244dd2-cb98-4f55-919f\
+-2f03e54d5cb6"

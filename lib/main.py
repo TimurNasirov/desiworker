@@ -4,7 +4,7 @@ from lib.mods.firemod import init_db, bucket
 from time import sleep
 
 from .changeoil import *; from .excel import *; from .insurance import *; from .latepayment import *; from .odometer import *
-from .payday import *; from .post import *; from .registartion import *; from .saldo import *; from .toll import *;
+from .payday import *; from .post import *; from .registration import *; from .saldo import *; from .toll import *;
 from .word import *; from .supadesi import *
 
 logdata = Log('main.py')

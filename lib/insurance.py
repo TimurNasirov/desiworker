@@ -1,3 +1,15 @@
+'''
+INSURANCE
+If renter`s insurance expired, this program will create task and send sms to renter about he need to renew insurance.
+If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
+After check all contracts, insurance_last_update will update to current time.
+
+Collection: Contract
+Group: rentacar
+Launch time: 11:57 [rentacar]
+Marks: last-update, sms
+'''
+
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
@@ -7,7 +19,7 @@ path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
 from lib.mods.timemod import dt, timedelta, texas_tz
-from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract, get_car
+from lib.mods.firemod import to_dict_all, has_key, client, init_db
 from lib.mods.sms import send_sms, add_inbox, INSURANCE_TEXT
 from lib.str_config import INSURANCE_TASK_COMMENT, INSURANCE_NAME_TASK, INSURANCE_IMAGE, USER
 
@@ -57,7 +69,7 @@ def create_task(db: client, contract: dict):
     print(f'write insurance - nickname: {contract["nickname"]}')
     if '--read-only' not in argv:
         db.collection('Task').add({
-            'id': randint(0, 10000),
+            'id': randint(20000, 30000),
             'comment': INSURANCE_TASK_COMMENT,
             'name_task': INSURANCE_NAME_TASK,
             'nickname': contract['nickname'],
@@ -112,14 +124,19 @@ if __name__ == '__main__':
         print('-> for start main process, run watcher.py')
         print('--test: test (start insurance).')
         print('--check: check insurance last update.')
-        print('--create [nickname]: create insurance task.')
-        print(' - nickname (str): nickname of car that task will create.')
         print('')
         print('default flags:')
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --insurance-only -t)')
+        print('')
+        print('Description:')
+        instruction = __doc__.split('\n')
+        instruction.remove('')
+        instruction.remove('INSURANCE')
+        for i in instruction:
+            print(i)
     else:
         db: client = init_db()
         if '--test' in argv:
@@ -127,14 +144,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_insurance(last_update_data, db, True)
-        elif '--create' in argv:
-            if len(argv) > argv.index('--create') + 1:
-                car = get_contract(db, argv[argv.index('--create') + 1])
-                if car['ContractName'] != None:
-                    create_task(db, car)
-                else:
-                    print(f'ERROR cannot find contract with nickname {argv[argv.index("--create") + 1]}')
-            else:
-                print('not enough arguments. Please add car nickname after "--create" argument')
             
     print('insurance subprocess stopped successfully.')

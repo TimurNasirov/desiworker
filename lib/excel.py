@@ -1,3 +1,21 @@
+'''
+EXCEL
+If somebody want to get owner reports from DesiCars app, this program will create excel file with all cars and these pays (incomes and expenses)
+of chosen owner. This program will get all cars from db, get pay and toll data for cars, counting total income, and print it in excel.
+Excel file will appear in firebase storage and its link will be in setting_app.
+Activate:
+ 1. Choose start and end date (excel_start_date, excel_end_date) in setting_app.
+ 2. Choose owner (excel_owner) in setting app too.
+ 3. Change excel_active to True.
+ 4. Wait, and after few seconds link of excel file will appear in excel_url.
+
+
+Collection: setting-app
+Group: exword
+Launch time: - [exword] (snapshots only)
+Marks: listener
+'''
+
 from sys import path, argv
 from os.path import dirname, abspath, join
 from os import get_terminal_size
@@ -450,6 +468,13 @@ if __name__ == '__main__':
         print('default flags:')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --excel-only -t)')
+        print('')
+        print('Description:')
+        instruction = __doc__.split('\n')
+        instruction.remove('')
+        instruction.remove('EXCEL')
+        for i in instruction:
+            print(i)
     else:
         db: client = init_db()
         if '--listener' in argv:

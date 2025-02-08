@@ -34,3 +34,10 @@ REGISTRATION_TASK_COMMENT = 'Registration expired'
 REGISTRATION_NAME_TASK = 'Registration'
 REGISTRATION_IMAGE = "https://firebasestorage.googleapis.com/v0/b/rentacar-qmt96z.appspot.com/o/insur.PNG?alt=media&token=fd244dd2-cb98-4f55-919f\
 -2f03e54d5cb6"
+
+#toll
+TOLL_USERNAME_ID = 'username'
+TOLL_PASSWORD_NAME = 'Password'
+TOLL_LOGIN_BUTTON_SELECTOR = 'button.userLogin'
+TOLL_CSV_XPATH = '//*[@id="content"]/app-customer-container/div/tboss-transaction-history/div[2]/div[1]/div/button[2]'
+TOLL_FILENAME = 'Transaction History.csv'

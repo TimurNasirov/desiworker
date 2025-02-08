@@ -1,10 +1,9 @@
 from traceback import format_exception
 try:
     from lib.log import Log
-    from lib.mods.firemod import init_db
     from sys import argv
     from os import get_terminal_size
-    from lib.main import start_all, start_rentacar, start_odometer, start_all, start_supadesi, start_toll, run_checking
+    from lib.main import start_all, start_rentacar, start_odometer, start_all, start_supadesi, start_toll, run_checking, db
 
     logdata = Log('watcher.py')
     print = logdata.print
@@ -98,13 +97,13 @@ try:
             if argv[argv.index('-t') + 1] == 'rentacar':
                 start_rentacar(run)
             elif argv[argv.index('-t') + 1] == 'toll':
-                start_toll(init_db())
+                start_toll(db)
             elif argv[argv.index('-t') + 1] == 'odometer':
-                start_odometer(init_db())
+                start_odometer(db)
             elif argv[argv.index('-t') + 1] == 'all':
                 start_all(run)
             elif argv[argv.index('-t') + 1] == 'supadesi':
-                start_supadesi(init_db())
+                start_supadesi(db)
             else:
                 print(f'ERROR unknown module "{argv[argv.index("-t") + 1]}". See watcher instructions (-h flag).')
         else:

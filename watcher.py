@@ -1,13 +1,15 @@
+from traceback import format_exception
 try:
-    from traceback import format_exception
     from lib.log import Log
+    from lib.mods.firemod import init_db
     from sys import argv
-    from lib.main import *
+    from os import get_terminal_size
+    from lib.main import start_all, start_rentacar, start_odometer, start_all, start_supadesi, start_toll, run_checking
 
     logdata = Log('watcher.py')
     print = logdata.print
     logdata.logfile('\n')
-    
+
     command = ''
     for i in argv:
         command += i + ' '
@@ -69,13 +71,15 @@ try:
         print('start main process (immediately activate).')
         if len(argv) > argv.index('-t') + 1:
             if argv[argv.index('-t') + 1] == 'rentacar':
-                start_rentacar()
+                start_rentacar(run)
             elif argv[argv.index('-t') + 1] == 'toll':
-                start_toll()
+                start_toll(init_db())
             elif argv[argv.index('-t') + 1] == 'odometer':
-                start_odometer()
+                start_odometer(init_db())
             elif argv[argv.index('-t') + 1] == 'all':
                 start_all(run)
+            elif argv[argv.index('-t') + 1] == 'supadesi':
+                start_supadesi(init_db())
             else:
                 print(f'ERROR unknown module "{argv[argv.index("-t") + 1]}". See watcher instructions (-h flag).')
         else:
@@ -89,14 +93,16 @@ try:
         print('-> for start main process, run watcher.py')
         print('-t [process]: immediately activate main process (without checking time).')
         print(' - process (str) (optional): name of process that will run.')
-        print('   - Available values: all, rentacar, exword, toll, supadesi, odometer. (Now exword and supadesi not work)')
+        print('   - Available values: all, rentacar, exword, toll, supadesi, odometer.')
         print('   - Default: all')
         print('--[subprocess]-only: run only this subprocess.')
         print(' - Available values: changeoil, exword, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.')
-        print(' - If you choose rentacar, these process will run: changeoil, insurance, latepayment, odometer, payday, post, registration, saldo.')
+        print(' - If you choose rentacar, these process will run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
+o.')
         print('--no-[subprocess]: choose which subprocesses wont work.')
         print(' - Available values: changeoil, exword, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.')
-        print(' - If you choose rentacar, these process wont run: changeoil, insurance, latepayment, odometer, payday, post, registration, saldo.')
+        print(' - If you choose rentacar, these process wont run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
+o.')
         print('')
         print('default flags:')
         print(' - -h: show help')
@@ -105,7 +111,7 @@ try:
     else:
         print('start main process.')
         run_checking(run)
-            
+
 except Exception as e:
     exc_data = format_exception(e)[-2].split('\n')[0]
     line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]

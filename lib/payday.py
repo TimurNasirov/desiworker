@@ -21,51 +21,56 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format, get_last_day
+from lib.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_car
 from lib.mods.sms import send_sms, add_inbox, PAYDAY_TEXT
-from lib.str_config import PAYDAY_IMAGE, PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_NAME_TASK, PAYDAY_TASK_COMMENT, PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT, USER, PAYDAY_HISTORY_CHANGE, PAYDAY_HISTORY_EDIT
+from lib.str_config import PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_NAME_TASK, PAYDAY_TASK_COMMENT, PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT,\
+USER, PAYDAY_HISTORY_CHANGE, PAYDAY_HISTORY_EDIT
 
 logdata = Log('payday.py')
 print = logdata.print
 
 def start_payday(db: client):
+    """check if the day is overdue
+
+    Args:
+        db (client): database
+    """
     print('start payday.')
     contracts: list[dict] = to_dict_all(db.collection('Contract').get())
-    
+
     # filtering contracts
     for contract in contracts.copy():
-        payday = contract['pay_day'].day
-        if payday > get_last_day():
-            payday = get_last_day()
-        if timedelta(days=payday) > timedelta(days=dt.now(texas_tz).day) or not contract['Active'] or to_MY_format(contract['begin_time']) == to_MY_format(dt.now(texas_tz)):
+        payday = min(contract['pay_day'].day, get_last_day)
+        if timedelta(days=payday) > timedelta(days=dt.now(texas_tz).day) or not contract['Active'] or to_mime_format(contract['begin_time'])\
+== to_mime_format(dt.now(texas_tz)):
             contracts.remove(contract)
-            
+
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
     #remove tasks
     for task in tasks.copy():
-        if to_MY_format(task['date']) != to_MY_format(dt.now(texas_tz)):
+        if to_mime_format(task['date']) != to_mime_format(dt.now(texas_tz)):
             tasks.remove(task)
-            
+
     for contract in contracts.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
         # check if contract where its nickname in tasks thats name_task is "payday"
         if contract['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay']:
             contracts.remove(contract)
-            
+
     for contract in contracts:
         car: dict = get_car(db, contract['nickname'])
         create_payday(db, contract, car['odometer'])
-        
+
         begin_odometer: int = 0
         if has_key(contract, 'Payday_odom'):
             begin_odometer = contract['Payday_odom']
         else:
             begin_odometer = contract['Begin_odom']
-        
+
         if car['odometer'] - begin_odometer > contract['limit'] and contract['limit'] != 0:
             create_paylimit(db, car['odometer'], begin_odometer, contract['limit'], contract)
-        
+
         if '--read-only' not in argv:
             db.collection('Contract').document(contract['_firebase_document_id']).update({
                 'Payday_odom': car['odometer']
@@ -73,9 +78,9 @@ def start_payday(db: client):
             create_history(db, begin_odometer, car['odometer'], contract)
         else:
             print('history not created and payday_odom not updated because of "--read-only" flag.')
-    
+
     print(f'total payday contracts: {len(contracts)}')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').doc('last_update').update({'payday_update': dt.now(texas_tz)})
     else:
@@ -83,6 +88,13 @@ def start_payday(db: client):
     print('set last payday update.')
 
 def create_payday(db: client, contract: dict, odometer: int):
+    """Create a payment task and add it to the database
+
+    Args:
+        db (client): database
+        contract (dict): contract data
+        odometer (int): current odometer
+    """
     print(f'write payday - nickname: {contract["nickname"]}')
     if '--read-only' not in argv:
         db.collection('Task').add({
@@ -110,9 +122,9 @@ def create_payday(db: client, contract: dict, odometer: int):
         })
     else:
         print('payday task and pay not created because of "--read-only" flag.')
-    
-    if has_key(contract, 'renternumber') and not '--read-only' in argv:
-        send_sms(contract['renternumber'][0], PAYDAY_TEXT),
+
+    if has_key(contract, 'renternumber') and '--read-only' not in argv:
+        send_sms(contract['renternumber'][0], PAYDAY_TEXT)
         if has_key(contract, 'renter'):
             add_inbox(db, contract['renternumber'][0], PAYDAY_TEXT, contract['ContractName'], contract['renter'])
         else:
@@ -122,8 +134,18 @@ def create_payday(db: client, contract: dict, odometer: int):
             print('sms not sent because of "--read-only" flag.')
 
 def create_paylimit(db: client, current_odometer: int, begin_odometer: int, limit: int, contract: dict):
+    """Create a new paylimit for the given amount of odometer
+
+    Args:
+        db (client): database
+        current_odometer (int): car odometer 
+        begin_odometer (int): begin odom or payday odom
+        limit (int): limit mil
+        contract (dict): contract data
+    """
     if '--read-only' not in argv:
-        print(f'write paylimit {contract["nickname"]}, old odometer: {begin_odometer}, new odometer: {current_odometer}, limit: {limit}, extra mil: {current_odometer - begin_odometer - limit}.')
+        print(f'write paylimit {contract["nickname"]}, old odometer: {begin_odometer}, new odometer: {current_odometer}, limit: {limit}, extra \
+mil: {current_odometer - begin_odometer - limit}.')
         db.collection('Pay_contract').add({
             'ContractName': contract['ContractName'],
             'date': dt.now(texas_tz),
@@ -139,10 +161,19 @@ def create_paylimit(db: client, current_odometer: int, begin_odometer: int, limi
         print('paylimit pay not created because of "--read-only" flag.')
 
 def create_history(db: client, begin_odometer: int, current_odometer: int, contract: dict):
+    """Create a payment history record for each time in the database
+
+    Args:
+        db (client): [description]
+        begin_odometer (int): [description]
+        current_odometer (int): [description]
+        contract (dict): [description]
+    """
     extra_mil = current_odometer - begin_odometer - contract['limit']
     db.collection('History').add({
         'change': PAYDAY_HISTORY_CHANGE,
-        'edit': PAYDAY_HISTORY_EDIT.replace('{old_odometer}', begin_odometer).replace('{new_odometer}', current_odometer).replace('{extra}', f', extra: {extra_mil}' if extra_mil > 0 else ''),
+        'edit': PAYDAY_HISTORY_EDIT.replace('{old_odometer}', begin_odometer).replace('{new_odometer}', current_odometer).replace('{extra}', \
+f', extra: {extra_mil}' if extra_mil > 0 else ''),
         'date': dt.now(texas_tz),
         'nickname': contract['nickname'],
         'ContractName': contract['ContractName'],
@@ -150,6 +181,13 @@ def create_history(db: client, begin_odometer: int, current_odometer: int, contr
     })
 
 def check_payday(last_update_data: dict, db: client, log: bool = False):
+    """check the day of the last update
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show logs. Defaults to False.
+    """
     if log:
         print('check payday last update.')
     if last_update_data['payday_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
@@ -170,7 +208,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -184,7 +222,8 @@ if __name__ == '__main__':
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --payday-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --payday-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -199,5 +238,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_payday(last_update_data, db, True)
-            
+
     print('payday subprocess stopped successfully.')

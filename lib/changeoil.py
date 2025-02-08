@@ -28,9 +28,14 @@ logdata = Log('changeoil.py')
 print = logdata.print
 
 def start_changeoil(db: client):
+    """Start changeoil
+
+    Args:
+        db (client): satabase
+    """
     print('start changeoil.')
     cars: list[dict] = to_dict_all(db.collection('cars').get())
-    
+
     # filtering cars
     for car in cars.copy():
         if has_key(car, 'Oil_changeEnd'):
@@ -38,28 +43,28 @@ def start_changeoil(db: client):
                 cars.remove(car)
         else:
             cars.remove(car)
-    
+
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
     #remove tasks
     for task in tasks.copy():
         if not has_key(task, 'post'):
-            if task['status'] == False:
+            if not task['status']:
                 tasks.remove(task)
         else:
-            if task['post'] == False and task['status'] == False:
+            if not task['post'] and not task['status']:
                 tasks.remove(task)
-            
+
     for car in cars.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
         # check if car where its nickname in tasks thats name_task is "Change oil"
         if car['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'Change oil']:
             cars.remove(car)
-            
+
     for car in cars:
         create_task(db, car)
-    
+
     print(f'total changeoil cars: {len(cars)}')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'changeoil_update': dt.now(texas_tz)})
     else:
@@ -67,6 +72,12 @@ def start_changeoil(db: client):
     print('set last changeoil update.')
 
 def create_task(db: client, car: dict):
+    """Create task from the given dictionary
+
+    Args:
+        db (client): database
+        car (dict): car data
+    """
     print(f'write changeoil - nickname: {car["nickname"]}')
     contract = get_contract(db, car['nickname'])
     if '--read-only' not in argv:
@@ -82,12 +93,12 @@ def create_task(db: client, car: dict):
             'user': USER,
             'ContractName': contract['ContractName']
         })
-        
+
     else:
         print('task not created because of "--read-only" flag.')
-    
+
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
-        send_sms(contract['renternumber'][0], CHANGE_OIL_TEXT),
+        send_sms(contract['renternumber'][0], CHANGE_OIL_TEXT)
         if has_key(contract, 'renter'):
             add_inbox(db, contract['renternumber'][0], CHANGE_OIL_TEXT, contract['ContractName'], contract['renter'])
         else:
@@ -97,6 +108,13 @@ def create_task(db: client, car: dict):
             print('sms not sent because of "--read-only" flag.')
 
 def check_changeoil(last_update_data: dict, db: client, log: bool = False):
+    """check the changeoil last update
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show logs. Defaults to False.
+    """
     if log:
         print('check changeoil last update.')
     if last_update_data['changeoil_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
@@ -117,7 +135,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -131,7 +149,8 @@ if __name__ == '__main__':
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --changeoil-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --changeoil-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -146,6 +165,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_changeoil(last_update_data, db, True)
-            
+
     print('changeoil subprocess stopped successfully.')
-        

@@ -25,22 +25,26 @@ logdata = Log('post.py')
 print = logdata.print
 
 def start_post(db: client):
+    """start post
+
+    Args:
+        db (client): database
+    """
     print('start post.')
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
-    
-    # filtering tasks
+
     for task in tasks.copy():
         if has_key(task, 'post_time') and has_key(task, 'post'):
             if task['post_time'].astimezone(texas_tz) > dt.now(texas_tz) or not task['post']:
                 tasks.remove(task)
         else:
             tasks.remove(task)
-            
+
     for task in tasks:
         update_task(db, task)
-    
+
     print(f'total post tasks: {len(tasks)}')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'post_update': dt.now(texas_tz)})
     else:
@@ -48,18 +52,31 @@ def start_post(db: client):
     print('set last post update.')
 
 def update_task(db: client, task: dict):
+    """Update a task`s status
+
+    Args:
+        db (client): database
+        task (dict): task data
+    """
     print(f'write post - nickname: {task["nickname"]}')
     if '--read-only' not in argv:
         db.collection('Task').document(task['_firebase_document_id']).update({
             'status': True,
             'post': False
         })
-        
+
     else:
         print('task not updated because of "--read-only" flag.')
-    
+
 
 def check_post(last_update_data: dict, db: client, log: bool = False):
+    """check post last update
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show log. Defaults to False.
+    """
     if log:
         print('check post last update.')
     if last_update_data['post_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
@@ -80,7 +97,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -93,7 +110,8 @@ if __name__ == '__main__':
         print('default flags:')
         print(' - -h: show help')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --post-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --post-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -108,5 +126,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_post(last_update_data, db, True)
-            
+
     print('post subprocess stopped successfully.')

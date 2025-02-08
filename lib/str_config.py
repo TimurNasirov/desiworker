@@ -1,3 +1,4 @@
+'''Textes and URLs for firebase fields. Don`t need to change in every files, just change only this file. SMS textes: lib/mods/sms.py'''
 USER = 'python'
 TEMPAPP_DOCUMENT_ID = 'vPHKtqC5mppukNZWplBl'
 SETTINGAPP_DOCUMENT_ID = 'Mo7VMvpoEdLB7ao9XnAo'

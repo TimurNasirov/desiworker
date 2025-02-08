@@ -19,7 +19,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format
+from lib.mods.timemod import dt, timedelta, texas_tz, to_mime_format
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
 from lib.mods.sms import send_sms, add_inbox, REGISTRATION_TEXT
 from lib.str_config import REGISTRATION_TASK_COMMENT, REGISTRATION_NAME_TASK, USER, REGISTRATION_IMAGE
@@ -28,9 +28,14 @@ logdata = Log('registration.py')
 print = logdata.print
 
 def start_registration(db: client):
+    """Start the registration
+
+    Args:
+        db (client): database
+    """
     print('start registration.')
     cars: list[dict] = to_dict_all(db.collection('cars').get())
-    
+
     # filtering cars
     for car in cars.copy():
         if has_key(car, 'TO_end'):
@@ -38,24 +43,24 @@ def start_registration(db: client):
                 cars.remove(car)
         else:
             cars.remove(car)
-    
+
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
     #remove tasks
     for task in tasks.copy():
-        if to_MY_format(task['date']) != to_MY_format(dt.now(texas_tz)):
+        if to_mime_format(task['date']) != to_mime_format(dt.now(texas_tz)):
             tasks.remove(task)
-            
+
     for car in cars.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
         # check if car where its nickname in tasks thats name_task is "Registration"
         if car['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'Registration']:
             cars.remove(car)
-            
+
     for car in cars:
         create_task(db, car)
-    
+
     print(f'total registration cars: {len(cars)}')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'registration_update': dt.now(texas_tz)})
     else:
@@ -63,6 +68,12 @@ def start_registration(db: client):
     print('set last registration update.')
 
 def create_task(db: client, car: dict):
+    """create a task
+
+    Args:
+        db (client): database
+        car (dict): car data
+    """
     print(f'write registration - nickname: {car["nickname"]}')
     contract = get_contract(db, car['nickname'])
     if '--read-only' not in argv:
@@ -78,12 +89,12 @@ def create_task(db: client, car: dict):
             'user': USER,
             'ContractName': contract['ContractName']
         })
-        
+
     else:
         print('task not created because of "--read-only" flag.')
-    
+
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
-        send_sms(contract['renternumber'][0], REGISTRATION_TEXT),
+        send_sms(contract['renternumber'][0], REGISTRATION_TEXT)
         if has_key(contract, 'renter'):
             add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
         else:
@@ -93,6 +104,13 @@ def create_task(db: client, car: dict):
             print('sms not sent because of "--read-only" flag.')
 
 def check_registration(last_update_data: dict, db: client, log: bool = False):
+    """Check the registration last update time
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show log. Defaults to False.
+    """
     if log:
         print('check registration last update.')
     if last_update_data['registration_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
@@ -113,7 +131,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -127,7 +145,8 @@ if __name__ == '__main__':
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --registration-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --registration-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -142,5 +161,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_registration(last_update_data, db, True)
-            
+
     print('registration subprocess stopped successfully.')

@@ -16,16 +16,15 @@ Launch time: - [exword] (snapshots only)
 Marks: listener
 '''
 
-from sys import path, argv
+from sys import path, argv, exit
 from os.path import dirname, abspath, join
 from os import get_terminal_size
 from traceback import format_exception
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
-from openpyxl.styles import *
+from openpyxl.styles import Font, Border, Side, Alignment
 from openpyxl import Workbook
-
 from lib.mods.firemod import has_key, client, init_db, document, bucket
 from lib.mods.timemod import dt, sleep
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
@@ -68,51 +67,113 @@ top_right_line = Border(
 )
 
 class Work:
-    def __init__(self, date, work, amount, _sum, invoice=None):
+    """Payment (Work) class"""
+    def __init__(self, date, work, amount, sum_, invoice=None):
+        """Initialize the object for the payment
+
+        Args:
+            date (str): date
+            work (str): name of pay
+            amount (str): amount of pay
+            sum_ (float): pay summ
+            invoice (str, optional): invoice of pay. Defaults to None.
+        """
         self.date: str = date
         self.work: str = work
         self.amount: int = amount
-        self._sum: float = _sum
+        self.sum_: float = sum_
         self.invoice: str = invoice
 
 class Car:
+    """A class for the Car class"""
     def __init__(self, name, work_income, work_expense):
+        """Initialize the car class
+
+        Args:
+            name (str): car nickname
+            work_income (list[Work]): incomes
+            work_expense (list[Work]): expenses
+        """
         self.name: str = name
-        self.work_income: list[Work] = work_income #приход
-        self.work_expense: list[Work] = work_expense #расход 
-    
+        self.work_income: list[Work] = work_income
+        self.work_expense: list[Work] = work_expense
+
     def get_subtotal(self, income: bool):
+        """Get the subtotal of the car
+
+        Args:
+            income (bool): is need to calc incomes
+
+        Returns:
+            float: subtotal
+        """
         subtotal = 0
         if income:
             for i in self.work_income:
-                subtotal += i._sum
+                subtotal += i.sum_
         else:
             for i in self.work_expense:
-                subtotal += i._sum
+                subtotal += i.sum_
         return subtotal
-    
+
     def get_total(self):
+        """Get the total from subtotal
+
+        Returns:
+            float: total
+        """
         return self.get_subtotal(1) - self.get_subtotal(0)
 
 class ExcelData:
+    """Class to handle ExcelData objects"""
     def __init__(self, date, owner, cars):
+        """Initialize the excel object
+
+        Args:
+            date (str): current date
+            owner (str): owner of cars
+            cars (list[Car]): cars list
+        """
         self.date: str = date
         self.cars: list[Car] = cars
         self.owner: str = owner
-    
+
     def get_subtotal(self):
+        """Get the subtotal of all cars
+
+        Returns:
+            float: subtotal
+        """
         subtotal = 0
         for i in self.cars:
             subtotal += i.get_total()
         return subtotal
-    
+
     def get_percent(self, percent=20):
+        """Returns the percentage of the current subtotal
+
+        Args:
+            percent (int, optional): percent. Defaults to 20.
+
+        Returns:
+            float: subtotal - percent
+        """
         return self.get_subtotal() * percent / 100
-    
+
     def get_total(self):
+        """Get the total sum
+
+        Returns:
+            float: total
+        """
         return self.get_subtotal() - self.get_percent()
 
 def build(data: ExcelData):
+    """Build a workbook from the data
+
+    Args:
+        data (ExcelData): data for build
+    """
     wb = Workbook()
     ws = wb.active
     ws.column_dimensions['A'].width = 12
@@ -146,7 +207,7 @@ def build(data: ExcelData):
     ws['B2'] = '=SUM(E:E)'
     ws['B2'].border = short_border
     ws['B2'].font = expense_font
-        
+
     ws['A3'].value = 'Income'
     ws['A3'].border = short_border
     ws['B3'] = '=SUM(K:K)'
@@ -217,19 +278,19 @@ def build(data: ExcelData):
             ws[f'B{row + 3 + count}'].border = short_border
             ws[f'C{row + 3 + count}'].value = j.amount
             ws[f'C{row + 3 + count}'].border = short_border
-            ws[f'D{row + 3 + count}'].value = j._sum
+            ws[f'D{row + 3 + count}'].value = j.sum_
             ws[f'D{row + 3 + count}'].border = short_border
-            
+
             if j.invoice:
                 ws[f'E{row + 3 + count}'].value = 'Invoice'
                 ws[f'E{row + 3 + count}'].hyperlink = j.invoice
                 ws[f'E{row + 3 + count}'].font = invoice_font
-            
+
             count += 1
-            
+
         ws[f'D{row + length - 2}'].value = 'Subtotal:'
         ws[f'D{row + length - 2}'].font = bold_font
-            
+
         ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row})'
         ws[f'E{row + length - 2}'].font = expense_font
 
@@ -261,27 +322,27 @@ def build(data: ExcelData):
             ws[f'H{row + 3 + count}'].border = short_border
             ws[f'I{row + 3 + count}'].value = j.amount
             ws[f'I{row + 3 + count}'].border = short_border
-            ws[f'J{row + 3 + count}'].value = j._sum
+            ws[f'J{row + 3 + count}'].value = j.sum_
             ws[f'J{row + 3 + count}'].border = short_border
             count += 1
 
         ws[f'J{row + length - 2}'].value = 'Subtotal:'
         ws[f'J{row + length - 2}'].font = bold_font
-            
+
         ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row})'
         ws[f'K{row + length - 2}'].font = income_font
 
 
         ws[f'K{row + length - 1}'].value = 'Service:'
         ws[f'K{row + length - 1}'].font = bold_font
-            
+
         ws[f'L{row + length - 1}'] = f'=K{row + length - 2}*C4'
         ws[f'L{row + length - 1}'].font = expense_font
 
 
         ws[f'L{row + length - 2}'].value = 'Total:'
         ws[f'L{row + length - 2}'].font = bold_font
-            
+
         ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}'
         ws[f'M{row + length - 2}'].font = total_font
 
@@ -290,27 +351,37 @@ def build(data: ExcelData):
                 ws[f'{j}{row + length + 1}'].border = top_line
 
         row += length
-    
+
     wb.save(join(folder, 'data.xlsx'))
     wb.close()
 
 
 def get_data(date, owner, db):
+    """Get all the data for a particular date
+
+    Args:
+        date (date): current date
+        owner (str): owner of cars
+        db (client): database
+
+    Returns:
+        ExcelData: data for build
+    """
     doc = db.collection('Pay').get()
     pay_data = []
     for i in doc:
         pay_data.append(i.to_dict())
-        
+
     doc = db.collection('Pay_contract').get()
     pay_contract_data = []
     for i in doc:
         pay_contract_data.append(i.to_dict())
-        
+
     doc = db.collection('Repire').get()
     repire_data = []
     for i in doc:
         repire_data.append(i.to_dict())
-        
+
     doc = db.collection('cars').get()
     cars = []
     for i in doc:
@@ -319,67 +390,76 @@ def get_data(date, owner, db):
             continue
         if data['owner'] != owner:
             continue
-        
+
         nick = data['nickname']
         incomes = []
         expenses = []
         for j in pay_data:
             if j['nickname'] == nick and j['date'].strftime('%m.%Y') in date:
-                amount = j['amount'] if 'amount' in j.keys() else 1
+                amount = j['amount'] if has_key(j, 'amount') else 1
                 invoice = None
-                if 'photo' in j.keys():
-                    if len(j['photo']) > 0:
-                        invoice = j['photo'][-1]
-                
-                if 'income' in j.keys():
-                    if j['income'] == True:
-                        incomes.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
-                if 'expense' in j.keys():
-                    if j['expense'] == True:
-                        expenses.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
-        for j in pay_contract_data:
-            if j['nickname'] == nick and j['date'].strftime('%m.%Y') in date:
-                if 'owner' in j.keys():
-                    if j['owner'] == False:
-                        continue
-                else:
-                    continue
-                amount = j['amount'] if 'amount' in j.keys() else 1
-                invoice = None
-                if 'photo_pay' in j.keys():
-                    if len(j['photo_pay']) > 0:
-                        invoice = j['photo_pay'][-1]
-                
-                if 'expense' in j.keys():
-                    if j['expense'] == True:
-                        incomes.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
-                    
-        for j in repire_data:
-            if j['nickname'] == nick and j['date_time'].strftime('%m.%Y') in date:
-                amount = j['amount'] if 'amount' in j.keys() else 1
-                invoice = None
-                if 'photo' in j.keys():
+                if has_key(j, 'photo'):
                     if len(j['photo']) > 0:
                         invoice = j['photo'][-1]
 
-                if 'expense' in j.keys():
-                    if j['expense'] == True:
+                if has_key(j, 'income'):
+                    if j['income']:
+                        incomes.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
+                if has_key(j, 'expense'):
+                    if j['expense']:
+                        expenses.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
+        for j in pay_contract_data:
+            if j['nickname'] == nick and j['date'].strftime('%m.%Y') in date:
+                if has_key(j, 'owner'):
+                    if not j['owner']:
+                        continue
+                else:
+                    continue
+                amount = j['amount'] if has_key(j, 'amount') else 1
+                invoice = None
+                if has_key(j, 'photo_pay'):
+                    if len(j['photo_pay']) > 0:
+                        invoice = j['photo_pay'][-1]
+
+                if has_key(j, 'expense'):
+                    if j['expense']:
+                        incomes.append(Work(j['date'].strftime('%d.%m.%Y'), j['name_pay'], amount, j['sum'], invoice))
+
+        for j in repire_data:
+            if j['nickname'] == nick and j['date_time'].strftime('%m.%Y') in date:
+                amount = j['amount'] if has_key(j, 'amount') else 1
+                invoice = None
+                if has_key(j, 'photo'):
+                    if len(j['photo']) > 0:
+                        invoice = j['photo'][-1]
+
+                if has_key(j, 'expense'):
+                    if j['expense']:
                         expenses.append(Work(j['date_time'].strftime('%d.%m.%Y'), j['work_type'], amount, j['sum'], invoice))
-                        
+
         expenses.append(Work(f'01.{date[0]}', 'Bouncie', len(date), 8.53 * len(date)))
         cars.append(Car(nick, incomes, expenses))
-    
+
     str_date = ''
     for i in date:
         if i == date[-1]:
             str_date += i
         else:
             str_date += i + '; '
-    
+
     return ExcelData(str_date, owner, cars)
 
 
 def get_range_periods(start_period, end_period):
+    """Given a period between start and end preiods
+
+    Args:
+        start_period (str): start period
+        end_period (str): end period
+
+    Returns:
+        str: period (thought comma)
+    """
     range_periods = []
     last_period = start_period
     counter = 0
@@ -407,19 +487,32 @@ def get_range_periods(start_period, end_period):
 
 
 def excel_listener(db: client, bucket):
+    """Start the excel listener
+
+    Args:
+        db (client): databse
+        bucket (bucket): bucket to upload data
+    """
     print('initialize excel listener.')
-    
+
     def snapshot(document: list[document], changes, read_time):
+        """snapshot the document
+
+        Args:
+            document (list[document]): list of docuemnts
+            changes: nothing
+            read_time: nothing
+        """
         try:
             doc = document[0].to_dict()
 
             if doc['excel_active']:
                 print(f'write excel {doc["excel_owner"]}')
-            
+
                 periods = get_range_periods(doc["excel_start_date"].strftime('%m.%Y'), doc["excel_end_date"].strftime('%m.%Y'))
                 data = get_data(periods, doc['excel_owner'], db)
                 build(data)
-                
+
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
                     blob.upload_from_filename(join(folder, 'data.xlsx'))
@@ -427,18 +520,18 @@ def excel_listener(db: client, bucket):
                     print(f'write url to firestore: {blob.public_url}')
                 else:
                     print('file not upload because of "--read-only" flag.')
-                
+
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'excel_active': False, 'excel_url': blob.public_url})
                 else:
                     print('excel_active not reseted because of "--read-only" flag.')
-                    
+
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from excel snapshot]')
-            quit(1)
+            exit(1)
 
         except KeyboardInterrupt:
             print('main process stopped.')
@@ -456,7 +549,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -467,7 +560,8 @@ if __name__ == '__main__':
         print('')
         print('default flags:')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --excel-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --excel-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -481,5 +575,5 @@ if __name__ == '__main__':
             excel_listener(db, bucket())
             while True:
                 sleep(52)
-            
+
     print('excel subprocess stopped successfully.')

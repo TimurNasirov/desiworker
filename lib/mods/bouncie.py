@@ -1,7 +1,8 @@
-from lib.log import Log
+"""Mod that get data from bouncie"""
 from json import loads
 from requests import post, get
-from config import *
+from lib.log import Log
+from config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_TRIP_URL
 from .firemod import has_key
 from .timemod import dt, timedelta
 
@@ -9,12 +10,29 @@ logdata = Log('mods/bouncie.py')
 print = logdata.print
 
 def get_apikey(code: str):
+    """get apikey access token from the given code
+
+    Args:
+        code (str): code
+
+    Returns:
+        str: token
+    """
     print('get apikey from bouncie.')
     json_data = BOUCNIE_HEADERS
     json_data['code'] = code
     return loads(post(BOUNCIE_API_URL, json=json_data).text)['access_token']
 
 def get_odometer(key, imei):
+    """Get odometer from IMEI
+
+    Args:
+        key (str): api key
+        imei (str): device imei
+
+    Returns:
+        int: odometer
+    """
     print(f'get odometer from {imei} imei.')
     try:
         starts = dt.now().strftime('%Y-%m-%d 23:59:59')
@@ -29,9 +47,9 @@ def get_odometer(key, imei):
         }).text)
         try:
             if has_key(data[0], 'endOdometer'):
-                return data[0]['endOdometer'] if data[0]['endOdometer'] != None else data[0]['startOdometer'] if data[0]['startOdometer'] != None else 'keep'
-            else:
-                return data[0]['startOdometer'] if data[0]['startOdometer'] != None else 'keep'
+                return data[0]['endOdometer'] if data[0]['endOdometer'] is not None else data[0]['startOdometer']\
+                    if data[0]['startOdometer'] is not None else 'keep'
+            return data[0]['startOdometer'] if data[0]['startOdometer'] is not None else 'keep'
         except IndexError:
             return 'keep'
     except Exception as e:

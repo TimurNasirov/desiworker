@@ -1,7 +1,8 @@
 '''
 LATE PAYMENT
-If renter don`t pay the charging of rental, 3 days after payday this programm will send sms to renter about he need to pay the charging of rental,
-and if he don`t pay this program will add penalty of 50$. And, when renter come to office, he need to pay for charging of rental and this penalty.
+If renter don`t pay the charging of rental, 3 days after payday this programm will send sms to renter about he need to pay the charging of
+rental, and if he don`t pay this program will add penalty of 50$. And, when renter come to office, he need to pay for charging of rental and
+this penalty.
 If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
 After check all contracts, latepayment_last_update will update to current time.
 
@@ -18,7 +19,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, to_MY_format, get_last_day
+from lib.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
 from lib.mods.firemod import to_dict_all, has_key, client, init_db
 from lib.mods.sms import send_sms, add_inbox, LATEPAYMENT_TEXT
 from lib.str_config import LATEPAYMENT_NAME_PAY, USER
@@ -27,57 +28,67 @@ logdata = Log('latepayment.py')
 print = logdata.print
 
 def start_latepayment(db: client):
+    """Start late payment
+
+    Args:
+        db (client): date
+    """
     print('start latepayment.')
     contracts: list[dict] = to_dict_all(db.collection('Contract').get())
     pays: list[dict] = to_dict_all(db.collection('Pay_contract').get())
     cars: list[dict] = to_dict_all(db.collection('cars').get())
-    
+
     for pay in pays.copy():
-        if to_MY_format(pay['date']) != to_MY_format(dt.now(texas_tz)):
+        if to_mime_format(pay['date']) != to_mime_format(dt.now(texas_tz)):
             pays.remove(pay)
         elif not has_key(pay, 'ContractName'):
             pays.remove(pay)
-    
+
     for contract in contracts.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
         # check if contract where its nickname in pays thats name_pay is "Late payment"
-        if contract['ContractName'] in [pay['ContractName'] for pay in pays if pay['name_pay'] == 'Late payment' and pay['nickname'] == contract['nickname']]:
+        if contract['ContractName'] in [pay['ContractName'] for pay in pays if pay['name_pay'] == 'Late payment' and\
+                pay['nickname'] == contract['nickname']]:
             contracts.remove(contract)
         else:
             if not contract['Active']:
                 contracts.remove(contract)
-    
+
     latepayment_count = 0
     prelatepayment_count = 0
     for contract in contracts.copy():
         car = [car for car in cars if car['nickname'] == contract['nickname']]
-        if car == []: car = {'odometer': -1}
-        else: car = car[0]
-        
+        if car == []:
+            car = {'odometer': -1}
+        else:
+            car = car[0]
+
         now = dt.now()
-        payday = contract['pay_day'].day
-        if payday > get_last_day():
-            payday = get_last_day()
-            
-        if payday + 5 == now.day and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price']:
+        payday = min(payday, get_last_day())
+
+        if payday + 5 == now.day and to_mime_format(contract['begin_time']) != to_mime_format(dt.now(texas_tz)) and\
+                contract['last_saldo'] < -contract['renta_price']:
             latepayment_count += 1
             create_pay(db, contract, car)
-        
-        elif payday + 3 == now.day and to_MY_format(contract['begin_time']) != to_MY_format(dt.now(texas_tz)) and contract['last_saldo'] < -contract['renta_price'] and has_key(contract, 'renternumber'):
+
+        elif payday + 3 == now.day and to_mime_format(contract['begin_time']) != to_mime_format(dt.now(texas_tz)) and\
+                contract['last_saldo'] < -contract['renta_price'] and has_key(contract, 'renternumber'):
             prelatepayment_count += 1
             print(f'send pre-latepayment sms - nickname: {contract["nickname"]}')
-            if not '--read-only' in argv:
-                send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo'])),
+            if '--read-only' not in argv:
+                send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']))
                 if has_key(contract, 'renter'):
-                    add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']), contract['ContractName'], contract['renter'])
+                    add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']),
+                        contract['ContractName'], contract['renter'])
                 else:
-                    add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']), contract['ContractName'], None)
+                    add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', contract['last_saldo']),
+                        contract['ContractName'], None)
             else:
                 print('sms not sent because of "--read-only" flag.')
-    
+
     print(f'total latepayment contracts: {latepayment_count}')
     print(f'total pre-latepayment contracts: {prelatepayment_count}')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'latepayment_update': dt.now(texas_tz)})
     else:
@@ -85,6 +96,13 @@ def start_latepayment(db: client):
     print('set last latepayment update.')
 
 def create_pay(db: client, contract: dict, car: dict):
+    """create latepayment pay
+
+    Args:
+        db (client): database
+        contract (dict): contract data
+        car (dict): car data
+    """
     print(f'write latepayment - nickname: {contract["nickname"]}')
     if '--read-only' not in argv:
         db.collection('Pay_contract').add({
@@ -101,6 +119,13 @@ def create_pay(db: client, contract: dict, car: dict):
         print('pay not created because of "--read-only" flag.')
 
 def check_latepayment(last_update_data: dict, db: client, log: bool = False):
+    """check latepayment last update
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show logs. Defaults to False.
+    """
     if log:
         print('check latepayment last update.')
     if last_update_data['latepayment_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
@@ -121,7 +146,7 @@ if __name__ == '__main__':
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -135,7 +160,8 @@ if __name__ == '__main__':
         print(' - -h: show help')
         print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --latepayment-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
+s from watcher.py (use --latepayment-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
@@ -150,5 +176,5 @@ if __name__ == '__main__':
         elif '--check' in argv:
             last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
             check_latepayment(last_update_data, db, True)
-            
+
     print('latepayment subprocess stopped successfully.')

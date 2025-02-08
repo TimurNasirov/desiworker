@@ -15,44 +15,62 @@ Launch time: - [exword] (snapshots only)
 Marks: listener
 '''
 
-from sys import path, argv
+from sys import path, argv, exit
 from os.path import dirname, abspath, join
 from os import get_terminal_size
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
+from traceback import format_exception
 from docxtpl import DocxTemplate
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta
+from lib.mods.timemod import dt, sleep
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
-from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client
-from traceback import format_exception
+from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
+
 
 logdata = Log('word.py')
 print = logdata.print
 
 folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
 
+def check_value(data: dict, key: str, check: str = '-', default: str = ''):
+    """Check if a value has a given key in a dictionary 
+
+    Args:
+        data (dict): dictionary
+        key (str): key
+        check (str, optional): check key on this value. Defaults to '-'.
+        default (str, optional): if key fail check, this value return. Defaults to ''.
+
+    Returns:
+        str: key or default value
+    """
+    if has_key(data, key):
+        if data['key'] != check:
+            return data['key']
+    return default
+
 def build(db: client, contractName: str):
+    """Build a sample file
+
+    Args:
+        db (client): database
+        contractName (str): contract name
+    """
     contract: dict = get_contract(db, contractName, 'ContractName')
     car: dict = get_car(db, contract['nickname'])
-        
+
     if has_key(contract, 'renternumber'):
         if contract['renternumber'][0] != '-':
             phone = contract['renternumber'][0]
         else:
             phone = ''
     else:
-        phone = '' 
-        
-    if has_key(car, 'plate'):
-        if car['plate'] != '-':
-            plate = car['plate']
-        else:
-            plate = ''
-    else:
-        plate = ''
-        
+        phone = ''
+
+    plate = check_value(car, 'plate')
+
     if has_key(contract, 'limit'):
         if contract['limit'] > 0:
             limit = contract['limit']
@@ -60,36 +78,17 @@ def build(db: client, contractName: str):
             limit = '        '
     else:
         limit = '        '
-        
+
     nickname = ''
     for i in car['nickname']:
         if i in list('0123456789'):
             nickname += i
-        
-    if has_key(contract, 'address'):
-        address = contract['address']
-    else:
-        address = ''
-        
-    if has_key(contract, 'license'):
-        license = contract['license']
-    else:
-        license = '             '
-        
+
     if has_key(contract, 'licenseDate'):
         license_end = contract['licenseDate'].strftime('%m/%d/%Y')
     else:
         license_end = '        '
-        
-    if has_key(contract, 'state'):
-        state = contract['state']
-    else:
-        state = '        '
-    if has_key(car, 'color'):
-        color = car['color']
-    else:
-        color = ''
-        
+
     docx = DocxTemplate(join(folder, 'sample.docx'))
     context = {
         'nickname': nickname,
@@ -97,7 +96,7 @@ def build(db: client, contractName: str):
         'renter': contract['renter'],
         'make': car['make'],
         'model': car['model'],
-        'color': color,
+        'color': check_value(car, 'color'),
         'year': car['year_string'],
         'odometer': contract['Begin_odom'],
         'plate': plate,
@@ -109,50 +108,66 @@ def build(db: client, contractName: str):
         'deposit': str(contract['zalog']),
         'limit': limit,
         'phone': phone,
-        'address': address,
-        'driving_license': license,
+        'address': check_value(contract, 'address'),
+        'driving_license': check_value(contract, 'license', default='             '),
         'license_expiration': license_end,
-        'state': state
+        'state': check_value(contract, 'state', default='        ')
     }
     docx.render(context)
     docx.save(join(folder, 'data.docx'))
-        
+
 def word_listener(db: client, bucket):
+    """start word listener
+
+    Args:
+        db (client): database
+        bucket (bucket): firestore bucket
+    """
     print('initialize word listener.')
-        
+
     def snapshot(document: list[document], changes, read_time):
+        """snapshot the word contract
+
+        Args:
+            document (list[document]): document
+            changes ([type]): nothing
+            read_time ([type]): nothing
+        """
         try:
             doc = document[0].to_dict()
-            if doc['word_active'] == True:
+            if doc['word_active']:
                 print(f'write docx {doc["word_contract"]}')
                 build(db, doc['word_contract'])
                 blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
                 blob.upload_from_filename(join(folder, 'data.docx'))
                 blob.make_public()
                 print(f'write url to firestore: {blob.public_url}')
-                db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'word_active': False, 'word_url': blob.public_url})
-            
+                db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
+                    'word_active': False,
+                    'word_url': blob.public_url
+                })
+
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from word snapshot]')
-            quit(1)
-    
+            exit(1)
+
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
 
 if __name__ == '__main__':
     logdata.logfile('\n')
-    command = ''
+    run = ''
     for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
+        run += i + ' '
+    logdata.log_init(run)
 
     print('start subprocess word.')
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
-        
+
     elif '-h' in argv:
         size = get_terminal_size().columns
         print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
@@ -163,12 +178,13 @@ if __name__ == '__main__':
         print('')
         print('default flags:')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --word-only -t)')
+        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this\
+subprocess from watcher.py (use --word-only -t)')
     else:
         db: client = init_db()
         if '--listener' in argv:
             word_listener(db, bucket())
             while True:
                 sleep(52)
-            
+
     print('word subprocess stopped successfully.')

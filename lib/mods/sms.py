@@ -27,24 +27,24 @@ def send_sms(phone: str, text: str):
         text (str): text of sms
     """
     if '--no-sms' not in argv:
-        post(
-            INFOBIP_URL, # use https://######.api.infobip.com/sms/2/text/advanced
-            json={
-                'messages':
-                    [
-                        {
-                            'destinations': [{'to': phone}],
-                            'from': INFOBIP_PHONE,
-                            'text': text
-                        }
-                    ]
-                },
-            headers={
-                'Authorization': INFOBIP_TOKEN,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        )
+        # post(
+        #     INFOBIP_URL, # use https://######.api.infobip.com/sms/2/text/advanced
+        #     json={
+        #         'messages':
+        #             [
+        #                 {
+        #                     'destinations': [{'to': phone}],
+        #                     'from': INFOBIP_PHONE,
+        #                     'text': text
+        #                 }
+        #             ]
+        #         },
+        #     headers={
+        #         'Authorization': INFOBIP_TOKEN,
+        #         'Accept': 'application/json',
+        #         'Content-Type': 'application/json'
+        #     }
+        # )
         print(f'send SMS to phone {phone}.')
     else:
         print('SMS not sent because of "--no-sms" flag.')

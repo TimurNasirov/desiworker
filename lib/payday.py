@@ -41,7 +41,7 @@ def start_payday(db: client):
 
     # filtering contracts
     for contract in contracts.copy():
-        payday = min(contract['pay_day'].day, get_last_day)
+        payday = min(contract['pay_day'].day, get_last_day())
         if timedelta(days=payday) > timedelta(days=dt.now(texas_tz).day) or not contract['Active'] or to_mime_format(contract['begin_time'])\
 == to_mime_format(dt.now(texas_tz)):
             contracts.remove(contract)

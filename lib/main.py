@@ -16,8 +16,8 @@ from time import sleep
 from lib.log import Log
 from lib.mods.timemod import time_is, wait
 from lib.mods.firemod import init_db, bucket, client
+
 from lib.changeoil import start_changeoil, check_changeoil
-from lib.excel import excel_listener
 from lib.insurance import start_insurance, check_insurance
 from lib.latepayment import start_latepayment, check_latepayment
 from lib.odometer import start_odometer, check_odometer, odometer_listener
@@ -26,8 +26,12 @@ from lib.post import start_post, check_post
 from lib.registration import start_registration, check_registration
 from lib.saldo import start_saldo, check_saldo
 from lib.toll import start_toll, check_toll
-from lib.word import word_listener
 from lib.supadesi import start_supadesi
+
+from lib.extoll import extoll_listener
+from lib.owner import owner_listener
+from lib.lease import lease_listener
+from lib.rental import rental_listener
 
 logdata = Log('main.py')
 print = logdata.print
@@ -64,9 +68,14 @@ def run_checking(run):
     print('initialize listeners.')
     if 'odometer' in run:
         odometer_listener(db)
-    if 'exword' in run:
-        excel_listener(db, bucket)
-        word_listener(db, bucket)
+    if 'owner' in run:
+        owner_listener(db, bucket)
+    if 'lease' in run:
+        lease_listener(db, bucket)
+    if 'rental' in run:
+        rental_listener(db, bucket)
+    if 'extoll' in run:
+        extoll_listener(db, bucket)
 
     while True:
         if time_is('11:57'):

@@ -64,7 +64,7 @@ def start_latepayment(db: client):
             car = car[0]
 
         now = dt.now()
-        payday = min(payday, get_last_day())
+        payday = min(contract['pay_day'].day, get_last_day())
 
         if payday + 5 == now.day and to_mime_format(contract['begin_time']) != to_mime_format(dt.now(texas_tz)) and\
                 contract['last_saldo'] < -contract['renta_price']:

@@ -1,24 +1,25 @@
 '''
-EXCEL
-If somebody want to get owner reports from DesiCars app, this program will create excel file with all cars and these pays (incomes and expenses)
-of chosen owner. This program will get all cars from db, get pay and toll data for cars, counting total income, and print it in excel.
-Excel file will appear in firebase storage and its link will be in setting_app.
+OWNER REPORT
+If somebody want to get owner reports from DesiCars app, this program will create owner file with all cars and these pays (incomes and expenses)
+of chosen owner. This program will get all cars from db, get pay and toll data for cars, counting total income, and print it in excel file.
+owner file will appear in firebase storage and its link will be in setting_app.
 Activate:
  1. Choose start and end date (excel_start_date, excel_end_date) in setting_app.
  2. Choose owner (excel_owner) in setting app too.
  3. Change excel_active to True.
- 4. Wait, and after few seconds link of excel file will appear in excel_url.
+ 4. Wait, and after few seconds link of owner file will appear in excel_url.
 
 
 Collection: setting-app
+Old name: excel
 Group: exword
 Launch time: - [exword] (snapshots only)
 Marks: listener
 '''
 
-from sys import path, argv, exit
+from sys import path, argv
 from os.path import dirname, abspath, join
-from os import get_terminal_size
+from os import get_terminal_size, _exit
 from traceback import format_exception
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
@@ -30,7 +31,7 @@ from lib.mods.timemod import dt, sleep
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.log import Log
 
-logdata = Log('excel.py')
+logdata = Log('owner.py')
 print = logdata.print
 
 folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
@@ -127,7 +128,7 @@ class Car:
 class ExcelData:
     """Class to handle ExcelData objects"""
     def __init__(self, date, owner, cars):
-        """Initialize the excel object
+        """Initialize the owner object
 
         Args:
             date (str): current date
@@ -352,7 +353,7 @@ def build(data: ExcelData):
 
         row += length
 
-    wb.save(join(folder, 'data.xlsx'))
+    wb.save(join(folder, 'owner.xlsx'))
     wb.close()
 
 
@@ -486,14 +487,14 @@ def get_range_periods(start_period, end_period):
     return range_periods
 
 
-def excel_listener(db: client, bucket):
-    """Start the excel listener
+def owner_listener(db: client, bucket):
+    """Start the owner listener
 
     Args:
         db (client): databse
         bucket (bucket): bucket to upload data
     """
-    print('initialize excel listener.')
+    print('initialize owner listener.')
 
     def snapshot(document: list[document], changes, read_time):
         """snapshot the document
@@ -507,15 +508,15 @@ def excel_listener(db: client, bucket):
             doc = document[0].to_dict()
 
             if doc['excel_active']:
-                print(f'write excel {doc["excel_owner"]}')
+                print(f'write xlsx {doc["excel_owner"]} (owner)')
 
                 periods = get_range_periods(doc["excel_start_date"].strftime('%m.%Y'), doc["excel_end_date"].strftime('%m.%Y'))
-                data = get_data(periods, doc['excel_owner'], db)
+                data = get_data(periods, doc['owner_owner'], db)
                 build(data)
 
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                    blob.upload_from_filename(join(folder, 'data.xlsx'))
+                    blob.upload_from_filename(join(folder, 'owner.xlsx'))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')
                 else:
@@ -530,8 +531,8 @@ def excel_listener(db: client, bucket):
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
-            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from excel snapshot]')
-            exit(1)
+            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from owner snapshot]')
+            _exit(1)
 
         except KeyboardInterrupt:
             print('main process stopped.')
@@ -545,7 +546,7 @@ if __name__ == '__main__':
         command += i + ' '
     logdata.log_init(command)
 
-    print('start subprocess excel.')
+    print('start subprocess owner.')
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
@@ -556,24 +557,24 @@ if __name__ == '__main__':
         print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
         print('')
         print('-> for start main process, run watcher.py')
-        print('--listener: activate excel listener')
+        print('--listener: activate owner listener')
         print('')
         print('default flags:')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --excel-only -t)')
+s from watcher.py (use --owner-only -t)')
         print('')
         print('Description:')
         instruction = __doc__.split('\n')
         instruction.remove('')
-        instruction.remove('EXCEL')
+        instruction.remove('OWNER REPORT')
         for i in instruction:
             print(i)
     else:
         db: client = init_db()
         if '--listener' in argv:
-            excel_listener(db, bucket())
+            owner_listener(db, bucket())
             while True:
                 sleep(52)
 
-    print('excel subprocess stopped successfully.')
+    print('owner subprocess stopped successfully.')

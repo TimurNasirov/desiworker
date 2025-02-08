@@ -1,23 +1,24 @@
 '''
-WORD
+LEASE AGREEMENT
 When new contract creates, owner need an agreement with renter. In DesiCars app, there is button, and after owner created contract he need to
-click in this button, he can download agreement word file and print it on printer.
-Word file will appear in firebase storage and its link will be in setting_app.
+click in this button, he can download agreement lease file and print it on printer.
+Lease argeement file will appear in firebase storage and its link will be in setting_app.
 Activate:
  1. Choose contract (word_contract) in setting_app.
  2. Change word_active to True.
- 3. Wait, and after few seconds link of word file will appear in word_url.
+ 3. Wait, and after few seconds link of lease file will appear in word_url.
 
 
 Collection: setting-app
+Old name: word
 Group: exword
 Launch time: - [exword] (snapshots only)
 Marks: listener
 '''
 
-from sys import path, argv, exit
+from sys import path, argv
 from os.path import dirname, abspath, join
-from os import get_terminal_size
+from os import get_terminal_size, _exit
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
@@ -29,10 +30,11 @@ from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
 
 
-logdata = Log('word.py')
+logdata = Log('lease.py')
 print = logdata.print
 
-folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
+result_folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
+sample_folder = join(dirname(dirname(abspath(__file__))), 'exword_samples')
 
 def check_value(data: dict, key: str, check: str = '-', default: str = ''):
     """Check if a value has a given key in a dictionary 
@@ -47,8 +49,8 @@ def check_value(data: dict, key: str, check: str = '-', default: str = ''):
         str: key or default value
     """
     if has_key(data, key):
-        if data['key'] != check:
-            return data['key']
+        if data[key] != check:
+            return data[key]
     return default
 
 def build(db: client, contractName: str):
@@ -89,7 +91,7 @@ def build(db: client, contractName: str):
     else:
         license_end = '        '
 
-    docx = DocxTemplate(join(folder, 'sample.docx'))
+    docx = DocxTemplate(join(sample_folder, 'lease.docx'))
     context = {
         'nickname': nickname,
         'begin_time': contract['begin_time'].strftime('%m/%d/%Y'),
@@ -114,19 +116,19 @@ def build(db: client, contractName: str):
         'state': check_value(contract, 'state', default='        ')
     }
     docx.render(context)
-    docx.save(join(folder, 'data.docx'))
+    docx.save(join(result_folder, 'lease.docx'))
 
-def word_listener(db: client, bucket):
-    """start word listener
+def lease_listener(db: client, bucket):
+    """start lease listener
 
     Args:
         db (client): database
         bucket (bucket): firestore bucket
     """
-    print('initialize word listener.')
+    print('initialize lease listener.')
 
     def snapshot(document: list[document], changes, read_time):
-        """snapshot the word contract
+        """snapshot the lease contract
 
         Args:
             document (list[document]): document
@@ -136,23 +138,29 @@ def word_listener(db: client, bucket):
         try:
             doc = document[0].to_dict()
             if doc['word_active']:
-                print(f'write docx {doc["word_contract"]}')
+                print(f'write docx {doc["word_contract"]} (lease)')
                 build(db, doc['word_contract'])
-                blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                blob.upload_from_filename(join(folder, 'data.docx'))
-                blob.make_public()
-                print(f'write url to firestore: {blob.public_url}')
-                db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
-                    'word_active': False,
-                    'word_url': blob.public_url
-                })
+                if '--read-only' not in argv:
+                    blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
+                    blob.upload_from_filename(join(result_folder, 'lease.docx'))
+                    blob.make_public()
+                    print(f'write url to firestore: {blob.public_url}')
+                else:
+                    print('file not upload because of "--read-only" flag.')
+                if '--read-only' not in argv:
+                    db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
+                        'word_active': False,
+                        'word_url': blob.public_url
+                    })
+                else:
+                    print('word_active not reseted because of "--read-only" flag.')
 
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
-            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from word snapshot]')
-            exit(1)
+            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from lease snapshot]')
+            _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
 
@@ -163,7 +171,7 @@ if __name__ == '__main__':
         run += i + ' '
     logdata.log_init(run)
 
-    print('start subprocess word.')
+    print('start subprocess lease.')
     if len(argv) == 1:
         print('not enough arguments.')
         print('add -h to arguments to get help.')
@@ -174,17 +182,24 @@ if __name__ == '__main__':
         print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
         print('')
         print('-> for start main process, run watcher.py')
-        print('--listener: activate word listener')
+        print('--listener: activate lease listener')
         print('')
         print('default flags:')
         print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
         print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this\
-subprocess from watcher.py (use --word-only -t)')
+subprocess from watcher.py (use --lease-only -t)')
+        print('')
+        print('Description:')
+        instruction = __doc__.split('\n')
+        instruction.remove('')
+        instruction.remove('LEASE AGREEMENT')
+        for i in instruction:
+            print(i)
     else:
         db: client = init_db()
         if '--listener' in argv:
-            word_listener(db, bucket())
+            lease_listener(db, bucket())
             while True:
                 sleep(52)
 
-    print('word subprocess stopped successfully.')
+    print('lease subprocess stopped successfully.')

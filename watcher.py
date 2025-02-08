@@ -14,15 +14,25 @@ try:
     for i in argv:
         command += i + ' '
     logdata.log_init(command)
+    
+    if '--read-only' in argv:
+        print('--read-only: no sms sending, no task and pay creating, no last update updating.')
+    elif '--no-sms' in argv:
+        print('--no-sms: no sms sending, no inboxSMS changing.')
+    if '-t' in argv:
+        print('-t: immediately activate. Process will stop after all subprocesses finished.')
 
-    run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'toll', 'exword', 'supadesi']
+    if '--no-rentacar' in argv:
+        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner']
+    else:
+        run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'toll', 'supadesi', 'rental', 'lease', 'extoll', 'owner']
 
     if '--rentacar-only' in argv:
         run = ['changeoil', 'insurance', 'registartion', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
     if '--supadesi-only' in argv:
         run = ['supadesi']
     if '--exword-only' in argv:
-        run = ['exword']
+        run = ['rental', 'lease', 'owner', 'extoll']
     if '--toll-only' in argv:
         run = ['toll']
     if '--saldo-only' in argv:
@@ -41,7 +51,15 @@ try:
         run = ['insurance']
     if '--changeoil-only' in argv:
         run = ['changeoil']
-
+    if '--rental-only' in argv:
+        run = ['rental']
+    if '--lease-only' in argv:
+        run = ['lease']
+    if '--owner-only' in argv:
+        run = ['owner']
+    if '--extoll-only' in argv:
+        run = ['extoll']
+    
     if '--no-changeoil' in argv:
         run.remove('changeoil')
     if '--no-insurance' in argv:
@@ -60,12 +78,19 @@ try:
         run.remove('saldo')
     if '--no-toll' in argv:
         run.remove('toll')
-    if '--no-exword' in argv:
-        run.remove('exword')
+    if '--no-owner' in argv:
+        run.remove('owner')
     if '--no-supadesi' in argv:
         run.remove('supadesi')
-    if '--no-rentacar' in argv:
-        run = ['toll', 'exword']
+    if '--no-owner' in argv:
+        run.remove('owner')
+    if '--no-rental' in argv:
+        run.remove('rental')
+    if '--no-lease' in argv:
+        run.remove('lease')
+    if '--no-extoll' in argv:
+        run.remove('extoll')
+    
 
     if '-t' in argv:
         print('start main process (immediately activate).')
@@ -96,11 +121,13 @@ try:
         print('   - Available values: all, rentacar, exword, toll, supadesi, odometer.')
         print('   - Default: all')
         print('--[subprocess]-only: run only this subprocess.')
-        print(' - Available values: changeoil, exword, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.')
+        print(' - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, sald\
+o, supadesi, toll.')
         print(' - If you choose rentacar, these process will run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
 o.')
         print('--no-[subprocess]: choose which subprocesses wont work.')
-        print(' - Available values: changeoil, exword, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.')
+        print(' - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, sald\
+o, supadesi, toll.')
         print(' - If you choose rentacar, these process wont run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
 o.')
         print('')

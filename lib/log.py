@@ -44,7 +44,7 @@ class Log:
             log (str): log data
         """
         self.date = dt.now().strftime('%d.%m')
-        logdata = f'[{dt.now().strftime('%d.%m %H:%M:%S')}] {self.file}: {log}'
+        logdata = f'[{dt.now().strftime("%d.%m %H:%M:%S")}] {self.file}: {log}'
 
         self.logfile(logdata)
         _print(logdata)

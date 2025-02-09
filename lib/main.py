@@ -64,6 +64,8 @@ def run_checking(run):
         check_post(last_update_data, db)
     if 'registration' in run:
         check_registration(last_update_data, db)
+    if 'toll' in run:
+        check_toll(last_update_data, db)
 
     print('initialize listeners.')
     if 'odometer' in run:

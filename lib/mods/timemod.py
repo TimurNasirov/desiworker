@@ -55,7 +55,7 @@ def get_last_day():
     """Get the last day of the current month
 
     Returns:
-        int: last day of month
+        [type]: [description]
     """
     now = dt.now()
     return monthrange(now.year, now.month)[1]

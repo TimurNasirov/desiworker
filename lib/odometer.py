@@ -2,23 +2,23 @@
 ODOMETER
 Update all odometers of cars from bouncie. Starts at launch time and when actual_dometer is True in firebase.
 If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
-After check all contracts, odometer_last_update will update to current time.
+After check all cars, odometer_last_update will update to current time.
 
 Collection: cars
 Group: rentacar
 Launch time: 11:50, 23:51, 6:00 [odometer]
-Marks: last-update, listener, no-writing
+Marks: last-update, listener
 '''
 
-from sys import path, argv, exit
+from sys import path, argv
 from os.path import dirname, abspath
-from os import get_terminal_size
+from os import get_terminal_size, _exit
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from traceback import format_exception
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, sleep
+from lib.mods.timemod import dt, timedelta, texas_tz, sleep, time
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, document
 from lib.str_config import TEMPAPP_DOCUMENT_ID, SETTINGAPP_DOCUMENT_ID
 from lib.mods.bouncie import get_apikey, get_odometer
@@ -32,6 +32,7 @@ def start_odometer(db: client):
     Args:
         db (client): database
     """
+    start_time = time()
     print('start odometer.')
     cars: list[dict] = to_dict_all(db.collection('cars').get())
     auth_code: str = db.collection('Temp_APP').document(TEMPAPP_DOCUMENT_ID).get().to_dict()['AUTHBouncie']
@@ -40,13 +41,12 @@ def start_odometer(db: client):
     for car in cars:
         update_odometer(db, api_key, car)
 
-    print(f'total odometer cars: {len(cars)}')
-
     if '--read-only' not in argv:
+        print('set last odometer update.')
         db.collection('Last_update_python').document('last_update').update({'odometer_update': dt.now(texas_tz)})
     else:
         print('odometer last update not updated because of "--read-only" flag.')
-    print('set last odometer update.')
+    print(f'Odometer work completed. Updated cars: {len(cars)}. Time: {round(time() - start_time, 2)} seconds.')
 
 def update_odometer(db: client, api_key: str, car: dict):
     """Update the odometer for a given car
@@ -105,7 +105,7 @@ def odometer_listener(db: client):
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from odometer snapshot]')
-            exit(1)
+            _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
 

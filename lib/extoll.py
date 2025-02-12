@@ -4,16 +4,16 @@ If somebody want to get toll reports from DesiCars app, this program will create
 program will get all tolls that arrived from this plate, counting total expense, and print it in excel file.
 extoll file will appear in firebase storage and its link will be in setting_app.
 Activate:
- 2. Choose plate of car (toll_plate) in setting app.
- 3. Change toll_active to True.
- 4. Wait, and after few seconds link of extoll file will appear in toll_url.
+ 1. Choose plate of car (toll_plate) in setting app.
+ 2. Change toll_active to True.
+ 3. Wait, and after few seconds link of extoll file will appear in toll_url.
 
 
 Collection: setting-app
 Old name: toll
 Group: exword
 Launch time: - [exword] (snapshots only)
-Marks: listener
+Marks: listener, excel
 '''
 
 from sys import path, argv
@@ -160,12 +160,12 @@ def get_data(plate: str, db: client):
         if has_key(toll, 'plate'):
             if toll['plate'] == plate:
                 tolls.append(toll)
-   
+
     unpaid = []
     for toll in tolls:
         if not toll['paid']:
             unpaid.append(Toll(toll['ID'], toll['location'], toll['transaction'], toll['type'], toll['date']))
-            
+
     if len(tolls) > 0:
         return [unpaid, tolls[-1]['nickname'] if 'nickname' in tolls[-1].keys() else '']
     else:
@@ -211,16 +211,16 @@ def extoll_listener(db: client, bucket):
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from extoll snapshot]')
             _exit(1)
-            
+
     doc = db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
 
 
 if __name__ == '__main__':
-    printdata.printfile('\n')
+    logdata.logfile('\n')
     command = ''
     for i in argv:
         command += i + ' '
-    printdata.print_init(command)
+    logdata.log_init(command)
 
     print('start subprocess extoll.')
     if len(argv) == 1:

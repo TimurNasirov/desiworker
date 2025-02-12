@@ -8,7 +8,7 @@ After check all tasks, post_last_update will update to current time.
 Collection: Task
 Group: rentacar
 Launch time: 11:57 [rentacar]
-Marks: last-update no-writing
+Marks: last-update
 '''
 
 from sys import path, argv
@@ -18,7 +18,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz
+from lib.mods.timemod import dt, timedelta, texas_tz, time
 from lib.mods.firemod import to_dict_all, has_key, client, init_db
 
 logdata = Log('post.py')
@@ -31,6 +31,7 @@ def start_post(db: client):
         db (client): database
     """
     print('start post.')
+    start_time = time()
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
 
     for task in tasks.copy():
@@ -47,9 +48,10 @@ def start_post(db: client):
 
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'post_update': dt.now(texas_tz)})
+        print('set last post update.')
     else:
         print('post last update not updated because of "--read-only" flag.')
-    print('set last post update.')
+    print(f'Post work completed. Updated tasks: {len(tasks)}. Time: {round(time() - start_time, 2)} seconds.')
 
 def update_task(db: client, task: dict):
     """Update a task`s status

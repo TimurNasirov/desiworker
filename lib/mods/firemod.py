@@ -45,7 +45,7 @@ def to_dict_all(data: list[document]):
         dict_data.append(i_data)
     return dict_data
 
-def get_contract(db: client, data: str, by: str = 'nickname'):
+def get_contract(db: client, data: str, by: str = 'nickname', check_active: bool = True):
     """Get contract by name
 
     Args:
@@ -58,7 +58,7 @@ def get_contract(db: client, data: str, by: str = 'nickname'):
     """
     contracts: list[dict] = to_dict_all(db.collection('Contract').get())
     for contract in contracts:
-        if contract[by] == data and contract['Active']:
+        if contract[by] == data and (contract['Active'] or not check_active):
             return contract
     return {'ContractName': None}
 

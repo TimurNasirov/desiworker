@@ -24,7 +24,7 @@ from lib.odometer import start_odometer, check_odometer, odometer_listener
 from lib.payday import start_payday, check_payday
 from lib.post import start_post, check_post
 from lib.registration import start_registration, check_registration
-from lib.saldo import start_saldo, check_saldo
+from lib.saldo import start_saldo, check_saldo, saldo_listener
 from lib.toll import start_toll, check_toll
 from lib.supadesi import start_supadesi
 
@@ -78,6 +78,8 @@ def run_checking(run):
         rental_listener(db, bucket)
     if 'extoll' in run:
         extoll_listener(db, bucket)
+    if 'saldo' in run:
+        saldo_listener(db)
 
     while True:
         if time_is('11:57'):

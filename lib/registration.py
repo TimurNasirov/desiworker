@@ -1,7 +1,6 @@
 '''
-CHANGE OIL
-If car odometer more than oil change end, this program will create change oil task for this car and send sms to renter about he
-need to change oil in the car.
+REGISTRATION
+If car need registartion (TO), this program will create registration task and send sms tp renter about he need to come to office and do T/O.
 If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
 After check all cars, registration_last_update will update to current time.
 
@@ -19,7 +18,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from lib.log import Log
-from lib.mods.timemod import dt, timedelta, texas_tz, to_mime_format
+from lib.mods.timemod import dt, timedelta, texas_tz, to_mime_format, time
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
 from lib.mods.sms import send_sms, add_inbox, REGISTRATION_TEXT
 from lib.str_config import REGISTRATION_TASK_COMMENT, REGISTRATION_NAME_TASK, USER, REGISTRATION_IMAGE
@@ -33,6 +32,7 @@ def start_registration(db: client):
     Args:
         db (client): database
     """
+    start_time = time()
     print('start registration.')
     cars: list[dict] = to_dict_all(db.collection('cars').get())
 
@@ -59,13 +59,13 @@ def start_registration(db: client):
     for car in cars:
         create_task(db, car)
 
-    print(f'total registration cars: {len(cars)}')
-
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'registration_update': dt.now(texas_tz)})
+        print('set last registration update.')
     else:
         print('registration last update not updated because of "--read-only" flag.')
-    print('set last registration update.')
+    print(f'Registration work completed. Updated cars: {len(cars)}. Time: {round(time() - start_time, 2)} seconds.')
+
 
 def create_task(db: client, car: dict):
     """create a task

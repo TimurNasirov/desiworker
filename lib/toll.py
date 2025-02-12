@@ -1,6 +1,6 @@
 """
-When renter is driving thought toll road or park in paid place, NTTA system get this data and publish it on they site. This program take this
-data from they website and add it in firebase collection Toll. After that owner can see about renter need to pay for this because NTTA
+When renter is driving thought toll road or park in paid place, NTTA system get this data and publish it on their site. This program take this
+data from their website and add it in firebase collection Toll. After that owner can see about renter need to pay for this because NTTA
 automaticly get money from owner and pay for this paid things. Often, renter pay for paid things when today is pay day.
 TOLL
 Collection: Toll
@@ -60,26 +60,26 @@ def start_toll(db: client):
     sleep(10)
     print('quitting from browser.')
     driver.quit()
-    
+
     #read.py
     with open(TOLL_FILENAME, 'r') as fl:
         print('reading csv file.')
-        csv_fl: list = reader(fl)
-        
+        csv_fl = reader(fl)
+
         readed_data: list[list] = []
         for row in csv_fl:
             if csv_fl.index(row) != 0:
                 readed_data.append(row[2:12])
-        
+
         for row in readed_data:
             for col in row:
                 row[row.index(col)] = col.replace('=Text("', '').replace('","mm/dd/yyyy HH:mm:SS")', '').replace('$', '')
             row[0] = dt.strptime(row[0], '%m/%d/%Y %H:%M:%S')
-        
+
         tolls: list[list] = []
         for row in readed_data:
             if row[0].strftime('%m.%d.%Y') in [(dt.now() - timedelta(days=i)).strftime('%m.%d.%Y') for i in range(4)]:
-                tolls.append({'date': row[0], 'ID': int(row[1]), 'location': row[2], 'toll_tag_id': row[3], 'plate': row[4][row[4].rfind(' ') + 1:len(row[4])], 'type': row[5], 'balance_before': row[7], 'transaction': row[8], 'balance_after': row[9]})
+                tolls.append({'date': row[0], 'ID': int(row[1]), 'location': row[2], 'toll_tag_id': row[3], 'plate': row[4][row[4].rfind(' ') + 1:len(row[4])], 'type': row[5], 'balance_before': row[7], 'transaction': row[8], 'balance_after': row[9], 'paid': False})
 
     #send.py
     print('writing tolls to firebase.')
@@ -87,7 +87,7 @@ def start_toll(db: client):
     exists_tolls: list[int] = []
     for toll in exists_tolls_dict:
         exists_tolls.append(int(toll['ID']))
-    
+
     for toll in tolls:
         if toll['ID'] not in exists_tolls:
             car = get_car(db, toll['plate'], 'plate')
@@ -100,18 +100,17 @@ def start_toll(db: client):
                 print('toll not writed because of "--read-only" flag.')
         else:
             print(f'skip {toll["ID"]}.')
-    
+
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'toll_update': dt.now(texas_tz)})
-        print('set last payday update.')
+        print('set last toll update.')
     else:
         print('toll last update not updated because of "--read-only" flag.')
 
-        
 def check_toll(last_update_data: dict, db: client, log: bool = False):
     if log:
         print('check toll last update.')
-    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
+    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=12) <= dt.now(texas_tz):
         print('toll has not been started for a long time: starting...')
         start_toll(db)
     else:

@@ -23,10 +23,9 @@ path.append(dirname(SCRIPT_DIR))
 from traceback import format_exception
 from docxtpl import DocxTemplate
 from lib.log import Log
-from lib.mods.timemod import dt, sleep
+from lib.mods.timemod import dt, sleep, time
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
-
 
 logdata = Log('rental.py')
 print = logdata.print
@@ -35,7 +34,7 @@ result_folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
 sample_folder = join(dirname(dirname(abspath(__file__))), 'exword_samples')
 
 def check_value(data: dict, key: str, check: str = '-', default: str = ''):
-    """Check if a value has a given key in a dictionary 
+    """Check if a value has a given key in a dictionary
 
     Args:
         data (dict): dictionary
@@ -58,6 +57,7 @@ def build(db: client, contractName: str):
         db (client): database
         contractName (str): contract name
     """
+    start_time = time()
     contract: dict = get_contract(db, contractName, 'ContractName')
     car: dict = get_car(db, contract['nickname'])
 
@@ -115,6 +115,7 @@ def build(db: client, contractName: str):
     }
     docx.render(context)
     docx.save(join(result_folder, 'rental.docx'))
+    print(f'Rental build completed. Built contract: {contractName}. Time: {round(time() - start_time, 2)} seconds.')
 
 def rental_listener(db: client, bucket):
     """start rental listener

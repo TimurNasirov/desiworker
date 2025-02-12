@@ -9,7 +9,7 @@ After check all contracts, latepayment_last_update will update to current time.
 Collection: Contract
 Group: rentacar
 Launch time: 11:57 [rentacar]
-Marks: last-update, sms limit-28-upd
+Marks: last-update, sms, limit-28-upd
 '''
 
 from sys import path, argv

@@ -26,6 +26,8 @@ from lib.log import Log
 from lib.mods.timemod import dt, sleep, time
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
+from requests import get
+from config import TELEGRAM_LINK
 
 logdata = Log('rental.py')
 print = logdata.print
@@ -159,6 +161,7 @@ def rental_listener(db: client, bucket):
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from rental snapshot]')
+            get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
             _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)

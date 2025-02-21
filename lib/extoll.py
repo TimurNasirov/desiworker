@@ -30,6 +30,8 @@ from lib.mods.firemod import has_key, client, init_db, document, bucket, to_dict
 from lib.mods.timemod import dt, sleep
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.log import Log
+from requests import get
+from config import TELEGRAM_LINK
 
 logdata = Log('extoll.py')
 print = logdata.print
@@ -205,11 +207,12 @@ def extoll_listener(db: client, bucket):
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'toll_active': False, 'toll_url': blob.public_url})
                 else:
                     print('toll_active not reseted because of "--read-only" flag.')
-        except Exception:
+        except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from extoll snapshot]')
+            get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
             _exit(1)
 
     doc = db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)

@@ -22,6 +22,8 @@ from lib.mods.timemod import dt, timedelta, texas_tz, sleep, time
 from lib.mods.firemod import to_dict_all, has_key, client, init_db, document
 from lib.str_config import TEMPAPP_DOCUMENT_ID, SETTINGAPP_DOCUMENT_ID
 from lib.mods.bouncie import get_apikey, get_odometer
+from requests import get
+from config import TELEGRAM_LINK
 
 logdata = Log('odometer.py')
 print = logdata.print
@@ -105,6 +107,7 @@ def odometer_listener(db: client):
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from odometer snapshot]')
+            get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
             _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)

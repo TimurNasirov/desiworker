@@ -4,6 +4,8 @@ try:
     from sys import argv
     from os import get_terminal_size
     from lib.main import start_all, start_rentacar, start_odometer, start_all, start_supadesi, start_toll, run_checking, db
+    from requests import get
+    from config import TELEGRAM_LINK
 
     logdata = Log('watcher.py')
     print = logdata.print
@@ -143,6 +145,7 @@ except Exception as e:
     line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
     module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
     print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).')
+    get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
 
 except KeyboardInterrupt:
     print('main process stopped.')

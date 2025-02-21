@@ -30,6 +30,8 @@ from lib.mods.firemod import has_key, client, init_db, document, bucket
 from lib.mods.timemod import dt, sleep
 from lib.str_config import SETTINGAPP_DOCUMENT_ID
 from lib.log import Log
+from requests import get
+from config import TELEGRAM_LINK
 
 logdata = Log('owner.py')
 print = logdata.print
@@ -532,6 +534,7 @@ def owner_listener(db: client, bucket):
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
             print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from owner snapshot]')
+            get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
             _exit(1)
 
         except KeyboardInterrupt:

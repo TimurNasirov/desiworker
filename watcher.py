@@ -1,11 +1,11 @@
 from traceback import format_exception
+from requests import get
+from config import TELEGRAM_LINK
 try:
     from lib.log import Log
     from sys import argv
     from os import get_terminal_size
     from lib.main import start_all, start_rentacar, start_odometer, start_all, start_supadesi, start_toll, run_checking, db
-    from requests import get
-    from config import TELEGRAM_LINK
 
     logdata = Log('watcher.py')
     print = logdata.print
@@ -15,7 +15,7 @@ try:
     for i in argv:
         command += i + ' '
     logdata.log_init(command)
-    
+
     if '--read-only' in argv:
         print('--read-only: no sms sending, no task and pay creating, no last update updating.')
     elif '--no-sms' in argv:

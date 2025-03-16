@@ -1,0 +1,9 @@
+services:
+  toll:
+    image: toll
+    build:
+      context: ./toll
+  rentacar:
+    image: rentacar
+    build:
+      context: ./rentacar

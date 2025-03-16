@@ -1,0 +1,9 @@
+/venv/
+/__pycache__/
+/rentacar/__pycache__/
+/rentacar/mods/__pycache__/
+/rentacar/key.json
+/rentacar/config.py
+/toll/key.json
+/toll/config.py
+/exword_results/

@@ -8,7 +8,11 @@ services:
         condition: always
         delay: 10s
         window: 120s
+    volumes:
+      - /home/desi/desicars/desiworker/toll/logs/:/container/logs/
   rentacar:
     image: rentacar
     build:
       context: ./rentacar
+    volumes:
+      - /home/desi/desicars/desiworker/rentacar/logs/:/rentcar/logs/

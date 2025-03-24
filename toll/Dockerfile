@@ -9,5 +9,5 @@ RUN apt install -y gconf-service libasound2 libatk1.0-0 libcairo2 libcups2 libfo
 RUN apt install -y google-chrome-stable
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["python3", "runner.py", "-t"]
-CMD ["python3", "runner.py", "-t"]
+ENTRYPOINT ["python3", "main.py"]
+CMD ["python3", "main.py"]

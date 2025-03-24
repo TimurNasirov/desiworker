@@ -1,9 +1,9 @@
 from traceback import format_exception
 from requests import get
 from config import TELEGRAM_LINK
+from sys import argv
 try:
     from log import Log
-    from sys import argv
     from os import get_terminal_size
     from runner import start_all, start_rentacar, start_odometer, start_all, start_supadesi, run_checking, db
 

@@ -1,6 +1,7 @@
 from traceback import format_exception
 from requests import get
 from config import TELEGRAM_LINK
+from sys import argv
 
 try:
     from log import Log
@@ -28,8 +29,9 @@ except Exception as e:
     exc_data = format_exception(e)[-2].split('\n')[0]
     line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
     module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
+    print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).')
     if '--no-tg' not in argv:
-        print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).')
+        get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
 
 except KeyboardInterrupt:
     print('main process stopped.')

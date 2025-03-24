@@ -4,4 +4,4 @@ COPY . /rentacar
 WORKDIR /rentacar
 RUN pip3 install -r requirements.txt
 
-CMD ["python3", "watcher.py", "--read-only"]
+CMD ["python3", "main.py"]

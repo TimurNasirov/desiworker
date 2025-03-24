@@ -1,6 +1,7 @@
 """File that write and save logs in folder logs/"""
 from datetime import datetime as dt
 from os import listdir
+from mods.timemod import texas_tz
 
 _print = print
 class Log:
@@ -12,7 +13,7 @@ class Log:
             file (str): name of file
         """
         self.file = file
-        self.date = dt.now().strftime('%d.%m')
+        self.date = dt.now(texas_tz).strftime('%d.%m')
 
     def logfile(self, log):
         """write a log file to the current date
@@ -35,7 +36,7 @@ class Log:
             command (str): command from that file starts
         """
         with open('logs/' + self.date + '.txt', 'a', encoding="utf-8") as fl:
-            fl.write(f'launch at {dt.now().strftime("%d.%m %H:%M")} ({command})\n')
+            fl.write(f'launch at {dt.now(texas_tz).strftime("%d.%m %H:%M")} ({command})\n')
 
     def print(self, log):
         """Print a log message
@@ -43,8 +44,8 @@ class Log:
         Args:
             log (str): log data
         """
-        self.date = dt.now().strftime('%d.%m')
-        logdata = f'[{dt.now().strftime("%d.%m %H:%M:%S")}] {self.file}: {log}'
+        self.date = dt.now(texas_tz).strftime('%d.%m')
+        logdata = f'[{dt.now(texas_tz).strftime("%d.%m %H:%M:%S")}] {self.file}: {log}'
 
         self.logfile(logdata)
         _print(logdata)

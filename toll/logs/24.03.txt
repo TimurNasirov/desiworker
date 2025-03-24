@@ -1,0 +1,5 @@
+
+
+[24.03 10:10:15] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 10:10:15] main.py: start main process.
+[24.03 10:10:16] main.py: main process stopped.

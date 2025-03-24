@@ -1,0 +1,18 @@
+
+
+launch at 23.03 22:35 (main.py --read-only --latepayment-only -t )
+[23.03 22:35:28] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[23.03 22:35:28] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[23.03 22:35:28] main.py: start main process (immediately activate).
+[23.03 22:35:29] latepayment.py: start latepayment.
+[23.03 22:35:33] latepayment.py: send pre-latepayment sms - nickname: 161R
+[23.03 22:35:33] latepayment.py: sms not sent because of "--read-only" flag.
+[23.03 22:35:33] latepayment.py: send pre-latepayment sms - nickname: 169R
+[23.03 22:35:33] latepayment.py: sms not sent because of "--read-only" flag.
+[23.03 22:35:33] latepayment.py: send pre-latepayment sms - nickname: 148R
+[23.03 22:35:33] latepayment.py: sms not sent because of "--read-only" flag.
+[23.03 22:35:33] latepayment.py: total latepayment contracts: 0
+[23.03 22:35:33] latepayment.py: total pre-latepayment contracts: 3
+[23.03 22:35:33] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[23.03 22:35:33] latepayment.py: set last latepayment update.
+[23.03 22:35:33] main.py: main process stopped successfully.

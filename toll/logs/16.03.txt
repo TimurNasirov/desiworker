@@ -1,0 +1,36 @@
+[16.03 15:58:56] runner.py: check toll last update.
+[16.03 16:00:06] runner.py: main process stopped.
+[16.03 16:00:10] runner.py: check toll last update.
+[16.03 16:00:10] runner.py: start immediately activate toll.
+[16.03 16:00:10] runner.py: ERROR in module D:\projects\desiworker\toll\runner.py, line 19: NameError (name 'start_Toll' is not defined).
+[16.03 16:00:18] runner.py: check toll last update.
+[16.03 16:00:18] runner.py: start immediately activate toll.
+[16.03 16:00:18] toll.py: start toll.
+[16.03 16:00:18] runner.py: ERROR in module D:\projects\desiworker\toll\toll.py, line 35: NameError (name 'download' is not defined).
+[16.03 16:00:35] runner.py: check toll last update.
+[16.03 16:00:35] runner.py: start immediately activate toll.
+[16.03 16:00:35] toll.py: start toll.
+[16.03 16:00:50] runner.py: ERROR in module D:\projects\desiworker\venv\Lib\site-packages\selenium\webdriver\support\wait.py, line 146: TimeoutException (Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6958CFE45+26629]
+	(No symbol) [0x00007FF695836010]
+	(No symbol) [0x00007FF6956C931A]
+	(No symbol) [0x00007FF69571F8E7]
+	(No symbol) [0x00007FF69571FB1C]
+	(No symbol) [0x00007FF6957734A7]
+	(No symbol) [0x00007FF695747AEF]
+	(No symbol) [0x00007FF695770169]
+	(No symbol) [0x00007FF695747883]
+	(No symbol) [0x00007FF695710550]
+	(No symbol) [0x00007FF695711803]
+	GetHandleVerifier [0x00007FF695C272BD+3529853]
+	GetHandleVerifier [0x00007FF695C3DA22+3621858]
+	GetHandleVerifier [0x00007FF695C324D3+3575443]
+	GetHandleVerifier [0x00007FF69599B77A+860474]
+	(No symbol) [0x00007FF69584088F]
+	(No symbol) [0x00007FF69583CBC4]
+	(No symbol) [0x00007FF69583CD66]
+	(No symbol) [0x00007FF69582C2C9]
+	BaseThreadInitThunk [0x00007FFFEB9FE8D7+23]
+	RtlUserThreadStart [0x00007FFFECA9BF6C+44]
+).

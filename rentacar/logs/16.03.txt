@@ -1,0 +1,47 @@
+
+
+launch at 16.03 15:49 (watcher.py --read-only )
+[16.03 15:49:58] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[16.03 15:49:58] watcher.py: start main process.
+[16.03 15:50:00] main.py: checking subprocesses on last update.
+[16.03 15:50:00] latepayment.py: latepayment has not been started for a long time: starting...
+[16.03 15:50:00] latepayment.py: start latepayment.
+[16.03 15:50:08] latepayment.py: write latepayment - nickname: 51Den
+[16.03 15:50:08] latepayment.py: pay not created because of "--read-only" flag.
+[16.03 15:50:08] latepayment.py: send pre-latepayment sms - nickname: 135R
+[16.03 15:50:08] latepayment.py: sms not sent because of "--read-only" flag.
+[16.03 15:50:08] latepayment.py: write latepayment - nickname: 19R
+[16.03 15:50:08] latepayment.py: pay not created because of "--read-only" flag.
+[16.03 15:50:08] latepayment.py: total latepayment contracts: 2
+[16.03 15:50:08] latepayment.py: total pre-latepayment contracts: 1
+[16.03 15:50:08] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[16.03 15:50:08] latepayment.py: set last latepayment update.
+[16.03 15:50:08] odometer.py: odometer has not been started for a long time: starting...
+[16.03 15:50:08] odometer.py: start odometer.
+[16.03 15:50:11] rentacar.mods/bouncie.py: get apikey from bouncie.
+[16.03 15:50:13] watcher.py: main process stopped.
+
+
+launch at 16.03 15:50 (watcher.py --read-only --no-odometer )
+[16.03 15:50:21] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[16.03 15:50:21] watcher.py: start main process.
+[16.03 15:50:23] main.py: checking subprocesses on last update.
+[16.03 15:50:23] latepayment.py: latepayment has not been started for a long time: starting...
+[16.03 15:50:23] latepayment.py: start latepayment.
+[16.03 15:50:31] latepayment.py: write latepayment - nickname: 51Den
+[16.03 15:50:31] latepayment.py: pay not created because of "--read-only" flag.
+[16.03 15:50:31] latepayment.py: send pre-latepayment sms - nickname: 135R
+[16.03 15:50:31] latepayment.py: sms not sent because of "--read-only" flag.
+[16.03 15:50:31] latepayment.py: write latepayment - nickname: 19R
+[16.03 15:50:31] latepayment.py: pay not created because of "--read-only" flag.
+[16.03 15:50:31] latepayment.py: total latepayment contracts: 2
+[16.03 15:50:31] latepayment.py: total pre-latepayment contracts: 1
+[16.03 15:50:31] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[16.03 15:50:31] latepayment.py: set last latepayment update.
+[16.03 15:50:31] main.py: initialize listeners.
+[16.03 15:50:31] owner.py: initialize owner listener.
+[16.03 15:50:31] lease.py: initialize lease listener.
+[16.03 15:50:31] rental.py: initialize rental listener.
+[16.03 15:50:31] extoll.py: initalize extoll listener.
+[16.03 15:50:31] saldo.py: initialize saldo listener.
+[16.03 15:50:43] watcher.py: main process stopped.

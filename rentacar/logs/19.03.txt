@@ -1,0 +1,88 @@
+
+
+launch at 19.03 21:49 (watcher.py --read-only --extoll-only )
+[19.03 21:49:05] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:49:05] watcher.py: start main process.
+[19.03 21:49:07] main.py: checking subprocesses on last update.
+[19.03 21:49:07] main.py: initialize listeners.
+[19.03 21:49:07] extoll.py: initalize extoll listener.
+[19.03 21:49:35] extoll.py: write xlsx VHM8439 (extoll)
+[19.03 21:49:36] extoll.py: ERROR in module D:\projects\desiworker\rentacar\extoll.py, line 168: AttributeError ('dict' object has no attribute 'find'). [from extoll snapshot]
+
+
+launch at 19.03 21:50 (watcher.py --read-only --extoll-only )
+[19.03 21:50:06] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:50:06] watcher.py: start main process.
+[19.03 21:50:07] main.py: checking subprocesses on last update.
+[19.03 21:50:07] main.py: initialize listeners.
+[19.03 21:50:07] extoll.py: initalize extoll listener.
+[19.03 21:50:10] extoll.py: write xlsx VHM8439 (extoll)
+[19.03 21:50:12] extoll.py: ERROR in module D:\projects\desiworker\rentacar\extoll.py, line 168: AttributeError ('dict' object has no attribute 'find'). [from extoll snapshot]
+
+
+launch at 19.03 21:50 (watcher.py --read-only --extoll-only )
+[19.03 21:50:24] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:50:24] watcher.py: start main process.
+[19.03 21:50:25] main.py: checking subprocesses on last update.
+[19.03 21:50:25] main.py: initialize listeners.
+[19.03 21:50:25] extoll.py: initalize extoll listener.
+[19.03 21:50:27] extoll.py: write xlsx VHM8439 (extoll)
+[19.03 21:50:29] extoll.py: file not upload because of "--read-only" flag
+[19.03 21:50:29] extoll.py: toll_active not reseted because of "--read-only" flag.
+[19.03 21:51:47] watcher.py: main process stopped.
+
+
+launch at 19.03 21:52 (watcher.py --read-only --extoll-only )
+[19.03 21:52:42] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:52:42] watcher.py: start main process.
+[19.03 21:52:44] main.py: checking subprocesses on last update.
+[19.03 21:52:44] main.py: initialize listeners.
+[19.03 21:52:44] extoll.py: initalize extoll listener.
+[19.03 21:52:48] extoll.py: write xlsx VHM8439 (extoll)
+[19.03 21:52:50] extoll.py: file not upload because of "--read-only" flag
+[19.03 21:52:50] extoll.py: toll_active not reseted because of "--read-only" flag.
+[19.03 21:54:14] watcher.py: main process stopped.
+
+
+launch at 19.03 21:55 (watcher.py --read-only --extoll-only )
+[19.03 21:55:42] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:55:42] watcher.py: start main process.
+[19.03 21:55:43] main.py: checking subprocesses on last update.
+[19.03 21:55:43] main.py: initialize listeners.
+[19.03 21:55:43] extoll.py: initalize extoll listener.
+[19.03 21:55:52] extoll.py: write xlsx 02123MSK111 (extoll)
+[19.03 21:55:53] extoll.py: ERROR in module D:\projects\desiworker\rentacar\extoll.py, line 172: AttributeError ('Toll' object has no attribute 'keys'). [from extoll snapshot]
+
+
+launch at 19.03 21:57 (watcher.py --read-only --extoll-only )
+[19.03 21:57:10] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:57:10] watcher.py: start main process.
+[19.03 21:57:11] main.py: checking subprocesses on last update.
+[19.03 21:57:11] main.py: initialize listeners.
+[19.03 21:57:11] extoll.py: initalize extoll listener.
+[19.03 21:57:15] extoll.py: write xlsx 02123MSK111 (extoll)
+[19.03 21:57:16] extoll.py: ERROR in module D:\projects\desiworker\rentacar\extoll.py, line 170: NameError (name 'unpaid' is not defined). [from extoll snapshot]
+
+
+launch at 19.03 21:59 (watcher.py --read-only --extoll-only --no-tg )
+[19.03 21:59:16] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 21:59:16] watcher.py: --no-tg: no telegram notifications sneding on errors
+[19.03 21:59:16] watcher.py: start main process.
+[19.03 21:59:18] main.py: checking subprocesses on last update.
+[19.03 21:59:18] main.py: initialize listeners.
+[19.03 21:59:18] extoll.py: initalize extoll listener.
+[19.03 22:00:09] extoll.py: write xlsx 02123MSK111 (extoll)
+[19.03 22:00:11] extoll.py: ERROR in module D:\projects\desiworker\rentacar\extoll.py, line 170: NameError (name 'unpaid' is not defined). [from extoll snapshot]
+
+
+launch at 19.03 22:00 (watcher.py --read-only --extoll-only --no-tg )
+[19.03 22:00:43] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[19.03 22:00:43] watcher.py: --no-tg: no telegram notifications sneding on errors
+[19.03 22:00:43] watcher.py: start main process.
+[19.03 22:00:45] main.py: checking subprocesses on last update.
+[19.03 22:00:45] main.py: initialize listeners.
+[19.03 22:00:45] extoll.py: initalize extoll listener.
+[19.03 22:00:49] extoll.py: write xlsx 02123MSK111 (extoll)
+[19.03 22:00:50] extoll.py: file not upload because of "--read-only" flag
+[19.03 22:00:50] extoll.py: toll_active not reseted because of "--read-only" flag.
+[19.03 22:06:17] watcher.py: main process stopped.

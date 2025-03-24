@@ -142,6 +142,8 @@ def start_rentacar(run):
     if 'payevery' in run:
         start_payevery(db)
         start_payevery2(db)
+    if 'imei' in run:
+        start_imei(db)
 
 if __name__ == '__main__':
     print('Run main process -> python main.py')

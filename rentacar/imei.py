@@ -33,21 +33,30 @@ def start_imei(db: client):
     """
     start_time = time()
     print('start imei.')
+    bcars = get_imei('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDgxZTdjY2Q4NzA2YTAwMTg1ZDU2OGQiLCJjbGllbnRJZCI6ImJvdGluZyIsImFwcGxpY2F0aW9uSWQiOiI2NTllZjA0NzNiYjBkZjE2MDhmYWZhODMiLCJzY29wZXMiOlsidHJpcERhdGEiLCJ2ZWhpY2xlIiwibG9jYXRpb24iXSwiaWF0IjoxNzQyODI0MzUxLCJleHAiOjE3NDI4Mjc5NTF9.wjxdWLx1WcE5a2xrcmPm5HsBTiyLXlx1ZE43cDYcRnU')
+
     cars: list[dict] = to_dict_all(db.collection('cars').get())
-    auth_code: str = db.collection('Temp_APP').document(TEMPAPP_DOCUMENT_ID).get().to_dict()['AUTHBouncie']
-    api_key: str = get_apikey(auth_code)
+    # auth_code: str = db.collection('Temp_APP').document(TEMPAPP_DOCUMENT_ID).get().to_dict()['AUTHBouncie']
+    # api_key: str = get_apikey(auth_code)
 
+    tasks_count = 0
+    lost_count = 0
     for car in cars:
-        compare_imei(db, api_key, car)
+        for bcar in bcars:
+            if car['vin'] == bcar['vin']:
+                tasks_count += compare_imei(db, bcar, car)
+                break
+        else:
+            print(f'cannot find car with nickname {car["nickname"]} in bouncie.')
+            lost_count += 1
 
-    if '--read-only' not in argv:
-        print('set last imei update.')
-        db.collection('Last_update_python').document('last_update').update({'imei_update': dt.now(texas_tz)})
-    else:
-        print('imei last update not updated because of "--read-only" flag.')
-    print(f'imei work completed. Updated cars: {len(cars)}. Time: {round(time() - start_time, 2)} seconds.')
+    print(f'imei work completed. Stats [BETA]:')
+    print(f' - tasks created: {tasks_count}')
+    print(f' - car checked: {len(cars)}')
+    print(f' - lost cars: {lost_count}')
+    print(f' - time: {round(time() - start_time, 2)} seconds.')
 
-def compare_imei(db: client, api_key: str, car: dict):
+def compare_imei(db: client, bcar: dict, car: dict):
     """Update the imei for a given car
 
     Args:
@@ -56,7 +65,7 @@ def compare_imei(db: client, api_key: str, car: dict):
         car (dict): car data
     """
     if has_key(car, 'device_imei'):
-        imei = get_imei(api_key, car['device_imei'])
+        imei = bcar['imei']
 
         if imei != car['device_imei']:
             print(f'write imei - nickname: {car["nickname"]}, vin: {car["vin"]}, imei: {imei}.')
@@ -69,9 +78,11 @@ def compare_imei(db: client, api_key: str, car: dict):
                     'nickname': car['nickname']
                 })
             else:
-                print('imtaskei not created because of "--read-only" flag.')
+                print('imei task not created because of "--read-only" flag.')
+            return 1
         else:
             print(f'no difference found - nickname: {car["nickname"]}, imei: {imei}.')
+            return 0
 
 # def check_imei(last_update_data: dict, db: client, log: bool = False):
 #     """Check the imei last update time

@@ -2,7 +2,7 @@
 from json import loads
 from requests import post, get
 from rentacar.log import Log
-from config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_TRIP_URL
+from config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_VEHICLES_URL
 from .firemod import has_key
 from .timemod import dt, timedelta
 
@@ -55,3 +55,9 @@ def get_odometer(key, imei):
     except Exception as e:
         print(f'Raised {e} when getting odometer from {imei}. Odometer of this car will not updated.')
         return 'keep'
+
+def get_imei(key):
+    print('get imei data from bouncie.')
+    return loads(get(BOUNCIE_VEHICLES_URL, headers={
+        'Authorization': key
+    }).text)

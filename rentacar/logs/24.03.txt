@@ -1,0 +1,574 @@
+
+
+launch at 24.03 20:02 (main.py --imei-only --read-only -t )
+[24.03 20:02:39] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:02:39] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:02:39] main.py: start main process (immediately activate).
+[24.03 20:02:40] main.py: main process stopped successfully.
+
+
+launch at 24.03 20:02 (main.py --imei-only --read-only -t )
+[24.03 20:02:57] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:02:57] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:02:57] main.py: start main process (immediately activate).
+[24.03 20:02:58] main.py: main process stopped successfully.
+
+
+launch at 24.03 20:03 (main.py --imei-only --read-only -t )
+[24.03 20:03:49] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:03:49] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:03:49] main.py: start main process (immediately activate).
+[24.03 20:03:50] imei.py: start imei.
+[24.03 20:03:50] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:03:52] rentacar.mods/bouncie.py: {'model': {'make': 'TOYOTA', 'name': 'PRIUS', 'year': 2010}, 'nickName': '67R', 'standardEngine': '1.8L I4', 'vin': 'JTDKN3DUXA0049376', 'imei': '864486062778929', 'stats': {'localTimeZone': '-0500', 'lastUpdated': '2025-03-23T00:44:31.000Z', 'odometer': 160955.60000000006, 'location': {'lat': 33.180126, 'lon': -96.924214, 'heading': 0, 'address': None}, 'isRunning': False, 'speed': 0, 'mil': {'milOn': False, 'lastUpdated': '2025-03-22T23:31:35.000Z', 'qualifiedDtcList': []}, 'battery': {'status': 'normal', 'lastUpdated': '2024-09-19T17:42:05.000Z'}}}
+[24.03 20:03:52] main.py: ERROR in module D:\projects\desiworker\rentacar\imei.py, line 50: NameError (name 'cars' is not defined).
+
+
+launch at 24.03 20:07 (main.py --imei-only --read-only -t )
+[24.03 20:07:40] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:07:40] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:07:40] main.py: start main process (immediately activate).
+[24.03 20:07:41] imei.py: start imei.
+[24.03 20:07:41] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:07:43] rentacar.mods/bouncie.py: {'model': {'make': 'TOYOTA', 'name': 'PRIUS', 'year': 2010}, 'nickName': '67R', 'standardEngine': '1.8L I4', 'vin': 'JTDKN3DUXA0049376', 'imei': '864486062778929', 'stats': {'localTimeZone': '-0500', 'lastUpdated': '2025-03-23T00:44:31.000Z', 'odometer': 160955.60000000006, 'location': {'lat': 33.180126, 'lon': -96.924214, 'heading': 0, 'address': None}, 'isRunning': False, 'speed': 0, 'mil': {'milOn': False, 'lastUpdated': '2025-03-22T23:31:35.000Z', 'qualifiedDtcList': []}, 'battery': {'status': 'normal', 'lastUpdated': '2024-09-19T17:42:05.000Z'}}}
+[24.03 20:07:45] rentacar.mods/bouncie.py: get apikey from bouncie.
+[24.03 20:07:46] main.py: ERROR in module D:\projects\desiworker\rentacar\imei.py, line 43: TypeError ('NoneType' object is not iterable).
+
+
+launch at 24.03 20:08 (main.py --imei-only --read-only -t )
+[24.03 20:08:17] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:08:17] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:08:17] main.py: start main process (immediately activate).
+[24.03 20:08:18] imei.py: start imei.
+[24.03 20:08:18] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:08:21] imei.py: no difference found - nickname: 100Dan, imei: 866016061364427.
+[24.03 20:08:21] imei.py: no difference found - nickname: 101Dan, imei: 866392061950618.
+[24.03 20:08:21] imei.py: no difference found - nickname: 103R, imei: 866392061975128.
+[24.03 20:08:21] imei.py: no difference found - nickname: 10DR, imei: 866392065310348.
+[24.03 20:08:21] imei.py: cannot find car with nickname 110DEN in bouncie [COMPARE]
+[24.03 20:08:21] imei.py: no difference found - nickname: 111DEN, imei: 866392060664749.
+[24.03 20:08:21] imei.py: no difference found - nickname: 112DEN, imei: 862255068803185.
+[24.03 20:08:21] imei.py: no difference found - nickname: 113DEN, imei: 862255068841516.
+[24.03 20:08:21] imei.py: no difference found - nickname: 114DEN, imei: 862255068933958.
+[24.03 20:08:21] imei.py: no difference found - nickname: 117VOV, imei: 862255068925483.
+[24.03 20:08:21] imei.py: no difference found - nickname: 118DEN, imei: 864486065829315.
+[24.03 20:08:21] imei.py: no difference found - nickname: 119Dan, imei: 866016061317581.
+[24.03 20:08:21] imei.py: no difference found - nickname: 11R, imei: 866392061903310.
+[24.03 20:08:21] imei.py: no difference found - nickname: 120DEN, imei: 866392065188421.
+[24.03 20:08:21] imei.py: no difference found - nickname: 12R, imei: 866392061979187.
+[24.03 20:08:21] imei.py: no difference found - nickname: 131R, imei: 866392061961029.
+[24.03 20:08:21] imei.py: no difference found - nickname: 132R, imei: 866016061362900.
+[24.03 20:08:21] imei.py: no difference found - nickname: 135R, imei: 866392065266706.
+[24.03 20:08:21] imei.py: no difference found - nickname: 136R, imei: 866392065297115.
+[24.03 20:08:21] imei.py: no difference found - nickname: 140R, imei: 866392065272878.
+[24.03 20:08:21] imei.py: cannot find car with nickname 143R in bouncie [COMPARE]
+[24.03 20:08:21] imei.py: no difference found - nickname: 146R, imei: 866392061981464.
+[24.03 20:08:21] imei.py: no difference found - nickname: 148R, imei: 866392061859579.
+[24.03 20:08:21] imei.py: no difference found - nickname: 149R, imei: 866392065205944.
+[24.03 20:08:21] imei.py: no difference found - nickname: 14R, imei: 866392065312153.
+[24.03 20:08:21] imei.py: no difference found - nickname: 151R, imei: 866392065249363.
+[24.03 20:08:21] imei.py: no difference found - nickname: 152R, imei: 866392065359378.
+[24.03 20:08:21] imei.py: no difference found - nickname: 153R, imei: 866392061888115.
+[24.03 20:08:21] imei.py: no difference found - nickname: 154R, imei: 862255068822953.
+[24.03 20:08:21] imei.py: no difference found - nickname: 155R, imei: 866392065302626.
+[24.03 20:08:21] imei.py: no difference found - nickname: 156R, imei: 866392065822474.
+[24.03 20:08:21] imei.py: no difference found - nickname: 157R, imei: 866392061863845.
+[24.03 20:08:21] imei.py: no difference found - nickname: 158R, imei: 866392061936054.
+[24.03 20:08:21] imei.py: no difference found - nickname: 15R, imei: 866016061269105.
+[24.03 20:08:21] imei.py: no difference found - nickname: 160R, imei: 862255068814042.
+[24.03 20:08:21] imei.py: no difference found - nickname: 161R, imei: 866392061848929.
+[24.03 20:08:21] imei.py: no difference found - nickname: 162R, imei: 866392061933853.
+[24.03 20:08:21] imei.py: no difference found - nickname: 163R, imei: 866392061946798.
+[24.03 20:08:21] imei.py: no difference found - nickname: 164R, imei: 866392065355459.
+[24.03 20:08:21] imei.py: no difference found - nickname: 165R, imei: 866392061969410.
+[24.03 20:08:21] imei.py: cannot find car with nickname 166R in bouncie [COMPARE]
+[24.03 20:08:21] imei.py: no difference found - nickname: 167R, imei: 866392061976142.
+[24.03 20:08:21] imei.py: no difference found - nickname: 169R, imei: 865640068608287.
+[24.03 20:08:21] imei.py: no difference found - nickname: 16R, imei: 866392065316378.
+[24.03 20:08:21] imei.py: no difference found - nickname: 17R, imei: 866392061916882.
+[24.03 20:08:21] imei.py: no difference found - nickname: 18Dan, imei: 864486066576329.
+[24.03 20:08:21] imei.py: no difference found - nickname: 19R, imei: 866016061185715.
+[24.03 20:08:21] imei.py: no difference found - nickname: 1R, imei: 866392061901850.
+[24.03 20:08:21] imei.py: no difference found - nickname: 20R, imei: 866392061979138.
+[24.03 20:08:21] imei.py: no difference found - nickname: 21R, imei: 866392061852202.
+[24.03 20:08:21] imei.py: no difference found - nickname: 22R, imei: 866392065842290.
+[24.03 20:08:21] imei.py: no difference found - nickname: 23Dan, imei: 866392065340980.
+[24.03 20:08:21] imei.py: no difference found - nickname: 24Den, imei: 866392065219978.
+[24.03 20:08:21] imei.py: no difference found - nickname: 25Dan, imei: 866392065264164.
+[24.03 20:08:21] imei.py: no difference found - nickname: 27R, imei: 864486066883683.
+[24.03 20:08:21] imei.py: no difference found - nickname: 28R, imei: 866016061318415.
+[24.03 20:08:21] imei.py: no difference found - nickname: 29R, imei: 866392061903070.
+[24.03 20:08:21] imei.py: no difference found - nickname: 2DEN, imei: 866392061954628.
+[24.03 20:08:21] imei.py: no difference found - nickname: 30R, imei: 866392061901793.
+[24.03 20:08:21] imei.py: no difference found - nickname: 31R, imei: 866392061911453.
+[24.03 20:08:21] imei.py: no difference found - nickname: 32DEN, imei: 862255068977823.
+[24.03 20:08:21] imei.py: no difference found - nickname: 33Dan, imei: 866392061903500.
+[24.03 20:08:21] imei.py: no difference found - nickname: 34R, imei: 866392065165981.
+[24.03 20:08:21] imei.py: no difference found - nickname: 36R, imei: 866392065211967.
+[24.03 20:08:21] imei.py: no difference found - nickname: 39R, imei: 866392065307369.
+[24.03 20:08:21] imei.py: no difference found - nickname: 3DEN, imei: 866392061947838.
+[24.03 20:08:21] imei.py: no difference found - nickname: 40R, imei: 866392065326518.
+[24.03 20:08:21] imei.py: no difference found - nickname: 41R, imei: 866392065170916.
+[24.03 20:08:21] imei.py: no difference found - nickname: 42DEN, imei: 866392065256251.
+[24.03 20:08:21] imei.py: no difference found - nickname: 43DR, imei: 864486066542859.
+[24.03 20:08:21] imei.py: no difference found - nickname: 45R, imei: 866016061323191.
+[24.03 20:08:21] imei.py: no difference found - nickname: 46DR, imei: 864486067749420.
+[24.03 20:08:21] imei.py: no difference found - nickname: 47R, imei: 864486065833192.
+[24.03 20:08:21] imei.py: no difference found - nickname: 49DR, imei: 864486066514882.
+[24.03 20:08:21] imei.py: cannot find car with nickname 49M-TEST in bouncie [COMPARE]
+[24.03 20:08:21] imei.py: no difference found - nickname: 4R, imei: 866392065270062.
+[24.03 20:08:21] imei.py: no difference found - nickname: 51Den, imei: 866392061953927.
+[24.03 20:08:21] imei.py: no difference found - nickname: 52Den, imei: 866392065166005.
+[24.03 20:08:21] imei.py: no difference found - nickname: 53R, imei: 866392061901686.
+[24.03 20:08:21] imei.py: no difference found - nickname: 54DR, imei: 866392061955567.
+[24.03 20:08:21] imei.py: no difference found - nickname: 55R, imei: 865640068634234.
+[24.03 20:08:21] imei.py: no difference found - nickname: 59R, imei: 866392065249967.
+[24.03 20:08:21] imei.py: no difference found - nickname: 5R, imei: 866392062006196.
+[24.03 20:08:21] imei.py: no difference found - nickname: 62R, imei: 866392065266722.
+[24.03 20:08:21] imei.py: no difference found - nickname: 63Den, imei: 864486062779471.
+[24.03 20:08:21] imei.py: no difference found - nickname: 64R, imei: 864486064880921.
+[24.03 20:08:21] imei.py: no difference found - nickname: 65R, imei: 866392061840793.
+[24.03 20:08:21] imei.py: no difference found - nickname: 66R, imei: 864486062798208.
+[24.03 20:08:21] imei.py: no difference found - nickname: 67R, imei: 864486062778929.
+[24.03 20:08:21] imei.py: no difference found - nickname: 6R, imei: 866392061901579.
+[24.03 20:08:21] imei.py: no difference found - nickname: 70DR, imei: 864486066544210.
+[24.03 20:08:21] imei.py: no difference found - nickname: 72DR, imei: 864486066544202.
+[24.03 20:08:21] imei.py: no difference found - nickname: 73R, imei: 864486064879899.
+[24.03 20:08:21] imei.py: no difference found - nickname: 74DR, imei: 864486064847292.
+[24.03 20:08:21] imei.py: no difference found - nickname: 75DR, imei: 864486064880129.
+[24.03 20:08:21] imei.py: no difference found - nickname: 76DR, imei: 864486064858596.
+[24.03 20:08:21] imei.py: no difference found - nickname: 77Den, imei: 864486066520707.
+[24.03 20:08:21] imei.py: no difference found - nickname: 78DR, imei: 864486066520673.
+[24.03 20:08:21] imei.py: no difference found - nickname: 79R, imei: 864486066540101.
+[24.03 20:08:21] imei.py: no difference found - nickname: 7R, imei: 866392061951020.
+[24.03 20:08:21] imei.py: no difference found - nickname: 80DR, imei: 864486066506284.
+[24.03 20:08:21] imei.py: no difference found - nickname: 81DR, imei: 864486066883881.
+[24.03 20:08:21] imei.py: no difference found - nickname: 82DR, imei: 864486066893674.
+[24.03 20:08:21] imei.py: no difference found - nickname: 83R, imei: 864486066576121.
+[24.03 20:08:21] imei.py: no difference found - nickname: 84Dan, imei: 864486066561065.
+[24.03 20:08:21] imei.py: cannot find car with nickname 85R in bouncie [COMPARE]
+[24.03 20:08:21] imei.py: no difference found - nickname: 86Dan, imei: 866392065277737.
+[24.03 20:08:21] imei.py: no difference found - nickname: 87R, imei: 864486067021580.
+[24.03 20:08:21] imei.py: no difference found - nickname: 88R, imei: 866392061974386.
+[24.03 20:08:21] imei.py: no difference found - nickname: 89R, imei: 866392061851162.
+[24.03 20:08:21] imei.py: no difference found - nickname: 8R, imei: 866392065363552.
+[24.03 20:08:21] imei.py: no difference found - nickname: 90R, imei: 866392062002203.
+[24.03 20:08:21] imei.py: no difference found - nickname: 91R, imei: 866392065260238.
+[24.03 20:08:21] imei.py: no difference found - nickname: 92R, imei: 862255068924569.
+[24.03 20:08:21] imei.py: no difference found - nickname: 93R, imei: 866016061355078.
+[24.03 20:08:21] imei.py: no difference found - nickname: 94R, imei: 866392061826792.
+[24.03 20:08:21] imei.py: no difference found - nickname: 95DR, imei: 866392061945105.
+[24.03 20:08:21] imei.py: no difference found - nickname: 96R, imei: 866392065259206.
+[24.03 20:08:21] imei.py: no difference found - nickname: 97R, imei: 866392061911172.
+[24.03 20:08:21] imei.py: no difference found - nickname: 98D, imei: 866392061838060.
+[24.03 20:08:21] imei.py: no difference found - nickname: 99DR, imei: 866392065270369.
+[24.03 20:08:21] imei.py: no difference found - nickname: 9R, imei: 866392065255402.
+[24.03 20:08:21] imei.py: no difference found - nickname: La Griselda, imei: 866392061858258.
+[24.03 20:08:21] imei.py: imei last update not updated because of "--read-only" flag.
+[24.03 20:08:21] imei.py: imei work completed. Updated cars: 123. Time: 3.18 seconds.
+[24.03 20:08:21] main.py: main process stopped successfully.
+
+
+launch at 24.03 20:14 (main.py --imei-only --read-only -t )
+[24.03 20:14:11] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:14:11] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:14:11] main.py: start main process (immediately activate).
+[24.03 20:14:12] imei.py: start imei.
+[24.03 20:14:12] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:14:16] imei.py: no difference found - nickname: 100Dan, imei: 866016061364427.
+[24.03 20:14:16] imei.py: no difference found - nickname: 101Dan, imei: 866392061950618.
+[24.03 20:14:16] imei.py: no difference found - nickname: 103R, imei: 866392061975128.
+[24.03 20:14:16] imei.py: no difference found - nickname: 10DR, imei: 866392065310348.
+[24.03 20:14:16] imei.py: cannot find car with nickname 110DEN in bouncie [COMPARE]
+[24.03 20:14:16] imei.py: no difference found - nickname: 111DEN, imei: 866392060664749.
+[24.03 20:14:16] imei.py: no difference found - nickname: 112DEN, imei: 862255068803185.
+[24.03 20:14:16] imei.py: no difference found - nickname: 113DEN, imei: 862255068841516.
+[24.03 20:14:16] imei.py: no difference found - nickname: 114DEN, imei: 862255068933958.
+[24.03 20:14:16] imei.py: no difference found - nickname: 117VOV, imei: 862255068925483.
+[24.03 20:14:16] imei.py: no difference found - nickname: 118DEN, imei: 864486065829315.
+[24.03 20:14:16] imei.py: no difference found - nickname: 119Dan, imei: 866016061317581.
+[24.03 20:14:16] imei.py: no difference found - nickname: 11R, imei: 866392061903310.
+[24.03 20:14:16] imei.py: no difference found - nickname: 120DEN, imei: 866392065188421.
+[24.03 20:14:16] imei.py: no difference found - nickname: 12R, imei: 866392061979187.
+[24.03 20:14:16] imei.py: no difference found - nickname: 131R, imei: 866392061961029.
+[24.03 20:14:16] imei.py: no difference found - nickname: 132R, imei: 866016061362900.
+[24.03 20:14:16] imei.py: no difference found - nickname: 135R, imei: 866392065266706.
+[24.03 20:14:16] imei.py: no difference found - nickname: 136R, imei: 866392065297115.
+[24.03 20:14:16] imei.py: no difference found - nickname: 140R, imei: 866392065272878.
+[24.03 20:14:16] imei.py: cannot find car with nickname 143R in bouncie [COMPARE]
+[24.03 20:14:16] imei.py: no difference found - nickname: 146R, imei: 866392061981464.
+[24.03 20:14:16] imei.py: no difference found - nickname: 148R, imei: 866392061859579.
+[24.03 20:14:16] imei.py: no difference found - nickname: 149R, imei: 866392065205944.
+[24.03 20:14:16] imei.py: no difference found - nickname: 14R, imei: 866392065312153.
+[24.03 20:14:16] imei.py: no difference found - nickname: 151R, imei: 866392065249363.
+[24.03 20:14:16] imei.py: no difference found - nickname: 152R, imei: 866392065359378.
+[24.03 20:14:16] imei.py: no difference found - nickname: 153R, imei: 866392061888115.
+[24.03 20:14:16] imei.py: no difference found - nickname: 154R, imei: 862255068822953.
+[24.03 20:14:16] imei.py: no difference found - nickname: 155R, imei: 866392065302626.
+[24.03 20:14:16] imei.py: no difference found - nickname: 156R, imei: 866392065822474.
+[24.03 20:14:16] imei.py: no difference found - nickname: 157R, imei: 866392061863845.
+[24.03 20:14:16] imei.py: no difference found - nickname: 158R, imei: 866392061936054.
+[24.03 20:14:16] imei.py: no difference found - nickname: 15R, imei: 866016061269105.
+[24.03 20:14:16] imei.py: no difference found - nickname: 160R, imei: 862255068814042.
+[24.03 20:14:16] imei.py: no difference found - nickname: 161R, imei: 866392061848929.
+[24.03 20:14:16] imei.py: no difference found - nickname: 162R, imei: 866392061933853.
+[24.03 20:14:16] imei.py: no difference found - nickname: 163R, imei: 866392061946798.
+[24.03 20:14:16] imei.py: no difference found - nickname: 164R, imei: 866392065355459.
+[24.03 20:14:16] imei.py: no difference found - nickname: 165R, imei: 866392061969410.
+[24.03 20:14:16] imei.py: cannot find car with nickname 166R in bouncie [COMPARE]
+[24.03 20:14:16] imei.py: no difference found - nickname: 167R, imei: 866392061976142.
+[24.03 20:14:16] imei.py: no difference found - nickname: 169R, imei: 865640068608287.
+[24.03 20:14:16] imei.py: no difference found - nickname: 16R, imei: 866392065316378.
+[24.03 20:14:16] imei.py: no difference found - nickname: 17R, imei: 866392061916882.
+[24.03 20:14:16] imei.py: no difference found - nickname: 18Dan, imei: 864486066576329.
+[24.03 20:14:16] imei.py: no difference found - nickname: 19R, imei: 866016061185715.
+[24.03 20:14:16] imei.py: no difference found - nickname: 1R, imei: 866392061901850.
+[24.03 20:14:16] imei.py: no difference found - nickname: 20R, imei: 866392061979138.
+[24.03 20:14:16] imei.py: no difference found - nickname: 21R, imei: 866392061852202.
+[24.03 20:14:16] imei.py: no difference found - nickname: 22R, imei: 866392065842290.
+[24.03 20:14:16] imei.py: no difference found - nickname: 23Dan, imei: 866392065340980.
+[24.03 20:14:16] imei.py: no difference found - nickname: 24Den, imei: 866392065219978.
+[24.03 20:14:16] imei.py: no difference found - nickname: 25Dan, imei: 866392065264164.
+[24.03 20:14:16] imei.py: no difference found - nickname: 27R, imei: 864486066883683.
+[24.03 20:14:16] imei.py: no difference found - nickname: 28R, imei: 866016061318415.
+[24.03 20:14:16] imei.py: no difference found - nickname: 29R, imei: 866392061903070.
+[24.03 20:14:16] imei.py: no difference found - nickname: 2DEN, imei: 866392061954628.
+[24.03 20:14:16] imei.py: no difference found - nickname: 30R, imei: 866392061901793.
+[24.03 20:14:16] imei.py: no difference found - nickname: 31R, imei: 866392061911453.
+[24.03 20:14:16] imei.py: no difference found - nickname: 32DEN, imei: 862255068977823.
+[24.03 20:14:16] imei.py: no difference found - nickname: 33Dan, imei: 866392061903500.
+[24.03 20:14:16] imei.py: no difference found - nickname: 34R, imei: 866392065165981.
+[24.03 20:14:16] imei.py: no difference found - nickname: 36R, imei: 866392065211967.
+[24.03 20:14:16] imei.py: no difference found - nickname: 39R, imei: 866392065307369.
+[24.03 20:14:16] imei.py: no difference found - nickname: 3DEN, imei: 866392061947838.
+[24.03 20:14:16] imei.py: no difference found - nickname: 40R, imei: 866392065326518.
+[24.03 20:14:16] imei.py: no difference found - nickname: 41R, imei: 866392065170916.
+[24.03 20:14:16] imei.py: no difference found - nickname: 42DEN, imei: 866392065256251.
+[24.03 20:14:16] imei.py: no difference found - nickname: 43DR, imei: 864486066542859.
+[24.03 20:14:16] imei.py: no difference found - nickname: 45R, imei: 866016061323191.
+[24.03 20:14:16] imei.py: no difference found - nickname: 46DR, imei: 864486067749420.
+[24.03 20:14:16] imei.py: no difference found - nickname: 47R, imei: 864486065833192.
+[24.03 20:14:16] imei.py: no difference found - nickname: 49DR, imei: 864486066514882.
+[24.03 20:14:16] imei.py: cannot find car with nickname 49M-TEST in bouncie [COMPARE]
+[24.03 20:14:16] imei.py: no difference found - nickname: 4R, imei: 866392065270062.
+[24.03 20:14:16] imei.py: no difference found - nickname: 51Den, imei: 866392061953927.
+[24.03 20:14:16] imei.py: no difference found - nickname: 52Den, imei: 866392065166005.
+[24.03 20:14:16] imei.py: no difference found - nickname: 53R, imei: 866392061901686.
+[24.03 20:14:16] imei.py: no difference found - nickname: 54DR, imei: 866392061955567.
+[24.03 20:14:16] imei.py: no difference found - nickname: 55R, imei: 865640068634234.
+[24.03 20:14:16] imei.py: no difference found - nickname: 59R, imei: 866392065249967.
+[24.03 20:14:16] imei.py: no difference found - nickname: 5R, imei: 866392062006196.
+[24.03 20:14:16] imei.py: no difference found - nickname: 62R, imei: 866392065266722.
+[24.03 20:14:16] imei.py: no difference found - nickname: 63Den, imei: 864486062779471.
+[24.03 20:14:16] imei.py: no difference found - nickname: 64R, imei: 864486064880921.
+[24.03 20:14:16] imei.py: no difference found - nickname: 65R, imei: 866392061840793.
+[24.03 20:14:16] imei.py: no difference found - nickname: 66R, imei: 864486062798208.
+[24.03 20:14:16] imei.py: no difference found - nickname: 67R, imei: 864486062778929.
+[24.03 20:14:16] imei.py: no difference found - nickname: 6R, imei: 866392061901579.
+[24.03 20:14:16] imei.py: no difference found - nickname: 70DR, imei: 864486066544210.
+[24.03 20:14:16] imei.py: no difference found - nickname: 72DR, imei: 864486066544202.
+[24.03 20:14:16] imei.py: no difference found - nickname: 73R, imei: 864486064879899.
+[24.03 20:14:16] imei.py: no difference found - nickname: 74DR, imei: 864486064847292.
+[24.03 20:14:16] imei.py: no difference found - nickname: 75DR, imei: 864486064880129.
+[24.03 20:14:16] imei.py: no difference found - nickname: 76DR, imei: 864486064858596.
+[24.03 20:14:16] imei.py: no difference found - nickname: 77Den, imei: 864486066520707.
+[24.03 20:14:16] imei.py: no difference found - nickname: 78DR, imei: 864486066520673.
+[24.03 20:14:16] imei.py: no difference found - nickname: 79R, imei: 864486066540101.
+[24.03 20:14:16] imei.py: no difference found - nickname: 7R, imei: 866392061951020.
+[24.03 20:14:16] imei.py: no difference found - nickname: 80DR, imei: 864486066506284.
+[24.03 20:14:16] imei.py: no difference found - nickname: 81DR, imei: 864486066883881.
+[24.03 20:14:16] imei.py: no difference found - nickname: 82DR, imei: 864486066893674.
+[24.03 20:14:16] imei.py: no difference found - nickname: 83R, imei: 864486066576121.
+[24.03 20:14:16] imei.py: no difference found - nickname: 84Dan, imei: 864486066561065.
+[24.03 20:14:16] imei.py: cannot find car with nickname 85R in bouncie [COMPARE]
+[24.03 20:14:16] imei.py: no difference found - nickname: 86Dan, imei: 866392065277737.
+[24.03 20:14:16] imei.py: no difference found - nickname: 87R, imei: 864486067021580.
+[24.03 20:14:16] imei.py: no difference found - nickname: 88R, imei: 866392061974386.
+[24.03 20:14:16] imei.py: no difference found - nickname: 89R, imei: 866392061851162.
+[24.03 20:14:16] imei.py: no difference found - nickname: 8R, imei: 866392065363552.
+[24.03 20:14:16] imei.py: no difference found - nickname: 90R, imei: 866392062002203.
+[24.03 20:14:16] imei.py: no difference found - nickname: 91R, imei: 866392065260238.
+[24.03 20:14:16] imei.py: no difference found - nickname: 92R, imei: 862255068924569.
+[24.03 20:14:16] imei.py: no difference found - nickname: 93R, imei: 866016061355078.
+[24.03 20:14:16] imei.py: no difference found - nickname: 94R, imei: 866392061826792.
+[24.03 20:14:16] imei.py: no difference found - nickname: 95DR, imei: 866392061945105.
+[24.03 20:14:16] imei.py: no difference found - nickname: 96R, imei: 866392065259206.
+[24.03 20:14:16] imei.py: no difference found - nickname: 97R, imei: 866392061911172.
+[24.03 20:14:16] imei.py: no difference found - nickname: 98D, imei: 866392061838060.
+[24.03 20:14:16] imei.py: no difference found - nickname: 99DR, imei: 866392065270369.
+[24.03 20:14:16] imei.py: no difference found - nickname: 9R, imei: 866392065255402.
+[24.03 20:14:16] imei.py: no difference found - nickname: La Griselda, imei: 866392061858258.
+[24.03 20:14:16] imei.py: imei last update not updated because of "--read-only" flag.
+[24.03 20:14:16] imei.py: imei work completed. Total cars: 123. Task created: 0. Time: 3.49 seconds.
+[24.03 20:14:16] main.py: main process stopped successfully.
+
+
+launch at 24.03 20:17 (main.py --imei-only --read-only -t )
+[24.03 20:17:14] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:17:14] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:17:14] main.py: start main process (immediately activate).
+[24.03 20:17:15] imei.py: start imei.
+[24.03 20:17:15] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 100Dan, imei: 866016061364427.
+[24.03 20:17:20] imei.py: no difference found - nickname: 101Dan, imei: 866392061950618.
+[24.03 20:17:20] imei.py: no difference found - nickname: 103R, imei: 866392061975128.
+[24.03 20:17:20] imei.py: no difference found - nickname: 10DR, imei: 866392065310348.
+[24.03 20:17:20] imei.py: cannot find car with nickname 110DEN in bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 111DEN, imei: 866392060664749.
+[24.03 20:17:20] imei.py: no difference found - nickname: 112DEN, imei: 862255068803185.
+[24.03 20:17:20] imei.py: no difference found - nickname: 113DEN, imei: 862255068841516.
+[24.03 20:17:20] imei.py: no difference found - nickname: 114DEN, imei: 862255068933958.
+[24.03 20:17:20] imei.py: no difference found - nickname: 117VOV, imei: 862255068925483.
+[24.03 20:17:20] imei.py: no difference found - nickname: 118DEN, imei: 864486065829315.
+[24.03 20:17:20] imei.py: no difference found - nickname: 119Dan, imei: 866016061317581.
+[24.03 20:17:20] imei.py: no difference found - nickname: 11R, imei: 866392061903310.
+[24.03 20:17:20] imei.py: no difference found - nickname: 120DEN, imei: 866392065188421.
+[24.03 20:17:20] imei.py: no difference found - nickname: 12R, imei: 866392061979187.
+[24.03 20:17:20] imei.py: no difference found - nickname: 131R, imei: 866392061961029.
+[24.03 20:17:20] imei.py: no difference found - nickname: 132R, imei: 866016061362900.
+[24.03 20:17:20] imei.py: no difference found - nickname: 135R, imei: 866392065266706.
+[24.03 20:17:20] imei.py: no difference found - nickname: 136R, imei: 866392065297115.
+[24.03 20:17:20] imei.py: no difference found - nickname: 140R, imei: 866392065272878.
+[24.03 20:17:20] imei.py: cannot find car with nickname 143R in bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 146R, imei: 866392061981464.
+[24.03 20:17:20] imei.py: no difference found - nickname: 148R, imei: 866392061859579.
+[24.03 20:17:20] imei.py: no difference found - nickname: 149R, imei: 866392065205944.
+[24.03 20:17:20] imei.py: no difference found - nickname: 14R, imei: 866392065312153.
+[24.03 20:17:20] imei.py: no difference found - nickname: 151R, imei: 866392065249363.
+[24.03 20:17:20] imei.py: no difference found - nickname: 152R, imei: 866392065359378.
+[24.03 20:17:20] imei.py: no difference found - nickname: 153R, imei: 866392061888115.
+[24.03 20:17:20] imei.py: no difference found - nickname: 154R, imei: 862255068822953.
+[24.03 20:17:20] imei.py: no difference found - nickname: 155R, imei: 866392065302626.
+[24.03 20:17:20] imei.py: no difference found - nickname: 156R, imei: 866392065822474.
+[24.03 20:17:20] imei.py: no difference found - nickname: 157R, imei: 866392061863845.
+[24.03 20:17:20] imei.py: no difference found - nickname: 158R, imei: 866392061936054.
+[24.03 20:17:20] imei.py: no difference found - nickname: 15R, imei: 866016061269105.
+[24.03 20:17:20] imei.py: no difference found - nickname: 160R, imei: 862255068814042.
+[24.03 20:17:20] imei.py: no difference found - nickname: 161R, imei: 866392061848929.
+[24.03 20:17:20] imei.py: no difference found - nickname: 162R, imei: 866392061933853.
+[24.03 20:17:20] imei.py: no difference found - nickname: 163R, imei: 866392061946798.
+[24.03 20:17:20] imei.py: no difference found - nickname: 164R, imei: 866392065355459.
+[24.03 20:17:20] imei.py: no difference found - nickname: 165R, imei: 866392061969410.
+[24.03 20:17:20] imei.py: cannot find car with nickname 166R in bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 167R, imei: 866392061976142.
+[24.03 20:17:20] imei.py: no difference found - nickname: 169R, imei: 865640068608287.
+[24.03 20:17:20] imei.py: no difference found - nickname: 16R, imei: 866392065316378.
+[24.03 20:17:20] imei.py: no difference found - nickname: 17R, imei: 866392061916882.
+[24.03 20:17:20] imei.py: no difference found - nickname: 18Dan, imei: 864486066576329.
+[24.03 20:17:20] imei.py: no difference found - nickname: 19R, imei: 866016061185715.
+[24.03 20:17:20] imei.py: no difference found - nickname: 1R, imei: 866392061901850.
+[24.03 20:17:20] imei.py: no difference found - nickname: 20R, imei: 866392061979138.
+[24.03 20:17:20] imei.py: no difference found - nickname: 21R, imei: 866392061852202.
+[24.03 20:17:20] imei.py: no difference found - nickname: 22R, imei: 866392065842290.
+[24.03 20:17:20] imei.py: no difference found - nickname: 23Dan, imei: 866392065340980.
+[24.03 20:17:20] imei.py: no difference found - nickname: 24Den, imei: 866392065219978.
+[24.03 20:17:20] imei.py: no difference found - nickname: 25Dan, imei: 866392065264164.
+[24.03 20:17:20] imei.py: no difference found - nickname: 27R, imei: 864486066883683.
+[24.03 20:17:20] imei.py: no difference found - nickname: 28R, imei: 866016061318415.
+[24.03 20:17:20] imei.py: no difference found - nickname: 29R, imei: 866392061903070.
+[24.03 20:17:20] imei.py: no difference found - nickname: 2DEN, imei: 866392061954628.
+[24.03 20:17:20] imei.py: no difference found - nickname: 30R, imei: 866392061901793.
+[24.03 20:17:20] imei.py: no difference found - nickname: 31R, imei: 866392061911453.
+[24.03 20:17:20] imei.py: no difference found - nickname: 32DEN, imei: 862255068977823.
+[24.03 20:17:20] imei.py: no difference found - nickname: 33Dan, imei: 866392061903500.
+[24.03 20:17:20] imei.py: no difference found - nickname: 34R, imei: 866392065165981.
+[24.03 20:17:20] imei.py: no difference found - nickname: 36R, imei: 866392065211967.
+[24.03 20:17:20] imei.py: no difference found - nickname: 39R, imei: 866392065307369.
+[24.03 20:17:20] imei.py: no difference found - nickname: 3DEN, imei: 866392061947838.
+[24.03 20:17:20] imei.py: no difference found - nickname: 40R, imei: 866392065326518.
+[24.03 20:17:20] imei.py: no difference found - nickname: 41R, imei: 866392065170916.
+[24.03 20:17:20] imei.py: no difference found - nickname: 42DEN, imei: 866392065256251.
+[24.03 20:17:20] imei.py: no difference found - nickname: 43DR, imei: 864486066542859.
+[24.03 20:17:20] imei.py: no difference found - nickname: 45R, imei: 866016061323191.
+[24.03 20:17:20] imei.py: no difference found - nickname: 46DR, imei: 864486067749420.
+[24.03 20:17:20] imei.py: no difference found - nickname: 47R, imei: 864486065833192.
+[24.03 20:17:20] imei.py: no difference found - nickname: 49DR, imei: 864486066514882.
+[24.03 20:17:20] imei.py: cannot find car with nickname 49M-TEST in bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 4R, imei: 866392065270062.
+[24.03 20:17:20] imei.py: no difference found - nickname: 51Den, imei: 866392061953927.
+[24.03 20:17:20] imei.py: no difference found - nickname: 52Den, imei: 866392065166005.
+[24.03 20:17:20] imei.py: no difference found - nickname: 53R, imei: 866392061901686.
+[24.03 20:17:20] imei.py: no difference found - nickname: 54DR, imei: 866392061955567.
+[24.03 20:17:20] imei.py: no difference found - nickname: 55R, imei: 865640068634234.
+[24.03 20:17:20] imei.py: no difference found - nickname: 59R, imei: 866392065249967.
+[24.03 20:17:20] imei.py: no difference found - nickname: 5R, imei: 866392062006196.
+[24.03 20:17:20] imei.py: no difference found - nickname: 62R, imei: 866392065266722.
+[24.03 20:17:20] imei.py: no difference found - nickname: 63Den, imei: 864486062779471.
+[24.03 20:17:20] imei.py: no difference found - nickname: 64R, imei: 864486064880921.
+[24.03 20:17:20] imei.py: no difference found - nickname: 65R, imei: 866392061840793.
+[24.03 20:17:20] imei.py: no difference found - nickname: 66R, imei: 864486062798208.
+[24.03 20:17:20] imei.py: no difference found - nickname: 67R, imei: 864486062778929.
+[24.03 20:17:20] imei.py: no difference found - nickname: 6R, imei: 866392061901579.
+[24.03 20:17:20] imei.py: no difference found - nickname: 70DR, imei: 864486066544210.
+[24.03 20:17:20] imei.py: no difference found - nickname: 72DR, imei: 864486066544202.
+[24.03 20:17:20] imei.py: no difference found - nickname: 73R, imei: 864486064879899.
+[24.03 20:17:20] imei.py: no difference found - nickname: 74DR, imei: 864486064847292.
+[24.03 20:17:20] imei.py: no difference found - nickname: 75DR, imei: 864486064880129.
+[24.03 20:17:20] imei.py: no difference found - nickname: 76DR, imei: 864486064858596.
+[24.03 20:17:20] imei.py: no difference found - nickname: 77Den, imei: 864486066520707.
+[24.03 20:17:20] imei.py: no difference found - nickname: 78DR, imei: 864486066520673.
+[24.03 20:17:20] imei.py: no difference found - nickname: 79R, imei: 864486066540101.
+[24.03 20:17:20] imei.py: no difference found - nickname: 7R, imei: 866392061951020.
+[24.03 20:17:20] imei.py: no difference found - nickname: 80DR, imei: 864486066506284.
+[24.03 20:17:20] imei.py: no difference found - nickname: 81DR, imei: 864486066883881.
+[24.03 20:17:20] imei.py: no difference found - nickname: 82DR, imei: 864486066893674.
+[24.03 20:17:20] imei.py: no difference found - nickname: 83R, imei: 864486066576121.
+[24.03 20:17:20] imei.py: no difference found - nickname: 84Dan, imei: 864486066561065.
+[24.03 20:17:20] imei.py: cannot find car with nickname 85R in bouncie.
+[24.03 20:17:20] imei.py: no difference found - nickname: 86Dan, imei: 866392065277737.
+[24.03 20:17:20] imei.py: no difference found - nickname: 87R, imei: 864486067021580.
+[24.03 20:17:20] imei.py: no difference found - nickname: 88R, imei: 866392061974386.
+[24.03 20:17:20] imei.py: no difference found - nickname: 89R, imei: 866392061851162.
+[24.03 20:17:20] imei.py: no difference found - nickname: 8R, imei: 866392065363552.
+[24.03 20:17:20] imei.py: no difference found - nickname: 90R, imei: 866392062002203.
+[24.03 20:17:20] imei.py: no difference found - nickname: 91R, imei: 866392065260238.
+[24.03 20:17:20] imei.py: no difference found - nickname: 92R, imei: 862255068924569.
+[24.03 20:17:20] imei.py: no difference found - nickname: 93R, imei: 866016061355078.
+[24.03 20:17:20] imei.py: no difference found - nickname: 94R, imei: 866392061826792.
+[24.03 20:17:20] imei.py: no difference found - nickname: 95DR, imei: 866392061945105.
+[24.03 20:17:20] imei.py: no difference found - nickname: 96R, imei: 866392065259206.
+[24.03 20:17:20] imei.py: no difference found - nickname: 97R, imei: 866392061911172.
+[24.03 20:17:20] imei.py: no difference found - nickname: 98D, imei: 866392061838060.
+[24.03 20:17:20] imei.py: no difference found - nickname: 99DR, imei: 866392065270369.
+[24.03 20:17:20] imei.py: no difference found - nickname: 9R, imei: 866392065255402.
+[24.03 20:17:20] imei.py: no difference found - nickname: La Griselda, imei: 866392061858258.
+[24.03 20:17:20] imei.py: imei last update not updated because of "--read-only" flag.
+[24.03 20:17:20] imei.py: imei work completed. Stats [BETA]:
+[24.03 20:17:20] main.py: ERROR in module D:\projects\desiworker\rentacar\imei.py, line 59: NameError (name 'task_count' is not defined).
+
+
+launch at 24.03 20:17 (main.py --imei-only --read-only -t )
+[24.03 20:17:36] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[24.03 20:17:36] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[24.03 20:17:36] main.py: start main process (immediately activate).
+[24.03 20:17:37] imei.py: start imei.
+[24.03 20:17:37] rentacar.mods/bouncie.py: get imei data from bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 100Dan, imei: 866016061364427.
+[24.03 20:17:41] imei.py: no difference found - nickname: 101Dan, imei: 866392061950618.
+[24.03 20:17:41] imei.py: no difference found - nickname: 103R, imei: 866392061975128.
+[24.03 20:17:41] imei.py: no difference found - nickname: 10DR, imei: 866392065310348.
+[24.03 20:17:41] imei.py: cannot find car with nickname 110DEN in bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 111DEN, imei: 866392060664749.
+[24.03 20:17:41] imei.py: no difference found - nickname: 112DEN, imei: 862255068803185.
+[24.03 20:17:41] imei.py: no difference found - nickname: 113DEN, imei: 862255068841516.
+[24.03 20:17:41] imei.py: no difference found - nickname: 114DEN, imei: 862255068933958.
+[24.03 20:17:41] imei.py: no difference found - nickname: 117VOV, imei: 862255068925483.
+[24.03 20:17:41] imei.py: no difference found - nickname: 118DEN, imei: 864486065829315.
+[24.03 20:17:41] imei.py: no difference found - nickname: 119Dan, imei: 866016061317581.
+[24.03 20:17:41] imei.py: no difference found - nickname: 11R, imei: 866392061903310.
+[24.03 20:17:41] imei.py: no difference found - nickname: 120DEN, imei: 866392065188421.
+[24.03 20:17:41] imei.py: no difference found - nickname: 12R, imei: 866392061979187.
+[24.03 20:17:41] imei.py: no difference found - nickname: 131R, imei: 866392061961029.
+[24.03 20:17:41] imei.py: no difference found - nickname: 132R, imei: 866016061362900.
+[24.03 20:17:41] imei.py: no difference found - nickname: 135R, imei: 866392065266706.
+[24.03 20:17:41] imei.py: no difference found - nickname: 136R, imei: 866392065297115.
+[24.03 20:17:41] imei.py: no difference found - nickname: 140R, imei: 866392065272878.
+[24.03 20:17:41] imei.py: cannot find car with nickname 143R in bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 146R, imei: 866392061981464.
+[24.03 20:17:41] imei.py: no difference found - nickname: 148R, imei: 866392061859579.
+[24.03 20:17:41] imei.py: no difference found - nickname: 149R, imei: 866392065205944.
+[24.03 20:17:41] imei.py: no difference found - nickname: 14R, imei: 866392065312153.
+[24.03 20:17:41] imei.py: no difference found - nickname: 151R, imei: 866392065249363.
+[24.03 20:17:41] imei.py: no difference found - nickname: 152R, imei: 866392065359378.
+[24.03 20:17:41] imei.py: no difference found - nickname: 153R, imei: 866392061888115.
+[24.03 20:17:41] imei.py: no difference found - nickname: 154R, imei: 862255068822953.
+[24.03 20:17:41] imei.py: no difference found - nickname: 155R, imei: 866392065302626.
+[24.03 20:17:41] imei.py: no difference found - nickname: 156R, imei: 866392065822474.
+[24.03 20:17:41] imei.py: no difference found - nickname: 157R, imei: 866392061863845.
+[24.03 20:17:41] imei.py: no difference found - nickname: 158R, imei: 866392061936054.
+[24.03 20:17:41] imei.py: no difference found - nickname: 15R, imei: 866016061269105.
+[24.03 20:17:41] imei.py: no difference found - nickname: 160R, imei: 862255068814042.
+[24.03 20:17:41] imei.py: no difference found - nickname: 161R, imei: 866392061848929.
+[24.03 20:17:41] imei.py: no difference found - nickname: 162R, imei: 866392061933853.
+[24.03 20:17:41] imei.py: no difference found - nickname: 163R, imei: 866392061946798.
+[24.03 20:17:41] imei.py: no difference found - nickname: 164R, imei: 866392065355459.
+[24.03 20:17:41] imei.py: no difference found - nickname: 165R, imei: 866392061969410.
+[24.03 20:17:41] imei.py: cannot find car with nickname 166R in bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 167R, imei: 866392061976142.
+[24.03 20:17:41] imei.py: no difference found - nickname: 169R, imei: 865640068608287.
+[24.03 20:17:41] imei.py: no difference found - nickname: 16R, imei: 866392065316378.
+[24.03 20:17:41] imei.py: no difference found - nickname: 17R, imei: 866392061916882.
+[24.03 20:17:41] imei.py: no difference found - nickname: 18Dan, imei: 864486066576329.
+[24.03 20:17:41] imei.py: no difference found - nickname: 19R, imei: 866016061185715.
+[24.03 20:17:41] imei.py: no difference found - nickname: 1R, imei: 866392061901850.
+[24.03 20:17:41] imei.py: no difference found - nickname: 20R, imei: 866392061979138.
+[24.03 20:17:41] imei.py: no difference found - nickname: 21R, imei: 866392061852202.
+[24.03 20:17:41] imei.py: no difference found - nickname: 22R, imei: 866392065842290.
+[24.03 20:17:41] imei.py: no difference found - nickname: 23Dan, imei: 866392065340980.
+[24.03 20:17:41] imei.py: no difference found - nickname: 24Den, imei: 866392065219978.
+[24.03 20:17:41] imei.py: no difference found - nickname: 25Dan, imei: 866392065264164.
+[24.03 20:17:41] imei.py: no difference found - nickname: 27R, imei: 864486066883683.
+[24.03 20:17:41] imei.py: no difference found - nickname: 28R, imei: 866016061318415.
+[24.03 20:17:41] imei.py: no difference found - nickname: 29R, imei: 866392061903070.
+[24.03 20:17:41] imei.py: no difference found - nickname: 2DEN, imei: 866392061954628.
+[24.03 20:17:41] imei.py: no difference found - nickname: 30R, imei: 866392061901793.
+[24.03 20:17:41] imei.py: no difference found - nickname: 31R, imei: 866392061911453.
+[24.03 20:17:41] imei.py: no difference found - nickname: 32DEN, imei: 862255068977823.
+[24.03 20:17:41] imei.py: no difference found - nickname: 33Dan, imei: 866392061903500.
+[24.03 20:17:41] imei.py: no difference found - nickname: 34R, imei: 866392065165981.
+[24.03 20:17:41] imei.py: no difference found - nickname: 36R, imei: 866392065211967.
+[24.03 20:17:41] imei.py: no difference found - nickname: 39R, imei: 866392065307369.
+[24.03 20:17:41] imei.py: no difference found - nickname: 3DEN, imei: 866392061947838.
+[24.03 20:17:41] imei.py: no difference found - nickname: 40R, imei: 866392065326518.
+[24.03 20:17:41] imei.py: no difference found - nickname: 41R, imei: 866392065170916.
+[24.03 20:17:41] imei.py: no difference found - nickname: 42DEN, imei: 866392065256251.
+[24.03 20:17:41] imei.py: no difference found - nickname: 43DR, imei: 864486066542859.
+[24.03 20:17:41] imei.py: no difference found - nickname: 45R, imei: 866016061323191.
+[24.03 20:17:41] imei.py: no difference found - nickname: 46DR, imei: 864486067749420.
+[24.03 20:17:41] imei.py: no difference found - nickname: 47R, imei: 864486065833192.
+[24.03 20:17:41] imei.py: no difference found - nickname: 49DR, imei: 864486066514882.
+[24.03 20:17:41] imei.py: cannot find car with nickname 49M-TEST in bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 4R, imei: 866392065270062.
+[24.03 20:17:41] imei.py: no difference found - nickname: 51Den, imei: 866392061953927.
+[24.03 20:17:41] imei.py: no difference found - nickname: 52Den, imei: 866392065166005.
+[24.03 20:17:41] imei.py: no difference found - nickname: 53R, imei: 866392061901686.
+[24.03 20:17:41] imei.py: no difference found - nickname: 54DR, imei: 866392061955567.
+[24.03 20:17:41] imei.py: no difference found - nickname: 55R, imei: 865640068634234.
+[24.03 20:17:41] imei.py: no difference found - nickname: 59R, imei: 866392065249967.
+[24.03 20:17:41] imei.py: no difference found - nickname: 5R, imei: 866392062006196.
+[24.03 20:17:41] imei.py: no difference found - nickname: 62R, imei: 866392065266722.
+[24.03 20:17:41] imei.py: no difference found - nickname: 63Den, imei: 864486062779471.
+[24.03 20:17:41] imei.py: no difference found - nickname: 64R, imei: 864486064880921.
+[24.03 20:17:41] imei.py: no difference found - nickname: 65R, imei: 866392061840793.
+[24.03 20:17:41] imei.py: no difference found - nickname: 66R, imei: 864486062798208.
+[24.03 20:17:41] imei.py: no difference found - nickname: 67R, imei: 864486062778929.
+[24.03 20:17:41] imei.py: no difference found - nickname: 6R, imei: 866392061901579.
+[24.03 20:17:41] imei.py: no difference found - nickname: 70DR, imei: 864486066544210.
+[24.03 20:17:41] imei.py: no difference found - nickname: 72DR, imei: 864486066544202.
+[24.03 20:17:41] imei.py: no difference found - nickname: 73R, imei: 864486064879899.
+[24.03 20:17:41] imei.py: no difference found - nickname: 74DR, imei: 864486064847292.
+[24.03 20:17:41] imei.py: no difference found - nickname: 75DR, imei: 864486064880129.
+[24.03 20:17:41] imei.py: no difference found - nickname: 76DR, imei: 864486064858596.
+[24.03 20:17:41] imei.py: no difference found - nickname: 77Den, imei: 864486066520707.
+[24.03 20:17:41] imei.py: no difference found - nickname: 78DR, imei: 864486066520673.
+[24.03 20:17:41] imei.py: no difference found - nickname: 79R, imei: 864486066540101.
+[24.03 20:17:41] imei.py: no difference found - nickname: 7R, imei: 866392061951020.
+[24.03 20:17:41] imei.py: no difference found - nickname: 80DR, imei: 864486066506284.
+[24.03 20:17:41] imei.py: no difference found - nickname: 81DR, imei: 864486066883881.
+[24.03 20:17:41] imei.py: no difference found - nickname: 82DR, imei: 864486066893674.
+[24.03 20:17:41] imei.py: no difference found - nickname: 83R, imei: 864486066576121.
+[24.03 20:17:41] imei.py: no difference found - nickname: 84Dan, imei: 864486066561065.
+[24.03 20:17:41] imei.py: cannot find car with nickname 85R in bouncie.
+[24.03 20:17:41] imei.py: no difference found - nickname: 86Dan, imei: 866392065277737.
+[24.03 20:17:41] imei.py: no difference found - nickname: 87R, imei: 864486067021580.
+[24.03 20:17:41] imei.py: no difference found - nickname: 88R, imei: 866392061974386.
+[24.03 20:17:41] imei.py: no difference found - nickname: 89R, imei: 866392061851162.
+[24.03 20:17:41] imei.py: no difference found - nickname: 8R, imei: 866392065363552.
+[24.03 20:17:41] imei.py: no difference found - nickname: 90R, imei: 866392062002203.
+[24.03 20:17:41] imei.py: no difference found - nickname: 91R, imei: 866392065260238.
+[24.03 20:17:41] imei.py: no difference found - nickname: 92R, imei: 862255068924569.
+[24.03 20:17:41] imei.py: no difference found - nickname: 93R, imei: 866016061355078.
+[24.03 20:17:41] imei.py: no difference found - nickname: 94R, imei: 866392061826792.
+[24.03 20:17:41] imei.py: no difference found - nickname: 95DR, imei: 866392061945105.
+[24.03 20:17:41] imei.py: no difference found - nickname: 96R, imei: 866392065259206.
+[24.03 20:17:41] imei.py: no difference found - nickname: 97R, imei: 866392061911172.
+[24.03 20:17:41] imei.py: no difference found - nickname: 98D, imei: 866392061838060.
+[24.03 20:17:41] imei.py: no difference found - nickname: 99DR, imei: 866392065270369.
+[24.03 20:17:41] imei.py: no difference found - nickname: 9R, imei: 866392065255402.
+[24.03 20:17:41] imei.py: no difference found - nickname: La Griselda, imei: 866392061858258.
+[24.03 20:17:41] imei.py: imei work completed. Stats [BETA]:
+[24.03 20:17:41] imei.py:  - tasks created: 0
+[24.03 20:17:41] imei.py:  - car checked: 123
+[24.03 20:17:41] imei.py:  - lost cars: 5
+[24.03 20:17:41] imei.py:  - time: 3.25 seconds.
+[24.03 20:17:41] main.py: main process stopped successfully.

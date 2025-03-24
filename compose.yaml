@@ -1,0 +1,14 @@
+services:
+  toll:
+    image: toll
+    build:
+      context: ./toll
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 10s
+        window: 120s
+  rentacar:
+    image: rentacar
+    build:
+      context: ./rentacar

@@ -1,0 +1,988 @@
+
+
+launch at 18.03 14:05 (watcher.py --read-only --payevery-only -t )
+[18.03 14:05:00] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 14:05:00] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 14:05:00] watcher.py: start main process (immediately activate).
+[18.03 14:05:01] payevery.py: start payevery.
+[18.03 14:05:04] watcher.py: ERROR in module D:\projects\desiworker\rentacar\payevery.py, line 35: KeyError ('name_pay').
+
+
+launch at 18.03 14:05 (watcher.py --read-only --payevery-only -t )
+[18.03 14:05:15] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 14:05:15] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 14:05:15] watcher.py: start main process (immediately activate).
+[18.03 14:05:16] payevery.py: start payevery.
+[18.03 14:05:20] payevery.py: write payevery - nickname: 85R
+[18.03 14:05:20] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:20] payevery.py: contract Contract-9R-1 skipped.
+[18.03 14:05:20] payevery.py: write payevery - nickname: 132R
+[18.03 14:05:20] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:21] payevery.py: write payevery - nickname: 14R
+[18.03 14:05:21] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:22] payevery.py: write payevery - nickname: 5R
+[18.03 14:05:22] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:23] payevery.py: write payevery - nickname: 6R
+[18.03 14:05:23] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:24] payevery.py: write payevery - nickname: 47R
+[18.03 14:05:24] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:24] payevery.py: contract Contract-62R-1 skipped.
+[18.03 14:05:24] payevery.py: contract Contract-155R-4 skipped.
+[18.03 14:05:24] payevery.py: contract Contract-27R-4 skipped.
+[18.03 14:05:24] payevery.py: contract Contract-45R-3 skipped.
+[18.03 14:05:24] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 14:05:25] payevery.py: write payevery - nickname: 81DR
+[18.03 14:05:25] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:26] payevery.py: write payevery - nickname: 86Dan
+[18.03 14:05:26] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:26] payevery.py: write payevery - nickname: 63Den
+[18.03 14:05:26] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:27] payevery.py: write payevery - nickname: 74DR
+[18.03 14:05:27] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:28] payevery.py: write payevery - nickname: 146R
+[18.03 14:05:28] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:29] payevery.py: write payevery - nickname: 118DEN
+[18.03 14:05:29] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:29] payevery.py: write payevery - nickname: 76DR
+[18.03 14:05:29] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:29] payevery.py: write payevery - nickname: 67R
+[18.03 14:05:29] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:30] payevery.py: write payevery - nickname: 12R
+[18.03 14:05:30] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:30] payevery.py: contract Contract-131R-3 skipped.
+[18.03 14:05:30] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 14:05:30] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 14:05:30] payevery.py: write payevery - nickname: 78DR
+[18.03 14:05:30] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:30] payevery.py: contract Contract-1R-2 skipped.
+[18.03 14:05:31] payevery.py: write payevery - nickname: 167R
+[18.03 14:05:31] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:31] payevery.py: write payevery - nickname: 49M-TEST
+[18.03 14:05:31] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:32] payevery.py: write payevery - nickname: 161R
+[18.03 14:05:32] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:32] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 14:05:32] payevery.py: write payevery - nickname: 54DR
+[18.03 14:05:32] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:32] payevery.py: contract Contract-152R-7 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-40R-5 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-93R-2 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-88R-3 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-64R-4 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-39R-2 skipped.
+[18.03 14:05:32] payevery.py: contract Contract-165R-6 skipped.
+[18.03 14:05:33] payevery.py: write payevery - nickname: 110DEN
+[18.03 14:05:33] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:33] payevery.py: contract Contract-21R-1 skipped.
+[18.03 14:05:33] payevery.py: write payevery - nickname: 55R
+[18.03 14:05:33] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:33] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 14:05:33] payevery.py: contract Contract-79R-2 skipped.
+[18.03 14:05:33] payevery.py: contract Contract-164R-5 skipped.
+[18.03 14:05:33] payevery.py: contract Contract-22R-1 skipped.
+[18.03 14:05:34] payevery.py: write payevery - nickname: 72DR
+[18.03 14:05:34] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:34] payevery.py: contract Contract-135R-6 skipped.
+[18.03 14:05:34] payevery.py: write payevery - nickname: 25Dan
+[18.03 14:05:34] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:34] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 14:05:34] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 14:05:34] payevery.py: write payevery - nickname: 52Den
+[18.03 14:05:34] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:34] payevery.py: contract Contract-36R-6 skipped.
+[18.03 14:05:34] payevery.py: contract Contract-166R-7 skipped.
+[18.03 14:05:35] payevery.py: write payevery - nickname: 29R
+[18.03 14:05:35] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:35] payevery.py: contract Contract-90R-2 skipped.
+[18.03 14:05:35] payevery.py: write payevery - nickname: 103R
+[18.03 14:05:35] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:35] payevery.py: contract Contract-97R-2 skipped.
+[18.03 14:05:35] payevery.py: contract Contract-151R-4 skipped.
+[18.03 14:05:35] payevery.py: contract Contract-75DR-5 skipped.
+[18.03 14:05:35] payevery.py: contract Contract-17R-3 skipped.
+[18.03 14:05:35] payevery.py: contract Contract-59R-4 skipped.
+[18.03 14:05:35] payevery.py: contract Contract-15R-1 skipped.
+[18.03 14:05:36] payevery.py: write payevery - nickname: 169R
+[18.03 14:05:36] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:36] payevery.py: write payevery - nickname: 30R
+[18.03 14:05:36] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:36] payevery.py: contract Contract-73R-3 skipped.
+[18.03 14:05:36] payevery.py: contract Contract-157R-3 skipped.
+[18.03 14:05:37] payevery.py: write payevery - nickname: 113DEN
+[18.03 14:05:37] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:37] payevery.py: contract Contract-19R-5 skipped.
+[18.03 14:05:37] payevery.py: write payevery - nickname: 136R
+[18.03 14:05:37] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:37] payevery.py: write payevery - nickname: 148R
+[18.03 14:05:37] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:37] payevery.py: contract Contract-11R-5 skipped.
+[18.03 14:05:37] payevery.py: contract Contract-114DEN-8 skipped.
+[18.03 14:05:38] payevery.py: write payevery - nickname: 119Dan
+[18.03 14:05:38] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:38] payevery.py: contract Contract-162R-4 skipped.
+[18.03 14:05:38] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 14:05:38] payevery.py: contract Contract-34R-6 skipped.
+[18.03 14:05:38] payevery.py: contract Contract-La Griselda-3 skipped.
+[18.03 14:05:38] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 14:05:38] payevery.py: write payevery - nickname: 2DEN
+[18.03 14:05:38] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:38] payevery.py: contract Contract-66R-3 skipped.
+[18.03 14:05:38] payevery.py: contract Contract-87R-2 skipped.
+[18.03 14:05:39] payevery.py: write payevery - nickname: 101Dan
+[18.03 14:05:39] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:39] payevery.py: write payevery - nickname: 98D
+[18.03 14:05:39] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:40] payevery.py: write payevery - nickname: 4R
+[18.03 14:05:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:40] payevery.py: write payevery - nickname: 16R
+[18.03 14:05:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:40] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 14:05:40] payevery.py: contract Contract-7R-1 skipped.
+[18.03 14:05:40] payevery.py: contract Contract-149R-4 skipped.
+[18.03 14:05:40] payevery.py: write payevery - nickname: 8R
+[18.03 14:05:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:40] payevery.py: contract Contract-31R-5 skipped.
+[18.03 14:05:41] payevery.py: write payevery - nickname: 154R
+[18.03 14:05:41] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:41] payevery.py: contract Contract-96R-3 skipped.
+[18.03 14:05:41] payevery.py: write payevery - nickname: 160R
+[18.03 14:05:41] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:41] payevery.py: contract Contract-89R-2 skipped.
+[18.03 14:05:41] payevery.py: contract Contract-91R-2 skipped.
+[18.03 14:05:42] payevery.py: write payevery - nickname: 156R
+[18.03 14:05:42] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:42] payevery.py: contract Contract-92R-1 skipped.
+[18.03 14:05:42] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 14:05:42] payevery.py: write payevery - nickname: 18Dan
+[18.03 14:05:42] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:43] payevery.py: write payevery - nickname: 65R
+[18.03 14:05:43] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:43] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 14:05:43] payevery.py: write payevery - nickname: 99DR
+[18.03 14:05:43] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:43] payevery.py: contract Contract-153R-7 skipped.
+[18.03 14:05:43] payevery.py: contract Contract-94R-1 skipped.
+[18.03 14:05:43] payevery.py: write payevery - nickname: 77Den
+[18.03 14:05:43] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:44] payevery.py: write payevery - nickname: 111DEN
+[18.03 14:05:44] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:44] payevery.py: contract Contract-117VOV-7 skipped.
+[18.03 14:05:44] payevery.py: contract Contract-140R-7 skipped.
+[18.03 14:05:44] payevery.py: contract Contract-158R-7 skipped.
+[18.03 14:05:44] payevery.py: contract Contract-32DEN-1 skipped.
+[18.03 14:05:44] payevery.py: write payevery - nickname: 163R
+[18.03 14:05:44] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:05:44] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 14:05:44] payevery.py: total payevery contracts: 115
+[18.03 14:05:44] payevery.py: start payevery (2).
+[18.03 14:05:46] watcher.py: ERROR in module D:\projects\desiworker\rentacar\payevery.py, line 69: KeyError ('name_pay').
+
+
+launch at 18.03 14:08 (watcher.py --read-only --payevery-only -t )
+[18.03 14:08:30] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 14:08:30] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 14:08:30] watcher.py: start main process (immediately activate).
+[18.03 14:08:31] payevery.py: start payevery.
+[18.03 14:08:35] payevery.py: write payevery - ContractName: Contract-85R-3
+[18.03 14:08:35] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:35] payevery.py: contract Contract-9R-1 skipped.
+[18.03 14:08:36] payevery.py: write payevery - ContractName: Contract-132R-2
+[18.03 14:08:36] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:37] payevery.py: write payevery - ContractName: Contract-14R-2
+[18.03 14:08:37] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:38] payevery.py: write payevery - ContractName: Contract-5R-2
+[18.03 14:08:38] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:39] payevery.py: write payevery - ContractName: Contract-6R-2
+[18.03 14:08:39] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:40] payevery.py: write payevery - ContractName: Contract-47R-2
+[18.03 14:08:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:40] payevery.py: contract Contract-62R-1 skipped.
+[18.03 14:08:40] payevery.py: contract Contract-155R-4 skipped.
+[18.03 14:08:40] payevery.py: contract Contract-27R-4 skipped.
+[18.03 14:08:40] payevery.py: contract Contract-45R-3 skipped.
+[18.03 14:08:40] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 14:08:40] payevery.py: write payevery - ContractName: Contract-81DR-1
+[18.03 14:08:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:41] payevery.py: write payevery - ContractName: Contract-86Dan-1
+[18.03 14:08:41] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:42] payevery.py: write payevery - ContractName: Contract-63Den-1
+[18.03 14:08:42] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:43] payevery.py: write payevery - ContractName: Contract-74DR-1
+[18.03 14:08:43] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:44] payevery.py: write payevery - ContractName: Contract-146R-5
+[18.03 14:08:44] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:44] payevery.py: write payevery - ContractName: Contract-118DEN-5
+[18.03 14:08:44] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:45] payevery.py: write payevery - ContractName: Contract-76DR-1
+[18.03 14:08:45] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:45] payevery.py: write payevery - ContractName: Contract-67R-1
+[18.03 14:08:45] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:46] payevery.py: write payevery - ContractName: Contract-12R-5
+[18.03 14:08:46] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:46] payevery.py: contract Contract-131R-3 skipped.
+[18.03 14:08:46] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 14:08:46] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 14:08:46] payevery.py: write payevery - ContractName: Contract-78DR-1
+[18.03 14:08:46] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:46] payevery.py: contract Contract-1R-2 skipped.
+[18.03 14:08:47] payevery.py: write payevery - ContractName: Contract-167R-4
+[18.03 14:08:47] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:47] payevery.py: write payevery - ContractName: Contract-49M-TEST-1
+[18.03 14:08:47] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:49] payevery.py: write payevery - ContractName: Contract-161R-2
+[18.03 14:08:49] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:49] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 14:08:49] payevery.py: write payevery - ContractName: Contract-54DR-1
+[18.03 14:08:49] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:49] payevery.py: contract Contract-152R-7 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-40R-5 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-93R-2 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-88R-3 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-64R-4 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-39R-2 skipped.
+[18.03 14:08:49] payevery.py: contract Contract-165R-6 skipped.
+[18.03 14:08:50] payevery.py: write payevery - ContractName: Contract-110DEN-5
+[18.03 14:08:50] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:50] payevery.py: contract Contract-21R-1 skipped.
+[18.03 14:08:51] payevery.py: write payevery - ContractName: Contract-55R-1
+[18.03 14:08:51] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:51] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 14:08:51] payevery.py: contract Contract-79R-2 skipped.
+[18.03 14:08:51] payevery.py: contract Contract-164R-5 skipped.
+[18.03 14:08:51] payevery.py: contract Contract-22R-1 skipped.
+[18.03 14:08:52] payevery.py: write payevery - ContractName: Contract-72DR-2
+[18.03 14:08:52] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:52] payevery.py: contract Contract-135R-6 skipped.
+[18.03 14:08:53] payevery.py: write payevery - ContractName: Contract-25Dan-5
+[18.03 14:08:53] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:53] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 14:08:53] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 14:08:54] payevery.py: write payevery - ContractName: Contract-52Den-3
+[18.03 14:08:54] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:54] payevery.py: contract Contract-36R-6 skipped.
+[18.03 14:08:54] payevery.py: contract Contract-166R-7 skipped.
+[18.03 14:08:55] payevery.py: write payevery - ContractName: Contract-29R-6
+[18.03 14:08:55] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:55] payevery.py: contract Contract-90R-2 skipped.
+[18.03 14:08:56] payevery.py: write payevery - ContractName: Contract-103R-5
+[18.03 14:08:56] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:56] payevery.py: contract Contract-97R-2 skipped.
+[18.03 14:08:56] payevery.py: contract Contract-151R-4 skipped.
+[18.03 14:08:56] payevery.py: contract Contract-75DR-5 skipped.
+[18.03 14:08:56] payevery.py: contract Contract-17R-3 skipped.
+[18.03 14:08:56] payevery.py: contract Contract-59R-4 skipped.
+[18.03 14:08:56] payevery.py: contract Contract-15R-1 skipped.
+[18.03 14:08:56] payevery.py: write payevery - ContractName: Contract-169R-5
+[18.03 14:08:56] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:57] payevery.py: write payevery - ContractName: Contract-30R-4
+[18.03 14:08:57] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:57] payevery.py: contract Contract-73R-3 skipped.
+[18.03 14:08:57] payevery.py: contract Contract-157R-3 skipped.
+[18.03 14:08:58] payevery.py: write payevery - ContractName: Contract-113DEN-5
+[18.03 14:08:58] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:58] payevery.py: contract Contract-19R-5 skipped.
+[18.03 14:08:59] payevery.py: write payevery - ContractName: Contract-136R-8
+[18.03 14:08:59] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:59] payevery.py: write payevery - ContractName: Contract-148R-5
+[18.03 14:08:59] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:08:59] payevery.py: contract Contract-11R-5 skipped.
+[18.03 14:08:59] payevery.py: contract Contract-114DEN-8 skipped.
+[18.03 14:09:00] payevery.py: write payevery - ContractName: Contract-119Dan-4
+[18.03 14:09:00] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:00] payevery.py: contract Contract-162R-4 skipped.
+[18.03 14:09:00] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 14:09:00] payevery.py: contract Contract-34R-6 skipped.
+[18.03 14:09:00] payevery.py: contract Contract-La Griselda-3 skipped.
+[18.03 14:09:00] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 14:09:00] payevery.py: write payevery - ContractName: Contract-2DEN-1
+[18.03 14:09:00] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:00] payevery.py: contract Contract-66R-3 skipped.
+[18.03 14:09:00] payevery.py: contract Contract-87R-2 skipped.
+[18.03 14:09:01] payevery.py: write payevery - ContractName: Contract-101Dan-8
+[18.03 14:09:01] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:01] payevery.py: write payevery - ContractName: Contract-98D-1
+[18.03 14:09:01] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:02] payevery.py: write payevery - ContractName: Contract-4R-3
+[18.03 14:09:02] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:02] payevery.py: write payevery - ContractName: Contract-16R-2
+[18.03 14:09:02] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:02] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 14:09:02] payevery.py: contract Contract-7R-1 skipped.
+[18.03 14:09:02] payevery.py: contract Contract-149R-4 skipped.
+[18.03 14:09:03] payevery.py: write payevery - ContractName: Contract-8R-1
+[18.03 14:09:03] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:03] payevery.py: contract Contract-31R-5 skipped.
+[18.03 14:09:03] payevery.py: write payevery - ContractName: Contract-154R-3
+[18.03 14:09:03] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:03] payevery.py: contract Contract-96R-3 skipped.
+[18.03 14:09:04] payevery.py: write payevery - ContractName: Contract-160R-8
+[18.03 14:09:04] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:04] payevery.py: contract Contract-89R-2 skipped.
+[18.03 14:09:04] payevery.py: contract Contract-91R-2 skipped.
+[18.03 14:09:04] payevery.py: write payevery - ContractName: Contract-156R-9
+[18.03 14:09:04] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:04] payevery.py: contract Contract-92R-1 skipped.
+[18.03 14:09:04] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 14:09:05] payevery.py: write payevery - ContractName: Contract-18Dan-5
+[18.03 14:09:05] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:05] payevery.py: write payevery - ContractName: Contract-65R-2
+[18.03 14:09:05] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:05] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 14:09:05] payevery.py: write payevery - ContractName: Contract-99DR-1
+[18.03 14:09:05] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:05] payevery.py: contract Contract-153R-7 skipped.
+[18.03 14:09:05] payevery.py: contract Contract-94R-1 skipped.
+[18.03 14:09:06] payevery.py: write payevery - ContractName: Contract-77Den-2
+[18.03 14:09:06] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:06] payevery.py: write payevery - ContractName: Contract-111DEN-9
+[18.03 14:09:06] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:06] payevery.py: contract Contract-117VOV-7 skipped.
+[18.03 14:09:06] payevery.py: contract Contract-140R-7 skipped.
+[18.03 14:09:06] payevery.py: contract Contract-158R-7 skipped.
+[18.03 14:09:06] payevery.py: contract Contract-32DEN-1 skipped.
+[18.03 14:09:07] payevery.py: write payevery - ContractName: Contract-163R-8
+[18.03 14:09:07] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:09:07] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 14:09:07] payevery.py: total payevery contracts: 115
+[18.03 14:09:07] payevery.py: start payevery (2).
+[18.03 14:09:08] watcher.py: main process stopped.
+
+
+launch at 18.03 14:11 (watcher.py --read-only --payevery-only -t )
+[18.03 14:11:29] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 14:11:29] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 14:11:29] watcher.py: start main process (immediately activate).
+[18.03 14:11:30] payevery.py: start payevery.
+[18.03 14:11:33] payevery.py: contract Contract-85R-3 skipped.
+[18.03 14:11:34] payevery.py: write payevery - ContractName: Contract-9R-1
+[18.03 14:11:34] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:34] payevery.py: contract Contract-132R-2 skipped.
+[18.03 14:11:34] payevery.py: contract Contract-14R-2 skipped.
+[18.03 14:11:34] payevery.py: contract Contract-5R-2 skipped.
+[18.03 14:11:34] payevery.py: contract Contract-6R-2 skipped.
+[18.03 14:11:34] payevery.py: contract Contract-47R-2 skipped.
+[18.03 14:11:34] payevery.py: write payevery - ContractName: Contract-62R-1
+[18.03 14:11:34] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:35] payevery.py: write payevery - ContractName: Contract-155R-4
+[18.03 14:11:35] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:36] payevery.py: write payevery - ContractName: Contract-27R-4
+[18.03 14:11:36] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:37] payevery.py: write payevery - ContractName: Contract-45R-3
+[18.03 14:11:37] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:37] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-146R-5 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-67R-1 skipped.
+[18.03 14:11:37] payevery.py: contract Contract-12R-5 skipped.
+[18.03 14:11:38] payevery.py: write payevery - ContractName: Contract-131R-3
+[18.03 14:11:38] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:39] payevery.py: write payevery - ContractName: Contract-112DEN-3
+[18.03 14:11:39] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:40] payevery.py: write payevery - ContractName: Contract-24Den-2
+[18.03 14:11:40] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:40] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 14:11:41] payevery.py: write payevery - ContractName: Contract-1R-2
+[18.03 14:11:41] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:41] payevery.py: contract Contract-167R-4 skipped.
+[18.03 14:11:41] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 14:11:41] payevery.py: contract Contract-161R-2 skipped.
+[18.03 14:11:41] payevery.py: write payevery - ContractName: Contract-120DEN-4
+[18.03 14:11:41] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:41] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 14:11:41] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 14:11:42] payevery.py: write payevery - ContractName: Contract-152R-7
+[18.03 14:11:42] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:44] payevery.py: write payevery - ContractName: Contract-40R-5
+[18.03 14:11:44] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:45] payevery.py: write payevery - ContractName: Contract-42DEN-4
+[18.03 14:11:45] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:45] payevery.py: write payevery - ContractName: Contract-80DR-2
+[18.03 14:11:45] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:46] payevery.py: write payevery - ContractName: Contract-93R-2
+[18.03 14:11:46] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:47] payevery.py: write payevery - ContractName: Contract-88R-3
+[18.03 14:11:47] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:11:47] watcher.py: main process stopped.
+
+
+launch at 18.03 14:24 (watcher.py --read-only --payevery-only -t )
+[18.03 14:24:53] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 14:24:53] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 14:24:53] watcher.py: start main process (immediately activate).
+[18.03 14:24:54] payevery.py: start payevery.
+[18.03 14:24:58] payevery.py: contract Contract-85R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-9R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-132R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-14R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-5R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-6R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-47R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-62R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-155R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-27R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-45R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-146R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-67R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-12R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-131R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-1R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-167R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-161R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-152R-7 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-40R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-93R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-88R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-64R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-39R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-165R-6 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-110DEN-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-21R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-55R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-79R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-164R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-22R-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-72DR-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-135R-6 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-25Dan-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-52Den-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-36R-6 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-166R-7 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-29R-6 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-90R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-103R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-97R-2 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-151R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-75DR-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-17R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-59R-4 skipped.
+[18.03 14:24:58] payevery.py: write payevery - ContractName: Contract-15R-1
+[18.03 14:24:58] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:24:58] payevery.py: contract Contract-169R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-30R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-73R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-157R-3 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-113DEN-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-19R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-136R-8 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-148R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-11R-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-114DEN-8 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-119Dan-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-162R-4 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 14:24:58] payevery.py: contract Contract-34R-6 skipped.
+[18.03 14:24:59] payevery.py: write payevery - ContractName: Contract-La Griselda-3
+[18.03 14:24:59] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:24:59] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-2DEN-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-66R-3 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-87R-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-101Dan-8 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-98D-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-4R-3 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-16R-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-7R-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-149R-4 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-8R-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-31R-5 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-154R-3 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-96R-3 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-160R-8 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-89R-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-91R-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-156R-9 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-92R-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-18Dan-5 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-65R-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-99DR-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-153R-7 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-94R-1 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-77Den-2 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-111DEN-9 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-117VOV-7 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-140R-7 skipped.
+[18.03 14:24:59] payevery.py: contract Contract-158R-7 skipped.
+[18.03 14:25:00] payevery.py: write payevery - ContractName: Contract-32DEN-1
+[18.03 14:25:00] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 14:25:00] payevery.py: contract Contract-163R-8 skipped.
+[18.03 14:25:00] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 14:25:00] payevery.py: total payevery contracts: 115
+[18.03 14:25:00] payevery.py: start payevery (2).
+[18.03 14:25:01] watcher.py: main process stopped.
+
+
+launch at 18.03 20:06 (watcher.py --read-only --payevery-only -t )
+[18.03 20:06:44] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 20:06:44] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 20:06:44] watcher.py: start main process (immediately activate).
+[18.03 20:06:45] payevery.py: start payevery.
+[18.03 20:06:50] payevery.py: contract Contract-85R-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-9R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-132R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-14R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-5R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-6R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-47R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-62R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-155R-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-27R-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-45R-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-146R-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-67R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-12R-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-131R-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-1R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-167R-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-161R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-152R-7 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-40R-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-93R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-88R-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-64R-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-39R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-165R-6 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-110DEN-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-21R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-55R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-79R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-164R-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-22R-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-72DR-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-135R-6 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-25Dan-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-52Den-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-36R-6 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-166R-7 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-29R-6 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-90R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-103R-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-97R-2 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-151R-4 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-75DR-5 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-17R-3 skipped.
+[18.03 20:06:50] payevery.py: contract Contract-59R-4 skipped.
+[18.03 20:06:52] payevery.py: write payevery - ContractName: Contract-15R-1
+[18.03 20:06:52] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:06:52] payevery.py: contract Contract-169R-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-30R-4 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-73R-3 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-157R-3 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-113DEN-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-19R-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-136R-8 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-148R-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-11R-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-114DEN-8 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-119Dan-4 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-162R-4 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 20:06:52] payevery.py: contract Contract-34R-6 skipped.
+[18.03 20:06:53] payevery.py: write payevery - ContractName: Contract-La Griselda-3
+[18.03 20:06:53] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:06:53] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-2DEN-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-66R-3 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-87R-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-101Dan-8 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-98D-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-4R-3 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-16R-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-7R-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-149R-4 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-8R-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-31R-5 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-154R-3 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-96R-3 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-160R-8 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-89R-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-91R-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-156R-9 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-92R-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-18Dan-5 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-65R-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-99DR-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-153R-7 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-94R-1 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-77Den-2 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-111DEN-9 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-117VOV-7 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-140R-7 skipped.
+[18.03 20:06:53] payevery.py: contract Contract-158R-7 skipped.
+[18.03 20:06:54] payevery.py: write payevery - ContractName: Contract-32DEN-1
+[18.03 20:06:54] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:06:54] payevery.py: contract Contract-163R-8 skipped.
+[18.03 20:06:54] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 20:06:54] payevery.py: total payevery contracts: 115
+[18.03 20:06:54] payevery.py: start payevery (2).
+[18.03 20:06:55] watcher.py: main process stopped.
+
+
+launch at 18.03 20:10 (watcher.py --read-only --payevery-only -t )
+[18.03 20:10:12] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 20:10:12] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 20:10:12] watcher.py: start main process (immediately activate).
+[18.03 20:10:13] payevery.py: start payevery.
+[18.03 20:10:18] watcher.py: ERROR in module D:\projects\desiworker\rentacar\payevery.py, line 44: KeyError ('ContractName').
+
+
+launch at 18.03 20:10 (watcher.py --read-only --payevery-only -t )
+[18.03 20:10:35] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 20:10:35] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 20:10:35] watcher.py: start main process (immediately activate).
+[18.03 20:10:36] payevery.py: start payevery.
+[18.03 20:10:41] payevery.py: contract Contract-85R-3 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-9R-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-132R-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-14R-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-5R-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-6R-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-47R-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-62R-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-155R-4 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-27R-4 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-45R-3 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-146R-5 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-67R-1 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-12R-5 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-131R-3 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 20:10:41] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 20:10:42] payevery.py: write payevery - ContractName: Contract-1R-2
+[18.03 20:10:42] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:10:42] payevery.py: contract Contract-167R-4 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-161R-2 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 20:10:42] payevery.py: contract Contract-152R-7 skipped.
+[18.03 20:10:43] watcher.py: main process stopped.
+
+
+launch at 18.03 20:10 (watcher.py --read-only --payevery-only -t )
+[18.03 20:10:51] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 20:10:51] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 20:10:51] watcher.py: start main process (immediately activate).
+[18.03 20:10:52] payevery.py: start payevery.
+[18.03 20:10:57] payevery.py: contract Contract-85R-3 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-9R-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-132R-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-14R-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-5R-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-6R-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-47R-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-62R-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-155R-4 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-27R-4 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-45R-3 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-146R-5 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-67R-1 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-12R-5 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-131R-3 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 20:10:57] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 20:10:58] payevery.py: write payevery - ContractName: Contract-1R-2
+[18.03 20:10:58] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:10:58] payevery.py: contract Contract-167R-4 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-161R-2 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 20:10:58] payevery.py: contract Contract-152R-7 skipped.
+[18.03 20:10:59] payevery.py: write payevery - ContractName: Contract-40R-5
+[18.03 20:10:59] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:10:59] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 20:10:59] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 20:10:59] payevery.py: contract Contract-93R-2 skipped.
+[18.03 20:10:59] payevery.py: contract Contract-88R-3 skipped.
+[18.03 20:10:59] payevery.py: contract Contract-64R-4 skipped.
+[18.03 20:10:59] payevery.py: contract Contract-39R-2 skipped.
+[18.03 20:11:00] payevery.py: write payevery - ContractName: Contract-165R-6
+[18.03 20:11:00] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:00] payevery.py: contract Contract-110DEN-5 skipped.
+[18.03 20:11:00] payevery.py: contract Contract-21R-1 skipped.
+[18.03 20:11:00] payevery.py: contract Contract-55R-1 skipped.
+[18.03 20:11:00] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 20:11:00] payevery.py: contract Contract-79R-2 skipped.
+[18.03 20:11:01] payevery.py: write payevery - ContractName: Contract-164R-5
+[18.03 20:11:01] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:01] payevery.py: contract Contract-22R-1 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-72DR-2 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-135R-6 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-25Dan-5 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-52Den-3 skipped.
+[18.03 20:11:01] payevery.py: contract Contract-36R-6 skipped.
+[18.03 20:11:02] payevery.py: write payevery - ContractName: Contract-166R-7
+[18.03 20:11:02] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:02] payevery.py: contract Contract-29R-6 skipped.
+[18.03 20:11:02] payevery.py: contract Contract-90R-2 skipped.
+[18.03 20:11:02] payevery.py: contract Contract-103R-5 skipped.
+[18.03 20:11:04] payevery.py: write payevery - ContractName: Contract-97R-2
+[18.03 20:11:04] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:04] payevery.py: contract Contract-151R-4 skipped.
+[18.03 20:11:05] payevery.py: write payevery - ContractName: Contract-75DR-5
+[18.03 20:11:05] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:05] payevery.py: contract Contract-17R-3 skipped.
+[18.03 20:11:05] payevery.py: contract Contract-59R-4 skipped.
+[18.03 20:11:06] payevery.py: write payevery - ContractName: Contract-15R-1
+[18.03 20:11:06] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:06] payevery.py: contract Contract-169R-5 skipped.
+[18.03 20:11:06] payevery.py: contract Contract-30R-4 skipped.
+[18.03 20:11:07] payevery.py: write payevery - ContractName: Contract-73R-3
+[18.03 20:11:07] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:07] payevery.py: contract Contract-157R-3 skipped.
+[18.03 20:11:07] payevery.py: contract Contract-113DEN-5 skipped.
+[18.03 20:11:07] payevery.py: contract Contract-19R-5 skipped.
+[18.03 20:11:07] payevery.py: contract Contract-136R-8 skipped.
+[18.03 20:11:07] payevery.py: contract Contract-148R-5 skipped.
+[18.03 20:11:07] payevery.py: contract Contract-11R-5 skipped.
+[18.03 20:11:08] payevery.py: write payevery - ContractName: Contract-114DEN-8
+[18.03 20:11:08] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:08] payevery.py: contract Contract-119Dan-4 skipped.
+[18.03 20:11:08] payevery.py: contract Contract-162R-4 skipped.
+[18.03 20:11:08] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 20:11:08] payevery.py: contract Contract-34R-6 skipped.
+[18.03 20:11:09] payevery.py: write payevery - ContractName: Contract-La Griselda-3
+[18.03 20:11:09] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:09] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-2DEN-1 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-66R-3 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-87R-2 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-101Dan-8 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-98D-1 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-4R-3 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-16R-2 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 20:11:09] payevery.py: contract Contract-7R-1 skipped.
+[18.03 20:11:10] payevery.py: write payevery - ContractName: Contract-149R-4
+[18.03 20:11:10] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:10] payevery.py: contract Contract-8R-1 skipped.
+[18.03 20:11:10] payevery.py: contract Contract-31R-5 skipped.
+[18.03 20:11:10] payevery.py: contract Contract-154R-3 skipped.
+[18.03 20:11:10] payevery.py: contract Contract-96R-3 skipped.
+[18.03 20:11:10] payevery.py: contract Contract-160R-8 skipped.
+[18.03 20:11:10] payevery.py: contract Contract-89R-2 skipped.
+[18.03 20:11:12] payevery.py: write payevery - ContractName: Contract-91R-2
+[18.03 20:11:12] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:12] payevery.py: contract Contract-156R-9 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-92R-1 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-18Dan-5 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-65R-2 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 20:11:12] payevery.py: contract Contract-99DR-1 skipped.
+[18.03 20:11:13] payevery.py: write payevery - ContractName: Contract-153R-7
+[18.03 20:11:13] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:13] payevery.py: contract Contract-94R-1 skipped.
+[18.03 20:11:13] payevery.py: contract Contract-77Den-2 skipped.
+[18.03 20:11:13] payevery.py: contract Contract-111DEN-9 skipped.
+[18.03 20:11:13] payevery.py: write payevery - ContractName: Contract-117VOV-7
+[18.03 20:11:13] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:13] payevery.py: contract Contract-140R-7 skipped.
+[18.03 20:11:13] payevery.py: contract Contract-158R-7 skipped.
+[18.03 20:11:14] payevery.py: write payevery - ContractName: Contract-32DEN-1
+[18.03 20:11:14] payevery.py: payevery pay not created because of "--read-only" flag.
+[18.03 20:11:14] payevery.py: contract Contract-163R-8 skipped.
+[18.03 20:11:14] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 20:11:14] payevery.py: total payevery contracts: 115
+[18.03 20:11:14] payevery.py: start payevery (2).
+[18.03 20:11:17] watcher.py: main process stopped.
+
+
+launch at 18.03 20:13 (watcher.py --read-only --payevery-only -t )
+[18.03 20:13:42] watcher.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[18.03 20:13:42] watcher.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[18.03 20:13:42] watcher.py: start main process (immediately activate).
+[18.03 20:13:43] payevery.py: start payevery.
+[18.03 20:13:48] payevery.py: contract Contract-85R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-9R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-132R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-14R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-5R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-6R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-47R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-62R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-155R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-27R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-45R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-84Dan-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-81DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-86Dan-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-63Den-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-74DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-146R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-118DEN-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-76DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-67R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-12R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-131R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-112DEN-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-24Den-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-78DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-1R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-167R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-49M-TEST-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-161R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-120DEN-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-3DEN-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-54DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-152R-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-40R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-42DEN-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-80DR-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-93R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-88R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-64R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-39R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-165R-6 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-110DEN-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-21R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-55R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-51Den-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-79R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-164R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-22R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-72DR-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-135R-6 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-25Dan-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-23Dan-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-10DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-52Den-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-36R-6 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-166R-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-29R-6 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-90R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-103R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-97R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-151R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-75DR-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-17R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-59R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-15R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-169R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-30R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-73R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-157R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-113DEN-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-19R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-136R-8 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-148R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-11R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-114DEN-8 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-119Dan-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-162R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-70DR-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-34R-6 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-La Griselda-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-33Dan-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-2DEN-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-66R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-87R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-101Dan-8 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-98D-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-4R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-16R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-100Dan-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-7R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-149R-4 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-8R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-31R-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-154R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-96R-3 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-160R-8 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-89R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-91R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-156R-9 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-92R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-82DR-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-18Dan-5 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-65R-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-49DR-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-99DR-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-153R-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-94R-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-77Den-2 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-111DEN-9 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-117VOV-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-140R-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-158R-7 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-32DEN-1 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-163R-8 skipped.
+[18.03 20:13:48] payevery.py: contract Contract-95DR-1 skipped.
+[18.03 20:13:48] payevery.py: total payevery contracts: 115
+[18.03 20:13:48] payevery.py: start payevery (2).
+[18.03 20:13:49] watcher.py: main process stopped.

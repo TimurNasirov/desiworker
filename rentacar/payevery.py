@@ -32,7 +32,7 @@ def start_payevery(db: client):
     pays: list[dict] = to_dict_all(db.collection('Task').get())
 
     for pay in pays.copy():
-        if not (has_key(pay, 'category') or has_key(pay, 'ContractName')):
+        if not has_key(pay, 'category') or not has_key(pay, 'ContractName'):
             pays.remove(pay)
 
     # filtering contracts

@@ -6,4 +6,6 @@
 /rentacar/config.py
 /toll/key.json
 /toll/config.py
+/toll/__pycache__/
+/toll/mods/__pycache__/
 /exword_results/

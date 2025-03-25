@@ -18,7 +18,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from rentacar.log import Log
-from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
+from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day, time
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_car
 from rentacar.mods.sms import send_sms, add_inbox, PAYDAY_TEXT
 from rentacar.str_config import PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_TASK_COMMENT, USER
@@ -27,52 +27,70 @@ logdata = Log('payevery.py')
 print = logdata.print
 
 def start_payevery(db: client):
+    start_time = time()
     print('start payevery.')
     contracts: list[dict] = to_dict_all(db.collection('Contract').get())
-    pays: list[dict] = to_dict_all(db.collection('Task').get())
+    pays: list[dict] = to_dict_all(db.collection('Pay_contract').get())
 
+    # filtering pays (only pays with category and ContractName)
     for pay in pays.copy():
         if not has_key(pay, 'category') or not has_key(pay, 'ContractName'):
             pays.remove(pay)
 
-    # filtering contracts
+    # filtering contracts (only active contracts)
     for contract in contracts.copy():
         if not contract['Active']:
             contracts.remove(contract)
 
+    pays_count = 0
     for contract in contracts:
-        if contract['ContractName'] not in [pay['ContractName'] for pay in pays if pay['category'] == 'daily rent'] or contract['pay_day'].strftime('%d') == dt.now().strftime('%d'):
+        # if contract has pays like daily rent or today is payday, create payevery pay
+        if contract['ContractName'] in [pay['ContractName'] for pay in pays if pay['category'] == 'daily rent'] or\
+                contract['pay_day'].strftime('%d') == dt.now().strftime('%d'):
             car: dict = get_car(db, contract['nickname'])
             create_payevery(db, contract, car['odometer'])
-        else:
-            print(f'contract {contract["ContractName"]} skipped.')
+            pays_count += 1
 
-    print(f'total payevery contracts: {len(contracts)}')
+    print(f'payevery work completed. Stats [BETA]:')
+    print(f' - pays created: {pays_count}')
+    print(f' - contracts checked: {len(contracts)}')
+    print(f' - time: {round(time() - start_time, 2)}')
 
-    # if '--read-only' not in argv:
-    #     db.collection('Last_update_python').doc('last_update').update({'payevery_update': dt.now(texas_tz)})
-    # else:
-    #     print('payevery last update not updated because of "--read-only" flag.')
-    # print('set last payevery update.')
 
 def start_payevery2(db: client):
+    start_time = time()
     print('start payevery (2).')
     contracts: list[dict] = to_dict_all(db.collection('Contract').get())
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
+    pays: list[dict] = to_dict_all(db.collection('Pay_contract').get())
 
-    # filtering contracts
+    # filtering pays (only pays with category and ContractName)
+    for pay in pays.copy():
+        if not has_key(pay, 'category') or not has_key(pay, 'ContractName'):
+            pays.remove(pay)
+
+    # filtering contracts (only active contracts with last_saldo)
     for contract in contracts.copy():
-        if not contract['Active']:
+        if not contract['Active'] or not has_key(contract, 'last_saldo'):
             contracts.remove(contract)
 
+    tasks_count = 0
     for contract in contracts:
-        if contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and contract['last_saldo'] < -contract['renta_price'] / 30:
-            create_task(db, contract)
+        # if contract has not active payday tasks, last saldo less than renta price (daily), contract has pays like daily rent, and today is
+        # payday, create task and sms
+        if contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and\
+                contract['last_saldo'] < -contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay\
+                in pays if pay['category'] == 'daily rent'] and contract['pay_day'].strftime('%d') == dt.now().strftime('%d'):
+            create_payevery2(db, contract)
+            tasks_count += 1
 
-    print(f'total payevery (2) contracts: {len(contracts)}')
+    print(f'payevery 2 work completed. Stats [BETA]:')
+    print(f' - tasks & sms created: {tasks_count}')
+    print(f' - contracts checked: {len(contracts)}')
+    print(f' - time: {round(time() - start_time, 2)}')
 
-def create_task(db: client, contract: dict):
-    print(f'write payevery - ContractName: {contract["ContractName"]}')
+def create_payevery2(db: client, contract: dict):
+    print(f'write payevery 2 - ContractName: {contract["ContractName"]}')
     if '--read-only' not in argv:
         db.collection('Task').add({
             'id': randint(10000, 20000),

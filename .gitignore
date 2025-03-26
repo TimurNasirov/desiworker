@@ -8,4 +8,6 @@
 /toll/config.py
 /toll/__pycache__/
 /toll/mods/__pycache__/
-/exword_results/
+/onetime/__pycache__/
+/onetime/mods/__pycache__/
+/onetime/key.json

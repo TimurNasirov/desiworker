@@ -25,7 +25,7 @@ path.append(dirname(SCRIPT_DIR))
 from traceback import format_exception
 from docxtpl import DocxTemplate, RichText
 from rentacar.log import Log
-from rentacar.mods.timemod import dt, sleep
+from rentacar.mods.timemod import dt, sleep, time
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
 from requests import get
@@ -34,8 +34,8 @@ from config import TELEGRAM_LINK
 logdata = Log('lease.py')
 print = logdata.print
 
-result_folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
-sample_folder = join(dirname(dirname(abspath(__file__))), 'exword_samples')
+result_folder = join(dirname(abspath(__file__)), 'exword_results')
+sample_folder = join(dirname(abspath(__file__)), 'exword_samples')
 
 def check_value(data: dict, key: str, check: str = '-', default: str = ''):
     """Check if a value has a given key in a dictionary
@@ -54,14 +54,15 @@ def check_value(data: dict, key: str, check: str = '-', default: str = ''):
             return data[key]
     return default
 
-def build(db: client, contractName: str):
+def build(db: client, contract_name: str):
     """Build a sample file
 
     Args:
         db (client): database
-        contractName (str): contract name
+        contract_name (str): contract name
     """
-    contract: dict = get_contract(db, contractName, 'ContractName', check_active=False)
+    start_time = time()
+    contract: dict = get_contract(db, contract_name, 'ContractName', check_active=False)
     car: dict = get_car(db, contract['nickname'])
 
     if has_key(contract, 'renternumber'):
@@ -96,11 +97,13 @@ def build(db: client, contractName: str):
         if contract['discount_month'] > 0:
             discount = RichText()
             discount.add('5.1. EXCLUSIVE AGREEMENT AND MINIMUM LEASE TERM. ', bold=True)
-            discount.add(f'Agreement is deemed exclusive due to the discounted lease payment of ${contract["renta_price"]} per month provided to the Lessee.\
-As a condition of this exclusivity and discount, the Lessee agrees to a minimum lease term of {contract["discount_month"]} months from \
-the effective date of this Agreement. If the Lessee terminates this Agreement prior to the completion of this {contract["discount_month"]} \
-month minimum term, the Lessee shall be subject to an early termination penalty of $100, payable to the Lessor immediately upon termination, \
-in addition to any other obligations or fees outlined in this Agreement.')
+            discount.add(f'Agreement is deemed exclusive due to the discounted lease payment of ${round(contract["renta_price"] / 30, 1)} per day \
+provided to the Lessee. As a condition of this exclusivity and discount, the Lessee agrees to a minimum lease term of {contract["discount_month"]} \
+months from the effective date of this Agreement. If the Lessee terminates this Agreement prior to the completion of this \
+{contract["discount_month"]} month minimum term, the Lessee shall be subject to an early termination penalty of $100, payable to the Lessor \
+immediately upon termination, in addition to any other obligations or fees outlined in this Agreement.')
+        else:
+            discount = ''
     else:
         discount = ''
     docx = DocxTemplate(join(sample_folder, 'lease.docx'))
@@ -129,7 +132,10 @@ in addition to any other obligations or fees outlined in this Agreement.')
         'discount': discount
     }
     docx.render(context)
-    docx.save(join(result_folder, 'lease.docx'))
+    name = f'LEASE-{contract_name}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx'
+    docx.save(join(result_folder, name))
+    print(f'lease build completed. Built contract: {contract_name}. Time: {round(time() - start_time, 2)} seconds.')
+    return name
 
 def lease_listener(db: client, bucket):
     """start lease listener
@@ -152,18 +158,18 @@ def lease_listener(db: client, bucket):
             doc = document[0].to_dict()
             if doc['word_active']:
                 print(f'write docx {doc["word_contract"]} (lease)')
-                build(db, doc['word_contract'])
-                if '--read-only' not in argv:
-                    blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                    blob.upload_from_filename(join(result_folder, 'lease.docx'))
-                    blob.make_public()
-                    print(f'write url to firestore: {blob.public_url}')
-                else:
-                    print('file not upload because of "--read-only" flag.')
+                name = build(db, doc['word_contract'])
+                # if '--read-only' not in argv:
+                #     blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
+                #     blob.upload_from_filename(join(result_folder, 'lease.docx'))
+                #     blob.make_public()
+                #     print(f'write url to firestore: {blob.public_url}')
+                # else:
+                #     print('file not upload because of "--read-only" flag.')
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'word_active': False,
-                        'word_url': blob.public_url
+                        'word_url': f'http://nta.desicarscenter.com:8000/files/{name}'
                     })
                 else:
                     print('word_active not reseted because of "--read-only" flag.')

@@ -36,7 +36,7 @@ from config import TELEGRAM_LINK
 logdata = Log('owner.py')
 print = logdata.print
 
-folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
+folder = join(dirname(abspath(__file__)), 'exword_results')
 
 bold_font = Font(bold=True, name='Arial')
 income_font = Font(color='00b121', name='Arial')
@@ -356,8 +356,10 @@ def build(data: ExcelData):
 
         row += length
 
-    wb.save(join(folder, 'owner.xlsx'))
+    name = f'OWNER-{data.owner}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
+    wb.save(join(folder, name))
     wb.close()
+    return name
 
 
 def get_data(date, owner, db):
@@ -531,18 +533,21 @@ def owner_listener(db: client, bucket):
 
                 periods = get_range_periods(doc["excel_start_date"].strftime('%m.%Y'), doc["excel_end_date"].strftime('%m.%Y'))
                 data = get_data(periods, doc['excel_owner'], db)
-                build(data)
+                name = build(data)
+
+                # if '--read-only' not in argv:
+                #     blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
+                #     blob.upload_from_filename(join(folder, 'owner.xlsx'))
+                #     blob.make_public()
+                #     print(f'write url to firestore: {blob.public_url}')
+                # else:
+                #     print('file not upload because of "--read-only" flag.')
 
                 if '--read-only' not in argv:
-                    blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                    blob.upload_from_filename(join(folder, 'owner.xlsx'))
-                    blob.make_public()
-                    print(f'write url to firestore: {blob.public_url}')
-                else:
-                    print('file not upload because of "--read-only" flag.')
-
-                if '--read-only' not in argv:
-                    db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'excel_active': False, 'excel_url': blob.public_url})
+                    db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
+                        'excel_active': False,
+                        'excel_url': f'http://nta.desicarscenter.com:8000/files/{name}'
+                    })
                 else:
                     print('excel_active not reseted because of "--read-only" flag.')
 

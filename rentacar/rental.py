@@ -32,8 +32,8 @@ from config import TELEGRAM_LINK
 logdata = Log('rental.py')
 print = logdata.print
 
-result_folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
-sample_folder = join(dirname(dirname(abspath(__file__))), 'exword_samples')
+result_folder = join(dirname(abspath(__file__)), 'exword_results')
+sample_folder = join(dirname(abspath(__file__)), 'exword_samples')
 
 def check_value(data: dict, key: str, check: str = '-', default: str = ''):
     """Check if a value has a given key in a dictionary
@@ -52,15 +52,15 @@ def check_value(data: dict, key: str, check: str = '-', default: str = ''):
             return data[key]
     return default
 
-def build(db: client, contractName: str):
+def build(db: client, contract_name: str):
     """Build a sample file
 
     Args:
         db (client): database
-        contractName (str): contract name
+        contract_name (str): contract name
     """
     start_time = time()
-    contract: dict = get_contract(db, contractName, 'ContractName', check_active=False)
+    contract: dict = get_contract(db, contract_name, 'ContractName', check_active=False)
     car: dict = get_car(db, contract['nickname'])
 
     if has_key(contract, 'renternumber'):
@@ -131,8 +131,10 @@ Rentor immediately upon termination, in addition to any other obligations or fee
         'discount': discount
     }
     docx.render(context)
-    docx.save(join(result_folder, 'rental.docx'))
-    print(f'Rental build completed. Built contract: {contractName}. Time: {round(time() - start_time, 2)} seconds.')
+    name = f'RENTAL-{contract_name}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx'
+    docx.save(join(result_folder, name))
+    print(f'rental build completed. Built contract: {contract_name}. Time: {round(time() - start_time, 2)} seconds.')
+    return name
 
 def rental_listener(db: client, bucket):
     """start rental listener
@@ -155,18 +157,18 @@ def rental_listener(db: client, bucket):
             doc = document[0].to_dict()
             if doc['rentee_active']:
                 print(f'write docx {doc["rentee_contract"]} (rental)')
-                build(db, doc['rentee_contract'])
-                if '--read-only' not in argv:
-                    blob = bucket.blob(f'word/{doc["rentee_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                    blob.upload_from_filename(join(result_folder, 'rental.docx'))
-                    blob.make_public()
-                    print(f'write url to firestore: {blob.public_url}')
-                else:
-                    print('file not upload because of "--read-only" flag.')
+                name = build(db, doc['rentee_contract'])
+                # if '--read-only' not in argv:
+                #     blob = bucket.blob(f'word/{doc["rentee_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
+                #     blob.upload_from_filename(join(result_folder, 'rental.docx'))
+                #     blob.make_public()
+                #     print(f'write url to firestore: {blob.public_url}')
+                # else:
+                #     print('file not upload because of "--read-only" flag.')
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'rentee_active': False,
-                        'rentee_url': blob.public_url
+                        'rentee_url': f'http://nta.desicarscenter.com:8000/files/{name}'
                     })
                 else:
                     print('rentee_active not reseted because of "--read-only" flag.')

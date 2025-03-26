@@ -35,7 +35,7 @@ from config import TELEGRAM_LINK
 
 logdata = Log('extoll.py')
 print = logdata.print
-folder = join(dirname(dirname(abspath(__file__))), 'exword_results')
+folder = join(dirname(abspath(__file__)), 'exword_results')
 
 short_border = Border(
     left=Side(border_style='thin', color='000000'),
@@ -143,7 +143,10 @@ def build(data, nickname, plate):
 
         row += 1
 
-    wb.save(join(folder, 'extoll.xlsx'))
+    name = f'EXTOLL-{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
+    wb.save(join(folder, name))
+    wb.close()
+    return name
 
 
 def get_data(plate: str, db: client):
@@ -194,16 +197,19 @@ def extoll_listener(db: client, bucket):
                 plate = doc['toll_plate']
                 print(f'write xlsx {plate} (extoll)')
                 data = get_data(plate, db)
-                build(data[0], data[1], plate)
+                name = build(data[0], data[1], plate)
+                # if '--read-only' not in argv:
+                #     blob = bucket.blob(f'excel/{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
+                #     blob.upload_from_filename(join(folder, 'extoll.xlsx'))
+                #     blob.make_public()
+                #     print(f'write url to firestore: {blob.public_url}')
+                # else:
+                #     print('file not upload because of "--read-only" flag')
                 if '--read-only' not in argv:
-                    blob = bucket.blob(f'excel/{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                    blob.upload_from_filename(join(folder, 'extoll.xlsx'))
-                    blob.make_public()
-                    print(f'write url to firestore: {blob.public_url}')
-                else:
-                    print('file not upload because of "--read-only" flag')
-                if '--read-only' not in argv:
-                    db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'toll_active': False, 'toll_url': blob.public_url})
+                    db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
+                        'toll_active': False,
+                        'toll_url': f'http://nta.desicarscenter.com:8000/files/{name}'
+                    })
                 else:
                     print('toll_active not reseted because of "--read-only" flag.')
         except Exception as e:

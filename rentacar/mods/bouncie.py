@@ -33,7 +33,7 @@ def get_odometer(key, imei):
     Returns:
         int: odometer
     """
-    print(f'get odometer from {imei} imei.')
+    #print(f'get odometer from {imei} imei.')
     try:
         starts = dt.now().strftime('%Y-%m-%d 23:59:59')
         ends = (dt.now() - timedelta(days=6)).strftime('%Y-%m-%d 23:59:59')

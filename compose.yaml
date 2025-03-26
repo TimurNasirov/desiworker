@@ -10,11 +10,17 @@ services:
         window: 120s
     volumes:
       - /home/desi/desicars/desiworker/toll/logs/:/container/logs/
-    command: python3 main.py --read-only
+    command: python3 main.py --read-only -d
   rentacar:
     image: rentacar
     build:
       context: ./rentacar
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 10s
+        window: 120s
     volumes:
-      - /home/desi/desicars/desiworker/rentacar/logs/:/rentcar/logs/
-    command: python3 main.py --read-only
+      - /home/desi/desicars/desiworker/rentacar/logs/:/rentacar/logs/
+      - /home/desi/server/files/:/exword_results/
+    command: python3 main.py --read-only -d

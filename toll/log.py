@@ -2,8 +2,10 @@
 from datetime import datetime as dt
 from os import listdir
 from mods.timemod import texas_tz
+from sys import argv
 
 _print = print
+dirr = '/rentacar/logs' if '-d' in argv else 'logs/'
 class Log:
     """Class for creating logs"""
     def __init__(self, file):
@@ -21,11 +23,11 @@ class Log:
         Args:
             log (str): log data
         """
-        if self.date + '.txt' in listdir('logs/'):
-            with open('logs/' + self.date + '.txt', 'a', encoding="utf-8") as fl:
+        if self.date + '.txt' in listdir(dirr):
+            with open(dirr + self.date + '.txt', 'a', encoding="utf-8") as fl:
                 fl.write(log + '\n')
         else:
-            with open('logs/' + self.date + '.txt', 'x', encoding="utf-8"):
+            with open(dirr + self.date + '.txt', 'x', encoding="utf-8"):
                 pass
             self.logfile(log)
 
@@ -35,7 +37,7 @@ class Log:
         Args:
             command (str): command from that file starts
         """
-        with open('logs/' + self.date + '.txt', 'a', encoding="utf-8") as fl:
+        with open(dirr + self.date + '.txt', 'a', encoding="utf-8") as fl:
             fl.write(f'launch at {dt.now(texas_tz).strftime("%d.%m %H:%M")} ({command})\n')
 
     def print(self, log):

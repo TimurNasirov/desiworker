@@ -100,6 +100,8 @@ day provided to the Rentee. As a condition of this exclusivity and discount, the
 {contract["discount_month"]} months from the effective date of this Agreement. If the Rentee terminates this Agreement prior to the completion \
 of this {contract["discount_month"]} month minimum term, the Rentee shall be subject to an early termination penalty of $100, payable to the \
 Rentor immediately upon termination, in addition to any other obligations or fees outlined in this Agreement.')
+        else:
+            discount = ''
     else:
         discount = ''
 

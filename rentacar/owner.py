@@ -36,7 +36,7 @@ from config import TELEGRAM_LINK
 logdata = Log('owner.py')
 print = logdata.print
 
-folder = join(dirname(abspath(__file__)), 'exword_results')
+folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_results')
 
 bold_font = Font(bold=True, name='Arial')
 income_font = Font(color='00b121', name='Arial')

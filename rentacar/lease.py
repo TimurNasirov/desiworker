@@ -34,8 +34,8 @@ from config import TELEGRAM_LINK
 logdata = Log('lease.py')
 print = logdata.print
 
-result_folder = join(dirname(abspath(__file__)), 'exword_results')
-sample_folder = join(dirname(abspath(__file__)), 'exword_samples')
+result_folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_results')
+sample_folder = '/rentacar/exword_samples/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_samples')
 
 def check_value(data: dict, key: str, check: str = '-', default: str = ''):
     """Check if a value has a given key in a dictionary

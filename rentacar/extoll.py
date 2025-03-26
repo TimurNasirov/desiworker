@@ -35,7 +35,7 @@ from config import TELEGRAM_LINK
 
 logdata = Log('extoll.py')
 print = logdata.print
-folder = join(dirname(abspath(__file__)), 'exword_results')
+folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_results')
 
 short_border = Border(
     left=Side(border_style='thin', color='000000'),

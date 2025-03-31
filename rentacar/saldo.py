@@ -70,7 +70,7 @@ def start_saldo(db: client):
         db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'actual_saldo': False})
     else:
         print('saldo last update not updated because of "--read-only" flag.')
-    print(f'Saldo work completed. Updated contracts: {len(contracts)}. Time: {round(time() - start_time, 2)} seconds.')
+    print(f'saldo work completed. Updated contracts: {len(contracts)}. Time: {round(time() - start_time, 2)} seconds.')
 
 def start_onecar_saldo(db: client, contract_name: str):
     start_time = time()
@@ -103,7 +103,7 @@ def start_onecar_saldo(db: client, contract_name: str):
                         toll_sum += toll['transaction']
 
     summ = round(income - expense - toll_sum, 2)
-    print(f'write saldo {contract["nickname"]}, sum: {summ}.')
+    print(f'write saldo {contract["ContractName"]}, sum: {summ}.')
     if '--read-only' not in argv:
         db.collection('Contract').document(contract['_firebase_document_id']).update({'last_saldo': summ})
     else:

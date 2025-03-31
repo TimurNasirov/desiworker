@@ -1,0 +1,2442 @@
+
+
+launch at 31.03 07:40 (main.py --read-only --no-tg --no-odometer --no-saldo -t )
+[31.03 07:40:08] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:40:08] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:40:08] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:40:08] main.py: start main process (immediately activate).
+[31.03 07:40:09] changeoil.py: start changeoil.
+[31.03 07:40:34] changeoil.py: total changeoil cars: 0
+[31.03 07:40:34] changeoil.py: changeoil last update not updated because of "--read-only" flag.
+[31.03 07:40:34] changeoil.py: set last changeoil update.
+[31.03 07:40:34] payday.py: start payday.
+[31.03 07:40:43] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:44] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:45] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:46] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:46] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:47] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:48] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:49] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:50] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:51] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:52] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:53] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:54] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:54] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:55] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:56] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:57] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:57] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:58] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:59] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:40:59] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:41:00] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:41:01] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:41:02] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:41:03] main.py: main process stopped.
+
+
+launch at 31.03 07:43 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:43:25] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:43:25] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:43:25] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:43:25] main.py: start main process (immediately activate).
+[31.03 07:43:26] payday.py: start payday.
+[31.03 07:43:28] payday.py: write payday Contract-9R-1
+[31.03 07:43:29] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:29] payday.py: write payday Contract-132R-2
+[31.03 07:43:30] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:30] payday.py: write payday Contract-14R-2
+[31.03 07:43:31] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:31] payday.py: write payday Contract-5R-2
+[31.03 07:43:31] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:31] payday.py: write payday Contract-6R-2
+[31.03 07:43:32] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:32] payday.py: write payday Contract-47R-2
+[31.03 07:43:33] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:33] payday.py: write payday Contract-62R-1
+[31.03 07:43:34] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:34] payday.py: write payday Contract-155R-4
+[31.03 07:43:35] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:35] payday.py: write payday Contract-27R-4
+[31.03 07:43:36] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:36] payday.py: write payday Contract-45R-3
+[31.03 07:43:37] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:37] payday.py: write payday Contract-84Dan-1
+[31.03 07:43:38] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:38] payday.py: write payday Contract-81DR-1
+[31.03 07:43:39] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:39] payday.py: write payday Contract-86Dan-1
+[31.03 07:43:40] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:40] payday.py: write payday Contract-63Den-1
+[31.03 07:43:41] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:41] payday.py: write payday Contract-74DR-1
+[31.03 07:43:42] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:42] payday.py: write payday Contract-146R-5
+[31.03 07:43:43] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:43] payday.py: write payday Contract-118DEN-5
+[31.03 07:43:43] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:43] payday.py: write payday Contract-76DR-1
+[31.03 07:43:44] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:44] payday.py: write payday Contract-67R-1
+[31.03 07:43:44] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:44] payday.py: write payday Contract-12R-5
+[31.03 07:43:44] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:44] payday.py: write payday Contract-131R-3
+[31.03 07:43:45] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:45] payday.py: write payday Contract-112DEN-3
+[31.03 07:43:45] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:45] payday.py: write payday Contract-24Den-2
+[31.03 07:43:46] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:46] payday.py: write payday Contract-78DR-1
+[31.03 07:43:46] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:46] payday.py: write payday Contract-167R-4
+[31.03 07:43:47] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:47] payday.py: write payday Contract-161R-2
+[31.03 07:43:47] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:47] payday.py: write payday Contract-120DEN-4
+[31.03 07:43:48] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:48] payday.py: write payday Contract-3DEN-3
+[31.03 07:43:48] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:48] payday.py: write payday Contract-42DEN-4
+[31.03 07:43:49] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:49] payday.py: write payday Contract-80DR-2
+[31.03 07:43:49] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:49] payday.py: write payday Contract-93R-2
+[31.03 07:43:50] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:50] payday.py: write payday Contract-88R-3
+[31.03 07:43:50] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:50] payday.py: write payday Contract-64R-4
+[31.03 07:43:50] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:50] payday.py: write payday Contract-39R-2
+[31.03 07:43:51] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:51] payday.py: write payday Contract-21R-1
+[31.03 07:43:51] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:51] payday.py: write payday Contract-51Den-4
+[31.03 07:43:52] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:52] payday.py: write payday Contract-72DR-2
+[31.03 07:43:52] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:52] payday.py: write payday Contract-135R-6
+[31.03 07:43:53] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:53] payday.py: write payday Contract-25Dan-5
+[31.03 07:43:53] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:53] payday.py: write payday Contract-23Dan-7
+[31.03 07:43:54] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:54] payday.py: write payday Contract-29R-6
+[31.03 07:43:54] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:54] payday.py: write payday Contract-90R-2
+[31.03 07:43:54] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:54] payday.py: write payday Contract-151R-4
+[31.03 07:43:55] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 07:43:55] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:55] payday.py: write payday Contract-169R-5
+[31.03 07:43:55] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:55] payday.py: write payday Contract-113DEN-5
+[31.03 07:43:56] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:56] payday.py: write payday Contract-19R-5
+[31.03 07:43:56] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 07:43:56] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:56] payday.py: write payday Contract-148R-5
+[31.03 07:43:57] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:57] payday.py: write payday Contract-11R-5
+[31.03 07:43:57] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:57] payday.py: write payday Contract-119Dan-4
+[31.03 07:43:58] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:58] payday.py: write payday Contract-162R-4
+[31.03 07:43:58] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:58] payday.py: write payday Contract-70DR-5
+[31.03 07:43:58] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:58] payday.py: write payday Contract-34R-6
+[31.03 07:43:59] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:59] payday.py: write payday Contract-33Dan-3
+[31.03 07:43:59] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:43:59] payday.py: write payday Contract-2DEN-1
+[31.03 07:44:00] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:00] payday.py: write payday Contract-66R-3
+[31.03 07:44:00] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:00] payday.py: write payday Contract-87R-2
+[31.03 07:44:01] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:01] payday.py: write payday Contract-101Dan-8
+[31.03 07:44:01] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:01] payday.py: write payday Contract-98D-1
+[31.03 07:44:01] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:01] payday.py: write payday Contract-4R-3
+[31.03 07:44:02] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:02] payday.py: write payday Contract-16R-2
+[31.03 07:44:02] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:02] payday.py: write payday Contract-100Dan-7
+[31.03 07:44:03] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:03] payday.py: write payday Contract-7R-1
+[31.03 07:44:03] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:03] payday.py: write payday Contract-8R-1
+[31.03 07:44:04] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:04] payday.py: write payday Contract-154R-3
+[31.03 07:44:04] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:04] payday.py: write payday Contract-96R-3
+[31.03 07:44:05] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:05] payday.py: write payday Contract-160R-8
+[31.03 07:44:05] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:05] payday.py: write payday Contract-89R-2
+[31.03 07:44:05] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 07:44:05] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:05] payday.py: write payday Contract-92R-1
+[31.03 07:44:06] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 07:44:06] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:06] payday.py: write payday Contract-82DR-2
+[31.03 07:44:06] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:06] payday.py: write payday Contract-65R-2
+[31.03 07:44:07] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 07:44:07] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 07:44:07] payday.py: write payday Contract-49DR-2
+[31.03 07:44:07] main.py: main process stopped.
+
+
+launch at 31.03 07:44 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:44:20] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:44:20] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:44:20] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:44:20] main.py: start main process (immediately activate).
+[31.03 07:44:21] payday.py: start payday.
+[31.03 07:44:23] payday.py: total payday contracts: 0
+[31.03 07:44:23] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 07:44:23] payday.py: set last payday update.
+[31.03 07:44:23] main.py: main process stopped successfully.
+
+
+launch at 31.03 07:44 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:44:37] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:44:37] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:44:37] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:44:37] main.py: start main process (immediately activate).
+[31.03 07:44:38] payday.py: start payday.
+[31.03 07:44:41] payday.py: total payday contracts: 0
+[31.03 07:44:41] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 07:44:41] payday.py: set last payday update.
+[31.03 07:44:41] main.py: main process stopped successfully.
+
+
+launch at 31.03 07:45 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:45:07] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:45:07] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:45:07] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:45:07] main.py: start main process (immediately activate).
+[31.03 07:45:08] payday.py: start payday.
+[31.03 07:45:11] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 45: TypeError (Log.print() takes 2 positional arguments but 3 were given).
+
+
+launch at 31.03 07:45 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:45:24] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:45:24] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:45:24] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:45:24] main.py: start main process (immediately activate).
+[31.03 07:45:25] payday.py: start payday.
+[31.03 07:45:48] main.py: main process stopped.
+
+
+launch at 31.03 07:54 (main.py --read-only --no-tg --payday-only -t )
+[31.03 07:54:14] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 07:54:14] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 07:54:14] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 07:54:14] main.py: start main process (immediately activate).
+[31.03 07:54:15] payday.py: start payday.
+[31.03 07:54:33] payday.py: 28Contract-85R-3
+[31.03 07:54:33] payday.py: 3Contract-75DR-3
+[31.03 07:54:33] payday.py: 16Contract-9R-1
+[31.03 07:54:33] payday.py: 28Contract-133R-1
+[31.03 07:54:33] payday.py: 28Contract-31R-3
+[31.03 07:54:33] payday.py: 20Contract-131R-1
+[31.03 07:54:33] payday.py: 8Contract-6R-1
+[31.03 07:54:33] payday.py: 2Contract-17R-1
+[31.03 07:54:33] payday.py: 12Contract-42DEN-1
+[31.03 07:54:33] payday.py: 27Contract-156R-6
+[31.03 07:54:33] payday.py: 13Contract-169R-2
+[31.03 07:54:33] payday.py: 28Contract-103R-3
+[31.03 07:54:33] payday.py: 15Contract-136R-4
+[31.03 07:54:33] payday.py: 26Contract-135R-3
+[31.03 07:54:33] payday.py: 25Contract-132R-2
+[31.03 07:54:33] payday.py: 24Contract-47R-1
+[31.03 07:54:33] payday.py: 16Contract-45R-1
+[31.03 07:54:33] payday.py: 15Contract-30R-3
+[31.03 07:54:33] payday.py: 24Contract-33Dan-1
+[31.03 07:54:33] payday.py: 1Contract-19R-3
+[31.03 07:54:33] payday.py: 24Contract-143R-3
+[31.03 07:54:33] payday.py: 15Contract-41R-2
+[31.03 07:54:33] payday.py: 3Contract-34R-1
+[31.03 07:54:33] payday.py: 24Contract-56M-2
+[31.03 07:54:33] payday.py: 1Contract-39R-1
+[31.03 07:54:33] payday.py: 23Contract-29R-1
+[31.03 07:54:33] payday.py: 20Contract-14R-2
+[31.03 07:54:33] payday.py: 11Contract-144R-2
+[31.03 07:54:33] payday.py: 26Contract-145R-1
+[31.03 07:54:33] payday.py: 3Contract-146R-3
+[31.03 07:54:33] payday.py: 19Contract-147R-2
+[31.03 07:54:33] payday.py: 10Contract-148R-1
+[31.03 07:54:33] payday.py: 12Contract-149R-2
+[31.03 07:54:33] payday.py: 4Contract-150R-1
+[31.03 07:54:33] payday.py: 12Contract-152R-1
+[31.03 07:54:33] payday.py: 15Contract-2M-1
+[31.03 07:54:33] payday.py: 28Contract-9M-1
+[31.03 07:54:33] payday.py: 17Contract-20M-1
+[31.03 07:54:33] payday.py: 25Contract-22M-1
+[31.03 07:54:33] payday.py: 27Contract-26M-1
+[31.03 07:54:33] payday.py: 15Contract-28M-1
+[31.03 07:54:33] payday.py: 20Contract-48M-2
+[31.03 07:54:33] payday.py: 28Contract-54M-1
+[31.03 07:54:33] payday.py: 28Contract-57M-1
+[31.03 07:54:33] payday.py: 22Contract-61M-2
+[31.03 07:54:33] payday.py: 1Contract-101Dan-5
+[31.03 07:54:33] payday.py: 7Contract-8M-2
+[31.03 07:54:33] payday.py: 1Contract-38M-4
+[31.03 07:54:33] payday.py: 1Contract-35M-2
+[31.03 07:54:33] payday.py: 24Contract-7M-3
+[31.03 07:54:33] payday.py: 23Contract-160R-5
+[31.03 07:54:33] payday.py: 23Contract-50M-2
+[31.03 07:54:33] payday.py: 23Contract-56M-3
+[31.03 07:54:33] payday.py: 18Contract-4M-2
+[31.03 07:54:33] payday.py: 11Contract-3M-3
+[31.03 07:54:33] payday.py: 24Contract-37M-3
+[31.03 07:54:33] payday.py: 20Contract-46M-3
+[31.03 07:54:33] payday.py: 4Contract-151R-2
+[31.03 07:54:33] payday.py: 24Contract-168R-3
+[31.03 07:54:33] payday.py: 24Contract-152R-3
+[31.03 07:54:33] payday.py: 24Contract-143R-4
+[31.03 07:54:33] payday.py: 15Contract-12R-4
+[31.03 07:54:33] payday.py: 14Contract-32M-2
+[31.03 07:54:33] payday.py: 28Contract-44M-3
+[31.03 07:54:33] payday.py: 26Contract-136R-5
+[31.03 07:54:33] payday.py: 24Contract-1R-3
+[31.03 07:54:33] payday.py: 13Contract-40R-3
+[31.03 07:54:33] payday.py: 26Contract-5R-2
+[31.03 07:54:33] payday.py: 26Contract-155R-1
+[31.03 07:54:33] payday.py: 27Contract-55M-3
+[31.03 07:54:33] payday.py: 27Contract-21M-4
+[31.03 07:54:33] payday.py: 27Contract-6R-2
+[31.03 07:54:33] payday.py: 28Contract-140R-5
+[31.03 07:54:33] payday.py: 28Contract-47R-2
+[31.03 07:54:33] payday.py: 27Contract-36R-3
+[31.03 07:54:33] payday.py: 28Contract-35M-3
+[31.03 07:54:33] payday.py: 28Contract-154R-2
+[31.03 07:54:33] payday.py: 13Contract-155R-2
+[31.03 07:54:33] payday.py: 5Contract-156R-5
+[31.03 07:54:33] payday.py: 4Contract-157R-2
+[31.03 07:54:33] payday.py: 26Contract-158R-2
+[31.03 07:54:33] payday.py: 19Contract-161R-1
+[31.03 07:54:33] payday.py: 28Contract-113DEN-4
+[31.03 07:54:33] payday.py: 1Contract-10M-4
+[31.03 07:54:33] payday.py: 12Contract-162R-3
+[31.03 07:54:33] payday.py: 24Contract-163R-5
+[31.03 07:54:33] payday.py: 19Contract-164R-2
+[31.03 07:54:33] payday.py: 10Contract-165R-3
+[31.03 07:54:33] payday.py: 27Contract-167R-2
+[31.03 07:54:33] payday.py: 13Contract-169R-1
+[31.03 07:54:33] payday.py: 7Contract-5R-1
+[31.03 07:54:33] payday.py: 13Contract-1R-1
+[31.03 07:54:33] payday.py: 6Contract-118DEN-3
+[31.03 07:54:33] payday.py: 6Contract-24Den-1
+[31.03 07:54:33] payday.py: 7Contract-23Dan-4
+[31.03 07:54:33] payday.py: 7Contract-62R-1
+[31.03 07:54:33] payday.py: 27Contract-110DEN-4
+[31.03 07:54:33] payday.py: 12Contract-112DEN-2
+[31.03 07:54:33] payday.py: 25Contract-120DEN-3
+[31.03 07:54:33] payday.py: 26Contract-113DEN-3
+[31.03 07:54:33] payday.py: 26Contract-114DEN-2
+[31.03 07:54:33] payday.py: 1Contract-158R-4
+[31.03 07:54:33] payday.py: 2Contract-140R-6
+[31.03 07:54:33] payday.py: 2Contract-152R-5
+[31.03 07:54:33] payday.py: 2Contract-89R-1
+[31.03 07:54:33] payday.py: 3Contract-163R-7
+[31.03 07:54:33] payday.py: 5Contract-155R-4
+[31.03 07:54:33] payday.py: 6Contract-70DR-3
+[31.03 07:54:33] payday.py: 9Contract-64R-2
+[31.03 07:54:33] payday.py: 28Contract-152R-4
+[31.03 07:54:33] payday.py: 28Contract-79R-1
+[31.03 07:54:33] payday.py: 28Contract-163R-6
+[31.03 07:54:33] payday.py: 2Contract-166R-3
+[31.03 07:54:33] payday.py: 11Contract-34R-3
+[31.03 07:54:33] payday.py: 8Contract-23Dan-6
+[31.03 07:54:33] payday.py: 12Contract-148R-3
+[31.03 07:54:33] payday.py: 13Contract-27R-4
+[31.03 07:54:33] payday.py: 13Contract-18Dan-4
+[31.03 07:54:33] payday.py: 11Contract-82DR-1
+[31.03 07:54:33] payday.py: 14Contract-114DEN-5
+[31.03 07:54:33] payday.py: 14Contract-38M-5
+[31.03 07:54:33] payday.py: 16Contract-45R-3
+[31.03 07:54:33] payday.py: 17Contract-83R-1
+[31.03 07:54:33] payday.py: 18Contract-84Dan-1
+[31.03 07:54:33] payday.py: 18Contract-42DEN-2
+[31.03 07:54:33] payday.py: 18Contract-101Dan-6
+[31.03 07:54:33] payday.py: 1Contract-100Dan-4
+[31.03 07:54:33] payday.py: 21Contract-77Den-1
+[31.03 07:54:33] payday.py: 2Contract-36R-4
+[31.03 07:54:33] payday.py: 2Contract-71DR-2
+[31.03 07:54:33] payday.py: 2Contract-156R-8
+[31.03 07:54:33] payday.py: 22Contract-41R-3
+[31.03 07:54:33] payday.py: 25Contract-81DR-1
+[31.03 07:54:33] payday.py: 23Contract-87R-1
+[31.03 07:54:33] payday.py: 25Contract-55M-6
+[31.03 07:54:33] payday.py: 25Contract-86Dan-1
+[31.03 07:54:33] payday.py: 26Contract-32M-3
+[31.03 07:54:33] payday.py: 26Contract-75DR-2
+[31.03 07:54:33] payday.py: 2Contract-85R-1
+[31.03 07:54:33] payday.py: 24Contract-100Dan-5
+[31.03 07:54:33] payday.py: 28Contract-88R-1
+[31.03 07:54:33] payday.py: 15Contract-53R-2
+[31.03 07:54:33] payday.py: 4Contract-121R-1
+[31.03 07:54:33] payday.py: 4Contract-117VOV-4
+[31.03 07:54:33] payday.py: 5Contract-70DR-2
+[31.03 07:54:33] payday.py: 27Contract-145R-3
+[31.03 07:54:33] payday.py: 6Contract-33Dan-2
+[31.03 07:54:33] payday.py: 7Contract-29R-4
+[31.03 07:54:33] payday.py: 8Contract-164R-3
+[31.03 07:54:33] payday.py: 9Contract-10M-6
+[31.03 07:54:33] payday.py: 8Contract-111DEN-6
+[31.03 07:54:33] payday.py: 19Contract-117VOV-3
+[31.03 07:54:33] payday.py: 10Contract-10M-5
+[31.03 07:54:33] payday.py: 24Contract-49DR-1
+[31.03 07:54:33] payday.py: 19Contract-63Den-1
+[31.03 07:54:33] payday.py: 11Contract-61M-4
+[31.03 07:54:33] payday.py: 14Contract-64R-1
+[31.03 07:54:33] payday.py: 7Contract-23Dan-5
+[31.03 07:54:33] payday.py: 12Contract-11R-3
+[31.03 07:54:33] payday.py: 14Contract-55M-5
+[31.03 07:54:33] payday.py: 14Contract-114DEN-4
+[31.03 07:54:33] payday.py: 16Contract-45R-2
+[31.03 07:54:33] payday.py: 12Contract-43DR-2
+[31.03 07:54:33] payday.py: 23Contract-74DR-1
+[31.03 07:54:33] payday.py: 22Contract-25Dan-4
+[31.03 07:54:33] payday.py: 24Contract-3M-4
+[31.03 07:54:33] payday.py: 25Contract-75DR-1
+[31.03 07:54:33] payday.py: 27Contract-37M-5
+[31.03 07:54:33] payday.py: 26Contract-4M-3
+[31.03 07:54:33] payday.py: 2Contract-70DR-1
+[31.03 07:54:33] payday.py: 21Contract-72DR-1
+[31.03 07:54:33] payday.py: 22Contract-73R-1
+[31.03 07:54:33] payday.py: 28Contract-59R-2
+[31.03 07:54:33] payday.py: 28Contract-146R-5
+[31.03 07:54:33] payday.py: 28Contract-20M-2
+[31.03 07:54:33] payday.py: 23Contract-118DEN-5
+[31.03 07:54:33] payday.py: 21Contract-76DR-1
+[31.03 07:54:33] payday.py: 17Contract-66R-1
+[31.03 07:54:33] payday.py: 3Contract-29R-3
+[31.03 07:54:33] payday.py: 19Contract-135R-4
+[31.03 07:54:33] payday.py: 26Contract-65R-1
+[31.03 07:54:33] payday.py: 7Contract-55M-4
+[31.03 07:54:33] payday.py: 26Contract-37M-4
+[31.03 07:54:33] payday.py: 1Contract-100Dan-2
+[31.03 07:54:33] payday.py: 12Contract-11R-2
+[31.03 07:54:33] payday.py: 13Contract-58Den-1
+[31.03 07:54:33] payday.py: 16Contract-51Den-2
+[31.03 07:54:33] payday.py: 27Contract-52Den-1
+[31.03 07:54:33] payday.py: 7Contract-111DEN-5
+[31.03 07:54:33] payday.py: 9Contract-118DEN-4
+[31.03 07:54:33] payday.py: 13Contract-19R-4
+[31.03 07:54:33] payday.py: 16Contract-119Dan-2
+[31.03 07:54:33] payday.py: 16Contract-114DEN-3
+[31.03 07:54:33] payday.py: 16Contract-148R-2
+[31.03 07:54:33] payday.py: 7Contract-146R-4
+[31.03 07:54:33] payday.py: 17Contract-119Dan-3
+[31.03 07:54:33] payday.py: 27Contract-52M-1
+[31.03 07:54:33] payday.py: 2Contract-153R-4
+[31.03 07:54:33] payday.py: 28Contract-59R-1
+[31.03 07:54:33] payday.py: 27Contract-53R-1
+[31.03 07:54:33] payday.py: 19Contract-166R-2
+[31.03 07:54:33] payday.py: 22Contract-160R-6
+[31.03 07:54:33] payday.py: 27Contract-67R-1
+[31.03 07:54:33] payday.py: 29Contract-34R-2d
+[31.03 07:54:33] payday.py: 23Contract-145R-2
+[31.03 07:54:33] payday.py: 26Contract-55M-4>37
+[31.03 07:54:33] payday.py: 25Contract-136R-6
+[31.03 07:54:33] payday.py: 27Contract-29R-2
+[31.03 07:54:33] payday.py: 28Contract-12R-5
+[31.03 07:54:33] payday.py: 28Contract-52Den-2
+[31.03 07:54:33] payday.py: 27Contract-167R-3
+[31.03 07:54:33] payday.py: 28Contract-158R-3
+[31.03 07:54:33] payday.py: 28Contract-156R-7
+[31.03 07:54:33] payday.py: 1Contract-34R-2
+[31.03 07:54:33] payday.py: 5Contract-131R-3
+[31.03 07:54:33] payday.py: 14Contract-112DEN-3
+[31.03 07:54:33] payday.py: 7Contract-24Den-2
+[31.03 07:54:33] payday.py: 23Contract-78DR-1
+[31.03 07:54:33] payday.py: 8Contract-80DR-1
+[31.03 07:54:33] payday.py: 21Contract-52Den-4
+[31.03 07:54:33] payday.py: 13Contract-85R-2
+[31.03 07:54:33] payday.py: 10Contract-1R-2
+[31.03 07:54:33] payday.py: 28Contract-167R-4
+[31.03 07:54:33] payday.py: 28Contract-49M-TEST-1
+[31.03 07:54:33] payday.py: 7Contract-149R-3
+[31.03 07:54:33] payday.py: 18Contract-66R-2
+[31.03 07:54:33] payday.py: 20Contract-161R-2
+[31.03 07:54:33] payday.py: 3Contract-103R-4
+[31.03 07:54:33] payday.py: 5Contract-51Den-3
+[31.03 07:54:33] payday.py: 26Contract-85R-4
+[31.03 07:54:33] payday.py: 13Contract-113DEN-4
+[31.03 07:54:33] payday.py: 18Contract-4R-1
+[31.03 07:54:33] payday.py: 14Contract-79R-2
+[31.03 07:54:33] payday.py: 12Contract-43DR-3
+[31.03 07:54:33] payday.py: 16Contract-120DEN-4
+[31.03 07:54:33] payday.py: 20Contract-96R-1
+[31.03 07:54:33] payday.py: 21Contract-3DEN-3
+[31.03 07:54:33] payday.py: 27Contract-111DEN-7
+[31.03 07:54:33] payday.py: 23Contract-53R-3
+[31.03 07:54:33] payday.py: 23Contract-54DR-1
+[31.03 07:54:33] payday.py: 26Contract-28R-3
+[31.03 07:54:33] payday.py: 11Contract-152R-7
+[31.03 07:54:33] payday.py: 13Contract-40R-5
+[31.03 07:54:33] payday.py: 10Contract-42DEN-4
+[31.03 07:54:33] payday.py: 8Contract-80DR-2
+[31.03 07:54:33] payday.py: 20Contract-4R-2
+[31.03 07:54:33] payday.py: 10Contract-93R-2
+[31.03 07:54:33] payday.py: 14Contract-148R-4
+[31.03 07:54:33] payday.py: 10Contract-136R-7
+[31.03 07:54:33] payday.py: 1Contract-88R-3
+[31.03 07:54:33] payday.py: 28Contract-36R-7
+[31.03 07:54:33] payday.py: 28Contract-La Griselda-1
+[31.03 07:54:33] payday.py: 12Contract-16R-1
+[31.03 07:54:33] payday.py: 3Contract-114DEN-6
+[31.03 07:54:33] payday.py: 22Contract-43DR-5
+[31.03 07:54:33] payday.py: 8Contract-64R-4
+[31.03 07:54:33] payday.py: 11Contract-39R-2
+[31.03 07:54:33] payday.py: 4Contract-165R-6
+[31.03 07:54:33] payday.py: 27Contract-110DEN-5
+[31.03 07:54:33] payday.py: 20Contract-158R-6
+[31.03 07:54:33] payday.py: 12Contract-21R-1
+[31.03 07:54:33] payday.py: 28Contract-55R-1
+[31.03 07:54:33] payday.py: 28Contract-49M-TEST-2
+[31.03 07:54:33] payday.py: 11Contract-51Den-4
+[31.03 07:54:33] payday.py: 15Contract-79R-2
+[31.03 07:54:33] payday.py: 13Contract-166R-4
+[31.03 07:54:33] payday.py: 24Contract-10DR-2
+[31.03 07:54:33] payday.py: 7Contract-164R-5
+[31.03 07:54:33] payday.py: 9Contract-22R-1
+[31.03 07:54:33] payday.py: 28Contract-La Griselda-2
+[31.03 07:54:33] payday.py: 15Contract-53R-5
+[31.03 07:54:33] payday.py: 27Contract-72DR-2
+[31.03 07:54:33] payday.py: 13Contract-135R-6
+[31.03 07:54:33] payday.py: 25Contract-25Dan-5
+[31.03 07:54:33] payday.py: 18Contract-23Dan-7
+[31.03 07:54:33] payday.py: 27Contract-43DR-6
+[31.03 07:54:33] payday.py: 24Contract-10DR-1
+[31.03 07:54:33] payday.py: 21Contract-52Den-3
+[31.03 07:54:33] payday.py: 13Contract-36R-6
+[31.03 07:54:33] payday.py: 17Contract-166R-7
+[31.03 07:54:33] payday.py: 11Contract-158R-5
+[31.03 07:54:33] payday.py: 25Contract-152R-6
+[31.03 07:54:33] payday.py: 28Contract-29R-6
+[31.03 07:54:33] payday.py: 12Contract-90R-2
+[31.03 07:54:33] payday.py: 22Contract-103R-5
+[31.03 07:54:33] payday.py: 14Contract-97R-2
+[31.03 07:54:33] payday.py: 8Contract-151R-4
+[31.03 07:54:33] payday.py: 15Contract-75DR-5
+[31.03 07:54:33] payday.py: 17Contract-17R-3
+[31.03 07:54:33] payday.py: 11Contract-169R-4
+[31.03 07:54:33] payday.py: 4Contract-59R-4
+[31.03 07:54:33] payday.py: 5Contract-15R-1
+[31.03 07:54:33] payday.py: 20Contract-169R-5
+[31.03 07:54:33] payday.py: 26Contract-30R-4
+[31.03 07:54:33] payday.py: 11Contract-34R-5
+[31.03 07:54:33] payday.py: 3Contract-73R-3
+[31.03 07:54:33] payday.py: 20Contract-28R-2
+[31.03 07:54:33] payday.py: 5Contract-153R-5
+[31.03 07:54:33] payday.py: 19Contract-17R-4
+[31.03 07:54:33] payday.py: 19Contract-11R-4
+[31.03 07:54:33] payday.py: 7Contract-157R-3
+[31.03 07:54:33] payday.py: 20Contract-113DEN-5
+[31.03 07:54:33] payday.py: 10Contract-169R-3
+[31.03 07:54:33] payday.py: 17Contract-19R-5
+[31.03 07:54:33] payday.py: 21Contract-136R-8
+[31.03 07:54:33] payday.py: 8Contract-75DR-4
+[31.03 07:54:33] payday.py: 15Contract-96R-2
+[31.03 07:54:33] payday.py: 20Contract-77Den-3
+[31.03 07:54:33] payday.py: 17Contract-101Dan-7
+[31.03 07:54:33] payday.py: 20Contract-148R-5
+[31.03 07:54:33] payday.py: 23Contract-103R-6
+[31.03 07:54:33] payday.py: 5Contract-11R-5
+[31.03 07:54:33] payday.py: 22Contract-166R-6
+[31.03 07:54:33] payday.py: 4Contract-114DEN-8
+[31.03 07:54:33] payday.py: 18Contract-151R-3
+[31.03 07:54:33] payday.py: 4Contract-59R-3
+[31.03 07:54:33] payday.py: 25Contract-114DEN-9
+[31.03 07:54:33] payday.py: 25Contract-119Dan-4
+[31.03 07:54:33] payday.py: 12Contract-162R-4
+[31.03 07:54:33] payday.py: 28Contract-53R-4
+[31.03 07:54:33] payday.py: 9Contract-70DR-5
+[31.03 07:54:33] payday.py: 19Contract-83R-2
+[31.03 07:54:33] payday.py: 13Contract-18Dan-6
+[31.03 07:54:33] payday.py: 7Contract-40R-4
+[31.03 07:54:33] payday.py: 13Contract-114DEN-7
+[31.03 07:54:33] payday.py: 22Contract-3DEN-2
+[31.03 07:54:33] payday.py: 24Contract-100Dan-6
+[31.03 07:54:33] payday.py: 14Contract-34R-6
+[31.03 07:54:33] payday.py: 3Contract-93R-1
+[31.03 07:54:33] payday.py: 18Contract-165R-4
+[31.03 07:54:33] payday.py: 6Contract-117VOV-5
+[31.03 07:54:33] payday.py: 4Contract-160R-7
+[31.03 07:54:33] payday.py: 6Contract-153R-6
+[31.03 07:54:33] payday.py: 10Contract-36R-5
+[31.03 07:54:33] payday.py: 9Contract-33Dan-3
+[31.03 07:54:33] payday.py: 19Contract-2DEN-1
+[31.03 07:54:33] payday.py: 8Contract-70DR-4
+[31.03 07:54:33] payday.py: 13Contract-66R-3
+[31.03 07:54:33] payday.py: 24Contract-164R-4
+[31.03 07:54:33] payday.py: 18Contract-87R-2
+[31.03 07:54:33] payday.py: 9Contract-90R-1
+[31.03 07:54:33] payday.py: 22Contract-101Dan-8
+[31.03 07:54:33] payday.py: 28Contract-98D-1
+[31.03 07:54:33] payday.py: 20Contract-4R-3
+[31.03 07:54:33] payday.py: 28Contract-La Griselda-3
+[31.03 07:54:33] payday.py: 20Contract-16R-2
+[31.03 07:54:33] payday.py: 3Contract-100Dan-7
+[31.03 07:54:33] payday.py: 12Contract-7R-1
+[31.03 07:54:33] payday.py: 7Contract-149R-4
+[31.03 07:54:33] payday.py: 21Contract-111DEN-0
+[31.03 07:54:33] payday.py: 16Contract-111DEN-8
+[31.03 07:54:33] payday.py: 25Contract-8R-1
+[31.03 07:54:33] payday.py: 19Contract-79R-3
+[31.03 07:54:33] payday.py: 7Contract-30R-5
+[31.03 07:54:33] payday.py: 28Contract-La Griselda-5
+[31.03 07:54:33] payday.py: 17Contract-31R-5
+[31.03 07:54:33] payday.py: 27Contract-154R-3
+[31.03 07:54:33] payday.py: 25Contract-96R-3
+[31.03 07:54:33] payday.py: 20Contract-160R-8
+[31.03 07:54:33] payday.py: 4Contract-89R-2
+[31.03 07:54:33] payday.py: 29Contract-26R-1
+[31.03 07:54:33] payday.py: 6Contract-91R-2
+[31.03 07:54:33] payday.py: 24Contract-156R-9
+[31.03 07:54:33] payday.py: 8Contract-117VOV-6
+[31.03 07:54:33] payday.py: 13Contract-135R-5
+[31.03 07:54:33] payday.py: 27Contract-3DEN-1
+[31.03 07:54:33] payday.py: 19Contract-28R-1
+[31.03 07:54:33] payday.py: 22Contract-54DR-2
+[31.03 07:54:33] payday.py: 12Contract-92R-1
+[31.03 07:54:33] payday.py: 10Contract-17R-2
+[31.03 07:54:33] payday.py: 28Contract-165R-5
+[31.03 07:54:33] payday.py: 13Contract-82DR-2
+[31.03 07:54:33] payday.py: 28Contract-34R-4
+[31.03 07:54:33] payday.py: 26Contract-18Dan-5
+[31.03 07:54:33] payday.py: 27Contract-65R-2
+[31.03 07:54:33] payday.py: 21Contract-43DR-4
+[31.03 07:54:33] payday.py: 14Contract-49DR-2
+[31.03 07:54:33] payday.py: 21Contract-91R-1
+[31.03 07:54:33] payday.py: 28Contract-29R-5
+[31.03 07:54:33] payday.py: 11Contract-99DR-1
+[31.03 07:54:33] payday.py: 22Contract-46DR-1
+[31.03 07:54:33] payday.py: 27Contract-88R-2
+[31.03 07:54:33] payday.py: 28Contract-La Griselda-4
+[31.03 07:54:33] payday.py: 14Contract-153R-7
+[31.03 07:54:33] payday.py: 13Contract-166R-5
+[31.03 07:54:33] payday.py: 18Contract-94R-1
+[31.03 07:54:33] payday.py: 22Contract-77Den-2
+[31.03 07:54:33] payday.py: 19Contract-111DEN-9
+[31.03 07:54:33] payday.py: 8Contract-117VOV-7
+[31.03 07:54:33] payday.py: 30Contract-41R-4
+[31.03 07:54:33] payday.py: 19Contract-42DEN-3
+[31.03 07:54:33] payday.py: 20Contract-20R-1
+[31.03 07:54:33] payday.py: 18Contract-140R-7
+[31.03 07:54:33] payday.py: 28Contract-73R-2
+[31.03 07:54:33] payday.py: 1Contract-158R-7
+[31.03 07:54:33] payday.py: 15Contract-31R-4
+[31.03 07:54:33] payday.py: 13Contract-32DEN-1
+[31.03 07:54:33] payday.py: 13Contract-97R-1
+[31.03 07:54:33] payday.py: 23Contract-163R-8
+[31.03 07:54:33] payday.py: 1Contract-95DR-1
+[31.03 07:54:33] payday.py: total payday contracts: 0
+[31.03 07:54:33] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 07:54:33] payday.py: set last payday update.
+[31.03 07:54:33] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:01 (main.py --read-only --no-tg --payday-only -t )
+[31.03 08:01:29] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:01:29] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:01:29] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 08:01:29] main.py: start main process (immediately activate).
+[31.03 08:01:30] payday.py: start payday.
+[31.03 08:01:33] payday.py: 28Contract-85R-3
+[31.03 08:01:33] payday.py: 3Contract-75DR-3
+[31.03 08:01:33] payday.py: 16Contract-9R-1
+[31.03 08:01:33] payday.py: 28Contract-133R-1
+[31.03 08:01:33] payday.py: 28Contract-31R-3
+[31.03 08:01:33] payday.py: 20Contract-131R-1
+[31.03 08:01:33] payday.py: 8Contract-6R-1
+[31.03 08:01:33] payday.py: 2Contract-17R-1
+[31.03 08:01:33] payday.py: 12Contract-42DEN-1
+[31.03 08:01:33] payday.py: 27Contract-156R-6
+[31.03 08:01:33] payday.py: 13Contract-169R-2
+[31.03 08:01:33] payday.py: 28Contract-103R-3
+[31.03 08:01:33] payday.py: 15Contract-136R-4
+[31.03 08:01:33] payday.py: 26Contract-135R-3
+[31.03 08:01:33] payday.py: 25Contract-132R-2
+[31.03 08:01:33] payday.py: 24Contract-47R-1
+[31.03 08:01:33] payday.py: 16Contract-45R-1
+[31.03 08:01:33] payday.py: 15Contract-30R-3
+[31.03 08:01:33] payday.py: 24Contract-33Dan-1
+[31.03 08:01:33] payday.py: 1Contract-19R-3
+[31.03 08:01:33] payday.py: 24Contract-143R-3
+[31.03 08:01:33] payday.py: 15Contract-41R-2
+[31.03 08:01:33] payday.py: 3Contract-34R-1
+[31.03 08:01:33] payday.py: 24Contract-56M-2
+[31.03 08:01:33] payday.py: 1Contract-39R-1
+[31.03 08:01:33] payday.py: 23Contract-29R-1
+[31.03 08:01:33] payday.py: 20Contract-14R-2
+[31.03 08:01:33] payday.py: 11Contract-144R-2
+[31.03 08:01:33] payday.py: 26Contract-145R-1
+[31.03 08:01:33] payday.py: 3Contract-146R-3
+[31.03 08:01:33] payday.py: 19Contract-147R-2
+[31.03 08:01:33] payday.py: 10Contract-148R-1
+[31.03 08:01:33] payday.py: 12Contract-149R-2
+[31.03 08:01:33] payday.py: 4Contract-150R-1
+[31.03 08:01:33] payday.py: 12Contract-152R-1
+[31.03 08:01:33] payday.py: 15Contract-2M-1
+[31.03 08:01:33] payday.py: 28Contract-9M-1
+[31.03 08:01:33] payday.py: 17Contract-20M-1
+[31.03 08:01:33] payday.py: 25Contract-22M-1
+[31.03 08:01:33] payday.py: 27Contract-26M-1
+[31.03 08:01:33] payday.py: 15Contract-28M-1
+[31.03 08:01:33] payday.py: 20Contract-48M-2
+[31.03 08:01:33] payday.py: 28Contract-54M-1
+[31.03 08:01:33] payday.py: 28Contract-57M-1
+[31.03 08:01:33] payday.py: 22Contract-61M-2
+[31.03 08:01:33] payday.py: 1Contract-101Dan-5
+[31.03 08:01:33] payday.py: 7Contract-8M-2
+[31.03 08:01:33] payday.py: 1Contract-38M-4
+[31.03 08:01:33] payday.py: 1Contract-35M-2
+[31.03 08:01:33] payday.py: 24Contract-7M-3
+[31.03 08:01:33] payday.py: 23Contract-160R-5
+[31.03 08:01:33] payday.py: 23Contract-50M-2
+[31.03 08:01:33] payday.py: 23Contract-56M-3
+[31.03 08:01:33] payday.py: 18Contract-4M-2
+[31.03 08:01:33] payday.py: 11Contract-3M-3
+[31.03 08:01:33] payday.py: 24Contract-37M-3
+[31.03 08:01:33] payday.py: 20Contract-46M-3
+[31.03 08:01:33] payday.py: 4Contract-151R-2
+[31.03 08:01:33] payday.py: 24Contract-168R-3
+[31.03 08:01:33] payday.py: 24Contract-152R-3
+[31.03 08:01:33] payday.py: 24Contract-143R-4
+[31.03 08:01:33] payday.py: 15Contract-12R-4
+[31.03 08:01:33] payday.py: 14Contract-32M-2
+[31.03 08:01:33] payday.py: 28Contract-44M-3
+[31.03 08:01:33] payday.py: 26Contract-136R-5
+[31.03 08:01:33] payday.py: 24Contract-1R-3
+[31.03 08:01:33] payday.py: 13Contract-40R-3
+[31.03 08:01:33] payday.py: 26Contract-5R-2
+[31.03 08:01:33] payday.py: 26Contract-155R-1
+[31.03 08:01:33] payday.py: 27Contract-55M-3
+[31.03 08:01:33] payday.py: 27Contract-21M-4
+[31.03 08:01:33] payday.py: 27Contract-6R-2
+[31.03 08:01:33] payday.py: 28Contract-140R-5
+[31.03 08:01:33] payday.py: 28Contract-47R-2
+[31.03 08:01:33] payday.py: 27Contract-36R-3
+[31.03 08:01:33] payday.py: 28Contract-35M-3
+[31.03 08:01:33] payday.py: 28Contract-154R-2
+[31.03 08:01:33] payday.py: 13Contract-155R-2
+[31.03 08:01:33] payday.py: 5Contract-156R-5
+[31.03 08:01:33] payday.py: 4Contract-157R-2
+[31.03 08:01:33] payday.py: 26Contract-158R-2
+[31.03 08:01:33] payday.py: 19Contract-161R-1
+[31.03 08:01:33] payday.py: 28Contract-113DEN-4
+[31.03 08:01:33] payday.py: 1Contract-10M-4
+[31.03 08:01:33] payday.py: 12Contract-162R-3
+[31.03 08:01:33] payday.py: 24Contract-163R-5
+[31.03 08:01:33] payday.py: 19Contract-164R-2
+[31.03 08:01:33] payday.py: 10Contract-165R-3
+[31.03 08:01:33] payday.py: 27Contract-167R-2
+[31.03 08:01:33] payday.py: 13Contract-169R-1
+[31.03 08:01:33] payday.py: 7Contract-5R-1
+[31.03 08:01:33] payday.py: 13Contract-1R-1
+[31.03 08:01:33] payday.py: 6Contract-118DEN-3
+[31.03 08:01:33] payday.py: 6Contract-24Den-1
+[31.03 08:01:33] payday.py: 7Contract-23Dan-4
+[31.03 08:01:33] payday.py: 7Contract-62R-1
+[31.03 08:01:33] payday.py: 27Contract-110DEN-4
+[31.03 08:01:33] payday.py: 12Contract-112DEN-2
+[31.03 08:01:33] payday.py: 25Contract-120DEN-3
+[31.03 08:01:33] payday.py: 26Contract-113DEN-3
+[31.03 08:01:33] payday.py: 26Contract-114DEN-2
+[31.03 08:01:33] payday.py: 1Contract-158R-4
+[31.03 08:01:33] payday.py: 2Contract-140R-6
+[31.03 08:01:33] payday.py: 2Contract-152R-5
+[31.03 08:01:33] payday.py: 2Contract-89R-1
+[31.03 08:01:33] payday.py: 3Contract-163R-7
+[31.03 08:01:33] payday.py: 5Contract-155R-4
+[31.03 08:01:33] payday.py: 6Contract-70DR-3
+[31.03 08:01:33] payday.py: 9Contract-64R-2
+[31.03 08:01:33] payday.py: 28Contract-152R-4
+[31.03 08:01:33] payday.py: 28Contract-79R-1
+[31.03 08:01:33] payday.py: 28Contract-163R-6
+[31.03 08:01:33] payday.py: 2Contract-166R-3
+[31.03 08:01:33] payday.py: 11Contract-34R-3
+[31.03 08:01:33] payday.py: 8Contract-23Dan-6
+[31.03 08:01:33] payday.py: 12Contract-148R-3
+[31.03 08:01:33] payday.py: 13Contract-27R-4
+[31.03 08:01:33] payday.py: 13Contract-18Dan-4
+[31.03 08:01:33] payday.py: 11Contract-82DR-1
+[31.03 08:01:33] payday.py: 14Contract-114DEN-5
+[31.03 08:01:33] payday.py: 14Contract-38M-5
+[31.03 08:01:33] payday.py: 16Contract-45R-3
+[31.03 08:01:33] payday.py: 17Contract-83R-1
+[31.03 08:01:33] payday.py: 18Contract-84Dan-1
+[31.03 08:01:33] payday.py: 18Contract-42DEN-2
+[31.03 08:01:33] payday.py: 18Contract-101Dan-6
+[31.03 08:01:33] payday.py: 1Contract-100Dan-4
+[31.03 08:01:33] payday.py: 21Contract-77Den-1
+[31.03 08:01:33] payday.py: 2Contract-36R-4
+[31.03 08:01:33] payday.py: 2Contract-71DR-2
+[31.03 08:01:33] payday.py: 2Contract-156R-8
+[31.03 08:01:33] payday.py: 22Contract-41R-3
+[31.03 08:01:33] payday.py: 25Contract-81DR-1
+[31.03 08:01:33] payday.py: 23Contract-87R-1
+[31.03 08:01:33] payday.py: 25Contract-55M-6
+[31.03 08:01:33] payday.py: 25Contract-86Dan-1
+[31.03 08:01:33] payday.py: 26Contract-32M-3
+[31.03 08:01:33] payday.py: 26Contract-75DR-2
+[31.03 08:01:33] payday.py: 2Contract-85R-1
+[31.03 08:01:33] payday.py: 24Contract-100Dan-5
+[31.03 08:01:33] payday.py: 28Contract-88R-1
+[31.03 08:01:33] payday.py: 15Contract-53R-2
+[31.03 08:01:33] payday.py: 4Contract-121R-1
+[31.03 08:01:33] payday.py: 4Contract-117VOV-4
+[31.03 08:01:33] payday.py: 5Contract-70DR-2
+[31.03 08:01:33] payday.py: 27Contract-145R-3
+[31.03 08:01:33] payday.py: 6Contract-33Dan-2
+[31.03 08:01:33] payday.py: 7Contract-29R-4
+[31.03 08:01:33] payday.py: 8Contract-164R-3
+[31.03 08:01:33] payday.py: 9Contract-10M-6
+[31.03 08:01:33] payday.py: 8Contract-111DEN-6
+[31.03 08:01:33] payday.py: 19Contract-117VOV-3
+[31.03 08:01:33] payday.py: 10Contract-10M-5
+[31.03 08:01:33] payday.py: 24Contract-49DR-1
+[31.03 08:01:33] payday.py: 19Contract-63Den-1
+[31.03 08:01:33] payday.py: 11Contract-61M-4
+[31.03 08:01:33] payday.py: 14Contract-64R-1
+[31.03 08:01:33] payday.py: 7Contract-23Dan-5
+[31.03 08:01:33] payday.py: 12Contract-11R-3
+[31.03 08:01:33] payday.py: 14Contract-55M-5
+[31.03 08:01:33] payday.py: 14Contract-114DEN-4
+[31.03 08:01:33] payday.py: 16Contract-45R-2
+[31.03 08:01:33] payday.py: 12Contract-43DR-2
+[31.03 08:01:33] payday.py: 23Contract-74DR-1
+[31.03 08:01:33] payday.py: 22Contract-25Dan-4
+[31.03 08:01:33] payday.py: 24Contract-3M-4
+[31.03 08:01:33] payday.py: 25Contract-75DR-1
+[31.03 08:01:33] payday.py: 27Contract-37M-5
+[31.03 08:01:33] payday.py: 26Contract-4M-3
+[31.03 08:01:33] payday.py: 2Contract-70DR-1
+[31.03 08:01:33] payday.py: 21Contract-72DR-1
+[31.03 08:01:33] payday.py: 22Contract-73R-1
+[31.03 08:01:33] payday.py: 28Contract-59R-2
+[31.03 08:01:33] payday.py: 28Contract-146R-5
+[31.03 08:01:33] payday.py: 28Contract-20M-2
+[31.03 08:01:33] payday.py: 23Contract-118DEN-5
+[31.03 08:01:33] payday.py: 21Contract-76DR-1
+[31.03 08:01:33] payday.py: 17Contract-66R-1
+[31.03 08:01:33] payday.py: 3Contract-29R-3
+[31.03 08:01:33] payday.py: 19Contract-135R-4
+[31.03 08:01:33] payday.py: 26Contract-65R-1
+[31.03 08:01:33] payday.py: 7Contract-55M-4
+[31.03 08:01:33] payday.py: 26Contract-37M-4
+[31.03 08:01:33] payday.py: 1Contract-100Dan-2
+[31.03 08:01:33] payday.py: 12Contract-11R-2
+[31.03 08:01:33] payday.py: 13Contract-58Den-1
+[31.03 08:01:33] payday.py: 16Contract-51Den-2
+[31.03 08:01:33] payday.py: 27Contract-52Den-1
+[31.03 08:01:33] payday.py: 7Contract-111DEN-5
+[31.03 08:01:33] payday.py: 9Contract-118DEN-4
+[31.03 08:01:33] payday.py: 13Contract-19R-4
+[31.03 08:01:33] payday.py: 16Contract-119Dan-2
+[31.03 08:01:33] payday.py: 16Contract-114DEN-3
+[31.03 08:01:33] payday.py: 16Contract-148R-2
+[31.03 08:01:33] payday.py: 7Contract-146R-4
+[31.03 08:01:33] payday.py: 17Contract-119Dan-3
+[31.03 08:01:33] payday.py: 27Contract-52M-1
+[31.03 08:01:33] payday.py: 2Contract-153R-4
+[31.03 08:01:33] payday.py: 28Contract-59R-1
+[31.03 08:01:33] payday.py: 27Contract-53R-1
+[31.03 08:01:33] payday.py: 19Contract-166R-2
+[31.03 08:01:33] payday.py: 22Contract-160R-6
+[31.03 08:01:33] payday.py: 27Contract-67R-1
+[31.03 08:01:33] payday.py: 29Contract-34R-2d
+[31.03 08:01:33] payday.py: 23Contract-145R-2
+[31.03 08:01:33] payday.py: 26Contract-55M-4>37
+[31.03 08:01:33] payday.py: 25Contract-136R-6
+[31.03 08:01:33] payday.py: 27Contract-29R-2
+[31.03 08:01:33] payday.py: 28Contract-12R-5
+[31.03 08:01:33] payday.py: 28Contract-52Den-2
+[31.03 08:01:33] payday.py: 27Contract-167R-3
+[31.03 08:01:33] payday.py: 28Contract-158R-3
+[31.03 08:01:33] payday.py: 28Contract-156R-7
+[31.03 08:01:33] payday.py: 1Contract-34R-2
+[31.03 08:01:33] payday.py: 5Contract-131R-3
+[31.03 08:01:33] payday.py: 14Contract-112DEN-3
+[31.03 08:01:33] payday.py: 7Contract-24Den-2
+[31.03 08:01:33] payday.py: 23Contract-78DR-1
+[31.03 08:01:33] payday.py: 8Contract-80DR-1
+[31.03 08:01:33] payday.py: 21Contract-52Den-4
+[31.03 08:01:33] payday.py: 13Contract-85R-2
+[31.03 08:01:33] payday.py: 10Contract-1R-2
+[31.03 08:01:33] payday.py: 28Contract-167R-4
+[31.03 08:01:33] payday.py: 28Contract-49M-TEST-1
+[31.03 08:01:33] payday.py: 7Contract-149R-3
+[31.03 08:01:33] payday.py: 18Contract-66R-2
+[31.03 08:01:33] payday.py: 20Contract-161R-2
+[31.03 08:01:33] payday.py: 3Contract-103R-4
+[31.03 08:01:33] payday.py: 5Contract-51Den-3
+[31.03 08:01:33] payday.py: 26Contract-85R-4
+[31.03 08:01:33] payday.py: 13Contract-113DEN-4
+[31.03 08:01:33] payday.py: 18Contract-4R-1
+[31.03 08:01:33] payday.py: 14Contract-79R-2
+[31.03 08:01:33] payday.py: 12Contract-43DR-3
+[31.03 08:01:33] payday.py: 16Contract-120DEN-4
+[31.03 08:01:33] payday.py: 20Contract-96R-1
+[31.03 08:01:33] payday.py: 21Contract-3DEN-3
+[31.03 08:01:33] payday.py: 27Contract-111DEN-7
+[31.03 08:01:33] payday.py: 23Contract-53R-3
+[31.03 08:01:33] payday.py: 23Contract-54DR-1
+[31.03 08:01:33] payday.py: 26Contract-28R-3
+[31.03 08:01:33] payday.py: 11Contract-152R-7
+[31.03 08:01:33] payday.py: 13Contract-40R-5
+[31.03 08:01:33] payday.py: 10Contract-42DEN-4
+[31.03 08:01:33] payday.py: 8Contract-80DR-2
+[31.03 08:01:33] payday.py: 20Contract-4R-2
+[31.03 08:01:33] payday.py: 10Contract-93R-2
+[31.03 08:01:33] payday.py: 14Contract-148R-4
+[31.03 08:01:33] payday.py: 10Contract-136R-7
+[31.03 08:01:33] payday.py: 1Contract-88R-3
+[31.03 08:01:33] payday.py: 28Contract-36R-7
+[31.03 08:01:33] payday.py: 28Contract-La Griselda-1
+[31.03 08:01:33] payday.py: 12Contract-16R-1
+[31.03 08:01:33] payday.py: 3Contract-114DEN-6
+[31.03 08:01:33] payday.py: 22Contract-43DR-5
+[31.03 08:01:33] payday.py: 8Contract-64R-4
+[31.03 08:01:33] payday.py: 11Contract-39R-2
+[31.03 08:01:33] payday.py: 4Contract-165R-6
+[31.03 08:01:33] payday.py: 27Contract-110DEN-5
+[31.03 08:01:33] payday.py: 20Contract-158R-6
+[31.03 08:01:33] payday.py: 12Contract-21R-1
+[31.03 08:01:33] payday.py: 28Contract-55R-1
+[31.03 08:01:33] payday.py: 28Contract-49M-TEST-2
+[31.03 08:01:33] payday.py: 11Contract-51Den-4
+[31.03 08:01:33] payday.py: 15Contract-79R-2
+[31.03 08:01:33] payday.py: 13Contract-166R-4
+[31.03 08:01:33] payday.py: 24Contract-10DR-2
+[31.03 08:01:33] payday.py: 7Contract-164R-5
+[31.03 08:01:33] payday.py: 9Contract-22R-1
+[31.03 08:01:33] payday.py: 28Contract-La Griselda-2
+[31.03 08:01:33] payday.py: 15Contract-53R-5
+[31.03 08:01:33] payday.py: 27Contract-72DR-2
+[31.03 08:01:33] payday.py: 13Contract-135R-6
+[31.03 08:01:33] payday.py: 25Contract-25Dan-5
+[31.03 08:01:33] payday.py: 18Contract-23Dan-7
+[31.03 08:01:33] payday.py: 27Contract-43DR-6
+[31.03 08:01:33] payday.py: 24Contract-10DR-1
+[31.03 08:01:33] payday.py: 21Contract-52Den-3
+[31.03 08:01:33] payday.py: 13Contract-36R-6
+[31.03 08:01:33] payday.py: 17Contract-166R-7
+[31.03 08:01:33] payday.py: 11Contract-158R-5
+[31.03 08:01:33] payday.py: 25Contract-152R-6
+[31.03 08:01:33] payday.py: 28Contract-29R-6
+[31.03 08:01:33] payday.py: 12Contract-90R-2
+[31.03 08:01:33] payday.py: 22Contract-103R-5
+[31.03 08:01:33] payday.py: 14Contract-97R-2
+[31.03 08:01:33] payday.py: 8Contract-151R-4
+[31.03 08:01:33] payday.py: 15Contract-75DR-5
+[31.03 08:01:33] payday.py: 17Contract-17R-3
+[31.03 08:01:33] payday.py: 11Contract-169R-4
+[31.03 08:01:33] payday.py: 4Contract-59R-4
+[31.03 08:01:33] payday.py: 5Contract-15R-1
+[31.03 08:01:33] payday.py: 20Contract-169R-5
+[31.03 08:01:33] payday.py: 26Contract-30R-4
+[31.03 08:01:33] payday.py: 11Contract-34R-5
+[31.03 08:01:33] payday.py: 3Contract-73R-3
+[31.03 08:01:33] payday.py: 20Contract-28R-2
+[31.03 08:01:33] payday.py: 5Contract-153R-5
+[31.03 08:01:33] payday.py: 19Contract-17R-4
+[31.03 08:01:33] payday.py: 19Contract-11R-4
+[31.03 08:01:33] payday.py: 7Contract-157R-3
+[31.03 08:01:33] payday.py: 20Contract-113DEN-5
+[31.03 08:01:33] payday.py: 10Contract-169R-3
+[31.03 08:01:33] payday.py: 17Contract-19R-5
+[31.03 08:01:33] payday.py: 21Contract-136R-8
+[31.03 08:01:33] payday.py: 8Contract-75DR-4
+[31.03 08:01:33] payday.py: 15Contract-96R-2
+[31.03 08:01:33] payday.py: 20Contract-77Den-3
+[31.03 08:01:33] payday.py: 17Contract-101Dan-7
+[31.03 08:01:33] payday.py: 20Contract-148R-5
+[31.03 08:01:33] payday.py: 23Contract-103R-6
+[31.03 08:01:33] payday.py: 5Contract-11R-5
+[31.03 08:01:33] payday.py: 22Contract-166R-6
+[31.03 08:01:33] payday.py: 4Contract-114DEN-8
+[31.03 08:01:33] payday.py: 18Contract-151R-3
+[31.03 08:01:33] payday.py: 4Contract-59R-3
+[31.03 08:01:33] payday.py: 25Contract-114DEN-9
+[31.03 08:01:33] payday.py: 25Contract-119Dan-4
+[31.03 08:01:33] payday.py: 12Contract-162R-4
+[31.03 08:01:33] payday.py: 28Contract-53R-4
+[31.03 08:01:33] payday.py: 9Contract-70DR-5
+[31.03 08:01:33] payday.py: 19Contract-83R-2
+[31.03 08:01:33] payday.py: 13Contract-18Dan-6
+[31.03 08:01:33] payday.py: 7Contract-40R-4
+[31.03 08:01:33] payday.py: 13Contract-114DEN-7
+[31.03 08:01:33] payday.py: 22Contract-3DEN-2
+[31.03 08:01:33] payday.py: 24Contract-100Dan-6
+[31.03 08:01:33] payday.py: 14Contract-34R-6
+[31.03 08:01:33] payday.py: 3Contract-93R-1
+[31.03 08:01:33] payday.py: 18Contract-165R-4
+[31.03 08:01:33] payday.py: 6Contract-117VOV-5
+[31.03 08:01:33] payday.py: 4Contract-160R-7
+[31.03 08:01:33] payday.py: 6Contract-153R-6
+[31.03 08:01:33] payday.py: 10Contract-36R-5
+[31.03 08:01:33] payday.py: 9Contract-33Dan-3
+[31.03 08:01:33] payday.py: 19Contract-2DEN-1
+[31.03 08:01:33] payday.py: 8Contract-70DR-4
+[31.03 08:01:33] payday.py: 13Contract-66R-3
+[31.03 08:01:33] payday.py: 24Contract-164R-4
+[31.03 08:01:33] payday.py: 18Contract-87R-2
+[31.03 08:01:33] payday.py: 9Contract-90R-1
+[31.03 08:01:33] payday.py: 22Contract-101Dan-8
+[31.03 08:01:33] payday.py: 28Contract-98D-1
+[31.03 08:01:33] payday.py: 20Contract-4R-3
+[31.03 08:01:33] payday.py: 28Contract-La Griselda-3
+[31.03 08:01:33] payday.py: 20Contract-16R-2
+[31.03 08:01:33] payday.py: 3Contract-100Dan-7
+[31.03 08:01:33] payday.py: 12Contract-7R-1
+[31.03 08:01:33] payday.py: 7Contract-149R-4
+[31.03 08:01:33] payday.py: 21Contract-111DEN-0
+[31.03 08:01:33] payday.py: 16Contract-111DEN-8
+[31.03 08:01:33] payday.py: 25Contract-8R-1
+[31.03 08:01:33] payday.py: 19Contract-79R-3
+[31.03 08:01:33] payday.py: 7Contract-30R-5
+[31.03 08:01:33] payday.py: 28Contract-La Griselda-5
+[31.03 08:01:33] payday.py: 17Contract-31R-5
+[31.03 08:01:33] payday.py: 27Contract-154R-3
+[31.03 08:01:33] payday.py: 25Contract-96R-3
+[31.03 08:01:33] payday.py: 20Contract-160R-8
+[31.03 08:01:33] payday.py: 4Contract-89R-2
+[31.03 08:01:33] payday.py: 29Contract-26R-1
+[31.03 08:01:33] payday.py: 6Contract-91R-2
+[31.03 08:01:33] payday.py: 24Contract-156R-9
+[31.03 08:01:33] payday.py: 8Contract-117VOV-6
+[31.03 08:01:33] payday.py: 13Contract-135R-5
+[31.03 08:01:33] payday.py: 27Contract-3DEN-1
+[31.03 08:01:33] payday.py: 19Contract-28R-1
+[31.03 08:01:33] payday.py: 22Contract-54DR-2
+[31.03 08:01:33] payday.py: 12Contract-92R-1
+[31.03 08:01:33] payday.py: 10Contract-17R-2
+[31.03 08:01:33] payday.py: 28Contract-165R-5
+[31.03 08:01:33] payday.py: 13Contract-82DR-2
+[31.03 08:01:33] payday.py: 28Contract-34R-4
+[31.03 08:01:33] payday.py: 26Contract-18Dan-5
+[31.03 08:01:33] payday.py: 27Contract-65R-2
+[31.03 08:01:33] payday.py: 21Contract-43DR-4
+[31.03 08:01:33] payday.py: 14Contract-49DR-2
+[31.03 08:01:33] payday.py: 21Contract-91R-1
+[31.03 08:01:33] payday.py: 28Contract-29R-5
+[31.03 08:01:33] payday.py: 11Contract-99DR-1
+[31.03 08:01:33] payday.py: 22Contract-46DR-1
+[31.03 08:01:33] payday.py: 27Contract-88R-2
+[31.03 08:01:33] payday.py: 28Contract-La Griselda-4
+[31.03 08:01:33] payday.py: 14Contract-153R-7
+[31.03 08:01:33] payday.py: 13Contract-166R-5
+[31.03 08:01:33] payday.py: 18Contract-94R-1
+[31.03 08:01:33] payday.py: 22Contract-77Den-2
+[31.03 08:01:33] payday.py: 19Contract-111DEN-9
+[31.03 08:01:33] payday.py: 8Contract-117VOV-7
+[31.03 08:01:33] payday.py: 30Contract-41R-4
+[31.03 08:01:33] payday.py: 19Contract-42DEN-3
+[31.03 08:01:33] payday.py: 20Contract-20R-1
+[31.03 08:01:33] payday.py: 18Contract-140R-7
+[31.03 08:01:33] payday.py: 28Contract-73R-2
+[31.03 08:01:33] payday.py: 1Contract-158R-7
+[31.03 08:01:33] payday.py: 15Contract-31R-4
+[31.03 08:01:33] payday.py: 13Contract-32DEN-1
+[31.03 08:01:33] payday.py: 13Contract-97R-1
+[31.03 08:01:33] payday.py: 23Contract-163R-8
+[31.03 08:01:33] payday.py: 1Contract-95DR-1
+[31.03 08:01:33] payday.py: write payday Contract-9R-1
+[31.03 08:01:34] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:34] payday.py: write payday Contract-132R-2
+[31.03 08:01:35] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:35] payday.py: write payday Contract-14R-2
+[31.03 08:01:35] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:35] payday.py: write payday Contract-5R-2
+[31.03 08:01:36] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:36] payday.py: write payday Contract-6R-2
+[31.03 08:01:37] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:37] payday.py: write payday Contract-47R-2
+[31.03 08:01:38] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:38] payday.py: write payday Contract-62R-1
+[31.03 08:01:39] main.py: main process stopped.
+
+
+launch at 31.03 08:01 (main.py --read-only --no-tg --payday-only -t )
+[31.03 08:01:54] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:01:54] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:01:54] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 08:01:54] main.py: start main process (immediately activate).
+[31.03 08:01:55] payday.py: start payday.
+[31.03 08:01:57] payday.py: 28Contract-85R-3
+[31.03 08:01:57] payday.py: 3Contract-75DR-3
+[31.03 08:01:57] payday.py: 16Contract-9R-1
+[31.03 08:01:57] payday.py: 28Contract-133R-1
+[31.03 08:01:57] payday.py: 28Contract-31R-3
+[31.03 08:01:57] payday.py: 20Contract-131R-1
+[31.03 08:01:57] payday.py: 8Contract-6R-1
+[31.03 08:01:57] payday.py: 2Contract-17R-1
+[31.03 08:01:57] payday.py: 12Contract-42DEN-1
+[31.03 08:01:57] payday.py: 27Contract-156R-6
+[31.03 08:01:57] payday.py: 13Contract-169R-2
+[31.03 08:01:57] payday.py: 28Contract-103R-3
+[31.03 08:01:57] payday.py: 15Contract-136R-4
+[31.03 08:01:57] payday.py: 26Contract-135R-3
+[31.03 08:01:57] payday.py: 25Contract-132R-2
+[31.03 08:01:57] payday.py: 24Contract-47R-1
+[31.03 08:01:57] payday.py: 16Contract-45R-1
+[31.03 08:01:57] payday.py: 15Contract-30R-3
+[31.03 08:01:57] payday.py: 24Contract-33Dan-1
+[31.03 08:01:57] payday.py: 1Contract-19R-3
+[31.03 08:01:57] payday.py: 24Contract-143R-3
+[31.03 08:01:57] payday.py: 15Contract-41R-2
+[31.03 08:01:57] payday.py: 3Contract-34R-1
+[31.03 08:01:57] payday.py: 24Contract-56M-2
+[31.03 08:01:57] payday.py: 1Contract-39R-1
+[31.03 08:01:57] payday.py: 23Contract-29R-1
+[31.03 08:01:57] payday.py: 20Contract-14R-2
+[31.03 08:01:57] payday.py: 11Contract-144R-2
+[31.03 08:01:57] payday.py: 26Contract-145R-1
+[31.03 08:01:57] payday.py: 3Contract-146R-3
+[31.03 08:01:57] payday.py: 19Contract-147R-2
+[31.03 08:01:57] payday.py: 10Contract-148R-1
+[31.03 08:01:57] payday.py: 12Contract-149R-2
+[31.03 08:01:57] payday.py: 4Contract-150R-1
+[31.03 08:01:57] payday.py: 12Contract-152R-1
+[31.03 08:01:57] payday.py: 15Contract-2M-1
+[31.03 08:01:57] payday.py: 28Contract-9M-1
+[31.03 08:01:57] payday.py: 17Contract-20M-1
+[31.03 08:01:57] payday.py: 25Contract-22M-1
+[31.03 08:01:57] payday.py: 27Contract-26M-1
+[31.03 08:01:57] payday.py: 15Contract-28M-1
+[31.03 08:01:57] payday.py: 20Contract-48M-2
+[31.03 08:01:57] payday.py: 28Contract-54M-1
+[31.03 08:01:57] payday.py: 28Contract-57M-1
+[31.03 08:01:57] payday.py: 22Contract-61M-2
+[31.03 08:01:57] payday.py: 1Contract-101Dan-5
+[31.03 08:01:57] payday.py: 7Contract-8M-2
+[31.03 08:01:57] payday.py: 1Contract-38M-4
+[31.03 08:01:57] payday.py: 1Contract-35M-2
+[31.03 08:01:57] payday.py: 24Contract-7M-3
+[31.03 08:01:57] payday.py: 23Contract-160R-5
+[31.03 08:01:57] payday.py: 23Contract-50M-2
+[31.03 08:01:57] payday.py: 23Contract-56M-3
+[31.03 08:01:57] payday.py: 18Contract-4M-2
+[31.03 08:01:57] payday.py: 11Contract-3M-3
+[31.03 08:01:57] payday.py: 24Contract-37M-3
+[31.03 08:01:57] payday.py: 20Contract-46M-3
+[31.03 08:01:57] payday.py: 4Contract-151R-2
+[31.03 08:01:57] payday.py: 24Contract-168R-3
+[31.03 08:01:57] payday.py: 24Contract-152R-3
+[31.03 08:01:57] payday.py: 24Contract-143R-4
+[31.03 08:01:57] payday.py: 15Contract-12R-4
+[31.03 08:01:57] payday.py: 14Contract-32M-2
+[31.03 08:01:57] payday.py: 28Contract-44M-3
+[31.03 08:01:57] payday.py: 26Contract-136R-5
+[31.03 08:01:57] payday.py: 24Contract-1R-3
+[31.03 08:01:57] payday.py: 13Contract-40R-3
+[31.03 08:01:57] payday.py: 26Contract-5R-2
+[31.03 08:01:57] payday.py: 26Contract-155R-1
+[31.03 08:01:57] payday.py: 27Contract-55M-3
+[31.03 08:01:57] payday.py: 27Contract-21M-4
+[31.03 08:01:57] payday.py: 27Contract-6R-2
+[31.03 08:01:57] payday.py: 28Contract-140R-5
+[31.03 08:01:57] payday.py: 28Contract-47R-2
+[31.03 08:01:57] payday.py: 27Contract-36R-3
+[31.03 08:01:57] payday.py: 28Contract-35M-3
+[31.03 08:01:57] payday.py: 28Contract-154R-2
+[31.03 08:01:57] payday.py: 13Contract-155R-2
+[31.03 08:01:57] payday.py: 5Contract-156R-5
+[31.03 08:01:57] payday.py: 4Contract-157R-2
+[31.03 08:01:57] payday.py: 26Contract-158R-2
+[31.03 08:01:57] payday.py: 19Contract-161R-1
+[31.03 08:01:57] payday.py: 28Contract-113DEN-4
+[31.03 08:01:57] payday.py: 1Contract-10M-4
+[31.03 08:01:57] payday.py: 12Contract-162R-3
+[31.03 08:01:57] payday.py: 24Contract-163R-5
+[31.03 08:01:57] payday.py: 19Contract-164R-2
+[31.03 08:01:57] payday.py: 10Contract-165R-3
+[31.03 08:01:57] payday.py: 27Contract-167R-2
+[31.03 08:01:57] payday.py: 13Contract-169R-1
+[31.03 08:01:57] payday.py: 7Contract-5R-1
+[31.03 08:01:57] payday.py: 13Contract-1R-1
+[31.03 08:01:57] payday.py: 6Contract-118DEN-3
+[31.03 08:01:57] payday.py: 6Contract-24Den-1
+[31.03 08:01:57] payday.py: 7Contract-23Dan-4
+[31.03 08:01:57] payday.py: 7Contract-62R-1
+[31.03 08:01:57] payday.py: 27Contract-110DEN-4
+[31.03 08:01:57] payday.py: 12Contract-112DEN-2
+[31.03 08:01:57] payday.py: 25Contract-120DEN-3
+[31.03 08:01:57] payday.py: 26Contract-113DEN-3
+[31.03 08:01:57] payday.py: 26Contract-114DEN-2
+[31.03 08:01:57] payday.py: 1Contract-158R-4
+[31.03 08:01:57] payday.py: 2Contract-140R-6
+[31.03 08:01:57] payday.py: 2Contract-152R-5
+[31.03 08:01:57] payday.py: 2Contract-89R-1
+[31.03 08:01:57] payday.py: 3Contract-163R-7
+[31.03 08:01:57] payday.py: 5Contract-155R-4
+[31.03 08:01:57] payday.py: 6Contract-70DR-3
+[31.03 08:01:57] payday.py: 9Contract-64R-2
+[31.03 08:01:57] payday.py: 28Contract-152R-4
+[31.03 08:01:57] payday.py: 28Contract-79R-1
+[31.03 08:01:57] payday.py: 28Contract-163R-6
+[31.03 08:01:57] payday.py: 2Contract-166R-3
+[31.03 08:01:57] payday.py: 11Contract-34R-3
+[31.03 08:01:57] payday.py: 8Contract-23Dan-6
+[31.03 08:01:57] payday.py: 12Contract-148R-3
+[31.03 08:01:57] payday.py: 13Contract-27R-4
+[31.03 08:01:57] payday.py: 13Contract-18Dan-4
+[31.03 08:01:57] payday.py: 11Contract-82DR-1
+[31.03 08:01:57] payday.py: 14Contract-114DEN-5
+[31.03 08:01:57] payday.py: 14Contract-38M-5
+[31.03 08:01:57] payday.py: 16Contract-45R-3
+[31.03 08:01:57] payday.py: 17Contract-83R-1
+[31.03 08:01:57] payday.py: 18Contract-84Dan-1
+[31.03 08:01:57] payday.py: 18Contract-42DEN-2
+[31.03 08:01:57] payday.py: 18Contract-101Dan-6
+[31.03 08:01:57] payday.py: 1Contract-100Dan-4
+[31.03 08:01:57] payday.py: 21Contract-77Den-1
+[31.03 08:01:57] payday.py: 2Contract-36R-4
+[31.03 08:01:57] payday.py: 2Contract-71DR-2
+[31.03 08:01:57] payday.py: 2Contract-156R-8
+[31.03 08:01:57] payday.py: 22Contract-41R-3
+[31.03 08:01:57] payday.py: 25Contract-81DR-1
+[31.03 08:01:57] payday.py: 23Contract-87R-1
+[31.03 08:01:57] payday.py: 25Contract-55M-6
+[31.03 08:01:57] payday.py: 25Contract-86Dan-1
+[31.03 08:01:57] payday.py: 26Contract-32M-3
+[31.03 08:01:57] payday.py: 26Contract-75DR-2
+[31.03 08:01:57] payday.py: 2Contract-85R-1
+[31.03 08:01:57] payday.py: 24Contract-100Dan-5
+[31.03 08:01:57] payday.py: 28Contract-88R-1
+[31.03 08:01:57] payday.py: 15Contract-53R-2
+[31.03 08:01:57] payday.py: 4Contract-121R-1
+[31.03 08:01:57] payday.py: 4Contract-117VOV-4
+[31.03 08:01:57] payday.py: 5Contract-70DR-2
+[31.03 08:01:57] payday.py: 27Contract-145R-3
+[31.03 08:01:57] payday.py: 6Contract-33Dan-2
+[31.03 08:01:57] payday.py: 7Contract-29R-4
+[31.03 08:01:57] payday.py: 8Contract-164R-3
+[31.03 08:01:57] payday.py: 9Contract-10M-6
+[31.03 08:01:57] payday.py: 8Contract-111DEN-6
+[31.03 08:01:57] payday.py: 19Contract-117VOV-3
+[31.03 08:01:57] payday.py: 10Contract-10M-5
+[31.03 08:01:57] payday.py: 24Contract-49DR-1
+[31.03 08:01:57] payday.py: 19Contract-63Den-1
+[31.03 08:01:57] payday.py: 11Contract-61M-4
+[31.03 08:01:57] payday.py: 14Contract-64R-1
+[31.03 08:01:57] payday.py: 7Contract-23Dan-5
+[31.03 08:01:57] payday.py: 12Contract-11R-3
+[31.03 08:01:57] payday.py: 14Contract-55M-5
+[31.03 08:01:57] payday.py: 14Contract-114DEN-4
+[31.03 08:01:57] payday.py: 16Contract-45R-2
+[31.03 08:01:57] payday.py: 12Contract-43DR-2
+[31.03 08:01:57] payday.py: 23Contract-74DR-1
+[31.03 08:01:57] payday.py: 22Contract-25Dan-4
+[31.03 08:01:57] payday.py: 24Contract-3M-4
+[31.03 08:01:57] payday.py: 25Contract-75DR-1
+[31.03 08:01:57] payday.py: 27Contract-37M-5
+[31.03 08:01:57] payday.py: 26Contract-4M-3
+[31.03 08:01:57] payday.py: 2Contract-70DR-1
+[31.03 08:01:57] payday.py: 21Contract-72DR-1
+[31.03 08:01:57] payday.py: 22Contract-73R-1
+[31.03 08:01:57] payday.py: 28Contract-59R-2
+[31.03 08:01:57] payday.py: 28Contract-146R-5
+[31.03 08:01:57] payday.py: 28Contract-20M-2
+[31.03 08:01:57] payday.py: 23Contract-118DEN-5
+[31.03 08:01:57] payday.py: 21Contract-76DR-1
+[31.03 08:01:57] payday.py: 17Contract-66R-1
+[31.03 08:01:57] payday.py: 3Contract-29R-3
+[31.03 08:01:57] payday.py: 19Contract-135R-4
+[31.03 08:01:57] payday.py: 26Contract-65R-1
+[31.03 08:01:57] payday.py: 7Contract-55M-4
+[31.03 08:01:57] payday.py: 26Contract-37M-4
+[31.03 08:01:57] payday.py: 1Contract-100Dan-2
+[31.03 08:01:57] payday.py: 12Contract-11R-2
+[31.03 08:01:57] payday.py: 13Contract-58Den-1
+[31.03 08:01:57] payday.py: 16Contract-51Den-2
+[31.03 08:01:57] payday.py: 27Contract-52Den-1
+[31.03 08:01:57] payday.py: 7Contract-111DEN-5
+[31.03 08:01:57] payday.py: 9Contract-118DEN-4
+[31.03 08:01:57] payday.py: 13Contract-19R-4
+[31.03 08:01:57] payday.py: 16Contract-119Dan-2
+[31.03 08:01:57] payday.py: 16Contract-114DEN-3
+[31.03 08:01:57] payday.py: 16Contract-148R-2
+[31.03 08:01:57] payday.py: 7Contract-146R-4
+[31.03 08:01:57] payday.py: 17Contract-119Dan-3
+[31.03 08:01:57] payday.py: 27Contract-52M-1
+[31.03 08:01:57] payday.py: 2Contract-153R-4
+[31.03 08:01:57] payday.py: 28Contract-59R-1
+[31.03 08:01:57] payday.py: 27Contract-53R-1
+[31.03 08:01:57] payday.py: 19Contract-166R-2
+[31.03 08:01:57] payday.py: 22Contract-160R-6
+[31.03 08:01:57] payday.py: 27Contract-67R-1
+[31.03 08:01:57] payday.py: 29Contract-34R-2d
+[31.03 08:01:57] payday.py: 23Contract-145R-2
+[31.03 08:01:57] payday.py: 26Contract-55M-4>37
+[31.03 08:01:57] payday.py: 25Contract-136R-6
+[31.03 08:01:57] payday.py: 27Contract-29R-2
+[31.03 08:01:57] payday.py: 28Contract-12R-5
+[31.03 08:01:57] payday.py: 28Contract-52Den-2
+[31.03 08:01:57] payday.py: 27Contract-167R-3
+[31.03 08:01:57] payday.py: 28Contract-158R-3
+[31.03 08:01:57] payday.py: 28Contract-156R-7
+[31.03 08:01:57] payday.py: 1Contract-34R-2
+[31.03 08:01:57] payday.py: 5Contract-131R-3
+[31.03 08:01:57] payday.py: 14Contract-112DEN-3
+[31.03 08:01:57] payday.py: 7Contract-24Den-2
+[31.03 08:01:57] payday.py: 23Contract-78DR-1
+[31.03 08:01:57] payday.py: 8Contract-80DR-1
+[31.03 08:01:57] payday.py: 21Contract-52Den-4
+[31.03 08:01:57] payday.py: 13Contract-85R-2
+[31.03 08:01:57] payday.py: 10Contract-1R-2
+[31.03 08:01:57] payday.py: 28Contract-167R-4
+[31.03 08:01:57] payday.py: 28Contract-49M-TEST-1
+[31.03 08:01:57] payday.py: 7Contract-149R-3
+[31.03 08:01:57] payday.py: 18Contract-66R-2
+[31.03 08:01:57] payday.py: 20Contract-161R-2
+[31.03 08:01:57] payday.py: 3Contract-103R-4
+[31.03 08:01:57] payday.py: 5Contract-51Den-3
+[31.03 08:01:57] payday.py: 26Contract-85R-4
+[31.03 08:01:57] payday.py: 13Contract-113DEN-4
+[31.03 08:01:57] payday.py: 18Contract-4R-1
+[31.03 08:01:57] payday.py: 14Contract-79R-2
+[31.03 08:01:57] payday.py: 12Contract-43DR-3
+[31.03 08:01:57] payday.py: 16Contract-120DEN-4
+[31.03 08:01:57] payday.py: 20Contract-96R-1
+[31.03 08:01:57] payday.py: 21Contract-3DEN-3
+[31.03 08:01:57] payday.py: 27Contract-111DEN-7
+[31.03 08:01:57] payday.py: 23Contract-53R-3
+[31.03 08:01:57] payday.py: 23Contract-54DR-1
+[31.03 08:01:57] payday.py: 26Contract-28R-3
+[31.03 08:01:57] payday.py: 11Contract-152R-7
+[31.03 08:01:57] payday.py: 13Contract-40R-5
+[31.03 08:01:57] payday.py: 10Contract-42DEN-4
+[31.03 08:01:57] payday.py: 8Contract-80DR-2
+[31.03 08:01:57] payday.py: 20Contract-4R-2
+[31.03 08:01:57] payday.py: 10Contract-93R-2
+[31.03 08:01:57] payday.py: 14Contract-148R-4
+[31.03 08:01:57] payday.py: 10Contract-136R-7
+[31.03 08:01:57] payday.py: 1Contract-88R-3
+[31.03 08:01:57] payday.py: 28Contract-36R-7
+[31.03 08:01:57] payday.py: 28Contract-La Griselda-1
+[31.03 08:01:57] payday.py: 12Contract-16R-1
+[31.03 08:01:57] payday.py: 3Contract-114DEN-6
+[31.03 08:01:57] payday.py: 22Contract-43DR-5
+[31.03 08:01:57] payday.py: 8Contract-64R-4
+[31.03 08:01:57] payday.py: 11Contract-39R-2
+[31.03 08:01:57] payday.py: 4Contract-165R-6
+[31.03 08:01:57] payday.py: 27Contract-110DEN-5
+[31.03 08:01:57] payday.py: 20Contract-158R-6
+[31.03 08:01:57] payday.py: 12Contract-21R-1
+[31.03 08:01:57] payday.py: 28Contract-55R-1
+[31.03 08:01:57] payday.py: 28Contract-49M-TEST-2
+[31.03 08:01:57] payday.py: 11Contract-51Den-4
+[31.03 08:01:57] payday.py: 15Contract-79R-2
+[31.03 08:01:57] payday.py: 13Contract-166R-4
+[31.03 08:01:57] payday.py: 24Contract-10DR-2
+[31.03 08:01:57] payday.py: 7Contract-164R-5
+[31.03 08:01:57] payday.py: 9Contract-22R-1
+[31.03 08:01:57] payday.py: 28Contract-La Griselda-2
+[31.03 08:01:57] payday.py: 15Contract-53R-5
+[31.03 08:01:57] payday.py: 27Contract-72DR-2
+[31.03 08:01:57] payday.py: 13Contract-135R-6
+[31.03 08:01:57] payday.py: 25Contract-25Dan-5
+[31.03 08:01:57] payday.py: 18Contract-23Dan-7
+[31.03 08:01:57] payday.py: 27Contract-43DR-6
+[31.03 08:01:57] payday.py: 24Contract-10DR-1
+[31.03 08:01:57] payday.py: 21Contract-52Den-3
+[31.03 08:01:57] payday.py: 13Contract-36R-6
+[31.03 08:01:57] payday.py: 17Contract-166R-7
+[31.03 08:01:57] payday.py: 11Contract-158R-5
+[31.03 08:01:57] payday.py: 25Contract-152R-6
+[31.03 08:01:57] payday.py: 28Contract-29R-6
+[31.03 08:01:57] payday.py: 12Contract-90R-2
+[31.03 08:01:57] payday.py: 22Contract-103R-5
+[31.03 08:01:57] payday.py: 14Contract-97R-2
+[31.03 08:01:57] payday.py: 8Contract-151R-4
+[31.03 08:01:57] payday.py: 15Contract-75DR-5
+[31.03 08:01:57] payday.py: 17Contract-17R-3
+[31.03 08:01:57] payday.py: 11Contract-169R-4
+[31.03 08:01:57] payday.py: 4Contract-59R-4
+[31.03 08:01:57] payday.py: 5Contract-15R-1
+[31.03 08:01:57] payday.py: 20Contract-169R-5
+[31.03 08:01:57] payday.py: 26Contract-30R-4
+[31.03 08:01:57] payday.py: 11Contract-34R-5
+[31.03 08:01:57] payday.py: 3Contract-73R-3
+[31.03 08:01:57] payday.py: 20Contract-28R-2
+[31.03 08:01:57] payday.py: 5Contract-153R-5
+[31.03 08:01:57] payday.py: 19Contract-17R-4
+[31.03 08:01:57] payday.py: 19Contract-11R-4
+[31.03 08:01:57] payday.py: 7Contract-157R-3
+[31.03 08:01:57] payday.py: 20Contract-113DEN-5
+[31.03 08:01:57] payday.py: 10Contract-169R-3
+[31.03 08:01:57] payday.py: 17Contract-19R-5
+[31.03 08:01:57] payday.py: 21Contract-136R-8
+[31.03 08:01:57] payday.py: 8Contract-75DR-4
+[31.03 08:01:57] payday.py: 15Contract-96R-2
+[31.03 08:01:57] payday.py: 20Contract-77Den-3
+[31.03 08:01:57] payday.py: 17Contract-101Dan-7
+[31.03 08:01:57] payday.py: 20Contract-148R-5
+[31.03 08:01:57] payday.py: 23Contract-103R-6
+[31.03 08:01:57] payday.py: 5Contract-11R-5
+[31.03 08:01:57] payday.py: 22Contract-166R-6
+[31.03 08:01:57] payday.py: 4Contract-114DEN-8
+[31.03 08:01:57] payday.py: 18Contract-151R-3
+[31.03 08:01:57] payday.py: 4Contract-59R-3
+[31.03 08:01:57] payday.py: 25Contract-114DEN-9
+[31.03 08:01:57] payday.py: 25Contract-119Dan-4
+[31.03 08:01:57] payday.py: 12Contract-162R-4
+[31.03 08:01:57] payday.py: 28Contract-53R-4
+[31.03 08:01:57] payday.py: 9Contract-70DR-5
+[31.03 08:01:57] payday.py: 19Contract-83R-2
+[31.03 08:01:57] payday.py: 13Contract-18Dan-6
+[31.03 08:01:57] payday.py: 7Contract-40R-4
+[31.03 08:01:57] payday.py: 13Contract-114DEN-7
+[31.03 08:01:57] payday.py: 22Contract-3DEN-2
+[31.03 08:01:57] payday.py: 24Contract-100Dan-6
+[31.03 08:01:57] payday.py: 14Contract-34R-6
+[31.03 08:01:57] payday.py: 3Contract-93R-1
+[31.03 08:01:57] payday.py: 18Contract-165R-4
+[31.03 08:01:57] payday.py: 6Contract-117VOV-5
+[31.03 08:01:57] payday.py: 4Contract-160R-7
+[31.03 08:01:57] payday.py: 6Contract-153R-6
+[31.03 08:01:57] payday.py: 10Contract-36R-5
+[31.03 08:01:57] payday.py: 9Contract-33Dan-3
+[31.03 08:01:57] payday.py: 19Contract-2DEN-1
+[31.03 08:01:57] payday.py: 8Contract-70DR-4
+[31.03 08:01:57] payday.py: 13Contract-66R-3
+[31.03 08:01:57] payday.py: 24Contract-164R-4
+[31.03 08:01:57] payday.py: 18Contract-87R-2
+[31.03 08:01:57] payday.py: 9Contract-90R-1
+[31.03 08:01:57] payday.py: 22Contract-101Dan-8
+[31.03 08:01:57] payday.py: 28Contract-98D-1
+[31.03 08:01:57] payday.py: 20Contract-4R-3
+[31.03 08:01:57] payday.py: 28Contract-La Griselda-3
+[31.03 08:01:57] payday.py: 20Contract-16R-2
+[31.03 08:01:57] payday.py: 3Contract-100Dan-7
+[31.03 08:01:57] payday.py: 12Contract-7R-1
+[31.03 08:01:57] payday.py: 7Contract-149R-4
+[31.03 08:01:57] payday.py: 21Contract-111DEN-0
+[31.03 08:01:57] payday.py: 16Contract-111DEN-8
+[31.03 08:01:57] payday.py: 25Contract-8R-1
+[31.03 08:01:57] payday.py: 19Contract-79R-3
+[31.03 08:01:57] payday.py: 7Contract-30R-5
+[31.03 08:01:57] payday.py: 28Contract-La Griselda-5
+[31.03 08:01:57] payday.py: 17Contract-31R-5
+[31.03 08:01:57] payday.py: 27Contract-154R-3
+[31.03 08:01:57] payday.py: 25Contract-96R-3
+[31.03 08:01:57] payday.py: 20Contract-160R-8
+[31.03 08:01:57] payday.py: 4Contract-89R-2
+[31.03 08:01:57] payday.py: 29Contract-26R-1
+[31.03 08:01:57] payday.py: 6Contract-91R-2
+[31.03 08:01:57] payday.py: 24Contract-156R-9
+[31.03 08:01:57] payday.py: 8Contract-117VOV-6
+[31.03 08:01:57] payday.py: 13Contract-135R-5
+[31.03 08:01:57] payday.py: 27Contract-3DEN-1
+[31.03 08:01:57] payday.py: 19Contract-28R-1
+[31.03 08:01:57] payday.py: 22Contract-54DR-2
+[31.03 08:01:57] payday.py: 12Contract-92R-1
+[31.03 08:01:57] payday.py: 10Contract-17R-2
+[31.03 08:01:57] payday.py: 28Contract-165R-5
+[31.03 08:01:57] payday.py: 13Contract-82DR-2
+[31.03 08:01:57] payday.py: 28Contract-34R-4
+[31.03 08:01:57] payday.py: 26Contract-18Dan-5
+[31.03 08:01:57] payday.py: 27Contract-65R-2
+[31.03 08:01:57] payday.py: 21Contract-43DR-4
+[31.03 08:01:57] payday.py: 14Contract-49DR-2
+[31.03 08:01:57] payday.py: 21Contract-91R-1
+[31.03 08:01:57] payday.py: 28Contract-29R-5
+[31.03 08:01:57] payday.py: 11Contract-99DR-1
+[31.03 08:01:57] payday.py: 22Contract-46DR-1
+[31.03 08:01:57] payday.py: 27Contract-88R-2
+[31.03 08:01:57] payday.py: 28Contract-La Griselda-4
+[31.03 08:01:57] payday.py: 14Contract-153R-7
+[31.03 08:01:57] payday.py: 13Contract-166R-5
+[31.03 08:01:57] payday.py: 18Contract-94R-1
+[31.03 08:01:57] payday.py: 22Contract-77Den-2
+[31.03 08:01:57] payday.py: 19Contract-111DEN-9
+[31.03 08:01:57] payday.py: 8Contract-117VOV-7
+[31.03 08:01:57] payday.py: 30Contract-41R-4
+[31.03 08:01:57] payday.py: 19Contract-42DEN-3
+[31.03 08:01:57] payday.py: 20Contract-20R-1
+[31.03 08:01:57] payday.py: 18Contract-140R-7
+[31.03 08:01:57] payday.py: 28Contract-73R-2
+[31.03 08:01:57] payday.py: 1Contract-158R-7
+[31.03 08:01:57] payday.py: 15Contract-31R-4
+[31.03 08:01:57] payday.py: 13Contract-32DEN-1
+[31.03 08:01:57] payday.py: 13Contract-97R-1
+[31.03 08:01:57] payday.py: 23Contract-163R-8
+[31.03 08:01:57] payday.py: 1Contract-95DR-1
+[31.03 08:01:57] payday.py: write payday Contract-85R-3
+[31.03 08:01:58] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 08:01:58] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:58] payday.py: write payday Contract-75DR-3
+[31.03 08:01:59] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:01:59] payday.py: write payday Contract-133R-1
+[31.03 08:02:00] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:02:00] payday.py: write payday Contract-31R-3
+[31.03 08:02:00] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 08:02:00] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:02:00] payday.py: write payday Contract-131R-1
+[31.03 08:02:01] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 08:02:01] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:02:01] payday.py: write payday Contract-6R-1
+[31.03 08:02:02] payday.py: paylimit pay not created because of "--read-only" flag.
+[31.03 08:02:02] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:02:02] payday.py: write payday Contract-17R-1
+[31.03 08:02:02] main.py: main process stopped.
+
+
+launch at 31.03 08:02 (main.py --read-only --no-tg --payday-only -t )
+[31.03 08:02:30] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:02:30] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:02:30] main.py: --no-tg: no telegram notifications sneding on errors
+[31.03 08:02:30] main.py: start main process (immediately activate).
+[31.03 08:02:31] payday.py: start payday.
+[31.03 08:02:33] payday.py: 28Contract-85R-3
+[31.03 08:02:33] payday.py: 3Contract-75DR-3
+[31.03 08:02:33] payday.py: 16Contract-9R-1
+[31.03 08:02:33] payday.py: 28Contract-133R-1
+[31.03 08:02:33] payday.py: 28Contract-31R-3
+[31.03 08:02:33] payday.py: 20Contract-131R-1
+[31.03 08:02:33] payday.py: 8Contract-6R-1
+[31.03 08:02:33] payday.py: 2Contract-17R-1
+[31.03 08:02:33] payday.py: 12Contract-42DEN-1
+[31.03 08:02:33] payday.py: 27Contract-156R-6
+[31.03 08:02:33] payday.py: 13Contract-169R-2
+[31.03 08:02:33] payday.py: 28Contract-103R-3
+[31.03 08:02:33] payday.py: 15Contract-136R-4
+[31.03 08:02:33] payday.py: 26Contract-135R-3
+[31.03 08:02:33] payday.py: 25Contract-132R-2
+[31.03 08:02:33] payday.py: 24Contract-47R-1
+[31.03 08:02:33] payday.py: 16Contract-45R-1
+[31.03 08:02:33] payday.py: 15Contract-30R-3
+[31.03 08:02:33] payday.py: 24Contract-33Dan-1
+[31.03 08:02:33] payday.py: 1Contract-19R-3
+[31.03 08:02:33] payday.py: 24Contract-143R-3
+[31.03 08:02:33] payday.py: 15Contract-41R-2
+[31.03 08:02:33] payday.py: 3Contract-34R-1
+[31.03 08:02:33] payday.py: 24Contract-56M-2
+[31.03 08:02:33] payday.py: 1Contract-39R-1
+[31.03 08:02:33] payday.py: 23Contract-29R-1
+[31.03 08:02:33] payday.py: 20Contract-14R-2
+[31.03 08:02:33] payday.py: 11Contract-144R-2
+[31.03 08:02:33] payday.py: 26Contract-145R-1
+[31.03 08:02:33] payday.py: 3Contract-146R-3
+[31.03 08:02:33] payday.py: 19Contract-147R-2
+[31.03 08:02:33] payday.py: 10Contract-148R-1
+[31.03 08:02:33] payday.py: 12Contract-149R-2
+[31.03 08:02:33] payday.py: 4Contract-150R-1
+[31.03 08:02:33] payday.py: 12Contract-152R-1
+[31.03 08:02:33] payday.py: 15Contract-2M-1
+[31.03 08:02:33] payday.py: 28Contract-9M-1
+[31.03 08:02:33] payday.py: 17Contract-20M-1
+[31.03 08:02:33] payday.py: 25Contract-22M-1
+[31.03 08:02:33] payday.py: 27Contract-26M-1
+[31.03 08:02:33] payday.py: 15Contract-28M-1
+[31.03 08:02:33] payday.py: 20Contract-48M-2
+[31.03 08:02:33] payday.py: 28Contract-54M-1
+[31.03 08:02:33] payday.py: 28Contract-57M-1
+[31.03 08:02:33] payday.py: 22Contract-61M-2
+[31.03 08:02:33] payday.py: 1Contract-101Dan-5
+[31.03 08:02:33] payday.py: 7Contract-8M-2
+[31.03 08:02:33] payday.py: 1Contract-38M-4
+[31.03 08:02:33] payday.py: 1Contract-35M-2
+[31.03 08:02:33] payday.py: 24Contract-7M-3
+[31.03 08:02:33] payday.py: 23Contract-160R-5
+[31.03 08:02:33] payday.py: 23Contract-50M-2
+[31.03 08:02:33] payday.py: 23Contract-56M-3
+[31.03 08:02:33] payday.py: 18Contract-4M-2
+[31.03 08:02:33] payday.py: 11Contract-3M-3
+[31.03 08:02:33] payday.py: 24Contract-37M-3
+[31.03 08:02:33] payday.py: 20Contract-46M-3
+[31.03 08:02:33] payday.py: 4Contract-151R-2
+[31.03 08:02:33] payday.py: 24Contract-168R-3
+[31.03 08:02:33] payday.py: 24Contract-152R-3
+[31.03 08:02:33] payday.py: 24Contract-143R-4
+[31.03 08:02:33] payday.py: 15Contract-12R-4
+[31.03 08:02:33] payday.py: 14Contract-32M-2
+[31.03 08:02:33] payday.py: 28Contract-44M-3
+[31.03 08:02:33] payday.py: 26Contract-136R-5
+[31.03 08:02:33] payday.py: 24Contract-1R-3
+[31.03 08:02:33] payday.py: 13Contract-40R-3
+[31.03 08:02:33] payday.py: 26Contract-5R-2
+[31.03 08:02:33] payday.py: 26Contract-155R-1
+[31.03 08:02:33] payday.py: 27Contract-55M-3
+[31.03 08:02:33] payday.py: 27Contract-21M-4
+[31.03 08:02:33] payday.py: 27Contract-6R-2
+[31.03 08:02:33] payday.py: 28Contract-140R-5
+[31.03 08:02:33] payday.py: 28Contract-47R-2
+[31.03 08:02:33] payday.py: 27Contract-36R-3
+[31.03 08:02:33] payday.py: 28Contract-35M-3
+[31.03 08:02:33] payday.py: 28Contract-154R-2
+[31.03 08:02:33] payday.py: 13Contract-155R-2
+[31.03 08:02:33] payday.py: 5Contract-156R-5
+[31.03 08:02:33] payday.py: 4Contract-157R-2
+[31.03 08:02:33] payday.py: 26Contract-158R-2
+[31.03 08:02:33] payday.py: 19Contract-161R-1
+[31.03 08:02:33] payday.py: 28Contract-113DEN-4
+[31.03 08:02:33] payday.py: 1Contract-10M-4
+[31.03 08:02:33] payday.py: 12Contract-162R-3
+[31.03 08:02:33] payday.py: 24Contract-163R-5
+[31.03 08:02:33] payday.py: 19Contract-164R-2
+[31.03 08:02:33] payday.py: 10Contract-165R-3
+[31.03 08:02:33] payday.py: 27Contract-167R-2
+[31.03 08:02:33] payday.py: 13Contract-169R-1
+[31.03 08:02:33] payday.py: 7Contract-5R-1
+[31.03 08:02:33] payday.py: 13Contract-1R-1
+[31.03 08:02:33] payday.py: 6Contract-118DEN-3
+[31.03 08:02:33] payday.py: 6Contract-24Den-1
+[31.03 08:02:33] payday.py: 7Contract-23Dan-4
+[31.03 08:02:33] payday.py: 7Contract-62R-1
+[31.03 08:02:33] payday.py: 27Contract-110DEN-4
+[31.03 08:02:33] payday.py: 12Contract-112DEN-2
+[31.03 08:02:33] payday.py: 25Contract-120DEN-3
+[31.03 08:02:33] payday.py: 26Contract-113DEN-3
+[31.03 08:02:33] payday.py: 26Contract-114DEN-2
+[31.03 08:02:33] payday.py: 1Contract-158R-4
+[31.03 08:02:33] payday.py: 2Contract-140R-6
+[31.03 08:02:33] payday.py: 2Contract-152R-5
+[31.03 08:02:33] payday.py: 2Contract-89R-1
+[31.03 08:02:33] payday.py: 3Contract-163R-7
+[31.03 08:02:33] payday.py: 5Contract-155R-4
+[31.03 08:02:33] payday.py: 6Contract-70DR-3
+[31.03 08:02:33] payday.py: 9Contract-64R-2
+[31.03 08:02:33] payday.py: 28Contract-152R-4
+[31.03 08:02:33] payday.py: 28Contract-79R-1
+[31.03 08:02:33] payday.py: 28Contract-163R-6
+[31.03 08:02:33] payday.py: 2Contract-166R-3
+[31.03 08:02:33] payday.py: 11Contract-34R-3
+[31.03 08:02:33] payday.py: 8Contract-23Dan-6
+[31.03 08:02:33] payday.py: 12Contract-148R-3
+[31.03 08:02:33] payday.py: 13Contract-27R-4
+[31.03 08:02:33] payday.py: 13Contract-18Dan-4
+[31.03 08:02:33] payday.py: 11Contract-82DR-1
+[31.03 08:02:33] payday.py: 14Contract-114DEN-5
+[31.03 08:02:33] payday.py: 14Contract-38M-5
+[31.03 08:02:33] payday.py: 16Contract-45R-3
+[31.03 08:02:33] payday.py: 17Contract-83R-1
+[31.03 08:02:33] payday.py: 18Contract-84Dan-1
+[31.03 08:02:33] payday.py: 18Contract-42DEN-2
+[31.03 08:02:33] payday.py: 18Contract-101Dan-6
+[31.03 08:02:33] payday.py: 1Contract-100Dan-4
+[31.03 08:02:33] payday.py: 21Contract-77Den-1
+[31.03 08:02:33] payday.py: 2Contract-36R-4
+[31.03 08:02:33] payday.py: 2Contract-71DR-2
+[31.03 08:02:33] payday.py: 2Contract-156R-8
+[31.03 08:02:33] payday.py: 22Contract-41R-3
+[31.03 08:02:33] payday.py: 25Contract-81DR-1
+[31.03 08:02:33] payday.py: 23Contract-87R-1
+[31.03 08:02:33] payday.py: 25Contract-55M-6
+[31.03 08:02:33] payday.py: 25Contract-86Dan-1
+[31.03 08:02:33] payday.py: 26Contract-32M-3
+[31.03 08:02:33] payday.py: 26Contract-75DR-2
+[31.03 08:02:33] payday.py: 2Contract-85R-1
+[31.03 08:02:33] payday.py: 24Contract-100Dan-5
+[31.03 08:02:33] payday.py: 28Contract-88R-1
+[31.03 08:02:33] payday.py: 15Contract-53R-2
+[31.03 08:02:33] payday.py: 4Contract-121R-1
+[31.03 08:02:33] payday.py: 4Contract-117VOV-4
+[31.03 08:02:33] payday.py: 5Contract-70DR-2
+[31.03 08:02:33] payday.py: 27Contract-145R-3
+[31.03 08:02:33] payday.py: 6Contract-33Dan-2
+[31.03 08:02:33] payday.py: 7Contract-29R-4
+[31.03 08:02:33] payday.py: 8Contract-164R-3
+[31.03 08:02:33] payday.py: 9Contract-10M-6
+[31.03 08:02:33] payday.py: 8Contract-111DEN-6
+[31.03 08:02:33] payday.py: 19Contract-117VOV-3
+[31.03 08:02:33] payday.py: 10Contract-10M-5
+[31.03 08:02:33] payday.py: 24Contract-49DR-1
+[31.03 08:02:33] payday.py: 19Contract-63Den-1
+[31.03 08:02:33] payday.py: 11Contract-61M-4
+[31.03 08:02:33] payday.py: 14Contract-64R-1
+[31.03 08:02:33] payday.py: 7Contract-23Dan-5
+[31.03 08:02:33] payday.py: 12Contract-11R-3
+[31.03 08:02:33] payday.py: 14Contract-55M-5
+[31.03 08:02:33] payday.py: 14Contract-114DEN-4
+[31.03 08:02:33] payday.py: 16Contract-45R-2
+[31.03 08:02:33] payday.py: 12Contract-43DR-2
+[31.03 08:02:33] payday.py: 23Contract-74DR-1
+[31.03 08:02:33] payday.py: 22Contract-25Dan-4
+[31.03 08:02:33] payday.py: 24Contract-3M-4
+[31.03 08:02:33] payday.py: 25Contract-75DR-1
+[31.03 08:02:33] payday.py: 27Contract-37M-5
+[31.03 08:02:33] payday.py: 26Contract-4M-3
+[31.03 08:02:33] payday.py: 2Contract-70DR-1
+[31.03 08:02:33] payday.py: 21Contract-72DR-1
+[31.03 08:02:33] payday.py: 22Contract-73R-1
+[31.03 08:02:33] payday.py: 28Contract-59R-2
+[31.03 08:02:33] payday.py: 28Contract-146R-5
+[31.03 08:02:33] payday.py: 28Contract-20M-2
+[31.03 08:02:33] payday.py: 23Contract-118DEN-5
+[31.03 08:02:33] payday.py: 21Contract-76DR-1
+[31.03 08:02:33] payday.py: 17Contract-66R-1
+[31.03 08:02:33] payday.py: 3Contract-29R-3
+[31.03 08:02:33] payday.py: 19Contract-135R-4
+[31.03 08:02:33] payday.py: 26Contract-65R-1
+[31.03 08:02:33] payday.py: 7Contract-55M-4
+[31.03 08:02:33] payday.py: 26Contract-37M-4
+[31.03 08:02:33] payday.py: 1Contract-100Dan-2
+[31.03 08:02:33] payday.py: 12Contract-11R-2
+[31.03 08:02:33] payday.py: 13Contract-58Den-1
+[31.03 08:02:33] payday.py: 16Contract-51Den-2
+[31.03 08:02:33] payday.py: 27Contract-52Den-1
+[31.03 08:02:33] payday.py: 7Contract-111DEN-5
+[31.03 08:02:33] payday.py: 9Contract-118DEN-4
+[31.03 08:02:33] payday.py: 13Contract-19R-4
+[31.03 08:02:33] payday.py: 16Contract-119Dan-2
+[31.03 08:02:33] payday.py: 16Contract-114DEN-3
+[31.03 08:02:33] payday.py: 16Contract-148R-2
+[31.03 08:02:33] payday.py: 7Contract-146R-4
+[31.03 08:02:33] payday.py: 17Contract-119Dan-3
+[31.03 08:02:33] payday.py: 27Contract-52M-1
+[31.03 08:02:33] payday.py: 2Contract-153R-4
+[31.03 08:02:33] payday.py: 28Contract-59R-1
+[31.03 08:02:33] payday.py: 27Contract-53R-1
+[31.03 08:02:33] payday.py: 19Contract-166R-2
+[31.03 08:02:33] payday.py: 22Contract-160R-6
+[31.03 08:02:33] payday.py: 27Contract-67R-1
+[31.03 08:02:33] payday.py: 29Contract-34R-2d
+[31.03 08:02:33] payday.py: 23Contract-145R-2
+[31.03 08:02:33] payday.py: 26Contract-55M-4>37
+[31.03 08:02:33] payday.py: 25Contract-136R-6
+[31.03 08:02:33] payday.py: 27Contract-29R-2
+[31.03 08:02:33] payday.py: 28Contract-12R-5
+[31.03 08:02:33] payday.py: 28Contract-52Den-2
+[31.03 08:02:33] payday.py: 27Contract-167R-3
+[31.03 08:02:33] payday.py: 28Contract-158R-3
+[31.03 08:02:33] payday.py: 28Contract-156R-7
+[31.03 08:02:33] payday.py: 1Contract-34R-2
+[31.03 08:02:33] payday.py: 5Contract-131R-3
+[31.03 08:02:33] payday.py: 14Contract-112DEN-3
+[31.03 08:02:33] payday.py: 7Contract-24Den-2
+[31.03 08:02:33] payday.py: 23Contract-78DR-1
+[31.03 08:02:33] payday.py: 8Contract-80DR-1
+[31.03 08:02:33] payday.py: 21Contract-52Den-4
+[31.03 08:02:33] payday.py: 13Contract-85R-2
+[31.03 08:02:33] payday.py: 10Contract-1R-2
+[31.03 08:02:33] payday.py: 28Contract-167R-4
+[31.03 08:02:33] payday.py: 28Contract-49M-TEST-1
+[31.03 08:02:33] payday.py: 7Contract-149R-3
+[31.03 08:02:33] payday.py: 18Contract-66R-2
+[31.03 08:02:33] payday.py: 20Contract-161R-2
+[31.03 08:02:33] payday.py: 3Contract-103R-4
+[31.03 08:02:33] payday.py: 5Contract-51Den-3
+[31.03 08:02:33] payday.py: 26Contract-85R-4
+[31.03 08:02:33] payday.py: 13Contract-113DEN-4
+[31.03 08:02:33] payday.py: 18Contract-4R-1
+[31.03 08:02:33] payday.py: 14Contract-79R-2
+[31.03 08:02:33] payday.py: 12Contract-43DR-3
+[31.03 08:02:33] payday.py: 16Contract-120DEN-4
+[31.03 08:02:33] payday.py: 20Contract-96R-1
+[31.03 08:02:33] payday.py: 21Contract-3DEN-3
+[31.03 08:02:33] payday.py: 27Contract-111DEN-7
+[31.03 08:02:33] payday.py: 23Contract-53R-3
+[31.03 08:02:33] payday.py: 23Contract-54DR-1
+[31.03 08:02:33] payday.py: 26Contract-28R-3
+[31.03 08:02:33] payday.py: 11Contract-152R-7
+[31.03 08:02:33] payday.py: 13Contract-40R-5
+[31.03 08:02:33] payday.py: 10Contract-42DEN-4
+[31.03 08:02:33] payday.py: 8Contract-80DR-2
+[31.03 08:02:33] payday.py: 20Contract-4R-2
+[31.03 08:02:33] payday.py: 10Contract-93R-2
+[31.03 08:02:33] payday.py: 14Contract-148R-4
+[31.03 08:02:33] payday.py: 10Contract-136R-7
+[31.03 08:02:33] payday.py: 1Contract-88R-3
+[31.03 08:02:33] payday.py: 28Contract-36R-7
+[31.03 08:02:33] payday.py: 28Contract-La Griselda-1
+[31.03 08:02:33] payday.py: 12Contract-16R-1
+[31.03 08:02:33] payday.py: 3Contract-114DEN-6
+[31.03 08:02:33] payday.py: 22Contract-43DR-5
+[31.03 08:02:33] payday.py: 8Contract-64R-4
+[31.03 08:02:33] payday.py: 11Contract-39R-2
+[31.03 08:02:33] payday.py: 4Contract-165R-6
+[31.03 08:02:33] payday.py: 27Contract-110DEN-5
+[31.03 08:02:33] payday.py: 20Contract-158R-6
+[31.03 08:02:33] payday.py: 12Contract-21R-1
+[31.03 08:02:33] payday.py: 28Contract-55R-1
+[31.03 08:02:33] payday.py: 28Contract-49M-TEST-2
+[31.03 08:02:33] payday.py: 11Contract-51Den-4
+[31.03 08:02:33] payday.py: 15Contract-79R-2
+[31.03 08:02:33] payday.py: 13Contract-166R-4
+[31.03 08:02:33] payday.py: 24Contract-10DR-2
+[31.03 08:02:33] payday.py: 7Contract-164R-5
+[31.03 08:02:33] payday.py: 9Contract-22R-1
+[31.03 08:02:33] payday.py: 28Contract-La Griselda-2
+[31.03 08:02:33] payday.py: 15Contract-53R-5
+[31.03 08:02:33] payday.py: 27Contract-72DR-2
+[31.03 08:02:33] payday.py: 13Contract-135R-6
+[31.03 08:02:33] payday.py: 25Contract-25Dan-5
+[31.03 08:02:33] payday.py: 18Contract-23Dan-7
+[31.03 08:02:33] payday.py: 27Contract-43DR-6
+[31.03 08:02:33] payday.py: 24Contract-10DR-1
+[31.03 08:02:33] payday.py: 21Contract-52Den-3
+[31.03 08:02:33] payday.py: 13Contract-36R-6
+[31.03 08:02:33] payday.py: 17Contract-166R-7
+[31.03 08:02:33] payday.py: 11Contract-158R-5
+[31.03 08:02:33] payday.py: 25Contract-152R-6
+[31.03 08:02:33] payday.py: 28Contract-29R-6
+[31.03 08:02:33] payday.py: 12Contract-90R-2
+[31.03 08:02:33] payday.py: 22Contract-103R-5
+[31.03 08:02:33] payday.py: 14Contract-97R-2
+[31.03 08:02:33] payday.py: 8Contract-151R-4
+[31.03 08:02:33] payday.py: 15Contract-75DR-5
+[31.03 08:02:33] payday.py: 17Contract-17R-3
+[31.03 08:02:33] payday.py: 11Contract-169R-4
+[31.03 08:02:33] payday.py: 4Contract-59R-4
+[31.03 08:02:33] payday.py: 5Contract-15R-1
+[31.03 08:02:33] payday.py: 20Contract-169R-5
+[31.03 08:02:33] payday.py: 26Contract-30R-4
+[31.03 08:02:33] payday.py: 11Contract-34R-5
+[31.03 08:02:33] payday.py: 3Contract-73R-3
+[31.03 08:02:33] payday.py: 20Contract-28R-2
+[31.03 08:02:33] payday.py: 5Contract-153R-5
+[31.03 08:02:33] payday.py: 19Contract-17R-4
+[31.03 08:02:33] payday.py: 19Contract-11R-4
+[31.03 08:02:33] payday.py: 7Contract-157R-3
+[31.03 08:02:33] payday.py: 20Contract-113DEN-5
+[31.03 08:02:33] payday.py: 10Contract-169R-3
+[31.03 08:02:33] payday.py: 17Contract-19R-5
+[31.03 08:02:33] payday.py: 21Contract-136R-8
+[31.03 08:02:33] payday.py: 8Contract-75DR-4
+[31.03 08:02:33] payday.py: 15Contract-96R-2
+[31.03 08:02:33] payday.py: 20Contract-77Den-3
+[31.03 08:02:33] payday.py: 17Contract-101Dan-7
+[31.03 08:02:33] payday.py: 20Contract-148R-5
+[31.03 08:02:33] payday.py: 23Contract-103R-6
+[31.03 08:02:33] payday.py: 5Contract-11R-5
+[31.03 08:02:33] payday.py: 22Contract-166R-6
+[31.03 08:02:33] payday.py: 4Contract-114DEN-8
+[31.03 08:02:33] payday.py: 18Contract-151R-3
+[31.03 08:02:33] payday.py: 4Contract-59R-3
+[31.03 08:02:33] payday.py: 25Contract-114DEN-9
+[31.03 08:02:33] payday.py: 25Contract-119Dan-4
+[31.03 08:02:33] payday.py: 12Contract-162R-4
+[31.03 08:02:33] payday.py: 28Contract-53R-4
+[31.03 08:02:33] payday.py: 9Contract-70DR-5
+[31.03 08:02:33] payday.py: 19Contract-83R-2
+[31.03 08:02:33] payday.py: 13Contract-18Dan-6
+[31.03 08:02:33] payday.py: 7Contract-40R-4
+[31.03 08:02:33] payday.py: 13Contract-114DEN-7
+[31.03 08:02:33] payday.py: 22Contract-3DEN-2
+[31.03 08:02:33] payday.py: 24Contract-100Dan-6
+[31.03 08:02:33] payday.py: 14Contract-34R-6
+[31.03 08:02:33] payday.py: 3Contract-93R-1
+[31.03 08:02:33] payday.py: 18Contract-165R-4
+[31.03 08:02:33] payday.py: 6Contract-117VOV-5
+[31.03 08:02:33] payday.py: 4Contract-160R-7
+[31.03 08:02:33] payday.py: 6Contract-153R-6
+[31.03 08:02:33] payday.py: 10Contract-36R-5
+[31.03 08:02:33] payday.py: 9Contract-33Dan-3
+[31.03 08:02:33] payday.py: 19Contract-2DEN-1
+[31.03 08:02:33] payday.py: 8Contract-70DR-4
+[31.03 08:02:33] payday.py: 13Contract-66R-3
+[31.03 08:02:33] payday.py: 24Contract-164R-4
+[31.03 08:02:33] payday.py: 18Contract-87R-2
+[31.03 08:02:33] payday.py: 9Contract-90R-1
+[31.03 08:02:33] payday.py: 22Contract-101Dan-8
+[31.03 08:02:33] payday.py: 28Contract-98D-1
+[31.03 08:02:33] payday.py: 20Contract-4R-3
+[31.03 08:02:33] payday.py: 28Contract-La Griselda-3
+[31.03 08:02:33] payday.py: 20Contract-16R-2
+[31.03 08:02:33] payday.py: 3Contract-100Dan-7
+[31.03 08:02:33] payday.py: 12Contract-7R-1
+[31.03 08:02:33] payday.py: 7Contract-149R-4
+[31.03 08:02:33] payday.py: 21Contract-111DEN-0
+[31.03 08:02:33] payday.py: 16Contract-111DEN-8
+[31.03 08:02:33] payday.py: 25Contract-8R-1
+[31.03 08:02:33] payday.py: 19Contract-79R-3
+[31.03 08:02:33] payday.py: 7Contract-30R-5
+[31.03 08:02:33] payday.py: 28Contract-La Griselda-5
+[31.03 08:02:33] payday.py: 17Contract-31R-5
+[31.03 08:02:33] payday.py: 27Contract-154R-3
+[31.03 08:02:33] payday.py: 25Contract-96R-3
+[31.03 08:02:33] payday.py: 20Contract-160R-8
+[31.03 08:02:33] payday.py: 4Contract-89R-2
+[31.03 08:02:33] payday.py: 29Contract-26R-1
+[31.03 08:02:33] payday.py: 6Contract-91R-2
+[31.03 08:02:33] payday.py: 24Contract-156R-9
+[31.03 08:02:33] payday.py: 8Contract-117VOV-6
+[31.03 08:02:33] payday.py: 13Contract-135R-5
+[31.03 08:02:33] payday.py: 27Contract-3DEN-1
+[31.03 08:02:33] payday.py: 19Contract-28R-1
+[31.03 08:02:33] payday.py: 22Contract-54DR-2
+[31.03 08:02:33] payday.py: 12Contract-92R-1
+[31.03 08:02:33] payday.py: 10Contract-17R-2
+[31.03 08:02:33] payday.py: 28Contract-165R-5
+[31.03 08:02:33] payday.py: 13Contract-82DR-2
+[31.03 08:02:33] payday.py: 28Contract-34R-4
+[31.03 08:02:33] payday.py: 26Contract-18Dan-5
+[31.03 08:02:33] payday.py: 27Contract-65R-2
+[31.03 08:02:33] payday.py: 21Contract-43DR-4
+[31.03 08:02:33] payday.py: 14Contract-49DR-2
+[31.03 08:02:33] payday.py: 21Contract-91R-1
+[31.03 08:02:33] payday.py: 28Contract-29R-5
+[31.03 08:02:33] payday.py: 11Contract-99DR-1
+[31.03 08:02:33] payday.py: 22Contract-46DR-1
+[31.03 08:02:33] payday.py: 27Contract-88R-2
+[31.03 08:02:33] payday.py: 28Contract-La Griselda-4
+[31.03 08:02:33] payday.py: 14Contract-153R-7
+[31.03 08:02:33] payday.py: 13Contract-166R-5
+[31.03 08:02:33] payday.py: 18Contract-94R-1
+[31.03 08:02:33] payday.py: 22Contract-77Den-2
+[31.03 08:02:33] payday.py: 19Contract-111DEN-9
+[31.03 08:02:33] payday.py: 8Contract-117VOV-7
+[31.03 08:02:33] payday.py: 30Contract-41R-4
+[31.03 08:02:33] payday.py: 19Contract-42DEN-3
+[31.03 08:02:33] payday.py: 20Contract-20R-1
+[31.03 08:02:33] payday.py: 18Contract-140R-7
+[31.03 08:02:33] payday.py: 28Contract-73R-2
+[31.03 08:02:33] payday.py: 1Contract-158R-7
+[31.03 08:02:33] payday.py: 15Contract-31R-4
+[31.03 08:02:33] payday.py: 13Contract-32DEN-1
+[31.03 08:02:33] payday.py: 13Contract-97R-1
+[31.03 08:02:33] payday.py: 23Contract-163R-8
+[31.03 08:02:33] payday.py: 1Contract-95DR-1
+[31.03 08:02:33] payday.py: total payday contracts: 0
+[31.03 08:02:33] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 08:02:33] payday.py: set last payday update.
+[31.03 08:02:33] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:03 (main.py --read-only --no-tg --no-odometer --no-saldo -t )
+[31.03 08:03:55] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:03:55] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:03:55] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:03:55] main.py: start main process (immediately activate).
+[31.03 08:03:56] changeoil.py: start changeoil.
+[31.03 08:03:59] changeoil.py: total changeoil cars: 0
+[31.03 08:03:59] changeoil.py: changeoil last update not updated because of "--read-only" flag.
+[31.03 08:03:59] changeoil.py: set last changeoil update.
+[31.03 08:03:59] payday.py: start payday.
+[31.03 08:04:00] payday.py: total payday contracts: 0
+[31.03 08:04:00] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 08:04:00] payday.py: set last payday update.
+[31.03 08:04:00] insurance.py: start insurance.
+[31.03 08:04:02] insurance.py: write insurance - nickname: 49M-TEST
+[31.03 08:04:02] insurance.py: task not created because of "--read-only" flag.
+[31.03 08:04:02] insurance.py: sms not sent because of "--read-only" flag.
+[31.03 08:04:02] insurance.py: total insurance contracts: 1
+[31.03 08:04:02] insurance.py: insurance last update not updated because of "--read-only" flag.
+[31.03 08:04:02] insurance.py: set last insurance update.
+[31.03 08:04:02] post.py: start post.
+[31.03 08:04:03] post.py: total post tasks: 0
+[31.03 08:04:03] post.py: post last update not updated because of "--read-only" flag.
+[31.03 08:04:03] post.py: Post work completed. Updated tasks: 0. Time: 0.77 seconds.
+[31.03 08:04:03] latepayment.py: start latepayment.
+[31.03 08:04:06] latepayment.py: send pre-latepayment sms - nickname: 12R
+[31.03 08:04:06] latepayment.py: sms not sent because of "--read-only" flag.
+[31.03 08:04:06] latepayment.py: total latepayment contracts: 0
+[31.03 08:04:06] latepayment.py: total pre-latepayment contracts: 1
+[31.03 08:04:06] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[31.03 08:04:06] latepayment.py: set last latepayment update.
+[31.03 08:04:06] payevery.py: start payevery.
+[31.03 08:04:08] payevery.py: payevery completed. Stats: pays created: 0, contracts checked: 115, time: 2.17
+[31.03 08:04:08] payevery.py: start payevery (2).
+[31.03 08:04:10] payevery.py: payevery 2 completed. Stats: tasks & sms created: 0, contracts checked: 115, time: 2.69
+[31.03 08:04:10] imei.py: start imei.
+[31.03 08:04:11] rentacar.mods/bouncie.py: get apikey from bouncie.
+[31.03 08:04:13] rentacar.mods/bouncie.py: get imei data from bouncie.
+[31.03 08:04:15] imei.py: no difference found - nickname: 100Dan, imei: 866016061364427.
+[31.03 08:04:15] imei.py: no difference found - nickname: 101Dan, imei: 866392061950618.
+[31.03 08:04:15] imei.py: no difference found - nickname: 103R, imei: 866392061975128.
+[31.03 08:04:15] imei.py: no difference found - nickname: 10DR, imei: 866392065310348.
+[31.03 08:04:15] imei.py: cannot find car with nickname 110DEN in bouncie.
+[31.03 08:04:15] imei.py: no difference found - nickname: 111DEN, imei: 866392060664749.
+[31.03 08:04:15] imei.py: no difference found - nickname: 112DEN, imei: 862255068803185.
+[31.03 08:04:15] imei.py: no difference found - nickname: 113DEN, imei: 862255068841516.
+[31.03 08:04:15] imei.py: no difference found - nickname: 114DEN, imei: 862255068933958.
+[31.03 08:04:15] imei.py: no difference found - nickname: 117VOV, imei: 862255068925483.
+[31.03 08:04:15] imei.py: no difference found - nickname: 118DEN, imei: 864486065829315.
+[31.03 08:04:15] imei.py: no difference found - nickname: 119Dan, imei: 866016061317581.
+[31.03 08:04:15] imei.py: no difference found - nickname: 11R, imei: 866392061903310.
+[31.03 08:04:15] imei.py: no difference found - nickname: 120DEN, imei: 866392065188421.
+[31.03 08:04:15] imei.py: no difference found - nickname: 12R, imei: 866392061979187.
+[31.03 08:04:15] imei.py: no difference found - nickname: 131R, imei: 866392061961029.
+[31.03 08:04:15] imei.py: no difference found - nickname: 132R, imei: 866016061362900.
+[31.03 08:04:15] imei.py: no difference found - nickname: 135R, imei: 866392065266706.
+[31.03 08:04:15] imei.py: no difference found - nickname: 136R, imei: 866392065297115.
+[31.03 08:04:15] imei.py: no difference found - nickname: 140R, imei: 866392065272878.
+[31.03 08:04:15] imei.py: cannot find car with nickname 143R in bouncie.
+[31.03 08:04:15] imei.py: no difference found - nickname: 146R, imei: 866392061981464.
+[31.03 08:04:15] imei.py: no difference found - nickname: 148R, imei: 866392061859579.
+[31.03 08:04:15] imei.py: no difference found - nickname: 149R, imei: 866392065205944.
+[31.03 08:04:15] imei.py: no difference found - nickname: 14R, imei: 866392065312153.
+[31.03 08:04:15] imei.py: no difference found - nickname: 151R, imei: 866392065249363.
+[31.03 08:04:15] imei.py: no difference found - nickname: 152R, imei: 866392065359378.
+[31.03 08:04:15] imei.py: no difference found - nickname: 153R, imei: 866392061888115.
+[31.03 08:04:15] imei.py: no difference found - nickname: 154R, imei: 862255068822953.
+[31.03 08:04:15] imei.py: no difference found - nickname: 155R, imei: 866392065302626.
+[31.03 08:04:15] imei.py: no difference found - nickname: 156R, imei: 866392065822474.
+[31.03 08:04:15] imei.py: no difference found - nickname: 157R, imei: 866392061863845.
+[31.03 08:04:15] imei.py: no difference found - nickname: 158R, imei: 866392061936054.
+[31.03 08:04:15] imei.py: no difference found - nickname: 15R, imei: 866016061269105.
+[31.03 08:04:15] imei.py: no difference found - nickname: 160R, imei: 862255068814042.
+[31.03 08:04:15] imei.py: no difference found - nickname: 161R, imei: 866392061848929.
+[31.03 08:04:15] imei.py: no difference found - nickname: 162R, imei: 866392061933853.
+[31.03 08:04:15] imei.py: no difference found - nickname: 163R, imei: 866392061946798.
+[31.03 08:04:15] imei.py: no difference found - nickname: 164R, imei: 866392065355459.
+[31.03 08:04:15] imei.py: no difference found - nickname: 165R, imei: 866392061969410.
+[31.03 08:04:15] imei.py: cannot find car with nickname 166R in bouncie.
+[31.03 08:04:15] imei.py: no difference found - nickname: 167R, imei: 866392061976142.
+[31.03 08:04:15] imei.py: no difference found - nickname: 169R, imei: 865640068608287.
+[31.03 08:04:15] imei.py: no difference found - nickname: 16R, imei: 866392065316378.
+[31.03 08:04:15] imei.py: no difference found - nickname: 17R, imei: 866392061916882.
+[31.03 08:04:15] imei.py: no difference found - nickname: 18Dan, imei: 864486066576329.
+[31.03 08:04:15] imei.py: no difference found - nickname: 19R, imei: 866016061185715.
+[31.03 08:04:15] imei.py: no difference found - nickname: 1R, imei: 866392061901850.
+[31.03 08:04:15] imei.py: no difference found - nickname: 20R, imei: 866392061979138.
+[31.03 08:04:15] imei.py: no difference found - nickname: 21R, imei: 866392061852202.
+[31.03 08:04:15] imei.py: no difference found - nickname: 22R, imei: 866392065842290.
+[31.03 08:04:15] imei.py: no difference found - nickname: 23Dan, imei: 866392065340980.
+[31.03 08:04:15] imei.py: no difference found - nickname: 24Den, imei: 866392065219978.
+[31.03 08:04:15] imei.py: no difference found - nickname: 25Dan, imei: 866392065264164.
+[31.03 08:04:15] imei.py: no difference found - nickname: 26R, imei: 864486067324430.
+[31.03 08:04:15] imei.py: no difference found - nickname: 27R, imei: 864486066883683.
+[31.03 08:04:15] imei.py: no difference found - nickname: 28R, imei: 866016061318415.
+[31.03 08:04:15] imei.py: no difference found - nickname: 29R, imei: 866392061903070.
+[31.03 08:04:15] imei.py: no difference found - nickname: 2DEN, imei: 866392061954628.
+[31.03 08:04:15] imei.py: no difference found - nickname: 30R, imei: 866392061901793.
+[31.03 08:04:15] imei.py: no difference found - nickname: 31R, imei: 866392061911453.
+[31.03 08:04:15] imei.py: no difference found - nickname: 32DEN, imei: 862255068977823.
+[31.03 08:04:15] imei.py: no difference found - nickname: 33Dan, imei: 866392061903500.
+[31.03 08:04:15] imei.py: no difference found - nickname: 34R, imei: 866392065165981.
+[31.03 08:04:15] imei.py: no difference found - nickname: 36R, imei: 866392065211967.
+[31.03 08:04:15] imei.py: no difference found - nickname: 39R, imei: 866392065307369.
+[31.03 08:04:15] imei.py: no difference found - nickname: 3DEN, imei: 866392061947838.
+[31.03 08:04:15] imei.py: no difference found - nickname: 40R, imei: 866392065326518.
+[31.03 08:04:15] imei.py: no difference found - nickname: 41R, imei: 866392065170916.
+[31.03 08:04:15] imei.py: no difference found - nickname: 42DEN, imei: 866392065256251.
+[31.03 08:04:15] imei.py: no difference found - nickname: 43DR, imei: 864486066542859.
+[31.03 08:04:15] imei.py: no difference found - nickname: 45R, imei: 866016061323191.
+[31.03 08:04:15] imei.py: no difference found - nickname: 46DR, imei: 864486067749420.
+[31.03 08:04:15] imei.py: no difference found - nickname: 47R, imei: 864486065833192.
+[31.03 08:04:15] imei.py: no difference found - nickname: 49DR, imei: 864486066514882.
+[31.03 08:04:15] imei.py: cannot find car with nickname 49M-TEST in bouncie.
+[31.03 08:04:15] imei.py: no difference found - nickname: 4R, imei: 866392065270062.
+[31.03 08:04:15] imei.py: no difference found - nickname: 51Den, imei: 866392061953927.
+[31.03 08:04:15] imei.py: no difference found - nickname: 52Den, imei: 866392065166005.
+[31.03 08:04:15] imei.py: no difference found - nickname: 53R, imei: 866392061901686.
+[31.03 08:04:15] imei.py: no difference found - nickname: 54DR, imei: 866392061955567.
+[31.03 08:04:15] imei.py: no difference found - nickname: 55R, imei: 865640068634234.
+[31.03 08:04:15] imei.py: no difference found - nickname: 59R, imei: 866392065249967.
+[31.03 08:04:15] imei.py: no difference found - nickname: 5R, imei: 866392062006196.
+[31.03 08:04:15] imei.py: no difference found - nickname: 62R, imei: 866392065266722.
+[31.03 08:04:15] imei.py: no difference found - nickname: 63Den, imei: 864486062779471.
+[31.03 08:04:15] imei.py: no difference found - nickname: 64R, imei: 864486064880921.
+[31.03 08:04:15] imei.py: no difference found - nickname: 65R, imei: 866392061840793.
+[31.03 08:04:15] imei.py: no difference found - nickname: 66R, imei: 864486062798208.
+[31.03 08:04:15] imei.py: no difference found - nickname: 67R, imei: 864486062778929.
+[31.03 08:04:15] imei.py: no difference found - nickname: 6R, imei: 866392061901579.
+[31.03 08:04:15] imei.py: no difference found - nickname: 70DR, imei: 864486066544210.
+[31.03 08:04:15] imei.py: no difference found - nickname: 72DR, imei: 864486066544202.
+[31.03 08:04:15] imei.py: no difference found - nickname: 73R, imei: 864486064879899.
+[31.03 08:04:15] imei.py: no difference found - nickname: 74DR, imei: 864486064847292.
+[31.03 08:04:15] imei.py: no difference found - nickname: 75DR, imei: 864486064880129.
+[31.03 08:04:15] imei.py: no difference found - nickname: 76DR, imei: 864486064858596.
+[31.03 08:04:15] imei.py: no difference found - nickname: 77Den, imei: 864486066520707.
+[31.03 08:04:15] imei.py: no difference found - nickname: 78DR, imei: 864486066520673.
+[31.03 08:04:15] imei.py: no difference found - nickname: 79R, imei: 864486066540101.
+[31.03 08:04:15] imei.py: no difference found - nickname: 7R, imei: 866392061951020.
+[31.03 08:04:15] imei.py: no difference found - nickname: 80DR, imei: 864486066506284.
+[31.03 08:04:15] imei.py: no difference found - nickname: 81DR, imei: 864486066883881.
+[31.03 08:04:15] imei.py: no difference found - nickname: 82DR, imei: 864486066893674.
+[31.03 08:04:15] imei.py: no difference found - nickname: 83R, imei: 864486066576121.
+[31.03 08:04:15] imei.py: no difference found - nickname: 84Dan, imei: 864486066561065.
+[31.03 08:04:15] imei.py: no difference found - nickname: 85R, imei: 866016061349501.
+[31.03 08:04:15] imei.py: no difference found - nickname: 86Dan, imei: 866392065277737.
+[31.03 08:04:15] imei.py: no difference found - nickname: 87R, imei: 864486067021580.
+[31.03 08:04:15] imei.py: no difference found - nickname: 88R, imei: 866392061974386.
+[31.03 08:04:15] imei.py: no difference found - nickname: 89R, imei: 866392061851162.
+[31.03 08:04:15] imei.py: no difference found - nickname: 8R, imei: 866392065363552.
+[31.03 08:04:15] imei.py: no difference found - nickname: 90R, imei: 866392062002203.
+[31.03 08:04:15] imei.py: no difference found - nickname: 91R, imei: 866392065260238.
+[31.03 08:04:15] imei.py: no difference found - nickname: 92R, imei: 862255068924569.
+[31.03 08:04:15] imei.py: no difference found - nickname: 93R, imei: 866016061355078.
+[31.03 08:04:15] imei.py: no difference found - nickname: 94R, imei: 866392061826792.
+[31.03 08:04:15] imei.py: no difference found - nickname: 95DR, imei: 866392061945105.
+[31.03 08:04:15] imei.py: no difference found - nickname: 96R, imei: 866392065259206.
+[31.03 08:04:15] imei.py: no difference found - nickname: 97R, imei: 866392061911172.
+[31.03 08:04:15] imei.py: no difference found - nickname: 98D, imei: 866392061838060.
+[31.03 08:04:15] imei.py: no difference found - nickname: 99DR, imei: 866392065270369.
+[31.03 08:04:15] imei.py: no difference found - nickname: 9R, imei: 866392065255402.
+[31.03 08:04:15] imei.py: no difference found - nickname: La Griselda, imei: 866392061858258.
+[31.03 08:04:15] imei.py: imei work completed. Stats [BETA]:
+[31.03 08:04:15] imei.py:  - tasks created: 0
+[31.03 08:04:15] imei.py:  - car checked: 124
+[31.03 08:04:15] imei.py:  - lost cars: 4
+[31.03 08:04:15] imei.py:  - time: 4.08 seconds.
+[31.03 08:04:15] supadesi.py: Get Contract table.
+[31.03 08:04:15] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:15] supadesi.py: Successfully updated 400 rows. Time: 0.0 seconds
+[31.03 08:04:15] supadesi.py: Get Contract.ContractComment table.
+[31.03 08:04:16] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:16] supadesi.py: Successfully updated 190 rows. Time: 0.0 seconds
+[31.03 08:04:16] supadesi.py: Get Contract.Promo table.
+[31.03 08:04:16] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:16] supadesi.py: Successfully updated 6 rows. Time: 0.0 seconds
+[31.03 08:04:16] supadesi.py: Get History table.
+[31.03 08:04:18] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:18] supadesi.py: Successfully updated 8125 rows. Time: 0.0 seconds
+[31.03 08:04:18] supadesi.py: Get Last_update_python table.
+[31.03 08:04:19] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:19] supadesi.py: Successfully updated 9 rows. Time: 0.0 seconds
+[31.03 08:04:19] supadesi.py: Get Owner table.
+[31.03 08:04:19] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:19] supadesi.py: Successfully updated 8 rows. Time: 0.0 seconds
+[31.03 08:04:19] supadesi.py: Get Pay table.
+[31.03 08:04:20] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:20] supadesi.py: Successfully updated 579 rows. Time: 0.0 seconds
+[31.03 08:04:20] supadesi.py: Get Pay_contract table.
+[31.03 08:04:21] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:21] supadesi.py: Successfully updated 2417 rows. Time: 0.0 seconds
+[31.03 08:04:21] supadesi.py: Get Repire table.
+[31.03 08:04:21] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:21] supadesi.py: Successfully updated 587 rows. Time: 0.0 seconds
+[31.03 08:04:21] supadesi.py: Get Task table.
+[31.03 08:04:22] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:22] supadesi.py: Successfully updated 1319 rows. Time: 0.0 seconds
+[31.03 08:04:22] supadesi.py: Get Task.Parts table.
+[31.03 08:04:23] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:23] supadesi.py: Successfully updated 121 rows. Time: 0.0 seconds
+[31.03 08:04:23] supadesi.py: Get Toll table.
+[31.03 08:04:25] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:25] supadesi.py: Successfully updated 6561 rows. Time: 0.0 seconds
+[31.03 08:04:25] supadesi.py: Get auth_user table.
+[31.03 08:04:25] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:25] supadesi.py: Successfully updated 6 rows. Time: 0.0 seconds
+[31.03 08:04:25] supadesi.py: Get cars table.
+[31.03 08:04:26] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:26] supadesi.py: Successfully updated 124 rows. Time: 0.0 seconds
+[31.03 08:04:26] supadesi.py: Get inspection table.
+[31.03 08:04:27] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:27] supadesi.py: Successfully updated 268 rows. Time: 0.0 seconds
+[31.03 08:04:27] supadesi.py: Get setting_app table.
+[31.03 08:04:27] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:27] supadesi.py: Successfully updated 19 rows. Time: 0.0 seconds
+[31.03 08:04:27] supadesi.py: Get Temp_APP table.
+[31.03 08:04:27] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:27] supadesi.py: Successfully updated 1 rows. Time: 0.0 seconds
+[31.03 08:04:27] supadesi.py: Get InboxSMS table.
+[31.03 08:04:28] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:28] supadesi.py: Successfully updated 211 rows. Time: 0.0 seconds
+[31.03 08:04:28] supadesi.py: Get InboxSMS.messages table.
+[31.03 08:04:28] supadesi.py: Table not updated because of "--read-only" flag.
+[31.03 08:04:28] supadesi.py: Successfully updated 1019 rows. Time: 0.0 seconds
+[31.03 08:04:28] supadesi.py: Supadesi work completed. Time: 13.77 seconds
+[31.03 08:04:28] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:10 (main.py --read-only --no-tg --payday-only -t )
+[31.03 08:10:53] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:10:53] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:10:53] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:10:53] main.py: start main process (immediately activate).
+[31.03 08:10:54] payday.py: start payday.
+[31.03 08:10:56] payday.py: write payday Contract-49M-TEST-2
+[31.03 08:10:57] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[31.03 08:10:57] payday.py: total payday contracts: 1
+[31.03 08:10:57] payday.py: payday last update not updated because of "--read-only" flag.
+[31.03 08:10:57] payday.py: set last payday update.
+[31.03 08:10:57] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:13 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:13:49] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:13:49] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:13:49] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:13:49] main.py: start main process (immediately activate).
+[31.03 08:13:50] payevery.py: start payevery.
+[31.03 08:13:54] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:13:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:13:54] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:13:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:13:54] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:13:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:13:54] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:13:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:13:54] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:13:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:13:54] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.2
+[31.03 08:13:54] payevery.py: start payevery (2).
+[31.03 08:13:57] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:13:57] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:13:57] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.04
+[31.03 08:13:57] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:15 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:15:36] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:15:36] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:15:36] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:15:36] main.py: start main process (immediately activate).
+[31.03 08:15:37] payevery.py: start payevery.
+[31.03 08:15:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:15:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:15:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:15:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:15:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:15:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:15:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:15:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:15:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:15:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:15:41] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.23
+[31.03 08:15:41] payevery.py: start payevery (2).
+[31.03 08:15:44] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:15:44] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:15:44] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.86
+[31.03 08:15:44] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:16 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:16:11] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:16:11] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:16:11] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:16:11] main.py: start main process (immediately activate).
+[31.03 08:16:12] payevery.py: start payevery.
+[31.03 08:16:16] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:16:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:16:16] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:16:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:16:16] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:16:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:16:16] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:16:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:16:16] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:16:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:16:16] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.15
+[31.03 08:16:16] payevery.py: start payevery (2).
+[31.03 08:16:19] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:16:19] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:16:19] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.0
+[31.03 08:16:19] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:17 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:17:36] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:17:36] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:17:36] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:17:36] main.py: start main process (immediately activate).
+[31.03 08:17:37] payevery.py: start payevery.
+[31.03 08:17:42] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:17:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:17:42] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:17:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:17:42] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:17:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:17:42] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:17:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:17:42] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:17:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:17:42] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.57
+[31.03 08:17:42] payevery.py: start payevery (2).
+[31.03 08:17:45] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:17:45] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:17:45] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.09
+[31.03 08:17:45] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:18 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:18:28] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:18:28] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:18:28] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:18:28] main.py: start main process (immediately activate).
+[31.03 08:18:29] payevery.py: start payevery.
+[31.03 08:18:33] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-25
+[31.03 08:18:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:33] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:18:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:33] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:18:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:33] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:18:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:33] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:18:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:33] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.16
+[31.03 08:18:33] payevery.py: start payevery (2).
+[31.03 08:18:37] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:18:37] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:18:37] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.58
+[31.03 08:18:37] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:18 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:18:43] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:18:43] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:18:43] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:18:43] main.py: start main process (immediately activate).
+[31.03 08:18:44] payevery.py: start payevery.
+[31.03 08:18:48] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:18:48] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:48] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:18:48] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:48] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:18:48] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:48] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:18:48] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:18:48] payevery.py: payevery completed. Stats: pays created: 4, contracts checked: 115, time: 4.24
+[31.03 08:18:48] payevery.py: start payevery (2).
+[31.03 08:18:51] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:18:51] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:18:51] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.0
+[31.03 08:18:51] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:20 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:20:20] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:20:20] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:20:20] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:20:20] main.py: start main process (immediately activate).
+[31.03 08:20:21] payevery.py: start payevery.
+[31.03 08:20:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:20:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:20:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:20:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:20:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:20:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:20:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:20:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:20:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:20:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:20:25] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.16
+[31.03 08:20:25] payevery.py: start payevery (2).
+[31.03 08:20:28] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:20:28] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:20:28] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.0
+[31.03 08:20:28] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:23 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:23:35] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:23:35] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:23:35] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:23:35] main.py: start main process (immediately activate).
+[31.03 08:23:36] payevery.py: start payevery.
+[31.03 08:23:40] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:23:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:23:40] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:23:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:23:40] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:23:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:23:40] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:23:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:23:40] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:23:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:23:40] payevery.py: payevery completed. Stats: pays created: 5, contracts checked: 115, time: 4.28
+[31.03 08:23:40] payevery.py: start payevery (2).
+[31.03 08:23:43] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:23:43] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:23:43] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.58
+[31.03 08:23:43] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:25 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:25:47] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:25:47] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:25:47] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:25:47] main.py: start main process (immediately activate).
+[31.03 08:25:48] payevery.py: start payevery.
+[31.03 08:25:52] payevery.py: payevery completed. Stats: pays created: 0, contracts checked: 115, time: 4.15
+[31.03 08:25:52] payevery.py: start payevery (2).
+[31.03 08:25:55] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:25:55] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:25:55] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.97
+[31.03 08:25:55] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:29 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:29:22] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:29:22] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:29:22] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:29:22] main.py: start main process (immediately activate).
+[31.03 08:29:23] payevery.py: start payevery.
+[31.03 08:29:27] payevery.py: payevery completed. Stats: pays created: 0, contracts checked: 115, time: 4.38
+[31.03 08:29:27] payevery.py: start payevery (2).
+[31.03 08:29:30] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:29:30] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:29:30] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.97
+[31.03 08:29:30] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:29 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:29:51] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:29:51] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:29:51] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:29:51] main.py: start main process (immediately activate).
+[31.03 08:29:52] payevery.py: start payevery.
+[31.03 08:29:56] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:29:56] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:29:56] payevery.py: payevery completed. Stats: pays created: 1, contracts checked: 115, time: 4.61
+[31.03 08:29:56] payevery.py: start payevery (2).
+[31.03 08:29:59] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:29:59] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:29:59] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.96
+[31.03 08:29:59] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:31 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:31:13] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:31:13] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:31:13] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:31:13] main.py: start main process (immediately activate).
+[31.03 08:31:14] payevery.py: start payevery.
+[31.03 08:31:19] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:31:19] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:31:19] payevery.py: payevery completed. Stats: pays created: 1, contracts checked: 115, time: 4.19
+[31.03 08:31:19] payevery.py: start payevery (2).
+[31.03 08:31:21] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:31:21] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:31:21] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.93
+[31.03 08:31:21] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:31 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:31:39] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:31:39] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:31:39] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:31:39] main.py: start main process (immediately activate).
+[31.03 08:31:40] payevery.py: start payevery.
+[31.03 08:31:44] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:31:44] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:31:44] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-31
+[31.03 08:31:44] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:31:44] payevery.py: payevery completed. Stats: pays created: 2, contracts checked: 115, time: 4.25
+[31.03 08:31:44] payevery.py: start payevery (2).
+[31.03 08:31:47] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:31:47] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:31:47] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.57
+[31.03 08:31:47] main.py: main process stopped successfully.
+
+
+launch at 31.03 08:32 (main.py --read-only --no-tg --payevery-only -t )
+[31.03 08:32:22] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[31.03 08:32:22] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[31.03 08:32:22] main.py: --no-tg: no telegram notifications sending on errors
+[31.03 08:32:22] main.py: start main process (immediately activate).
+[31.03 08:32:23] payevery.py: start payevery.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-26
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-27
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-28
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-29
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-30
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: write payevery - ContractName: Contract-49M-TEST-2 for 2025-03-31
+[31.03 08:32:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[31.03 08:32:27] payevery.py: payevery completed. Stats: pays created: 6, contracts checked: 115, time: 4.24
+[31.03 08:32:27] payevery.py: start payevery (2).
+[31.03 08:32:30] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-2
+[31.03 08:32:30] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[31.03 08:32:30] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 2.94
+[31.03 08:32:30] main.py: main process stopped successfully.

@@ -20,7 +20,7 @@ path.append(dirname(SCRIPT_DIR))
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, time
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
-from rentacar.mods.sms import send_sms, add_inbox, REGISTRATION_TEXT
+from rentacar.mods.sms import send_sms, add_inbox, REGISTRATION_TEXT, sms_block_check
 from rentacar.str_config import REGISTRATION_TASK_COMMENT, REGISTRATION_NAME_TASK, USER, REGISTRATION_IMAGE
 
 logdata = Log('registration.py')
@@ -94,11 +94,12 @@ def create_task(db: client, car: dict):
         print('task not created because of "--read-only" flag.')
 
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
-        send_sms(contract['renternumber'][0], REGISTRATION_TEXT)
-        if has_key(contract, 'renter'):
-            add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
-        else:
-            add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], None)
+        if sms_block_check(contract):
+            send_sms(contract['renternumber'][0], REGISTRATION_TEXT)
+            if has_key(contract, 'renter'):
+                add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
+            else:
+                add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], None)
     else:
         if '--read-only' in argv:
             print('sms not sent because of "--read-only" flag.')

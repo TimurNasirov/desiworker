@@ -23,7 +23,7 @@ try:
     if '-t' in argv:
         print('-t: immediately activate. Process will stop after all subprocesses finished.')
     if '--no-tg' in argv:
-        print('--no-tg: no telegram notifications sneding on errors')
+        print('--no-tg: no telegram notifications sending on errors')
 
     if '--no-rentacar' in argv:
         run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner']

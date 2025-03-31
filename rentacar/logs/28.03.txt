@@ -1,0 +1,376 @@
+
+
+launch at 28.03 08:15 (main.py --read-only --payevery-only -t )
+[28.03 08:15:30] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:15:30] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:15:30] main.py: start main process (immediately activate).
+[28.03 08:15:31] payevery.py: start payevery.
+[28.03 08:15:31] main.py: ERROR in module D:\projects\desiworker\rentacar\mods\firemod.py, line 43: TypeError ('CollectionReference' object is not iterable).
+
+
+launch at 28.03 08:18 (main.py --read-only --payevery-only -t )
+[28.03 08:18:58] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:18:58] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:18:58] main.py: start main process (immediately activate).
+[28.03 08:18:59] payevery.py: start payevery.
+[28.03 08:18:59] main.py: ERROR in module D:\projects\desiworker\rentacar\mods\firemod.py, line 43: TypeError ('CollectionReference' object is not iterable).
+
+
+launch at 28.03 08:19 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:19:45] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:19:45] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:19:45] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:19:45] main.py: start main process (immediately activate).
+[28.03 08:19:46] payevery.py: start payevery.
+[28.03 08:19:48] payevery.py: Type of contract_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:19:49] payevery.py: Type of pay_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:19:50] payevery.py: write payevery - ContractName: Contract-47R-2 for 2025-03-28
+[28.03 08:19:50] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:51] payevery.py: write payevery - ContractName: Contract-146R-5 for 2025-03-28
+[28.03 08:19:51] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:52] payevery.py: write payevery - ContractName: Contract-12R-5 for 2025-03-28
+[28.03 08:19:52] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:52] payevery.py: write payevery - ContractName: Contract-167R-4 for 2025-03-28
+[28.03 08:19:52] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:53] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-26
+[28.03 08:19:53] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:53] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-27
+[28.03 08:19:53] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:54] payevery.py: write payevery - ContractName: Contract-55R-1 for 2025-03-28
+[28.03 08:19:54] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:55] payevery.py: write payevery - ContractName: Contract-29R-6 for 2025-03-28
+[28.03 08:19:55] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:56] payevery.py: write payevery - ContractName: Contract-98D-1 for 2025-03-28
+[28.03 08:19:56] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:57] payevery.py: write payevery - ContractName: Contract-La Griselda-4 for 2025-03-28
+[28.03 08:19:57] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:19:57] payevery.py: payevery completed. Stats: pays created: 10, contracts checked: 115, time: 11.01
+[28.03 08:19:57] payevery.py: start payevery (2).
+[28.03 08:20:00] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-1
+[28.03 08:20:00] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[28.03 08:20:00] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.0
+[28.03 08:20:00] main.py: main process stopped successfully.
+
+
+launch at 28.03 08:29 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:29:33] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:29:33] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:29:33] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:29:33] main.py: start main process (immediately activate).
+[28.03 08:29:34] payevery.py: start payevery.
+[28.03 08:29:36] payevery.py: Type of contract_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:29:37] payevery.py: Type of pay_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:29:37] payevery.py: Contract: Contract-9R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:37] payevery.py: Contract: Contract-132R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:37] payevery.py: Contract: Contract-14R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:37] payevery.py: Contract: Contract-5R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:37] payevery.py: Contract: Contract-6R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:37] payevery.py: Contract: Contract-47R-2, is_payday: True, has_daily_rent: False
+[28.03 08:29:38] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:38] payevery.py: write payevery - ContractName: Contract-47R-2 for 2025-03-28
+[28.03 08:29:38] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:38] payevery.py: Contract: Contract-62R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-155R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-27R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-45R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-84Dan-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-81DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-86Dan-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-63Den-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-74DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:38] payevery.py: Contract: Contract-146R-5, is_payday: True, has_daily_rent: False
+[28.03 08:29:39] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:39] payevery.py: write payevery - ContractName: Contract-146R-5 for 2025-03-28
+[28.03 08:29:39] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:39] payevery.py: Contract: Contract-118DEN-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:39] payevery.py: Contract: Contract-76DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:39] payevery.py: Contract: Contract-67R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:39] payevery.py: Contract: Contract-12R-5, is_payday: True, has_daily_rent: False
+[28.03 08:29:40] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:40] payevery.py: write payevery - ContractName: Contract-12R-5 for 2025-03-28
+[28.03 08:29:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:40] payevery.py: Contract: Contract-131R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-112DEN-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-24Den-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-78DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-52Den-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-1R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:40] payevery.py: Contract: Contract-167R-4, is_payday: True, has_daily_rent: False
+[28.03 08:29:40] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:40] payevery.py: write payevery - ContractName: Contract-167R-4 for 2025-03-28
+[28.03 08:29:40] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:40] payevery.py: Contract: Contract-49M-TEST-1, is_payday: True, has_daily_rent: True
+[28.03 08:29:41] payevery.py:   Latest date: 2025-03-25, days_missed: 2
+[28.03 08:29:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-26
+[28.03 08:29:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:41] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-27
+[28.03 08:29:41] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:41] payevery.py: Contract: Contract-161R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-85R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-120DEN-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-3DEN-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-28R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-152R-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-40R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-42DEN-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-80DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-93R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-88R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-64R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-39R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-165R-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-21R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:41] payevery.py: Contract: Contract-55R-1, is_payday: True, has_daily_rent: False
+[28.03 08:29:42] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:42] payevery.py: write payevery - ContractName: Contract-55R-1 for 2025-03-28
+[28.03 08:29:42] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:42] payevery.py: Contract: Contract-51Den-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-10DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-164R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-22R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-53R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-72DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-135R-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-25Dan-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-23Dan-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-43DR-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-166R-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:42] payevery.py: Contract: Contract-29R-6, is_payday: True, has_daily_rent: False
+[28.03 08:29:43] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:43] payevery.py: write payevery - ContractName: Contract-29R-6 for 2025-03-28
+[28.03 08:29:43] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:43] payevery.py: Contract: Contract-90R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-97R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-151R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-75DR-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-59R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-15R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-169R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-73R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-17R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-157R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-113DEN-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-19R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-77Den-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-148R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-103R-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-11R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-114DEN-9, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-119Dan-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-162R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-70DR-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-83R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-18Dan-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-34R-6, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-33Dan-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-2DEN-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-66R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-87R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-101Dan-8, is_payday: False, has_daily_rent: False
+[28.03 08:29:43] payevery.py: Contract: Contract-98D-1, is_payday: True, has_daily_rent: False
+[28.03 08:29:44] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:44] payevery.py: write payevery - ContractName: Contract-98D-1 for 2025-03-28
+[28.03 08:29:44] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:44] payevery.py: Contract: Contract-4R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-16R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-100Dan-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-7R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-149R-4, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-111DEN-0, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-8R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-79R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-31R-5, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-154R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-96R-3, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-160R-8, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-89R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-91R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-54DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-92R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-82DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-65R-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-49DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-99DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-46DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:44] payevery.py: Contract: Contract-La Griselda-4, is_payday: True, has_daily_rent: False
+[28.03 08:29:45] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:29:45] payevery.py: write payevery - ContractName: Contract-La Griselda-4 for 2025-03-28
+[28.03 08:29:45] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:29:45] payevery.py: Contract: Contract-94R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-117VOV-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-20R-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-140R-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-158R-7, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-32DEN-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-163R-8, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: Contract: Contract-95DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:29:45] payevery.py: payevery completed. Stats: pays created: 10, contracts checked: 115, time: 11.3
+[28.03 08:29:45] payevery.py: start payevery (2).
+[28.03 08:29:48] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-1
+[28.03 08:29:48] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[28.03 08:29:48] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.52
+[28.03 08:29:48] main.py: main process stopped successfully.
+
+
+launch at 28.03 08:47 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:47:25] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:47:25] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:47:25] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:47:25] main.py: start main process (immediately activate).
+[28.03 08:47:26] payevery.py: start payevery.
+[28.03 08:47:28] payevery.py: Type of contract_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:47:29] payevery.py: Type of pay_data: <class 'google.cloud.firestore_v1.query_results.QueryResultsList'>
+[28.03 08:47:29] payevery.py: Contract: Contract-9R-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:29] payevery.py: Contract: Contract-132R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:29] payevery.py: Contract: Contract-14R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:29] payevery.py: Contract: Contract-5R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:29] payevery.py: Contract: Contract-6R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:29] payevery.py: Contract: Contract-47R-2, is_payday: True, has_daily_rent: False
+[28.03 08:47:30] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:47:30] payevery.py: write payevery - ContractName: Contract-47R-2 for 2025-03-28
+[28.03 08:47:30] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:30] payevery.py: Contract: Contract-62R-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-155R-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-27R-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-45R-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-84Dan-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-81DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-86Dan-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-63Den-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-74DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:30] payevery.py: Contract: Contract-146R-5, is_payday: True, has_daily_rent: False
+[28.03 08:47:31] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:47:31] payevery.py: write payevery - ContractName: Contract-146R-5 for 2025-03-28
+[28.03 08:47:31] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:31] payevery.py: Contract: Contract-118DEN-5, is_payday: False, has_daily_rent: False
+[28.03 08:47:31] payevery.py: Contract: Contract-76DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:31] payevery.py: Contract: Contract-67R-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:31] payevery.py: Contract: Contract-12R-5, is_payday: True, has_daily_rent: False
+[28.03 08:47:32] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:47:32] payevery.py: write payevery - ContractName: Contract-12R-5 for 2025-03-28
+[28.03 08:47:32] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:32] payevery.py: Contract: Contract-131R-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-112DEN-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-24Den-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-78DR-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-52Den-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-1R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:32] payevery.py: Contract: Contract-167R-4, is_payday: True, has_daily_rent: False
+[28.03 08:47:33] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:47:33] payevery.py: write payevery - ContractName: Contract-167R-4 for 2025-03-28
+[28.03 08:47:33] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:33] payevery.py: Contract: Contract-49M-TEST-1, is_payday: True, has_daily_rent: True
+[28.03 08:47:34] payevery.py:   Latest date: 2025-03-25, days_missed: 2
+[28.03 08:47:34] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-26
+[28.03 08:47:34] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:34] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-27
+[28.03 08:47:34] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:34] payevery.py: Contract: Contract-161R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-85R-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-120DEN-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-3DEN-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-28R-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-152R-7, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-40R-5, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-42DEN-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-80DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-93R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-88R-3, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-64R-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-39R-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-165R-6, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-21R-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:34] payevery.py: Contract: Contract-55R-1, is_payday: True, has_daily_rent: False
+[28.03 08:47:35] payevery.py:   Latest date: 2025-03-27, days_missed: 1
+[28.03 08:47:35] payevery.py: write payevery - ContractName: Contract-55R-1 for 2025-03-28
+[28.03 08:47:35] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:47:35] payevery.py: Contract: Contract-51Den-4, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-10DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-164R-5, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-22R-1, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-53R-5, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-72DR-2, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-135R-6, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-25Dan-5, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-23Dan-7, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-43DR-6, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-166R-7, is_payday: False, has_daily_rent: False
+[28.03 08:47:35] payevery.py: Contract: Contract-29R-6, is_payday: True, has_daily_rent: False
+[28.03 08:47:36] main.py: main process stopped.
+
+
+launch at 28.03 08:47 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:47:46] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:47:46] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:47:46] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:47:46] main.py: start main process (immediately activate).
+[28.03 08:47:47] payevery.py: start payevery.
+[28.03 08:47:52] main.py: ERROR in module D:\projects\desiworker\rentacar\payevery.py, line 59: NameError (name 'contract' is not defined).
+
+
+launch at 28.03 08:48 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:48:09] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:48:09] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:48:09] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:48:09] main.py: start main process (immediately activate).
+[28.03 08:48:10] payevery.py: start payevery.
+[28.03 08:48:16] payevery.py: write payevery - ContractName: Contract-47R-2 for 2025-03-28
+[28.03 08:48:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:16] payevery.py: write payevery - ContractName: Contract-146R-5 for 2025-03-28
+[28.03 08:48:16] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:17] payevery.py: write payevery - ContractName: Contract-12R-5 for 2025-03-28
+[28.03 08:48:17] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:18] payevery.py: write payevery - ContractName: Contract-167R-4 for 2025-03-28
+[28.03 08:48:18] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:19] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-26
+[28.03 08:48:19] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:19] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-27
+[28.03 08:48:19] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:20] payevery.py: write payevery - ContractName: Contract-55R-1 for 2025-03-28
+[28.03 08:48:20] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:21] payevery.py: write payevery - ContractName: Contract-29R-6 for 2025-03-28
+[28.03 08:48:21] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:22] payevery.py: write payevery - ContractName: Contract-98D-1 for 2025-03-28
+[28.03 08:48:22] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:23] payevery.py: write payevery - ContractName: Contract-La Griselda-4 for 2025-03-28
+[28.03 08:48:23] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:48:23] payevery.py: payevery completed. Stats: pays created: 10, contracts checked: 115, time: 12.18
+[28.03 08:48:23] payevery.py: start payevery (2).
+[28.03 08:48:26] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-1
+[28.03 08:48:26] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[28.03 08:48:26] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.04
+[28.03 08:48:26] main.py: main process stopped successfully.
+
+
+launch at 28.03 08:51 (main.py --read-only --payevery-only --no-tg -t )
+[28.03 08:51:15] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[28.03 08:51:15] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[28.03 08:51:15] main.py: --no-tg: no telegram notifications sneding on errors
+[28.03 08:51:15] main.py: start main process (immediately activate).
+[28.03 08:51:16] payevery.py: start payevery.
+[28.03 08:51:21] payevery.py: write payevery - ContractName: Contract-47R-2 for 2025-03-28
+[28.03 08:51:21] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:22] payevery.py: write payevery - ContractName: Contract-146R-5 for 2025-03-28
+[28.03 08:51:22] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:23] payevery.py: write payevery - ContractName: Contract-12R-5 for 2025-03-28
+[28.03 08:51:23] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:24] payevery.py: write payevery - ContractName: Contract-167R-4 for 2025-03-28
+[28.03 08:51:24] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-26
+[28.03 08:51:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:25] payevery.py: write payevery - ContractName: Contract-49M-TEST-1 for 2025-03-27
+[28.03 08:51:25] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:26] payevery.py: write payevery - ContractName: Contract-55R-1 for 2025-03-28
+[28.03 08:51:26] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:27] payevery.py: write payevery - ContractName: Contract-29R-6 for 2025-03-28
+[28.03 08:51:27] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:28] payevery.py: write payevery - ContractName: Contract-98D-1 for 2025-03-28
+[28.03 08:51:28] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:29] payevery.py: write payevery - ContractName: Contract-La Griselda-4 for 2025-03-28
+[28.03 08:51:29] payevery.py: payevery pay not created due to "--read-only" flag.
+[28.03 08:51:29] payevery.py: payevery completed. Stats: pays created: 10, contracts checked: 115, time: 12.49
+[28.03 08:51:29] payevery.py: start payevery (2).
+[28.03 08:51:32] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-1
+[28.03 08:51:32] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[28.03 08:51:32] payevery.py: payevery 2 completed. Stats: tasks & sms created: 1, contracts checked: 115, time: 3.19
+[28.03 08:51:32] main.py: main process stopped successfully.

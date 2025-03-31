@@ -109,3 +109,11 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
             print('SMS added to Inbox: add to new document (see logs above)')
     else:
         print('SMS not added to Inbox because of "--no-sms" flag.')
+
+def sms_block_check(contract: dict):
+    accept = True
+    if has_key(contract, 'sms_blocked'):
+        accept = not contract['sms_blocked']
+    if not accept:
+        print('sms sending canceled: renter declined subscription')
+    return accept

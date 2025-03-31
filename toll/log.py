@@ -5,7 +5,7 @@ from mods.timemod import texas_tz
 from sys import argv
 
 _print = print
-dirr = '/rentacar/logs' if '-d' in argv else 'logs/'
+dirr = '/container/logs/' if '-d' in argv else 'logs/'
 class Log:
     """Class for creating logs"""
     def __init__(self, file):

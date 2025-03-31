@@ -22,5 +22,5 @@ services:
         window: 120s
     volumes:
       - /home/desi/desicars/desiworker/rentacar/logs/:/rentacar/logs/
-      - /home/desi/server/files/:/exword_results/
+      - /home/desi/desicars/server/files/:/rentacar/exword_results/
     command: python3 main.py --read-only -d

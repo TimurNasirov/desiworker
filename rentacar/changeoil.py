@@ -83,7 +83,7 @@ def create_task(db: client, car: dict):
     if '--read-only' not in argv:
         db.collection('Task').add({
             'id': randint(0, 10000),
-            'comment': CHANGE_OIL_TASK_COMMENT.replace('{odometer}', car['odometer']).replace('{changeoil_end}', car['Oil_changeEnd']),
+            'comment': CHANGE_OIL_TASK_COMMENT.replace('{odometer}', str(car['odometer'])).replace('{changeoil_end}', str(car['Oil_changeEnd'])),
             'name_task': CHANGE_OIL_NAME_TASK,
             'nickname': car['nickname'],
             'date': dt.now(texas_tz),

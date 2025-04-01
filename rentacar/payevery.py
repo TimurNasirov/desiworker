@@ -20,7 +20,7 @@ def start_payevery(db: client):
     print('start payevery.')
     contracts = [c for c in to_dict_all(db.collection('Contract').get()) if c['Active']]
     pays = [p for p in to_dict_all(db.collection('Pay_contract').get()) if has_key(p, 'category') and has_key(p, 'ContractName')]
-    now = dt.now(texas_tz).replace(hour=0, minute=0, second=0, microsecond=0)  # Strip time for date-only comparison
+    now = dt.now(texas_tz).date()
 
     pays_count = 0
     for contract in contracts:
@@ -29,15 +29,13 @@ def start_payevery(db: client):
 
         if is_payday or daily_rent_pays:
             car = get_car(db, contract['nickname'])
-            latest_date = max([p['date'] for p in daily_rent_pays], default=now - timedelta(days=1)) if daily_rent_pays else now - timedelta(days=1)
-            latest_date = latest_date.replace(hour=0, minute=0, second=0, microsecond=0)  # Normalize to date only
-            days_missed = (now - latest_date).days
+            last_date = max([p['date'] for p in daily_rent_pays]).date() if daily_rent_pays else now - timedelta(days=1)
+            days_missed = (now - last_date).days
 
             if days_missed >= 0:
                 for day in range(days_missed + 1):  # Include today
-                    pay_date = latest_date + timedelta(days=day + 1)
-                    pay_date = pay_date.replace(hour=0, minute=0, second=0, microsecond=0)  # Normalize to date only
-                    if pay_date.date() <= now.date():  # Compare dates only
+                    pay_date = last_date + timedelta(days=day + 1)  # Normalize to date only
+                    if pay_date <= now:  # Compare dates only
                         create_payevery(db, contract, car['odometer'], pay_date)
                         pays_count += 1
 

@@ -42,7 +42,7 @@ def start_payday(db: client):
     # filtering contracts
     for contract in contracts.copy():
         payday = min(contract['pay_day'].day, get_last_day())
-        if payday < dt.now(texas_tz).day or not contract['Active'] or to_mime_format(contract['begin_time']) == to_mime_format(dt.now(texas_tz)):
+        if payday != dt.now(texas_tz).day or not contract['Active'] or to_mime_format(contract['begin_time']) == to_mime_format(dt.now(texas_tz)):
             contracts.remove(contract)
 
     for contract in contracts:
@@ -140,7 +140,7 @@ mil: {current_odometer - begin_odometer - limit}.')
             'ContractName': contract['ContractName'],
             'date': dt.now(texas_tz),
             'expense': True,
-            'name_pay': PAYLIMIT_NAME_PAY.replace('{limit}', current_odometer - begin_odometer - limit),
+            'name_pay': PAYLIMIT_NAME_PAY.replace('{limit}', str(current_odometer - begin_odometer - limit)),
             'nickname': contract['nickname'],
             'odometer': current_odometer,
             'summ': float(round((current_odometer - begin_odometer - limit) * PAYLIMIT_SUM_COEFFICIENT)),
@@ -162,7 +162,7 @@ def create_history(db: client, begin_odometer: int, current_odometer: int, contr
     extra_mil = current_odometer - begin_odometer - contract['limit']
     db.collection('History').add({
         'change': PAYDAY_HISTORY_CHANGE,
-        'edit': PAYDAY_HISTORY_EDIT.replace('{old_odometer}', begin_odometer).replace('{new_odometer}', current_odometer).replace('{extra}', \
+        'edit': PAYDAY_HISTORY_EDIT.replace('{old_odometer}', str(begin_odometer)).replace('{new_odometer}', str(current_odometer)).replace('{extra}', \
 f', extra: {extra_mil}' if extra_mil > 0 else ''),
         'date': dt.now(texas_tz),
         'nickname': contract['nickname'],

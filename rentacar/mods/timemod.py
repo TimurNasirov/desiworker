@@ -21,7 +21,7 @@ def time_is(time: str):
     Returns:
         bool: return data
     """
-    return dt.now().strftime('%H:%M') == time
+    return dt.now(texas_tz).strftime('%H:%M') == time
 
 def wait():
     """Wait for a given 60 - bit amount of 60 seconds"""

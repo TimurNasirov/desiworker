@@ -109,12 +109,11 @@ def start_onecar_saldo(db: client, contract_name: str):
     else:
         print('saldo not writed because of "--read-only" flag.')
 
-    print('set actual saldo to False.')
     if '--read-only' not in argv:
         db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({'actual_saldo': False})
     else:
         print('actual saldo not setted because of "--read-only" flag.')
-    print(f'Saldo work completed. Updated contract: {contract_name}. Time: {round(time() - start_time, 2)} seconds.')
+    # print(f'Saldo work completed. Updated contract: {contract_name}. Time: {round(time() - start_time, 2)} seconds.')
 
 def check_saldo(last_update_data: dict, db: client, log: bool = False):
     if log:
@@ -136,7 +135,6 @@ def saldo_listener(db: client):
                     print('update all saldo because of snapshot listener detect actual_saldo is True.')
                     start_saldo(db)
                 else:
-                    print(f'update {setting["saldo_contract"]} contract saldo because of snapshot listener detect actual_saldo is True.')
                     start_onecar_saldo(db, setting['saldo_contract'])
 
         except Exception as e:

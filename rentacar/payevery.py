@@ -36,7 +36,7 @@ def start_payevery(db: client):
                 for day in range(days_missed + 1):  # Include today
                     pay_date = last_date + timedelta(days=day + 1)  # Normalize to date only
                     if pay_date <= now:  # Compare dates only
-                        create_payevery(db, contract, car['odometer'], pay_date)
+                        create_payevery(db, contract, car['odometer'], dt.now(texas_tz).replace(year=pay_date.year, month=pay_date.month, day=pay_date.day))
                         pays_count += 1
 
     print(f'payevery completed. Stats: pays created: {pays_count}, contracts checked: {len(contracts)}, time: {round(time() - start_time, 2)}')
@@ -70,7 +70,7 @@ def start_payevery2(db: client):
 
     tasks_count = 0
     for contract in contracts:
-        if contract['nickname'] not in [t['nickname'] for t in tasks if t['name_task'] == 'PayDay' and t['status']] and contract['last_saldo'] <\
+        if contract['nickname'] not in [t['nickname'] for t in tasks if t['name_task'] == 'PayDay' and t['status']] and contract['last_saldo'] <=\
             -contract['renta_price'] / 30 and contract['ContractName'] in [p['ContractName'] for p in pays if p['category'] == 'daily rent'] and\
             contract['pay_day'].strftime('%d') == dt.now().strftime('%d'):
             create_payevery2(db, contract)

@@ -47,13 +47,13 @@ def start_registration(db: client):
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
     #remove tasks
     for task in tasks.copy():
-        if to_mime_format(task['date']) != to_mime_format(dt.now(texas_tz)):
+        if task['name_task'] != 'Registration' or not task['status']:
             tasks.remove(task)
 
     for car in cars.copy():
         # "for" loop in 1 line: https://python-scripts.com/for-in-one-line
         # check if car where its nickname in tasks thats name_task is "Registration"
-        if car['nickname'] in [task['nickname'] for task in tasks if task['name_task'] == 'Registration']:
+        if car['nickname'] in [task['nickname'] for task in tasks]:
             cars.remove(car)
 
     for car in cars:

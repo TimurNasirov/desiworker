@@ -27,7 +27,7 @@ from mods.firemod import client, to_dict_all, get_car, has_key, get_contract
 from mods.timemod import sleep, dt, timedelta, texas_tz
 from config import NTTA_URL, NTTA_LOGIN, NTTA_PASSWORD, NTTA_HISTORY_URL
 from str_config import TOLL_USERNAME_ID, TOLL_PASSWORD_NAME, TOLL_LOGIN_BUTTON_SELECTOR, TOLL_CSV_XPATH, TOLL_FILENAME, USER, TOLL_CATEGORY,\
-    TOLL_COMMENT_TASK, TOLL_NAME_PAY, TOLL_NAME_TASK, TOLL_COMMENT_PAY
+    TOLL_COMMENT_TASK, TOLL_NAME_PAY, TOLL_NAME_TASK, TOLL_COMMENT_PAY, TOLL_DOWNLOAD_PATH
 logdata = Log('toll.py')
 print = logdata.print
 
@@ -37,8 +37,17 @@ def start_toll(db: client):
     options = Options()
     options.add_argument('--no-sandbox')
     options.add_argument('--headless')
+    if '-d' in argv:
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_experimental_option("prefs", {
+            "download.default_directory": TOLL_DOWNLOAD_PATH,
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "safebrowsing.enabled": True
+        })
     driver = Chrome(options=options)
     driver.set_window_size(1560, 720)
+
     driver.get(NTTA_URL)
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, TOLL_USERNAME_ID)))
     print('writing username.')
@@ -110,7 +119,7 @@ def start_toll(db: client):
                     db.collection('Pay_contract').add({
                         'date': toll['date'],
                         'id': toll['id'],
-                        'sum': toll['sum'],
+                        'sum': float(toll['sum'].replace('-', '')),
                         'plate': toll['plate'],
                         'name_pay': TOLL_NAME_PAY,
                         'category': TOLL_CATEGORY,
@@ -125,8 +134,8 @@ def start_toll(db: client):
                     })
                     db.collection('Toll').document(str(toll['id'])).set({
                         'date': toll['date'],
-                        'id': toll['id'],
-                        'sum': toll['sum'],
+                        'ID': toll['id'],
+                        'sum': float(toll['sum'].replace('-', '')),
                         'plate': toll['plate'],
                         'location': toll['location'],
                         'type': toll['type'],
@@ -141,7 +150,7 @@ def start_toll(db: client):
                     db.collection('Task').add({
                         'date': dt.now(texas_tz),
                         'name_task': TOLL_NAME_TASK,
-                        'comment': TOLL_COMMENT_TASK.replace('{sum}', toll['sum']).replace('{id}', str(toll['id'])).replace('{plate}', toll['plate']),
+                        'comment': TOLL_COMMENT_TASK.replace('{sum}', str(toll['sum'])).replace('{id}', str(toll['id'])).replace('{plate}', toll['plate']),
                         'user': USER,
                         'plate': toll['plate']
                     })

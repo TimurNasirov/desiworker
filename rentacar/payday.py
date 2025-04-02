@@ -42,6 +42,10 @@ def start_payday(db: client):
     # filtering contracts
     for contract in contracts.copy():
         payday = min(contract['pay_day'].day, get_last_day())
+        if has_key(contract, 'last_payday'):
+            if to_mime_format(contract['last_payday']) == to_mime_format(dt.now(texas_tz)) or contract['pay_day'].day > dt.now(texas_tz).day:
+                contracts.remove(contract)
+                continue
         if payday != dt.now(texas_tz).day or not contract['Active'] or to_mime_format(contract['begin_time']) == to_mime_format(dt.now(texas_tz)):
             contracts.remove(contract)
 
@@ -62,7 +66,8 @@ def start_payday(db: client):
 
         if '--read-only' not in argv:
             db.collection('Contract').document(contract['_firebase_document_id']).update({
-                'Payday_odom': car['odometer']
+                'Payday_odom': car['odometer'],
+                'last_payday': dt.now(texas_tz)
             })
             create_history(db, begin_odometer, car['odometer'], contract)
         else:
@@ -71,7 +76,7 @@ def start_payday(db: client):
     print(f'total payday contracts: {len(contracts)}')
 
     if '--read-only' not in argv:
-        db.collection('Last_update_python').doc('last_update').update({'payday_update': dt.now(texas_tz)})
+        db.collection('Last_update_python').document('last_update').update({'payday_update': dt.now(texas_tz)})
     else:
         print('payday last update not updated because of "--read-only" flag.')
     print('set last payday update.')
@@ -143,7 +148,7 @@ mil: {current_odometer - begin_odometer - limit}.')
             'name_pay': PAYLIMIT_NAME_PAY.replace('{limit}', str(current_odometer - begin_odometer - limit)),
             'nickname': contract['nickname'],
             'odometer': current_odometer,
-            'summ': float(round((current_odometer - begin_odometer - limit) * PAYLIMIT_SUM_COEFFICIENT)),
+            'sum': float(round((current_odometer - begin_odometer - limit) * PAYLIMIT_SUM_COEFFICIENT)),
             'user': USER,
             'owner': True
         })

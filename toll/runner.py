@@ -19,6 +19,6 @@ def run_checking():
         quit()
     else:
         while True:
-            if time_is('23:45') or time_is('12:10'):
+            if time_is('9:00') or time_is('14:00') or time_is('22:00'):
                 start_toll(db)
             wait()

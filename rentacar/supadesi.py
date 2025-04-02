@@ -69,6 +69,8 @@ def start_supadesi(db: client):
         except KeyError: pass
         try: data['pay_day'] = data['pay_day'].isoformat()
         except KeyError: pass
+        try: data['last_payday'] = data['last_payday'].isoformat()
+        except KeyError: pass
         try:
             commentDate = []
             for i in data['commentDate']:

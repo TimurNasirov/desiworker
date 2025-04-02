@@ -120,7 +120,7 @@ immediately upon termination, in addition to any other obligations or fees outli
         'vin': car['vin'],
         'insurance': contract['insurance'],
         'insurance_number': contract['insurance_number'],
-        'sum': str(contract['renta_price']),
+        'sum': str(round(contract["renta_price"] / 30, 1)),
         'payday': contract['pay_day'].strftime('%#d'),
         'deposit': str(contract['zalog']),
         'limit': limit,
@@ -159,17 +159,17 @@ def lease_listener(db: client, bucket):
             if doc['word_active']:
                 print(f'write docx {doc["word_contract"]} (lease)')
                 name = build(db, doc['word_contract'])
-                # if '--read-only' not in argv:
-                #     blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                #     blob.upload_from_filename(join(result_folder, 'lease.docx'))
-                #     blob.make_public()
-                #     print(f'write url to firestore: {blob.public_url}')
-                # else:
-                #     print('file not upload because of "--read-only" flag.')
+                if '--read-only' not in argv:
+                    blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
+                    blob.upload_from_filename(join(result_folder, 'lease.docx'))
+                    blob.make_public()
+                    print(f'write url to firestore: {blob.public_url}')
+                else:
+                    print('file not upload because of "--read-only" flag.')
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'word_active': False,
-                        'word_url': f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'word_url': blob.public_url#f'http://nta.desicarscenter.com:8000/files/{name}'
                     })
                 else:
                     print('word_active not reseted because of "--read-only" flag.')

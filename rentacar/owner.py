@@ -535,18 +535,18 @@ def owner_listener(db: client, bucket):
                 data = get_data(periods, doc['excel_owner'], db)
                 name = build(data)
 
-                # if '--read-only' not in argv:
-                #     blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                #     blob.upload_from_filename(join(folder, 'owner.xlsx'))
-                #     blob.make_public()
-                #     print(f'write url to firestore: {blob.public_url}')
-                # else:
-                #     print('file not upload because of "--read-only" flag.')
+                if '--read-only' not in argv:
+                    blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
+                    blob.upload_from_filename(join(folder, 'owner.xlsx'))
+                    blob.make_public()
+                    print(f'write url to firestore: {blob.public_url}')
+                else:
+                    print('file not upload because of "--read-only" flag.')
 
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'excel_active': False,
-                        'excel_url': f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'excel_url': blob.public_url #f'http://nta.desicarscenter.com:8000/files/{name}'
                     })
                 else:
                     print('excel_active not reseted because of "--read-only" flag.')

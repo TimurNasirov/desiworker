@@ -92,7 +92,7 @@ def run_checking(run):
             if 'supadesi' in run:
                 start_supadesi(db)
 
-        elif time_is('00:00'):
+        elif time_is('00:02'):
             if 'payevery' in run:
                 start_payevery(db)
 

@@ -1,0 +1,942 @@
+
+
+launch at 01.04 09:55 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:55:00] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:55:00] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:55:00] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:55:00] main.py: start main process (immediately activate).
+[01.04 09:55:01] payday.py: start payday.
+[01.04 09:55:03] payday.py: write payday Contract-9R-1
+[01.04 09:55:04] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:55:04] payday.py: write payday Contract-132R-2
+[01.04 09:55:05] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:55:05] payday.py: write payday Contract-19R-3
+[01.04 09:55:06] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 65: KeyError ('limit').
+
+
+launch at 01.04 09:56 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:56:28] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:56:28] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:56:28] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:56:28] main.py: start main process (immediately activate).
+[01.04 09:56:29] payday.py: start payday.
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 5
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 9
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 21
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 5
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 9
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 21
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 9
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 2
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 29
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 5
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 23
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 14
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 12
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 21
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 25
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 26
+[01.04 09:56:31] payday.py: 11
+[01.04 09:56:31] payday.py: 20
+[01.04 09:56:31] payday.py: 5
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 21
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 15
+[01.04 09:56:31] payday.py: 17
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 7
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 22
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 3
+[01.04 09:56:31] payday.py: 18
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 4
+[01.04 09:56:31] payday.py: 6
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 9
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 16
+[01.04 09:56:31] payday.py: 28
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 24
+[01.04 09:56:31] payday.py: 8
+[01.04 09:56:31] payday.py: 13
+[01.04 09:56:31] payday.py: 27
+[01.04 09:56:31] payday.py: 19
+[01.04 09:56:31] payday.py: 10
+[01.04 09:56:32] payday.py: 28
+[01.04 09:56:32] payday.py: 28
+[01.04 09:56:32] payday.py: 26
+[01.04 09:56:32] payday.py: 21
+[01.04 09:56:32] payday.py: 21
+[01.04 09:56:32] payday.py: 28
+[01.04 09:56:32] payday.py: 27
+[01.04 09:56:32] payday.py: 28
+[01.04 09:56:32] payday.py: 14
+[01.04 09:56:32] payday.py: 13
+[01.04 09:56:32] payday.py: 22
+[01.04 09:56:32] payday.py: 19
+[01.04 09:56:32] payday.py: 30
+[01.04 09:56:32] payday.py: 19
+[01.04 09:56:32] payday.py: 28
+[01.04 09:56:32] payday.py: 15
+[01.04 09:56:32] payday.py: 13
+[01.04 09:56:32] payday.py: write payday Contract-9R-1
+[01.04 09:56:33] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:56:33] payday.py: write payday Contract-132R-2
+[01.04 09:56:34] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:56:34] payday.py: write payday Contract-19R-3
+[01.04 09:56:35] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 66: KeyError ('limit').
+
+
+launch at 01.04 09:57 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:57:16] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:57:16] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:57:16] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:57:16] main.py: start main process (immediately activate).
+[01.04 09:57:17] payday.py: start payday.
+[01.04 09:57:19] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 51: TypeError (unsupported operand type(s) for +: 'int' and 'str').
+
+
+launch at 01.04 09:57 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:57:29] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:57:29] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:57:29] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:57:29] main.py: start main process (immediately activate).
+[01.04 09:57:30] payday.py: start payday.
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 51
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 91
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 51
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 91
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 91
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 21
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 291
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 51
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 231
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 121
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 251
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 111
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 201
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 51
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 171
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 71
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 31
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 181
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 41
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 61
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 91
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 161
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 241
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 81
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 101
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 261
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 211
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 271
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 141
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 221
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 301
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 191
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 281
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 151
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: 131
+[01.04 09:57:33] payday.py: True
+[01.04 09:57:33] payday.py: write payday Contract-9R-1
+[01.04 09:57:34] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:57:34] payday.py: write payday Contract-132R-2
+[01.04 09:57:35] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:57:35] payday.py: write payday Contract-19R-3
+[01.04 09:57:36] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 67: KeyError ('limit').
+
+
+launch at 01.04 09:58 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:58:34] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:58:34] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:58:34] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:58:34] main.py: start main process (immediately activate).
+[01.04 09:58:35] payday.py: start payday.
+[01.04 09:58:37] payday.py: 2025-02-16 20:48:58.555000+00:00
+[01.04 09:58:37] payday.py: write payday Contract-9R-1
+[01.04 09:58:38] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:58:38] payday.py: 2024-07-25 05:00:00+00:00
+[01.04 09:58:38] payday.py: write payday Contract-132R-2
+[01.04 09:58:39] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:58:39] payday.py: 2024-07-01 05:00:00.642000+00:00
+[01.04 09:58:39] payday.py: write payday Contract-19R-3
+[01.04 09:58:40] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 66: KeyError ('limit').
+
+
+launch at 01.04 09:59 (main.py --read-only --no-tg --payday-only -t )
+[01.04 09:59:16] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 09:59:16] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 09:59:16] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 09:59:16] main.py: start main process (immediately activate).
+[01.04 09:59:17] payday.py: start payday.
+[01.04 09:59:20] payday.py: 16 2025-02-16 20:48:58.555000+00:00 True
+[01.04 09:59:20] payday.py: write payday Contract-9R-1
+[01.04 09:59:21] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:59:21] payday.py: 25 2024-07-25 05:00:00+00:00 True
+[01.04 09:59:21] payday.py: write payday Contract-132R-2
+[01.04 09:59:23] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 09:59:23] payday.py: 1 2024-06-29 05:00:00+00:00 False
+[01.04 09:59:23] payday.py: write payday Contract-19R-3
+[01.04 09:59:24] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 66: KeyError ('limit').
+
+
+launch at 01.04 10:00 (main.py --read-only --no-tg --payday-only -t )
+[01.04 10:00:46] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 10:00:46] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 10:00:46] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 10:00:46] main.py: start main process (immediately activate).
+[01.04 10:00:47] payday.py: start payday.
+[01.04 10:00:49] payday.py: 1 2024-06-29 05:00:00+00:00 False
+[01.04 10:00:49] payday.py: write payday Contract-19R-3
+[01.04 10:00:50] main.py: ERROR in module D:\projects\desiworker\rentacar\payday.py, line 66: KeyError ('limit').
+
+
+launch at 01.04 10:07 (main.py --read-only --no-tg --payday-only -t )
+[01.04 10:07:46] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[01.04 10:07:46] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[01.04 10:07:46] main.py: --no-tg: no telegram notifications sending on errors
+[01.04 10:07:46] main.py: start main process (immediately activate).
+[01.04 10:07:47] payday.py: start payday.
+[01.04 10:07:50] payday.py: write payday Contract-88R-3
+[01.04 10:07:51] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 10:07:51] payday.py: write payday Contract-158R-7
+[01.04 10:07:52] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 10:07:52] payday.py: write payday Contract-95DR-1
+[01.04 10:07:53] payday.py: history not created and payday_odom not updated because of "--read-only" flag.
+[01.04 10:07:53] payday.py: total payday contracts: 3
+[01.04 10:07:53] payday.py: payday last update not updated because of "--read-only" flag.
+[01.04 10:07:53] payday.py: set last payday update.
+[01.04 10:07:53] main.py: main process stopped successfully.

@@ -119,7 +119,7 @@ Rentor immediately upon termination, in addition to any other obligations or fee
         'vin': car['vin'],
         'insurance': contract['insurance'],
         'insurance_number': contract['insurance_number'],
-        'sum': str(contract['renta_price']),
+        'sum': str(round(contract["renta_price"] / 30, 1)),
         'payday': contract['pay_day'].strftime('%#d'),
         'deposit': str(contract['zalog']),
         'limit': limit,
@@ -158,17 +158,17 @@ def rental_listener(db: client, bucket):
             if doc['rentee_active']:
                 print(f'write docx {doc["rentee_contract"]} (rental)')
                 name = build(db, doc['rentee_contract'])
-                # if '--read-only' not in argv:
-                #     blob = bucket.blob(f'word/{doc["rentee_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                #     blob.upload_from_filename(join(result_folder, 'rental.docx'))
-                #     blob.make_public()
-                #     print(f'write url to firestore: {blob.public_url}')
-                # else:
-                #     print('file not upload because of "--read-only" flag.')
+                if '--read-only' not in argv:
+                    blob = bucket.blob(f'word/{doc["rentee_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
+                    blob.upload_from_filename(join(result_folder, 'rental.docx'))
+                    blob.make_public()
+                    print(f'write url to firestore: {blob.public_url}')
+                else:
+                    print('file not upload because of "--read-only" flag.')
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'rentee_active': False,
-                        'rentee_url': f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'rentee_url': blob.public_url #f'http://nta.desicarscenter.com:8000/files/{name}'
                     })
                 else:
                     print('rentee_active not reseted because of "--read-only" flag.')

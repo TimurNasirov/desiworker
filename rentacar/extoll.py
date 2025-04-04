@@ -143,7 +143,7 @@ def build(data, nickname, plate):
 
         row += 1
 
-    name = f'EXTOLL-{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
+    name = 'extoll.xlsx'#f'EXTOLL-{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
     wb.save(join(folder, name))
     wb.close()
     return name
@@ -200,7 +200,7 @@ def extoll_listener(db: client, bucket):
                 name = build(data[0], data[1], plate)
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'excel/{plate}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                    blob.upload_from_filename(join(folder, 'extoll.xlsx'))
+                    blob.upload_from_filename(join(folder, name))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')
                 else:

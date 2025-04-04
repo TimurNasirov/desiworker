@@ -132,7 +132,7 @@ immediately upon termination, in addition to any other obligations or fees outli
         'discount': discount
     }
     docx.render(context)
-    name = f'LEASE-{contract_name}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx'
+    name = 'lease.docx'#f'LEASE-{contract_name}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx'
     docx.save(join(result_folder, name))
     print(f'lease build completed. Built contract: {contract_name}. Time: {round(time() - start_time, 2)} seconds.')
     return name
@@ -161,7 +161,7 @@ def lease_listener(db: client, bucket):
                 name = build(db, doc['word_contract'])
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
-                    blob.upload_from_filename(join(result_folder, 'lease.docx'))
+                    blob.upload_from_filename(join(result_folder, name))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')
                 else:

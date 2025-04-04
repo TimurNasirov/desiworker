@@ -7,7 +7,7 @@ from rentacar.mods.firemod import client, has_key, document
 from rentacar.mods.timemod import dt
 from rentacar.log import Log
 
-logdata = Log('rentacar.mods/sms.py')
+logdata = Log('rentacar/mods/sms.py')
 print = logdata.print
 
 PAYDAY_TEXT = "DESICARS: Hi. It's time to pay for the rental car. Please send a confirmation via TG t.me/Desi_rental_cars after making the paym\
@@ -77,7 +77,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
                         'message': text,
                         'user': 'python'
                     })
-                    print('SMS added to Inbox: add to exist document')
+                    # print('SMS added to Inbox: add to exist document')
                     break
         else:
             inbox = []
@@ -89,7 +89,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
                     'created_time': now,
                     'changed_time': now
                 })
-                print('Add new Inbox: create new document with renter')
+                # print('Add new Inbox: create new document with renter')
             else:
                 inbox = db.collection('InboxSMS').add({
                     'phone': phone,
@@ -97,7 +97,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
                     'created_time': now,
                     'changed_time': now
                 })
-                print('Add new Inbox: create new document without renter')
+                # print('Add new Inbox: create new document without renter')
 
             inbox[1].collection('messages').add({
                 'created_time': now,
@@ -106,7 +106,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
                 'message': text,
                 'user': 'python'
             })
-            print('SMS added to Inbox: add to new document (see logs above)')
+            # print('SMS added to Inbox: add to new document (see logs above)')
     else:
         print('SMS not added to Inbox because of "--no-sms" flag.')
 

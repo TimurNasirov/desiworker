@@ -118,6 +118,9 @@ def start_all(run):
         start_toll(db)
     if 'supadesi' in run:
         start_supadesi(db)
+    if 'payevery' in run:
+        start_payevery(db)
+        start_payevery2(db)
 
 def start_rentacar(run):
     """Starts the various boilerplate functions in the run
@@ -139,9 +142,9 @@ def start_rentacar(run):
         start_saldo(db)
     if 'latepayment' in run:
         start_latepayment(db)
-    if 'payevery' in run:
-        start_payevery(db)
-        start_payevery2(db)
+    # if 'payevery' in run:
+    #     start_payevery(db)
+    #     start_payevery2(db)
     if 'imei' in run:
         start_imei(db)
 

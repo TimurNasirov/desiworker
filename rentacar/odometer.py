@@ -69,8 +69,8 @@ def update_odometer(db: client, api_key: str, car: dict):
                 db.collection('cars').document(car['_firebase_document_id']).update({'odometer': odometer})
             else:
                 print('odometer not updated because of "--read-only" flag.')
-        else:
-            print(f'skip car - nickname: {car["nickname"]}')
+        # else:
+            # print(f'skip car - nickname: {car["nickname"]}')
 
 def check_odometer(last_update_data: dict, db: client, log: bool = False):
     """Check the odometer last update time

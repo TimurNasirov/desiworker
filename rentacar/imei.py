@@ -80,7 +80,6 @@ def compare_imei(db: client, bcar: dict, car: dict):
                 print('imei task not created because of "--read-only" flag.')
             return 1
         else:
-            print(f'no difference found - nickname: {car["nickname"]}, imei: {imei}.')
             return 0
 
 

@@ -1,0 +1,28 @@
+
+
+launch at 04.04 06:41 (main.py --lease-only --read-only )
+[04.04 06:41:49] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[04.04 06:41:49] main.py: start main process.
+[04.04 06:41:50] runner.py: checking subprocesses on last update.
+[04.04 06:41:50] runner.py: initialize listeners.
+[04.04 06:41:50] lease.py: initialize lease listener.
+[04.04 06:41:51] lease.py: write docx Contract-49M-TEST-7 (lease)
+[04.04 06:41:53] lease.py: lease build completed. Built contract: Contract-49M-TEST-7. Time: 2.34 seconds.
+[04.04 06:41:53] lease.py: file not upload because of "--read-only" flag.
+[04.04 06:41:53] lease.py: word_active not reseted because of "--read-only" flag.
+[04.04 06:42:04] lease.py: write docx Contract-136R-9 (lease)
+[04.04 06:42:07] lease.py: lease build completed. Built contract: Contract-136R-9. Time: 2.94 seconds.
+[04.04 06:42:07] lease.py: file not upload because of "--read-only" flag.
+[04.04 06:42:07] lease.py: word_active not reseted because of "--read-only" flag.
+[04.04 06:42:53] main.py: main process stopped.
+
+
+launch at 04.04 06:43 (main.py --lease-only )
+[04.04 06:43:00] main.py: start main process.
+[04.04 06:43:02] runner.py: checking subprocesses on last update.
+[04.04 06:43:02] runner.py: initialize listeners.
+[04.04 06:43:02] lease.py: initialize lease listener.
+[04.04 06:43:02] lease.py: write docx Contract-136R-9 (lease)
+[04.04 06:43:05] lease.py: lease build completed. Built contract: Contract-136R-9. Time: 2.9 seconds.
+[04.04 06:43:06] lease.py: write url to firestore: https://storage.googleapis.com/rentacar-qmt96z.appspot.com/word/Contract-136R-9-04-04-17-43-05.docx
+[04.04 06:43:31] main.py: main process stopped.

@@ -356,7 +356,7 @@ def build(data: ExcelData):
 
         row += length
 
-    name = f'OWNER-{data.owner}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
+    name = 'owner.xlsx'#f'OWNER-{data.owner}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx'
     wb.save(join(folder, name))
     wb.close()
     return name
@@ -537,7 +537,7 @@ def owner_listener(db: client, bucket):
 
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'excel/{doc["excel_owner"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
-                    blob.upload_from_filename(join(folder, 'owner.xlsx'))
+                    blob.upload_from_filename(join(folder, name))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')
                 else:

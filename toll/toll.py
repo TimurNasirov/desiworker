@@ -12,7 +12,7 @@ Marks: last-update, selenium
 from sys import path, argv
 from os.path import dirname, abspath
 from csv import reader
-from os import get_terminal_size
+from os import get_terminal_size, remove
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
@@ -100,6 +100,7 @@ def start_toll(db: client):
                     'sum': row[8],
                     'toll_tag_id': row[3]
                 })
+    remove(TOLL_FILENAME)
 
     #send.py
     print('writing tolls to firebase.')
@@ -113,8 +114,8 @@ def start_toll(db: client):
         if toll['id'] not in exists_tolls:
             car = get_car(db, toll['plate'], 'plate')
             if car['nickname'] != None:
-                contract_name = get_contract(db, toll['nickname'], check_active=False)['ContractName']
-                print(f'write toll {toll["id"]}, nickname: {toll["nickname"] if has_key(toll, "nickname") else "-"}, date: {toll["date"]}, id: {toll["id"]}.')
+                contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
+                print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]}, id: {toll["id"]}.')
                 if '--read-only' not in argv:
                     db.collection('Pay_contract').add({
                         'date': toll['date'],

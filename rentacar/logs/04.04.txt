@@ -26,3 +26,25 @@ launch at 04.04 06:43 (main.py --lease-only )
 [04.04 06:43:05] lease.py: lease build completed. Built contract: Contract-136R-9. Time: 2.9 seconds.
 [04.04 06:43:06] lease.py: write url to firestore: https://storage.googleapis.com/rentacar-qmt96z.appspot.com/word/Contract-136R-9-04-04-17-43-05.docx
 [04.04 06:43:31] main.py: main process stopped.
+
+
+launch at 04.04 07:53 (main.py -h )
+[04.04 07:53:44] main.py: =========================================================== DESIWORKER ===========================================================
+[04.04 07:53:44] main.py:                                                          WATCHER INSRUCTIONS                                                         
+[04.04 07:53:44] main.py: 
+[04.04 07:53:44] main.py: -> for start main process, run watcher.py
+[04.04 07:53:44] main.py: -t [process]: immediately activate main process (without checking time).
+[04.04 07:53:44] main.py:  - process (str) (optional): name of process that will run.
+[04.04 07:53:44] main.py:    - Available values: all, rentacar, exword, supadesi, odometer.
+[04.04 07:53:44] main.py:    - Default: all
+[04.04 07:53:44] main.py: --[subprocess]-only: run only this subprocess.
+[04.04 07:53:44] main.py:  - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.
+[04.04 07:53:44] main.py:  - If you choose rentacar, these process will run: changeoil, insurance, latepayment, odometer, payday, post, registration, saldo.
+[04.04 07:53:44] main.py: --no-[subprocess]: choose which subprocesses wont work.
+[04.04 07:53:44] main.py:  - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, saldo, supadesi, toll.
+[04.04 07:53:44] main.py:  - If you choose rentacar, these process wont run: changeoil, insurance, latepayment, odometer, payday, post, registration, saldo.
+[04.04 07:53:44] main.py: 
+[04.04 07:53:44] main.py: default flags:
+[04.04 07:53:44] main.py:  - -h: show help
+[04.04 07:53:44] main.py:  - --no-sms: diasble SMS send (add inbox, send sms API)
+[04.04 07:53:44] main.py:  - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)

@@ -40,6 +40,11 @@ def start_payevery(db: client):
                         pays_count += 1
 
     print(f'payevery completed. Stats: pays created: {pays_count}, contracts checked: {len(contracts)}, time: {round(time() - start_time, 2)}')
+    if '--read-only' not in argv:
+        db.collection('Last_update_python').document('last_update').update({'payevery_update': dt.now(texas_tz)})
+    else:
+        print('payevery last update not updated because of "--read-only" flag.')
+    print('set last payevery update.')
 
 def create_payevery(db: client, contract: dict, odometer: int, pay_date: dt):
     """Creates a "daily rent" payment for a specific date."""
@@ -70,9 +75,10 @@ def start_payevery2(db: client):
 
     tasks_count = 0
     for contract in contracts:
-        if contract['nickname'] not in [t['nickname'] for t in tasks if t['name_task'] == 'PayDay' and t['status']] and contract['last_saldo'] <=\
-            -contract['renta_price'] / 30 and contract['ContractName'] in [p['ContractName'] for p in pays if p['category'] == 'daily rent'] and\
-            contract['pay_day'].strftime('%d') == dt.now().strftime('%d'):
+        if (contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and\
+            contract['last_saldo'] < -contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
+            pay['category'] == 'daily rent']) or (contract['pay_day'].strftime('%d') == dt.now().strftime('%d') and contract['ContractName']\
+            not in [pay['ContractName'] for pay in pays if pay['category'] == 'daily rent']):
             create_payevery2(db, contract)
             tasks_count += 1
 
@@ -99,6 +105,23 @@ def create_payevery2(db: client, contract: dict):
             add_inbox(db, contract['renternumber'][0], PAYDAY_TEXT, contract['ContractName'], contract.get('renter'))
     else:
         print('payevery task/sms not created due to "--read-only" flag.')
+
+def check_payevery(last_update_data: dict, db: client, log: bool = False):
+    """check the day of the last update
+
+    Args:
+        last_update_data (dict): last update
+        db (client): database
+        log (bool, optional): show logs. Defaults to False.
+    """
+    if log:
+        print('check payevery last update.')
+    if last_update_data['payevery_update'].astimezone(texas_tz) + timedelta(hours=24) <= dt.now(texas_tz):
+        print('payevery has not been started for a long time: starting...')
+        start_payevery(db)
+    else:
+        if log:
+            print('payevery was started recently. All is ok.')
 
 if __name__ == '__main__':
     logdata.logfile('\n')

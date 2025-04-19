@@ -138,6 +138,7 @@ def start_supadesi(db: client):
         {'name': 'registration', 'date': data['registration_update'].isoformat()},
         {'name': 'saldo', 'date': data['saldo_update'].isoformat()},
         {'name': 'paylimit', 'date': data['paylimit_update'].isoformat()},
+        {'name': 'payevery', 'date': data['payevery_update'].isoformat()},
     ]
     add_data(data2, 'last_update')
 

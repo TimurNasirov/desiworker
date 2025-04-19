@@ -1,0 +1,636 @@
+
+
+launch at 11.04 05:30 (main.py --latepayment-only --read-only )
+[11.04 05:30:33] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:30:33] main.py: start main process.
+[11.04 05:30:34] runner.py: checking subprocesses on last update.
+[11.04 05:30:34] runner.py: initialize listeners.
+[11.04 05:31:11] main.py: main process stopped.
+
+
+launch at 11.04 05:31 (main.py --latepayment-only --read-only -t )
+[11.04 05:31:14] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:31:14] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:31:14] main.py: start main process (immediately activate).
+[11.04 05:31:14] latepayment.py: start latepayment.
+[11.04 05:31:19] latepayment.py: total latepayment contracts: 0
+[11.04 05:31:19] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:31:19] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:31:19] latepayment.py: set last latepayment update.
+[11.04 05:31:19] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:32 (main.py --latepayment-only --read-only -t )
+[11.04 05:32:44] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:32:44] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:32:44] main.py: start main process (immediately activate).
+[11.04 05:32:44] latepayment.py: start latepayment.
+[11.04 05:32:49] latepayment.py: total latepayment contracts: 0
+[11.04 05:32:49] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:32:49] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:32:49] latepayment.py: set last latepayment update.
+[11.04 05:32:49] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:34 (main.py --latepayment-only --read-only -t )
+[11.04 05:34:41] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:34:41] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:34:41] main.py: start main process (immediately activate).
+[11.04 05:34:41] latepayment.py: start latepayment.
+[11.04 05:34:46] latepayment.py: Contract-9R-1: 21
+[11.04 05:34:46] latepayment.py: Contract-132R-2: 30
+[11.04 05:34:46] latepayment.py: Contract-14R-2: 25
+[11.04 05:34:46] latepayment.py: Contract-5R-2: 1
+[11.04 05:34:46] latepayment.py: Contract-6R-2: 2
+[11.04 05:34:46] latepayment.py: Contract-62R-1: 12
+[11.04 05:34:46] latepayment.py: Contract-155R-4: 10
+[11.04 05:34:46] latepayment.py: Contract-27R-4: 18
+[11.04 05:34:46] latepayment.py: Contract-45R-3: 21
+[11.04 05:34:46] latepayment.py: Contract-84Dan-1: 23
+[11.04 05:34:46] latepayment.py: Contract-81DR-1: 30
+[11.04 05:34:46] latepayment.py: Contract-86Dan-1: 30
+[11.04 05:34:46] latepayment.py: Contract-63Den-1: 24
+[11.04 05:34:46] latepayment.py: Contract-74DR-1: 28
+[11.04 05:34:46] latepayment.py: Contract-146R-5: 3
+[11.04 05:34:46] latepayment.py: Contract-118DEN-5: 28
+[11.04 05:34:46] latepayment.py: Contract-76DR-1: 26
+[11.04 05:34:46] latepayment.py: Contract-67R-1: 2
+[11.04 05:34:46] latepayment.py: Contract-12R-5: 3
+[11.04 05:34:46] latepayment.py: Contract-131R-3: 10
+[11.04 05:34:46] latepayment.py: Contract-112DEN-3: 19
+[11.04 05:34:46] latepayment.py: Contract-24Den-2: 12
+[11.04 05:34:46] latepayment.py: Contract-78DR-1: 28
+[11.04 05:34:46] latepayment.py: Contract-52Den-4: 26
+[11.04 05:34:46] latepayment.py: Contract-1R-2: 15
+[11.04 05:34:46] latepayment.py: Contract-167R-4: 3
+[11.04 05:34:46] latepayment.py: Contract-La Griselda-7: 11
+[11.04 05:34:46] latepayment.py: Contract-161R-2: 25
+[11.04 05:34:46] latepayment.py: Contract-85R-4: 1
+[11.04 05:34:46] latepayment.py: Contract-156R-10: 9
+[11.04 05:34:46] latepayment.py: Contract-120DEN-4: 21
+[11.04 05:34:46] latepayment.py: Contract-3DEN-3: 26
+[11.04 05:34:46] latepayment.py: Contract-28R-3: 1
+[11.04 05:34:46] latepayment.py: Contract-152R-7: 16
+[11.04 05:34:46] latepayment.py: Contract-40R-5: 18
+[11.04 05:34:46] latepayment.py: Contract-42DEN-4: 15
+[11.04 05:34:46] latepayment.py: Contract-80DR-2: 13
+[11.04 05:34:46] latepayment.py: Contract-93R-2: 15
+[11.04 05:34:46] latepayment.py: Contract-88R-3: 6
+[11.04 05:34:46] latepayment.py: Contract-36R-7: 3
+[11.04 05:34:46] latepayment.py: Contract-64R-4: 13
+[11.04 05:34:46] latepayment.py: Contract-49M-TEST-7: 10
+[11.04 05:34:46] latepayment.py: Contract-154R-4: 5
+[11.04 05:34:46] latepayment.py: Contract-164R-6: 8
+[11.04 05:34:46] latepayment.py: Contract-39R-2: 16
+[11.04 05:34:46] latepayment.py: Contract-21R-1: 17
+[11.04 05:34:46] latepayment.py: Contract-51Den-4: 16
+[11.04 05:34:46] latepayment.py: Contract-10DR-2: 29
+[11.04 05:34:46] latepayment.py: Contract-53R-5: 20
+[11.04 05:34:46] latepayment.py: Contract-72DR-2: 2
+[11.04 05:34:46] latepayment.py: Contract-135R-6: 18
+[11.04 05:34:46] latepayment.py: Contract-25Dan-5: 30
+[11.04 05:34:46] latepayment.py: Contract-23Dan-7: 23
+[11.04 05:34:46] latepayment.py: Contract-43DR-6: 2
+[11.04 05:34:46] latepayment.py: Contract-166R-7: 22
+[11.04 05:34:46] latepayment.py: Contract-29R-6: 3
+[11.04 05:34:46] latepayment.py: Contract-90R-2: 17
+[11.04 05:34:46] latepayment.py: Contract-97R-2: 19
+[11.04 05:34:46] latepayment.py: Contract-151R-4: 13
+[11.04 05:34:46] latepayment.py: Contract-75DR-5: 20
+[11.04 05:34:46] latepayment.py: Contract-73R-4: 15
+[11.04 05:34:46] latepayment.py: Contract-59R-4: 9
+[11.04 05:34:46] latepayment.py: Contract-15R-1: 10
+[11.04 05:34:46] latepayment.py: Contract-169R-5: 25
+[11.04 05:34:46] latepayment.py: Contract-17R-4: 24
+[11.04 05:34:46] latepayment.py: Contract-157R-3: 12
+[11.04 05:34:46] latepayment.py: Contract-113DEN-5: 25
+[11.04 05:34:46] latepayment.py: Contract-19R-5: 22
+[11.04 05:34:46] latepayment.py: Contract-77Den-3: 25
+[11.04 05:34:46] latepayment.py: Contract-148R-5: 25
+[11.04 05:34:46] latepayment.py: Contract-22R-2: 13
+[11.04 05:34:46] latepayment.py: Contract-103R-6: 28
+[11.04 05:34:46] latepayment.py: Contract-11R-5: 11
+[11.04 05:34:46] latepayment.py: Contract-114DEN-9: 30
+[11.04 05:34:46] latepayment.py: Contract-119Dan-4: 30
+[11.04 05:34:46] latepayment.py: Contract-162R-4: 17
+[11.04 05:34:46] latepayment.py: Contract-70DR-5: 14
+[11.04 05:34:46] latepayment.py: Contract-83R-2: 24
+[11.04 05:34:46] latepayment.py: Contract-18Dan-6: 18
+[11.04 05:34:46] latepayment.py: Contract-136R-9: 6
+[11.04 05:34:46] latepayment.py: Contract-34R-6: 19
+[11.04 05:34:46] latepayment.py: Contract-35DEN-1: 9
+[11.04 05:34:46] latepayment.py: Contract-149R-5: 12
+[11.04 05:34:46] latepayment.py: Contract-55R-2: 6
+[11.04 05:34:46] latepayment.py: Contract-47R-3: 6
+[11.04 05:34:46] latepayment.py: Contract-33Dan-3: 14
+[11.04 05:34:46] latepayment.py: Contract-2DEN-1: 24
+[11.04 05:34:46] latepayment.py: Contract-32DEN-2: 14
+[11.04 05:34:46] latepayment.py: Contract-66R-3: 18
+[11.04 05:34:46] latepayment.py: Contract-87R-2: 23
+[11.04 05:34:46] latepayment.py: Contract-101Dan-8: 27
+[11.04 05:34:46] latepayment.py: Contract-98D-1: 3
+[11.04 05:34:46] latepayment.py: Contract-4R-3: 25
+[11.04 05:34:46] latepayment.py: Contract-16R-2: 25
+[11.04 05:34:46] latepayment.py: Contract-100Dan-7: 8
+[11.04 05:34:46] latepayment.py: Contract-7R-1: 17
+[11.04 05:34:46] latepayment.py: Contract-111DEN-10: 26
+[11.04 05:34:46] latepayment.py: Contract-8R-1: 30
+[11.04 05:34:46] latepayment.py: Contract-79R-3: 24
+[11.04 05:34:46] latepayment.py: Contract-30R-5: 12
+[11.04 05:34:46] latepayment.py: Contract-31R-5: 22
+[11.04 05:34:46] latepayment.py: Contract-96R-3: 30
+[11.04 05:34:46] latepayment.py: Contract-160R-8: 25
+[11.04 05:34:46] latepayment.py: Contract-89R-2: 9
+[11.04 05:34:46] latepayment.py: Contract-26R-1: 4
+[11.04 05:34:46] latepayment.py: Contract-91R-2: 11
+[11.04 05:34:46] latepayment.py: Contract-165R-7: 12
+[11.04 05:34:46] latepayment.py: Contract-54DR-2: 27
+[11.04 05:34:46] latepayment.py: Contract-92R-1: 17
+[11.04 05:34:46] latepayment.py: Contract-82DR-2: 18
+[11.04 05:34:46] latepayment.py: Contract-65R-2: 2
+[11.04 05:34:46] latepayment.py: Contract-49DR-2: 19
+[11.04 05:34:46] latepayment.py: Contract-99DR-1: 16
+[11.04 05:34:46] latepayment.py: Contract-46DR-1: 27
+[11.04 05:34:46] latepayment.py: Contract-94R-1: 23
+[11.04 05:34:46] latepayment.py: Contract-37R-1: 14
+[11.04 05:34:46] latepayment.py: Contract-20R-1: 25
+[11.04 05:34:46] latepayment.py: Contract-140R-7: 23
+[11.04 05:34:46] latepayment.py: Contract-158R-7: 6
+[11.04 05:34:46] latepayment.py: Contract-117VOV-8: 13
+[11.04 05:34:46] latepayment.py: Contract-163R-8: 28
+[11.04 05:34:46] latepayment.py: Contract-95DR-1: 6
+[11.04 05:34:46] latepayment.py: total latepayment contracts: 0
+[11.04 05:34:46] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:34:46] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:34:46] latepayment.py: set last latepayment update.
+[11.04 05:34:46] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:37 (main.py --latepayment-only --read-only -t )
+[11.04 05:37:19] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:37:19] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:37:19] main.py: start main process (immediately activate).
+[11.04 05:37:19] latepayment.py: start latepayment.
+[11.04 05:37:26] main.py: main process stopped.
+
+
+launch at 11.04 05:37 (main.py --latepayment-only --read-only -t )
+[11.04 05:37:28] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:37:28] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:37:28] main.py: start main process (immediately activate).
+[11.04 05:37:28] latepayment.py: start latepayment.
+[11.04 05:37:33] latepayment.py: 2025-04-05 16:37:33.576989
+[11.04 05:37:33] latepayment.py: total latepayment contracts: 0
+[11.04 05:37:33] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:37:33] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:37:33] latepayment.py: set last latepayment update.
+[11.04 05:37:33] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:37 (main.py --latepayment-only --read-only -t )
+[11.04 05:37:57] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:37:57] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:37:57] main.py: start main process (immediately activate).
+[11.04 05:37:57] latepayment.py: start latepayment.
+[11.04 05:38:02] latepayment.py: 2025-04-10 16:38:02.627593
+[11.04 05:38:02] latepayment.py: total latepayment contracts: 0
+[11.04 05:38:02] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:38:02] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:38:02] latepayment.py: set last latepayment update.
+[11.04 05:38:02] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:38 (main.py --latepayment-only --read-only -t )
+[11.04 05:38:30] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:38:30] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:38:30] main.py: start main process (immediately activate).
+[11.04 05:38:30] latepayment.py: start latepayment.
+[11.04 05:38:35] latepayment.py: 2025-04-10 16:38:35.153187
+[11.04 05:38:35] latepayment.py: total latepayment contracts: 0
+[11.04 05:38:35] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:38:35] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:38:35] latepayment.py: set last latepayment update.
+[11.04 05:38:35] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:38 (main.py --latepayment-only --read-only -t )
+[11.04 05:38:55] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:38:55] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:38:55] main.py: start main process (immediately activate).
+[11.04 05:38:55] latepayment.py: start latepayment.
+[11.04 05:39:00] latepayment.py: 2025-04-05 16:39:00.088795
+[11.04 05:39:00] latepayment.py: total latepayment contracts: 0
+[11.04 05:39:00] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:39:00] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:39:00] latepayment.py: set last latepayment update.
+[11.04 05:39:00] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:39 (main.py --latepayment-only --read-only -t )
+[11.04 05:39:14] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:39:14] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:39:14] main.py: start main process (immediately activate).
+[11.04 05:39:14] latepayment.py: start latepayment.
+[11.04 05:39:19] latepayment.py: 2025-04-06 16:39:19.665335
+[11.04 05:39:19] latepayment.py: total latepayment contracts: 0
+[11.04 05:39:19] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:39:19] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:39:19] latepayment.py: set last latepayment update.
+[11.04 05:39:19] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:39 (main.py --latepayment-only --read-only -t )
+[11.04 05:39:38] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:39:38] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:39:38] main.py: start main process (immediately activate).
+[11.04 05:39:38] latepayment.py: start latepayment.
+[11.04 05:39:43] latepayment.py: 2025-04-11 16:39:43.288564
+[11.04 05:39:43] latepayment.py: total latepayment contracts: 0
+[11.04 05:39:43] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:39:43] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:39:43] latepayment.py: set last latepayment update.
+[11.04 05:39:43] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:40 (main.py --latepayment-only --read-only -t )
+[11.04 05:40:01] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:40:01] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:40:01] main.py: start main process (immediately activate).
+[11.04 05:40:01] latepayment.py: start latepayment.
+[11.04 05:40:05] latepayment.py: 6
+[11.04 05:40:05] latepayment.py: 11
+[11.04 05:40:05] latepayment.py: total latepayment contracts: 0
+[11.04 05:40:05] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:40:05] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:40:05] latepayment.py: set last latepayment update.
+[11.04 05:40:05] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:40 (main.py --latepayment-only --read-only -t )
+[11.04 05:40:20] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:40:20] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:40:20] main.py: start main process (immediately activate).
+[11.04 05:40:20] latepayment.py: start latepayment.
+[11.04 05:40:25] latepayment.py: 11
+[11.04 05:40:25] latepayment.py: 11
+[11.04 05:40:25] latepayment.py: total latepayment contracts: 0
+[11.04 05:40:25] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:40:25] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:40:25] latepayment.py: set last latepayment update.
+[11.04 05:40:25] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:40 (main.py --latepayment-only --read-only -t )
+[11.04 05:40:40] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:40:40] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:40:40] main.py: start main process (immediately activate).
+[11.04 05:40:40] latepayment.py: start latepayment.
+[11.04 05:40:44] latepayment.py: 11
+[11.04 05:40:44] latepayment.py: 11
+[11.04 05:40:44] latepayment.py: total latepayment contracts: 0
+[11.04 05:40:44] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:40:44] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:40:44] latepayment.py: set last latepayment update.
+[11.04 05:40:44] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:41 (main.py --latepayment-only --read-only -t )
+[11.04 05:41:23] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:41:23] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:41:23] main.py: start main process (immediately activate).
+[11.04 05:41:23] latepayment.py: start latepayment.
+[11.04 05:41:28] latepayment.py: 11
+[11.04 05:41:28] latepayment.py: 11
+[11.04 05:41:28] latepayment.py: write latepayment - nickname: 49M-TEST
+[11.04 05:41:28] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 05:41:28] latepayment.py: total latepayment contracts: 1
+[11.04 05:41:28] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:41:28] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:41:28] latepayment.py: set last latepayment update.
+[11.04 05:41:28] main.py: main process stopped successfully.
+
+
+launch at 11.04 05:57 (main.py --latepayment-only --read-only -t )
+[11.04 05:57:09] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:57:09] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:57:09] main.py: start main process (immediately activate).
+[11.04 05:57:09] latepayment.py: start latepayment.
+[11.04 05:57:15] main.py: ERROR in module D:\projects\desiworker\rentacar\latepayment.py, line 71: ValueError (max() iterable argument is empty).
+
+
+launch at 11.04 05:58 (main.py --latepayment-only --read-only -t )
+[11.04 05:58:56] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 05:58:56] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 05:58:56] main.py: start main process (immediately activate).
+[11.04 05:58:56] latepayment.py: start latepayment.
+[11.04 05:59:01] latepayment.py: total latepayment contracts: 0
+[11.04 05:59:01] latepayment.py: total pre-latepayment contracts: 0
+[11.04 05:59:01] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 05:59:01] latepayment.py: set last latepayment update.
+[11.04 05:59:01] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:01 (main.py --latepayment-only --read-only -t )
+[11.04 06:01:21] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:01:21] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:01:21] main.py: start main process (immediately activate).
+[11.04 06:01:21] latepayment.py: start latepayment.
+[11.04 06:01:27] latepayment.py: total latepayment contracts: 0
+[11.04 06:01:27] latepayment.py: total pre-latepayment contracts: 0
+[11.04 06:01:27] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:01:27] latepayment.py: set last latepayment update.
+[11.04 06:01:27] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:02 (main.py --latepayment-only --read-only -t )
+[11.04 06:02:30] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:02:30] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:02:30] main.py: start main process (immediately activate).
+[11.04 06:02:30] latepayment.py: start latepayment.
+[11.04 06:02:36] latepayment.py: total latepayment contracts: 0
+[11.04 06:02:36] latepayment.py: total pre-latepayment contracts: 0
+[11.04 06:02:36] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:02:36] latepayment.py: set last latepayment update.
+[11.04 06:02:36] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:03 (main.py --latepayment-only --read-only -t )
+[11.04 06:03:11] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:03:11] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:03:11] main.py: start main process (immediately activate).
+[11.04 06:03:11] latepayment.py: start latepayment.
+[11.04 06:03:19] latepayment.py: [DatetimeWithNanoseconds(2025, 4, 6, 11, 1, 15, 601000, tzinfo=datetime.timezone.utc)]
+[11.04 06:03:19] latepayment.py: total latepayment contracts: 0
+[11.04 06:03:19] latepayment.py: total pre-latepayment contracts: 0
+[11.04 06:03:19] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:03:19] latepayment.py: set last latepayment update.
+[11.04 06:03:19] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:04 (main.py --latepayment-only --read-only -t )
+[11.04 06:04:19] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:04:19] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:04:19] main.py: start main process (immediately activate).
+[11.04 06:04:19] latepayment.py: start latepayment.
+[11.04 06:04:25] latepayment.py: write latepayment - nickname: 49M-TEST
+[11.04 06:04:25] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 06:04:25] latepayment.py: total latepayment contracts: 1
+[11.04 06:04:25] latepayment.py: total pre-latepayment contracts: 0
+[11.04 06:04:25] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:04:25] latepayment.py: set last latepayment update.
+[11.04 06:04:25] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:05 (main.py --latepayment-only --read-only -t )
+[11.04 06:05:10] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:05:10] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:05:10] main.py: start main process (immediately activate).
+[11.04 06:05:10] latepayment.py: start latepayment.
+[11.04 06:05:19] latepayment.py: total latepayment contracts: 0
+[11.04 06:05:19] latepayment.py: total pre-latepayment contracts: 0
+[11.04 06:05:19] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:05:19] latepayment.py: set last latepayment update.
+[11.04 06:05:19] main.py: main process stopped successfully.
+
+
+launch at 11.04 06:06 (main.py --latepayment-only --read-only -t )
+[11.04 06:06:54] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:06:54] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:06:54] main.py: start main process (immediately activate).
+[11.04 06:06:54] latepayment.py: start latepayment.
+[11.04 06:06:59] main.py: main process stopped.
+
+
+launch at 11.04 06:07 (main.py --latepayment-only --read-only -t )
+[11.04 06:07:39] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 06:07:39] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 06:07:39] main.py: start main process (immediately activate).
+[11.04 06:07:39] latepayment.py: start latepayment.
+[11.04 06:07:45] latepayment.py: False
+[11.04 06:07:45] latepayment.py: send pre-latepayment sms - nickname: 49M-TEST
+[11.04 06:07:45] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 06:07:45] latepayment.py: total latepayment contracts: 0
+[11.04 06:07:45] latepayment.py: total pre-latepayment contracts: 1
+[11.04 06:07:45] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 06:07:45] latepayment.py: set last latepayment update.
+[11.04 06:07:45] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:27 (main.py --payevery-only --read-only -t )
+[11.04 07:27:53] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:27:53] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:27:53] main.py: start main process (immediately activate).
+[11.04 07:27:53] payevery.py: start payevery.
+[11.04 07:28:24] payevery.py: payevery completed. Stats: pays created: 0, contracts checked: 122, time: 30.96
+[11.04 07:28:24] payevery.py: payevery last update not updated because of "--read-only" flag.
+[11.04 07:28:24] payevery.py: set last payevery update.
+[11.04 07:28:24] payevery.py: start payevery (2).
+[11.04 07:28:26] payevery.py: write payevery 2 - ContractName: Contract-39R-2
+[11.04 07:28:26] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:28:26] payevery.py: write payevery 2 - ContractName: Contract-51Den-4
+[11.04 07:28:26] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:28:26] payevery.py: write payevery 2 - ContractName: Contract-99DR-1
+[11.04 07:28:26] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:28:26] payevery.py: payevery 2 completed. Stats: tasks & sms created: 3, contracts checked: 122, time: 2.18
+[11.04 07:28:26] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:29 (main.py --payevery-only --read-only -t )
+[11.04 07:29:24] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:29:24] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:29:24] main.py: start main process (immediately activate).
+[11.04 07:29:24] payevery.py: start payevery.
+[11.04 07:30:00] payevery.py: payevery completed. Stats: pays created: 0, contracts checked: 122, time: 35.93
+[11.04 07:30:00] payevery.py: payevery last update not updated because of "--read-only" flag.
+[11.04 07:30:00] payevery.py: set last payevery update.
+[11.04 07:30:00] payevery.py: start payevery (2).
+[11.04 07:30:03] payevery.py: write payevery 2 - ContractName: Contract-49M-TEST-7
+[11.04 07:30:03] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:30:03] payevery.py: write payevery 2 - ContractName: Contract-39R-2
+[11.04 07:30:03] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:30:03] payevery.py: write payevery 2 - ContractName: Contract-51Den-4
+[11.04 07:30:03] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:30:03] payevery.py: write payevery 2 - ContractName: Contract-99DR-1
+[11.04 07:30:03] payevery.py: payevery task/sms not created due to "--read-only" flag.
+[11.04 07:30:03] payevery.py: payevery 2 completed. Stats: tasks & sms created: 4, contracts checked: 122, time: 2.2
+[11.04 07:30:03] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:53 (main.py --payevery-only --read-only -t )
+[11.04 07:53:44] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:53:44] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:53:44] main.py: start main process (immediately activate).
+[11.04 07:53:44] payevery.py: start payevery.
+[11.04 07:53:45] main.py: main process stopped.
+
+
+launch at 11.04 07:53 (main.py --latepayment-only --read-only -t )
+[11.04 07:53:56] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:53:56] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:53:56] main.py: start main process (immediately activate).
+[11.04 07:53:56] latepayment.py: start latepayment.
+[11.04 07:54:01] latepayment.py: False
+[11.04 07:54:01] latepayment.py: write latepayment - nickname: 96R
+[11.04 07:54:01] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 07:54:01] latepayment.py: total latepayment contracts: 1
+[11.04 07:54:01] latepayment.py: total pre-latepayment contracts: 0
+[11.04 07:54:01] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 07:54:01] latepayment.py: set last latepayment update.
+[11.04 07:54:01] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:54 (main.py --latepayment-only --read-only -t )
+[11.04 07:54:16] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:54:16] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:54:16] main.py: start main process (immediately activate).
+[11.04 07:54:16] latepayment.py: start latepayment.
+[11.04 07:54:21] latepayment.py: total latepayment contracts: 0
+[11.04 07:54:21] latepayment.py: total pre-latepayment contracts: 0
+[11.04 07:54:21] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 07:54:21] latepayment.py: set last latepayment update.
+[11.04 07:54:21] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:54 (main.py --latepayment-only --read-only -t )
+[11.04 07:54:46] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:54:46] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:54:46] main.py: start main process (immediately activate).
+[11.04 07:54:46] latepayment.py: start latepayment.
+[11.04 07:54:51] latepayment.py: total latepayment contracts: 0
+[11.04 07:54:51] latepayment.py: total pre-latepayment contracts: 0
+[11.04 07:54:51] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 07:54:51] latepayment.py: set last latepayment update.
+[11.04 07:54:51] main.py: main process stopped successfully.
+
+
+launch at 11.04 07:58 (main.py --latepayment-only --read-only -t )
+[11.04 07:58:44] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 07:58:44] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 07:58:44] main.py: start main process (immediately activate).
+[11.04 07:58:44] latepayment.py: start latepayment.
+[11.04 07:58:49] latepayment.py: total latepayment contracts: 0
+[11.04 07:58:49] latepayment.py: total pre-latepayment contracts: 0
+[11.04 07:58:49] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 07:58:49] latepayment.py: set last latepayment update.
+[11.04 07:58:49] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:04 (main.py --latepayment-only --read-only -t )
+[11.04 08:04:09] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:04:09] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:04:09] main.py: start main process (immediately activate).
+[11.04 08:04:09] latepayment.py: start latepayment.
+[11.04 08:04:15] latepayment.py: True
+[11.04 08:04:15] latepayment.py: True
+[11.04 08:04:15] latepayment.py: False
+[11.04 08:04:15] latepayment.py: total latepayment contracts: 0
+[11.04 08:04:15] latepayment.py: total pre-latepayment contracts: 0
+[11.04 08:04:15] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:04:15] latepayment.py: set last latepayment update.
+[11.04 08:04:15] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:04 (main.py --latepayment-only --read-only -t )
+[11.04 08:04:50] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:04:50] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:04:50] main.py: start main process (immediately activate).
+[11.04 08:04:50] latepayment.py: start latepayment.
+[11.04 08:04:55] latepayment.py: -473.0
+[11.04 08:04:55] latepayment.py: 500
+[11.04 08:04:55] latepayment.py: total latepayment contracts: 0
+[11.04 08:04:55] latepayment.py: total pre-latepayment contracts: 0
+[11.04 08:04:55] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:04:55] latepayment.py: set last latepayment update.
+[11.04 08:04:55] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:06 (main.py --latepayment-only --read-only -t )
+[11.04 08:06:27] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:06:27] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:06:27] main.py: start main process (immediately activate).
+[11.04 08:06:27] latepayment.py: start latepayment.
+[11.04 08:06:32] latepayment.py: -220.02
+[11.04 08:06:32] latepayment.py: 600
+[11.04 08:06:32] latepayment.py: total latepayment contracts: 0
+[11.04 08:06:32] latepayment.py: total pre-latepayment contracts: 0
+[11.04 08:06:32] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:06:32] latepayment.py: set last latepayment update.
+[11.04 08:06:32] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:08 (main.py --latepayment-only --read-only -t )
+[11.04 08:08:24] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:08:24] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:08:24] main.py: start main process (immediately activate).
+[11.04 08:08:24] latepayment.py: start latepayment.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 155R
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 131R
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: send pre-latepayment sms - nickname: 151R
+[11.04 08:08:30] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 15R
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 100Dan
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 89R
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: write latepayment - nickname: 158R
+[11.04 08:08:30] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: total latepayment contracts: 6
+[11.04 08:08:30] latepayment.py: total pre-latepayment contracts: 1
+[11.04 08:08:30] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:08:30] latepayment.py: set last latepayment update.
+[11.04 08:08:30] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:24 (main.py --latepayment-only --read-only -t )
+[11.04 08:24:59] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:24:59] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:24:59] main.py: start main process (immediately activate).
+[11.04 08:24:59] latepayment.py: start latepayment.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 155R
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 131R
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: send pre-latepayment sms - nickname: 151R
+[11.04 08:25:06] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 15R
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 100Dan
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 89R
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: write latepayment - nickname: 158R
+[11.04 08:25:06] latepayment.py: pay not created because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: total latepayment contracts: 6
+[11.04 08:25:06] latepayment.py: total pre-latepayment contracts: 1
+[11.04 08:25:06] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:25:06] latepayment.py: set last latepayment update.
+[11.04 08:25:06] main.py: main process stopped successfully.
+
+
+launch at 11.04 08:26 (main.py --latepayment-only --read-only -t )
+[11.04 08:26:26] main.py: --read-only: no sms sending, no task and pay creating, no last update updating.
+[11.04 08:26:26] main.py: -t: immediately activate. Process will stop after all subprocesses finished.
+[11.04 08:26:26] main.py: start main process (immediately activate).
+[11.04 08:26:26] latepayment.py: start latepayment.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 155R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 131R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 151R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 15R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 100Dan
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 89R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: send pre-latepayment sms - nickname: 158R
+[11.04 08:26:32] latepayment.py: sms not sent because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: total latepayment contracts: 0
+[11.04 08:26:32] latepayment.py: total pre-latepayment contracts: 7
+[11.04 08:26:32] latepayment.py: latepayment last update not updated because of "--read-only" flag.
+[11.04 08:26:32] latepayment.py: set last latepayment update.
+[11.04 08:26:32] main.py: main process stopped successfully.

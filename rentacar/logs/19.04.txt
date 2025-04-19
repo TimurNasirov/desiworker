@@ -1,0 +1,280 @@
+[19.04 04:56:28] statement.py: []
+[19.04 04:56:48] statement.py: [<__main__.StateItem object at 0x0000016111795D30>, <__main__.StateItem object at 0x000001610E6E53D0>, <__main__.StateItem object at 0x000001610E6E5280>, <__main__.StateItem object at 0x0000016111C35640>, <__main__.StateItem object at 0x0000016111C36F60>, <__main__.StateItem object at 0x00000161107254F0>, <__main__.StateItem object at 0x0000016111BADE80>, <__main__.StateItem object at 0x0000016111DB4E60>, <__main__.StateItem object at 0x0000016111443EC0>, <__main__.StateItem object at 0x0000016111E71EE0>, <__main__.StateItem object at 0x0000016111E70CE0>]
+[19.04 06:55:23] statement.py: -19.2
+[19.04 06:55:23] statement.py: 2025-04-11
+[19.04 06:55:23] statement.py: -38.4
+[19.04 06:55:23] statement.py: 2025-04-07
+[19.04 06:55:23] statement.py: -57.599999999999994
+[19.04 06:55:23] statement.py: 2025-04-03
+[19.04 06:55:23] statement.py: -57.599999999999994
+[19.04 06:55:23] statement.py: 2025-02-26
+[19.04 06:55:23] statement.py: -76.8
+[19.04 06:55:23] statement.py: 2025-04-05
+[19.04 06:55:23] statement.py: -96.0
+[19.04 06:55:23] statement.py: 2025-04-08
+[19.04 06:55:23] statement.py: -115.2
+[19.04 06:55:23] statement.py: 2025-04-04
+[19.04 06:55:23] statement.py: -134.4
+[19.04 06:55:23] statement.py: 2025-04-06
+[19.04 06:55:23] statement.py: -153.6
+[19.04 06:55:23] statement.py: 2025-04-09
+[19.04 06:55:23] statement.py: 19.400000000000006
+[19.04 06:55:23] statement.py: 2025-04-12
+[19.04 06:55:23] statement.py: 0.2000000000000064
+[19.04 06:55:23] statement.py: 2025-04-10
+[19.04 06:58:50] statement.py: -19.2
+[19.04 06:58:50] statement.py: 2025-04-03
+[19.04 06:58:50] statement.py: -19.2
+[19.04 06:58:50] statement.py: 2025-02-26
+[19.04 06:58:50] statement.py: -38.4
+[19.04 06:58:50] statement.py: 2025-04-05
+[19.04 06:58:50] statement.py: -57.599999999999994
+[19.04 06:58:50] statement.py: 2025-04-04
+[19.04 06:58:50] statement.py: -76.8
+[19.04 06:58:50] statement.py: 2025-04-07
+[19.04 06:58:50] statement.py: -96.0
+[19.04 06:58:50] statement.py: 2025-04-10
+[19.04 06:58:50] statement.py: -115.2
+[19.04 06:58:50] statement.py: 2025-04-06
+[19.04 06:58:50] statement.py: -134.4
+[19.04 06:58:50] statement.py: 2025-04-08
+[19.04 06:58:50] statement.py: 38.599999999999994
+[19.04 06:58:50] statement.py: 2025-04-12
+[19.04 06:58:50] statement.py: 19.399999999999995
+[19.04 06:58:50] statement.py: 2025-04-09
+[19.04 06:58:50] statement.py: 0.19999999999999574
+[19.04 06:58:50] statement.py: 2025-04-11
+[19.04 07:36:18] statement.py: 1
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:53:37] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:00] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:54:42] statement.py: []
+[19.04 07:56:39] statement.py: ['daily rent', 'toll', 'toll']
+[19.04 07:56:39] statement.py: []
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: ['daily rent']
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'daily rent', 'toll', 'toll']
+[19.04 07:56:39] statement.py: [None]
+[19.04 07:56:39] statement.py: ['daily rent']
+[19.04 07:56:39] statement.py: ['daily rent']
+[19.04 07:56:39] statement.py: []
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:39] statement.py: ['daily rent']
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: [None]
+[19.04 07:56:39] statement.py: []
+[19.04 07:56:39] statement.py: ['toll', 'extra', 'toll', 'toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:39] statement.py: [None]
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: [None, None]
+[19.04 07:56:39] statement.py: [None]
+[19.04 07:56:39] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: ['daily rent', 'toll', 'toll', 'toll']
+[19.04 07:56:39] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'daily rent', 'toll', 'toll']
+[19.04 07:56:46] statement.py: []
+[19.04 07:56:46] statement.py: ['daily rent', 'toll', 'toll']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: []
+[19.04 07:56:46] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: [None, None]
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: [None]
+[19.04 07:56:46] statement.py: ['daily rent', 'toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: [None]
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'toll', 'toll', 'toll', 'toll']
+[19.04 07:56:46] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: ['toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:46] statement.py: [None]
+[19.04 07:56:46] statement.py: ['toll', 'extra', 'toll', 'toll', 'toll', 'daily rent', 'toll']
+[19.04 07:56:46] statement.py: [None]
+[19.04 07:56:46] statement.py: ['daily rent']
+[19.04 07:56:46] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 12), datetime.date(2025, 4, 12), datetime.date(2025, 4, 12)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 3), datetime.date(2025, 4, 3), datetime.date(2025, 4, 3)]
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9)]
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 14), datetime.date(2025, 4, 14), datetime.date(2025, 4, 14)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 5), datetime.date(2025, 4, 5), datetime.date(2025, 4, 5)]
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10)]
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1)]
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: []
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2)]
+[19.04 08:15:53] statement.py: [datetime.date(2025, 4, 13), datetime.date(2025, 4, 13)]
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 12), datetime.date(2025, 4, 12), datetime.date(2025, 4, 12)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10), datetime.date(2025, 4, 10)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15), datetime.date(2025, 4, 15)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1), datetime.date(2025, 4, 1)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 5), datetime.date(2025, 4, 5), datetime.date(2025, 4, 5)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7), datetime.date(2025, 4, 7)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 13), datetime.date(2025, 4, 13)]
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 3), datetime.date(2025, 4, 3), datetime.date(2025, 4, 3)]
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 14), datetime.date(2025, 4, 14), datetime.date(2025, 4, 14)]
+[19.04 08:17:04] statement.py: []
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8), datetime.date(2025, 4, 8)]
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2), datetime.date(2025, 4, 2)]
+[19.04 08:17:04] statement.py: [datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9), datetime.date(2025, 4, 9)]
+[19.04 08:17:04] statement.py: []
+
+
+launch at 19.04 08:45 (statement.py )
+[19.04 08:45:06] statement.py: start subprocess statement.
+[19.04 08:45:06] statement.py: not enough arguments.
+[19.04 08:45:06] statement.py: add -h to arguments to get help.
+[19.04 08:45:06] statement.py: statement subprocess stopped successfully.
+
+
+launch at 19.04 08:45 (statement.py -h )
+[19.04 08:45:15] statement.py: start subprocess statement.
+[19.04 08:45:15] statement.py: =================================================================== DESIWORKER ===================================================================
+[19.04 08:45:15] statement.py:                                                               SUBPROCESS INSRUCTIONS                                                              
+[19.04 08:45:15] statement.py: 
+[19.04 08:45:15] statement.py: -> for start main process, run watcher.py
+[19.04 08:45:15] statement.py: --listener: activate statement listener
+[19.04 08:45:15] statement.py: 
+[19.04 08:45:15] statement.py: default flags:
+[19.04 08:45:15] statement.py:  - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)
+[19.04 08:45:15] statement.py: WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subprocess from watcher.py (use --statement-only -t)
+[19.04 08:45:15] statement.py: 
+[19.04 08:45:15] statement.py: Description:
+
+
+launch at 19.04 08:47 (main.py --statement-only )
+[19.04 08:47:58] main.py: start main process.
+[19.04 08:48:00] runner.py: checking subprocesses on last update.
+[19.04 08:48:00] runner.py: initialize listeners.
+[19.04 08:48:00] statement.py: initalize statement listener.
+[19.04 08:48:00] statement.py: ERROR in module D:\projects\desiworker\rentacar\statement.py, line 228: KeyError ('state_active'). [from statement snapshot]
+
+
+launch at 19.04 08:53 (main.py --statement-only )
+[19.04 08:53:20] main.py: start main process.
+[19.04 08:53:21] runner.py: checking subprocesses on last update.
+[19.04 08:53:21] runner.py: initialize listeners.
+[19.04 08:53:21] statement.py: initalize statement listener.
+[19.04 08:53:47] statement.py: write xlsx Contract-33Dan-3 (statement)
+[19.04 08:53:50] statement.py: ERROR in module C:\Users\HONOR\AppData\Local\Programs\Python\Python312\Lib\zipfile\__init__.py, line 1331: PermissionError ([Errno 13] Permission denied: 'D:\\projects\\desiworker\\rentacar\\exword_results\\statement.xlsx'). [from statement snapshot]
+
+
+launch at 19.04 08:54 (main.py --statement-only )
+[19.04 08:54:03] main.py: start main process.
+[19.04 08:54:04] runner.py: checking subprocesses on last update.
+[19.04 08:54:04] runner.py: initialize listeners.
+[19.04 08:54:04] statement.py: initalize statement listener.
+[19.04 08:54:04] statement.py: write xlsx Contract-33Dan-3 (statement)
+[19.04 08:54:06] statement.py: ERROR in module <frozen genericpath>, line 164: TypeError (join() argument must be str, bytes, or os.PathLike object, not 'NoneType'). [from statement snapshot]
+
+
+launch at 19.04 08:55 (main.py --statement-only )
+[19.04 08:55:53] main.py: start main process.
+[19.04 08:55:57] runner.py: checking subprocesses on last update.
+[19.04 08:55:57] runner.py: initialize listeners.
+[19.04 08:55:57] statement.py: initalize statement listener.
+[19.04 08:55:58] statement.py: write xlsx Contract-33Dan-3 (statement)
+[19.04 08:56:01] statement.py: write url to firestore: https://storage.googleapis.com/rentacar-qmt96z.appspot.com/excel/Contract-33Dan-3-19-04-19-56-00.xlsx
+[19.04 08:56:41] main.py: main process stopped.

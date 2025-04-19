@@ -102,7 +102,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
             inbox[1].collection('messages').add({
                 'created_time': now,
                 'is_our': True,
-                'readed': False,
+                'readed': True,
                 'message': text,
                 'user': 'python'
             })

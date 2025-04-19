@@ -12,7 +12,6 @@ from os.path import dirname, abspath
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
-from time import sleep
 from rentacar.log import Log
 from rentacar.mods.timemod import time_is, wait
 from rentacar.mods.firemod import init_db, bucket, client
@@ -26,13 +25,14 @@ from rentacar.post import start_post, check_post
 from rentacar.registration import start_registration, check_registration
 from rentacar.saldo import start_saldo, check_saldo, saldo_listener
 from rentacar.supadesi import start_supadesi
-from rentacar.payevery import start_payevery, start_payevery2
+from rentacar.payevery import start_payevery, start_payevery2, check_payevery
 from rentacar.imei import start_imei
 
 from rentacar.extoll import extoll_listener
 from rentacar.owner import owner_listener
 from rentacar.lease import lease_listener
 from rentacar.rental import rental_listener
+from rentacar.statement import statement_listener
 
 logdata = Log('runner.py')
 print = logdata.print
@@ -65,6 +65,8 @@ def run_checking(run):
         check_post(last_update_data, db)
     if 'registration' in run:
         check_registration(last_update_data, db)
+    if 'payevery' in run:
+        check_payevery(last_update_data, db)
 
     print('initialize listeners.')
     if 'odometer' in run:
@@ -77,6 +79,8 @@ def run_checking(run):
         rental_listener(db, bucket)
     if 'extoll' in run:
         extoll_listener(db, bucket)
+    if 'statement' in run:
+        statement_listener(db, bucket)
     if 'saldo' in run:
         saldo_listener(db)
 
@@ -84,7 +88,7 @@ def run_checking(run):
         if time_is('11:57'):
             start_rentacar(run)
 
-        elif time_is('11:50') or time_is('23:51') or time_is('06:00'):
+        elif time_is('11:45') or time_is('23:51') or time_is('06:00'):
             if 'odometer' in run:
                 start_odometer(db)
 
@@ -110,14 +114,11 @@ def start_all(run):
     Args:
         run (list): objects that should run
     """
-    sleep(1)
     if 'odometer' in run:
         start_odometer(db)
     start_rentacar(run)
-    if 'toll' in run:
-        start_toll(db)
-    if 'supadesi' in run:
-        start_supadesi(db)
+    # if 'supadesi' in run:
+    #     start_supadesi(db)
     if 'payevery' in run:
         start_payevery(db)
         start_payevery2(db)

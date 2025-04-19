@@ -26,9 +26,9 @@ try:
         print('--no-tg: no telegram notifications sending on errors')
 
     if '--no-rentacar' in argv:
-        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner']
+        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner', 'statement']
     else:
-        run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'supadesi', 'rental', 'lease', 'extoll', 'owner', 'payevery', 'imei']
+        run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'supadesi', 'rental', 'lease', 'extoll', 'owner', 'payevery', 'imei', 'statement']
 
     if '--rentacar-only' in argv:
         run = ['changeoil', 'insurance', 'registartion', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
@@ -64,6 +64,8 @@ try:
         run = ['extoll']
     if '--imei-only' in argv:
         run = ['imei']
+    if '--statement-only' in argv:
+        run = ['statement']
 
     if '--no-changeoil' in argv:
         run.remove('changeoil')
@@ -95,6 +97,8 @@ try:
         run.remove('extoll')
     if '--no-imei' in argv:
         run.remove('imei')
+    if '--no-statement' in argv:
+        run.remove('statement')
 
     if '-t' in argv:
         print('start main process (immediately activate).')

@@ -25,7 +25,6 @@ path.append(dirname(SCRIPT_DIR))
 
 from openpyxl.styles import Border, Side, Font, Alignment
 from openpyxl import Workbook
-from google.cloud.firestore_v1.base_query import FieldFilter
 from rentacar.mods.firemod import has_key, client, init_db, document, bucket, to_dict_all
 from rentacar.mods.timemod import dt, sleep
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID

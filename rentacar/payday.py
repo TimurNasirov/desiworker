@@ -150,7 +150,8 @@ mil: {current_odometer - begin_odometer - limit}.')
             'odometer': current_odometer,
             'sum': float(round((current_odometer - begin_odometer - limit) * PAYLIMIT_SUM_COEFFICIENT)),
             'user': USER,
-            'owner': True
+            'owner': True,
+            'category': 'extra'
         })
     else:
         print('paylimit pay not created because of "--read-only" flag.')

@@ -23,7 +23,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from log import Log
-from mods.firemod import client, to_dict_all, get_car, has_key, get_contract
+from mods.firemod import client, to_dict_all, get_car, has_key, get_contract, init_db
 from mods.timemod import sleep, dt, timedelta, texas_tz
 from config import NTTA_URL, NTTA_LOGIN, NTTA_PASSWORD, NTTA_HISTORY_URL
 from str_config import TOLL_USERNAME_ID, TOLL_PASSWORD_NAME, TOLL_LOGIN_BUTTON_SELECTOR, TOLL_CSV_XPATH, TOLL_FILENAME, USER, TOLL_CATEGORY,\
@@ -114,46 +114,50 @@ def start_toll(db: client):
         if toll['id'] not in exists_tolls:
             car = get_car(db, toll['plate'], 'plate')
             if car['nickname'] != None:
-                contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
-                print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]}, id: {toll["id"]}.')
-                if '--read-only' not in argv:
-                    db.collection('Pay_contract').add({
-                        'date': toll['date'],
-                        'id': toll['id'],
-                        'sum': float(toll['sum'].replace('-', '')),
-                        'plate': toll['plate'],
-                        'name_pay': TOLL_NAME_PAY,
-                        'category': TOLL_CATEGORY,
-                        'comment': TOLL_COMMENT_PAY.replace('{location}', toll['location']).replace('{type}', toll['type']),
-                        'income': False,
-                        'expense': True,
-                        'owner': True,
-                        'delete': False,
-                        'odometer': car['odometer'],
-                        'ContractName': contract_name,
-                        'nickname': car['nickname']
-                    })
-                    db.collection('Toll').document(str(toll['id'])).set({
-                        'date': toll['date'],
-                        'ID': toll['id'],
-                        'sum': float(toll['sum'].replace('-', '')),
-                        'plate': toll['plate'],
-                        'location': toll['location'],
-                        'type': toll['type'],
-                        'nickname': car['nickname'],
-                        'paid': True
-                    })
-                else:
-                    print('toll not writed because of "--read-only" flag.')
+                if toll['plate'] != '' or toll['plate'] != '-':
+                    contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
+                    print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]}, id: {toll["id"]}.')
+                    if '--read-only' not in argv:
+                        db.collection('Pay_contract').add({
+                            'date': toll['date'],
+                            'id': toll['id'],
+                            'sum': float(toll['sum'].replace('-', '')),
+                            'plate': toll['plate'],
+                            'name_pay': TOLL_NAME_PAY,
+                            'category': TOLL_CATEGORY,
+                            'comment': TOLL_COMMENT_PAY.replace('{location}', toll['location']).replace('{type}', toll['type']),
+                            'income': False,
+                            'expense': True,
+                            'owner': False,
+                            'delete': False,
+                            'odometer': car['odometer'],
+                            'ContractName': contract_name,
+                            'nickname': car['nickname']
+                        })
+                        db.collection('Toll').document(str(toll['id'])).set({
+                            'date': toll['date'],
+                            'ID': toll['id'],
+                            'sum': float(toll['sum'].replace('-', '')),
+                            'plate': toll['plate'],
+                            'location': toll['location'],
+                            'type': toll['type'],
+                            'nickname': car['nickname'],
+                            'paid': True
+                        })
+                    else:
+                        print('toll not writed because of "--read-only" flag.')
             else:
-                if toll['plate'] not in [task['plate'] for task in tasks if task['name_task'] == TOLL_NAME_TASK and has_key(task, 'plate')]:
+                if toll['plate'] not in [task['plate'] for task in tasks if task['name_task'] == TOLL_NAME_TASK and has_key(task, 'plate') and task['status']]:
                     print(f'write unknown toll task - plate: {toll["plate"]}, id: {toll["id"]}')
                     db.collection('Task').add({
                         'date': dt.now(texas_tz),
                         'name_task': TOLL_NAME_TASK,
                         'comment': TOLL_COMMENT_TASK.replace('{sum}', str(toll['sum'])).replace('{id}', str(toll['id'])).replace('{plate}', toll['plate']),
                         'user': USER,
-                        'plate': toll['plate']
+                        'plate': toll['plate'],
+                        'status': True,
+                        'nickname': '49M-TEST',
+                        'id': toll['id']
                     })
         else:
             print(f'skip {toll["id"]}.')
@@ -167,7 +171,7 @@ def start_toll(db: client):
 def check_toll(last_update_data: dict, db: client, log: bool = False):
     if log:
         print('check toll last update.')
-    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=12) <= dt.now(texas_tz):
+    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=3) <= dt.now(texas_tz):
         print('toll has not been started for a long time: starting...')
         start_toll(db)
     else:

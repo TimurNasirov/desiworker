@@ -132,7 +132,8 @@ def start_toll(db: client):
                             'delete': False,
                             'odometer': car['odometer'],
                             'ContractName': contract_name,
-                            'nickname': car['nickname']
+                            'nickname': car['nickname'],
+                            'user': USER
                         })
                         db.collection('Toll').document(str(toll['id'])).set({
                             'date': toll['date'],
@@ -159,8 +160,8 @@ def start_toll(db: client):
                         'nickname': '49M-TEST',
                         'id': toll['id']
                     })
-        else:
-            print(f'skip {toll["id"]}.')
+        #else:
+        #    print(f'skip {toll["id"]}.')
 
     if '--read-only' not in argv:
         db.collection('Last_update_python').document('last_update').update({'toll_update': dt.now(texas_tz)})

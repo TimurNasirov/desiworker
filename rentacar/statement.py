@@ -60,12 +60,22 @@ tall_border = Border(
 expense_font = Font(name='Arial', size=10, color='FF0000')
 income_font = Font(name='Arial', size=10, color='00BB00')
 
+def round1(num):
+    return round(num, 1)
+    # if num.is_integer():
+    #     return int(num)
+    # else:
+    #     return float(str(num)[0:str(num).find('.') + 2])
+
 class Pay:
     def __init__(self, name: str, _sum: float, date, category: str | None = None):
         self.date = date
         self.name = name
-        self.sum = round(_sum, 1)
+        self.sum = _sum
         self.category = category
+
+    def __str__(self):
+        return str(self.sum)
 
 class StateItem:
     def __init__(self, date, _open: float, income: list[Pay], expense: list[Pay]):
@@ -73,7 +83,7 @@ class StateItem:
         self.open = _open
         self.income = income
         self.expense = expense
-        self.close = _open - sum([i.sum for i in income]) + sum([i.sum for i in expense])
+        self.close = round1(_open + sum([i.sum for i in income]) - sum([i.sum for i in expense]))
 
 def build(items: list[StateItem], contract_name: str):
     wb = Workbook()
@@ -82,7 +92,7 @@ def build(items: list[StateItem], contract_name: str):
     ws.column_dimensions['C'].width = 30
     ws.column_dimensions['D'].width = 30
     ws.column_dimensions['G'].width = 14
-    ws.column_dimensions['H'].width = 14
+    ws.column_dimensions['H'].width = 16
 
     for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', "J", 'K', 'L', 'M']:
         for j in ws[f'{i}1:{i}1000']:
@@ -129,14 +139,14 @@ def build(items: list[StateItem], contract_name: str):
 
         income_row = 0
         for j in i.income:
-            ws[f'D{row + income_row}'].value = f'{j.name}: {round(j.sum, 1)}'
+            ws[f'D{row + income_row}'].value = f'{j.name}: {j.sum}'
             ws[f'D{row + income_row}'].font = income_font
             ws[f'D{row + income_row}'].border = invisible_border
             income_row += 1
 
         expense_row = 0
         for j in i.expense:
-            ws[f'C{row + expense_row}'].value = f'{j.name}: {round(j.sum, 1)}'
+            ws[f'C{row + expense_row}'].value = f'{j.name}: {j.sum}'
             ws[f'C{row + expense_row}'].font = expense_font
             ws[f'C{row + expense_row}'].border = invisible_border
             expense_row += 1
@@ -169,6 +179,9 @@ def get_data(db: client, contract: str):
     for pay in pays.copy():
         if pay['ContractName'] != contract or not has_key(pay, 'sum'):
             pays.remove(pay)
+        elif has_key(pay, 'delete'):
+            if pay['delete']:
+                pays.remove(pay)
 
     for pay in pays.copy():
         pays[pays.index(pay)]['date'] = pay['date'].date()
@@ -183,13 +196,17 @@ def get_data(db: client, contract: str):
             if pay['expense']:
                 expenses.append(pay)
 
-    # pays.sort(key=lambda x: x['date'], reverse=True)
     days = list(set([pay['date'] for pay in pays]))
+    days.sort()
     items: list[StateItem] = []
     for day in days:
-        items.append(StateItem(day, items[len(items) - 1].close if len(items) != 0 else 0, [Pay(pay['name_pay'], pay['sum'], day) for pay in\
-            incomes if pay['date'] == day], [Pay(pay['name_pay'], pay['sum'], day, pay['category'] if has_key(pay, 'category') else None)\
-            for pay in expenses if pay['date'] == day]))
+        if days.index(day) == 0:
+            print(items[len(items) - 1].close if len(items) != 0 else 0)
+            print(day)
+        items.append(StateItem(day, round1(items[len(items) - 1].close) if len(items) != 0 else 0, [Pay(pay['name_pay'], pay['sum'], day)\
+            for pay in incomes if pay['date'] == day], [Pay(pay['name_pay'], pay['sum'], day, pay['category'] if has_key(pay,\
+            'category') else None) for pay in expenses if pay['date'] == day]))
+    items.sort(key=lambda x: x.date, reverse=True)
 
     for item in items:
         tolls = []
@@ -205,7 +222,10 @@ def get_data(db: client, contract: str):
                 toll_sorted.append(toll)
             else:
                 toll_sorted[toll_sorted.index([toll2 for toll2 in toll_sorted if toll2.date == toll.date][0])].sum += toll.sum
-        item.expense = toll_sorted + other
+        item.expense = [Pay(expense.name, round1(expense.sum), expense.date, expense.category) for expense in toll_sorted + other]
+        item.income = [Pay(income.name, round1(income.sum), income.date, income.category) for income in item.income]
+
+
     return items
 
 def statement_listener(db: client, bucket):

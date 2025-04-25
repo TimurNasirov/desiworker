@@ -11,3 +11,6 @@
 /onetime/__pycache__/
 /onetime/mods/__pycache__/
 /onetime/key.json
+/rentacar/logs/*
+/toll/logs/*
+/rentacar/exword_results/*

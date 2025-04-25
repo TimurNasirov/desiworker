@@ -84,7 +84,7 @@ class Work:
         self.date: str = date
         self.work: str = work
         self.amount: int = amount
-        self.sum_: float = sum_
+        self.sum_: float = round(sum_, 1)
         self.invoice: str = invoice
         self.category: str = category
 
@@ -127,6 +127,30 @@ class Car:
             float: total
         """
         return self.get_subtotal(1) - self.get_subtotal(0)
+
+class DailyRent:
+    def __init__(self, contract_name, pay):
+        self.contract_name: str = contract_name
+        self.pays: list[Work] = [pay]
+        self.dates: list[str] = [pay.date]
+        self.summ: float = pay.sum_
+
+    def calc(self):
+        summ = 0
+        for pay in self.pays:
+            summ += pay.sum_
+        return summ
+
+    def add(self, pay):
+        self.pays.append(pay)
+        self.dates.append(pay.date)
+        self.summ += pay.sum_
+
+    def sort(self):
+        self.dates.sort()
+
+    def __str__(self):
+        return f'Daily rent ({self.contract_name})'
 
 class ExcelData:
     """Class to handle ExcelData objects"""
@@ -184,8 +208,8 @@ def build(data: ExcelData):
     ws.column_dimensions['B'].width = 22
     ws.column_dimensions['D'].width = 10
     ws.column_dimensions['J'].width = 10
-    ws.column_dimensions['G'].width = 12
-    ws.column_dimensions['H'].width = 19
+    ws.column_dimensions['G'].width = 18
+    ws.column_dimensions['H'].width = 37
     ws.freeze_panes = 'A7'
 
     for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', "J", 'K', 'L', 'M']:
@@ -200,6 +224,7 @@ def build(data: ExcelData):
     else:
         ws['B1'].value = data.date.split('; ')[0]
     ws['B1'].font = bold_font
+    ws['B2'].number_format = 'General'
 
     ws['D1'].value = 'Owner:'
     ws['D1'].font = bold_font
@@ -211,16 +236,19 @@ def build(data: ExcelData):
     ws['B2'] = '=SUM(E:E)'
     ws['B2'].border = short_border
     ws['B2'].font = expense_font
+    ws['B2'].number_format = '#,##0.0'
 
     ws['A3'].value = 'Income'
     ws['A3'].border = short_border
     ws['B3'] = '=SUM(K:K)'
     ws['B3'].border = short_border
     ws['B3'].font = income_font
+    ws['B3'].number_format = '#,##0.0'
 
     ws['A4'].value = 'Service'
     ws['A4'].border = short_border
     ws['B4'] = '=SUM(L:L)'
+    ws['B4'].number_format = '#,##0.0'
     ws['B4'].border = short_border
     ws['C4'].value = '20%'
     ws['C4'].border = short_border
@@ -230,6 +258,7 @@ def build(data: ExcelData):
     ws['B5'] = '=SUM(M:M)'
     ws['B5'].border = short_border
     ws['B5'].font = total_font
+    ws['B5'].number_format = '#,##0.0'
 
     row = 7
     for i in data.cars:
@@ -278,6 +307,7 @@ def build(data: ExcelData):
         for j in i.work_expense:
             ws[f'A{row + 3 + count}'].value = j.date
             ws[f'A{row + 3 + count}'].border = short_border
+            ws[f'A{row + 3 + count}'].number_format = 'dd.mm.yy'
             ws[f'B{row + 3 + count}'].value = j.work
             ws[f'B{row + 3 + count}'].border = short_border
             ws[f'C{row + 3 + count}'].value = j.amount
@@ -297,6 +327,7 @@ def build(data: ExcelData):
 
         ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row})'
         ws[f'E{row + length - 2}'].font = expense_font
+        ws[f'E{row + length - 2}'].number_format = '#,##0.0'
 
 
         ws[f'H{row + 1}'].value = 'Income'
@@ -322,6 +353,7 @@ def build(data: ExcelData):
         for j in i.work_income:
             ws[f'G{row + 3 + count}'].value = j.date
             ws[f'G{row + 3 + count}'].border = short_border
+            ws[f'G{row + 3 + count}'].number_format = 'dd.mm.yy'
             ws[f'H{row + 3 + count}'].value = j.work
             ws[f'H{row + 3 + count}'].border = short_border
             ws[f'I{row + 3 + count}'].value = j.amount
@@ -335,6 +367,7 @@ def build(data: ExcelData):
 
         ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row})'
         ws[f'K{row + length - 2}'].font = income_font
+        ws[f'K{row + length - 2}'].number_format = '#,##0.0'
 
 
         ws[f'K{row + length - 1}'].value = 'Service:'
@@ -342,6 +375,7 @@ def build(data: ExcelData):
 
         ws[f'L{row + length - 1}'] = f'=K{row + length - 2}*C4'
         ws[f'L{row + length - 1}'].font = expense_font
+        ws[f'L{row + length - 1}'].number_format = '#,##0.0'
 
 
         ws[f'L{row + length - 2}'].value = 'Total:'
@@ -349,6 +383,7 @@ def build(data: ExcelData):
 
         ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}'
         ws[f'M{row + length - 2}'].font = total_font
+        ws[f'M{row + length - 2}'].number_format = '#,##0.0'
 
         if i.name == data.cars[len(data.cars) - 1].name:
             for j in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']:
@@ -392,7 +427,7 @@ def get_data(date, owner, db):
     cars = []
     for i in doc:
         data = i.to_dict()
-        if 'owner' not in data.keys():
+        if not has_key(data, 'owner'):
             continue
         if data['owner'] != owner:
             continue
@@ -401,7 +436,7 @@ def get_data(date, owner, db):
         incomes = []
         expenses = []
         for pay in pay_data:
-            if pay['nickname'] == nick and pay['date'].strftime('%m.%Y') in date:
+            if pay['nickname'] == nick and pay['date'].strftime('%m.%y') in date:
                 amount = pay['amount'] if has_key(pay, 'amount') else 1
                 invoice = None
                 if has_key(pay, 'photo'):
@@ -410,13 +445,13 @@ def get_data(date, owner, db):
 
                 if has_key(pay, 'income'):
                     if pay['income']:
-                        incomes.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                        incomes.append(Work(pay['date'].strftime('%d.%m.%y'), pay['name_pay'], amount, pay['sum'], invoice))
                 if has_key(pay, 'expense'):
                     if pay['expense']:
-                        expenses.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                        expenses.append(Work(pay['date'].strftime('%d.%m.%y'), pay['name_pay'], amount, pay['sum'], invoice))
 
         for pay_contract in pay_contract_data:
-            if pay_contract['nickname'] == nick and pay_contract['date'].strftime('%m.%Y') in date:
+            if pay_contract['nickname'] == nick and pay_contract['date'].strftime('%m.%y') in date:
                 if has_key(pay_contract, 'owner'):
                     if not pay_contract['owner']:
                         continue
@@ -432,12 +467,18 @@ def get_data(date, owner, db):
                 if has_key(pay_contract, 'category'):
                     category = pay_contract['category']
 
+                name_pay = pay_contract['name_pay']
+                if category == 'daily rent':
+                    name_pay = pay_contract['ContractName']
+                if category == 'extra':
+                    name_pay += f' ({pay_contract["ContractName"]})'
+
                 if has_key(pay_contract, 'expense'):
                     if pay_contract['expense']:
-                        incomes.append(Work(pay_contract['date'].strftime('%d.%m.%Y'), pay_contract['name_pay'], amount, pay_contract['sum'], invoice, category))
+                        incomes.append(Work(pay_contract['date'].strftime('%d.%m.%y'), name_pay, amount, pay_contract['sum'], invoice, category))
 
         for repire in repire_data:
-            if repire['nickname'] == nick and repire['date_time'].strftime('%m.%Y') in date:
+            if repire['nickname'] == nick and repire['date_time'].strftime('%m.%y') in date:
                 amount = repire['amount'] if has_key(repire, 'amount') else 1
                 invoice = None
                 if has_key(repire, 'photo'):
@@ -446,20 +487,25 @@ def get_data(date, owner, db):
 
                 if has_key(repire, 'expense'):
                     if repire['expense']:
-                        expenses.append(Work(repire['date_time'].strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
+                        expenses.append(Work(repire['date_time'].strftime('%d.%m.%y'), repire['work_type'], amount, repire['sum'], invoice))
 
-        daily_rents = 0
-        daily_rents_sum = 0
+        daily_rents = []
         for income in incomes.copy():
             if income.category == 'daily rent':
-                daily_rents += 1
-                daily_rents_sum += int(income.sum_)
+                if income.work not in [rent.contract_name for rent in daily_rents]:
+                    daily_rents.append(DailyRent(income.work, income))
+                else:
+                    daily_rents[daily_rents.index([rent for rent in daily_rents if income.work == rent.contract_name][0])].add(income)
                 incomes.remove(income)
 
-        if daily_rents > 0:
-            incomes.append(Work('-', 'Daily rent', daily_rents, daily_rents_sum, None, 'daily rent'))
+        for rent in daily_rents:
+            rent.sort()
+            incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays), rent.summ, None, 'daily rent'))
 
         expenses.append(Work(f'01.{date[0]}', 'Bouncie', len(date), 8.53 * len(date)))
+        if has_key(data, 'idRelay'):
+            if data['idRelay'] != '':
+                expenses.append(Work(f'01.{date[0]}', 'SIM Relay', len(date), 6 * len(date)))
         cars.append(Car(nick, incomes, expenses))
 
     str_date = ''
@@ -531,7 +577,7 @@ def owner_listener(db: client, bucket):
             if doc['excel_active']:
                 print(f'write xlsx {doc["excel_owner"]} (owner)')
 
-                periods = get_range_periods(doc["excel_start_date"].strftime('%m.%Y'), doc["excel_end_date"].strftime('%m.%Y'))
+                periods = get_range_periods(doc["excel_start_date"].strftime('%m.%y'), doc["excel_end_date"].strftime('%m.%y'))
                 data = get_data(periods, doc['excel_owner'], db)
                 name = build(data)
 

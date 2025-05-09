@@ -28,6 +28,7 @@ from rentacar.log import Log
 from rentacar.mods.timemod import dt, sleep, time
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
+from rentacar.mods.docusign import sign
 from requests import get
 from config import TELEGRAM_LINK
 
@@ -54,7 +55,7 @@ def check_value(data: dict, key: str, check: str = '-', default: str = ''):
             return data[key]
     return default
 
-def build(db: client, contract_name: str):
+def build(db: client, contract_name: str, add_sign: bool):
     """Build a sample file
 
     Args:
@@ -131,6 +132,10 @@ immediately upon termination, in addition to any other obligations or fees outli
         'state': check_value(contract, 'state', default='        '),
         'discount': discount
     }
+    if not (add_sign and has_key(contract, 'email')):
+        context['signature'] = '_____________'
+    else:
+        context['signature'] = '{{signature}}'
     docx.render(context)
     name = 'lease.docx'#f'LEASE-{contract_name}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx'
     docx.save(join(result_folder, name))
@@ -158,7 +163,7 @@ def lease_listener(db: client, bucket):
             doc = document[0].to_dict()
             if doc['word_active']:
                 print(f'write docx {doc["word_contract"]} (lease)')
-                name = build(db, doc['word_contract'])
+                name = build(db, doc['word_contract'], doc['add_sign'])
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
                     blob.upload_from_filename(join(result_folder, name))
@@ -173,6 +178,10 @@ def lease_listener(db: client, bucket):
                     })
                 else:
                     print('word_active not reseted because of "--read-only" flag.')
+                if doc['add_sign']:
+                    contract = get_contract(db, doc['word_contract'], 'ContractName', False)
+                    if has_key(contract, 'email'):
+                        sign(contract['renter'], contract['email'], join(result_folder, name))
 
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]

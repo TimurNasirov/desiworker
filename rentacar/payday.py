@@ -16,16 +16,13 @@ Marks: last-update, sms, limit-28-upd
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
-from random import randint
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_car
-from rentacar.mods.sms import send_sms, add_inbox, PAYDAY_TEXT
-from rentacar.str_config import PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_NAME_TASK, PAYDAY_TASK_COMMENT, PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT,\
-USER, PAYDAY_HISTORY_CHANGE, PAYDAY_HISTORY_EDIT
+from rentacar.str_config import PAYLIMIT_NAME_PAY, PAYLIMIT_SUM_COEFFICIENT, USER, PAYDAY_HISTORY_CHANGE, PAYDAY_HISTORY_EDIT
 
 logdata = Log('payday.py')
 print = logdata.print

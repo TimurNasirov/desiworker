@@ -64,7 +64,7 @@ def start_registration(db: client):
         print('set last registration update.')
     else:
         print('registration last update not updated because of "--read-only" flag.')
-    print(f'Registration work completed. Updated cars: {len(cars)}. Time: {round(time() - start_time, 2)} seconds.')
+    print(f'registration work completed. Updated cars: {len(cars)}. Time: {round(time() - start_time, 2)} seconds.')
 
 
 def create_task(db: client, car: dict):
@@ -95,11 +95,11 @@ def create_task(db: client, car: dict):
 
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
         if sms_block_check(contract):
-            send_sms(contract['renternumber'][0], REGISTRATION_TEXT)
-            if has_key(contract, 'renter'):
-                add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
-            else:
-                add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], None)
+            if send_sms(contract['renternumber'][0], REGISTRATION_TEXT):
+                if has_key(contract, 'renter'):
+                    add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], contract['renter'])
+                else:
+                    add_inbox(db, contract['renternumber'][0], REGISTRATION_TEXT, contract['ContractName'], None)
     else:
         if '--read-only' in argv:
             print('sms not sent because of "--read-only" flag.')

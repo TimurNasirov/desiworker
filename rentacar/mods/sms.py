@@ -2,6 +2,7 @@
 from sys import argv
 
 from requests import post
+from requests.exceptions import ConnectionError
 from config import INFOBIP_PHONE, INFOBIP_TOKEN, INFOBIP_URL
 from rentacar.mods.firemod import client, has_key, document
 from rentacar.mods.timemod import dt
@@ -26,28 +27,34 @@ def send_sms(phone: str, text: str):
         phone (str): renter number
         text (str): text of sms
     """
-    if '--no-sms' not in argv:
-        post(
-            INFOBIP_URL, # use https://######.api.infobip.com/sms/2/text/advanced
-            json={
-                'messages':
-                    [
-                        {
-                            'destinations': [{'to': phone}],
-                            'from': INFOBIP_PHONE,
-                            'text': text
-                        }
-                    ]
+    try:
+        if '--no-sms' not in argv:
+            post(
+                INFOBIP_URL, # use https://######.api.infobip.com/sms/2/text/advanced
+                json={
+                    'messages':
+                        [
+                            {
+                                'destinations': [{'to': phone}],
+                                'from': INFOBIP_PHONE,
+                                'text': text
+                            }
+                        ]
+                    },
+                headers={
+                    'Authorization': INFOBIP_TOKEN,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-            headers={
-                'Authorization': INFOBIP_TOKEN,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        )
-        print(f'send SMS to phone {phone}.')
-    else:
-        print('SMS not sent because of "--no-sms" flag.')
+                timeout=10
+            )
+            print(f'send SMS to phone {phone}.')
+        else:
+            print('SMS not sent because of "--no-sms" flag.')
+        return True
+    except ConnectionError:
+        print('fail to send sms')
+        return False
 
 
 def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str):

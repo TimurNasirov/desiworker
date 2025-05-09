@@ -84,13 +84,13 @@ def start_latepayment(db: client):
                 print(f'send pre-latepayment sms - nickname: {contract["nickname"]}')
                 if '--read-only' not in argv:
                     if sms_block_check(contract):
-                        send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])))
-                        if has_key(contract, 'renter'):
-                            add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
-                                contract['ContractName'], contract['renter'])
-                        else:
-                            add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
-                                contract['ContractName'], None)
+                        if send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo']))):
+                            if has_key(contract, 'renter'):
+                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
+                                    contract['ContractName'], contract['renter'])
+                            else:
+                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
+                                    contract['ContractName'], None)
                 else:
                     print('sms not sent because of "--read-only" flag.')
 

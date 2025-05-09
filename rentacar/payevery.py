@@ -90,7 +90,7 @@ def create_payevery2(db: client, contract: dict):
     if '--read-only' not in argv:
         db.collection('Task').add({
             'id': randint(10000, 20000),
-            'comment': PAYDAY_TASK_COMMENT.replace('{payday}', str(contract["pay_day"].day)),
+            'comment': PAYDAY_TASK_COMMENT.replace('{payday}', str(dt.now(texas_tz).day)),
             'name_task': 'PayDay',
             'nickname': contract['nickname'],
             'date': dt.now(texas_tz),
@@ -101,8 +101,8 @@ def create_payevery2(db: client, contract: dict):
             'ContractName': contract['ContractName']
         })
         if has_key(contract, 'renternumber') and sms_block_check(contract):
-            send_sms(contract['renternumber'][0], PAYDAY_TEXT)
-            add_inbox(db, contract['renternumber'][0], PAYDAY_TEXT, contract['ContractName'], contract.get('renter'))
+            if send_sms(contract['renternumber'][0], PAYDAY_TEXT):
+                add_inbox(db, contract['renternumber'][0], PAYDAY_TEXT, contract['ContractName'], contract.get('renter'))
     else:
         print('payevery task/sms not created due to "--read-only" flag.')
 

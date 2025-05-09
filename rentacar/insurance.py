@@ -97,11 +97,11 @@ def create_task(db: client, contract: dict):
 
     if has_key(contract, 'renternumber') and '--read-only' not in argv:
         if sms_block_check(contract):
-            send_sms(contract['renternumber'][0], INSURANCE_TEXT)
-            if has_key(contract, 'renter'):
-                add_inbox(db, contract['renternumber'][0], INSURANCE_TEXT, contract['ContractName'], contract['renter'])
-            else:
-                add_inbox(db, contract['renternumber'][0], INSURANCE_TEXT, contract['ContractName'], None)
+            if send_sms(contract['renternumber'][0], INSURANCE_TEXT):
+                if has_key(contract, 'renter'):
+                    add_inbox(db, contract['renternumber'][0], INSURANCE_TEXT, contract['ContractName'], contract['renter'])
+                else:
+                    add_inbox(db, contract['renternumber'][0], INSURANCE_TEXT, contract['ContractName'], None)
     else:
         if '--read-only' in argv:
             print('sms not sent because of "--read-only" flag.')

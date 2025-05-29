@@ -26,17 +26,17 @@ try:
         print('--no-tg: no telegram notifications sending on errors')
 
     if '--no-rentacar' in argv:
-        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner', 'statement', 'card']
+        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner', 'statement', 'card', 'incomes', 'debt']
     else:
         run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'supadesi', 'rental', 'lease',\
-            'extoll', 'owner', 'payevery', 'imei', 'statement', 'card']
+            'extoll', 'owner', 'payevery', 'imei', 'statement', 'card', 'debt', 'incomes']
 
     if '--rentacar-only' in argv:
         run = ['changeoil', 'insurance', 'registartion', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
     if '--supadesi-only' in argv:
         run = ['supadesi']
     if '--exword-only' in argv:
-        run = ['rental', 'lease', 'owner', 'extoll', 'statement', 'card']
+        run = ['rental', 'lease', 'owner', 'extoll', 'statement', 'card', 'debt', 'incomes']
     if '--payevery-only' in argv:
         run = ['payevery']
     if '--saldo-only' in argv:
@@ -69,6 +69,10 @@ try:
         run = ['statement']
     if '--card-only' in argv:
         run = ['card']
+    if '--debt-only' in argv:
+        run = ['debt']
+    if '--incomes-only' in argv:
+        run = ['incomes']
 
     if '--no-changeoil' in argv:
         run.remove('changeoil')
@@ -104,6 +108,10 @@ try:
         run.remove('statement')
     if '--no-card' in argv:
         run.remove('card')
+    if '--no-debt' in argv:
+        run.remove('debt')
+    if '--no-incomes' in argv:
+        run.remove('incomes')
 
     if '-t' in argv:
         print('start main process (immediately activate).')

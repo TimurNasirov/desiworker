@@ -161,9 +161,10 @@ def lease_listener(db: client, bucket):
         """
         try:
             doc = document[0].to_dict()
+            add_sign = doc['add_sign']
             if doc['word_active']:
                 print(f'write docx {doc["word_contract"]} (lease)')
-                name = build(db, doc['word_contract'], doc['add_sign'])
+                name = build(db, doc['word_contract'], add_sign)
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'word/{doc["word_contract"]}-{dt.now().strftime("%d-%m-%H-%M-%S")}.docx')
                     blob.upload_from_filename(join(result_folder, name))
@@ -174,14 +175,17 @@ def lease_listener(db: client, bucket):
                 if '--read-only' not in argv:
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'word_active': False,
-                        'word_url': blob.public_url#f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'word_url': blob.public_url, #f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'add_sign': False
                     })
                 else:
                     print('word_active not reseted because of "--read-only" flag.')
-                if doc['add_sign']:
+                if add_sign:
                     contract = get_contract(db, doc['word_contract'], 'ContractName', False)
                     if has_key(contract, 'email'):
+                        db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'sending'})
                         sign(contract['renter'], contract['email'], join(result_folder, name))
+                        db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'sent'})
 
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]

@@ -34,6 +34,8 @@ from rentacar.lease import lease_listener
 from rentacar.rental import rental_listener
 from rentacar.statement import statement_listener
 from rentacar.card import card_listener
+from rentacar.debtreport import debt_listener
+from rentacar.incomes import incomes_listener
 
 logdata = Log('runner.py')
 print = logdata.print
@@ -70,7 +72,6 @@ def run_checking(run):
         check_payevery(last_update_data, db)
 
     print('initialize listeners.')
-    print(run)
     if 'odometer' in run:
         odometer_listener(db)
     if 'owner' in run:
@@ -87,6 +88,10 @@ def run_checking(run):
         card_listener(db, bucket)
     if 'saldo' in run:
         saldo_listener(db)
+    if 'debt' in run:
+        debt_listener(db, bucket)
+    if 'incomes' in run:
+        incomes_listener(db, bucket)
 
     while True:
         if time_is('11:57'):
@@ -123,9 +128,6 @@ def start_all(run):
     start_rentacar(run)
     if 'supadesi' in run:
         start_supadesi(db)
-    if 'payevery' in run:
-        start_payevery(db)
-        start_payevery2(db)
 
 def start_rentacar(run):
     """Starts the various boilerplate functions in the run

@@ -3,8 +3,8 @@ from datetime import datetime as dt
 from datetime import timedelta
 from time import sleep, time
 from calendar import monthrange
-
 from pytz import timezone
+from pytz import utc as utc_tz
 # from rentacar.log import Log
 
 texas_tz = timezone('US/Central')

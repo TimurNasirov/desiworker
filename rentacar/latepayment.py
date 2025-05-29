@@ -70,15 +70,13 @@ def start_latepayment(db: client):
         now = dt.now()
         contract_tasks = [task['date'] for task in tasks if task['ContractName'] == contract['ContractName']]
         if contract_tasks != []:
-            target_date = now.replace(day=min(max(contract_tasks).day,
-                get_last_day()))
-            if now.day == (target_date + timedelta(days=5)).day and to_mime_format(contract['begin_time']) != to_mime_format(dt.now(texas_tz)) and\
-                    contract['last_saldo'] < -contract['renta_price'] / 30:
+            target_date = now.replace(day=min(max(contract_tasks).day, get_last_day()))
+            if now.day == (target_date + timedelta(days=5)).day and contract['last_saldo'] < -contract['renta_price'] / 30:
                 latepayment_count += 1
                 create_pay(db, contract, car)
 
-            elif now.day >= (target_date + timedelta(days=3)).day and to_mime_format(contract['begin_time']) != to_mime_format(dt.now(texas_tz)) and\
-                    contract['last_saldo'] < -contract['renta_price'] / 30 and has_key(contract, 'renternumber'):
+            elif now.day >= (target_date + timedelta(days=3)).day and contract['last_saldo'] < -contract['renta_price'] / 30 and \
+                    has_key(contract, 'renternumber'):
 
                 prelatepayment_count += 1
                 print(f'send pre-latepayment sms - nickname: {contract["nickname"]}')
@@ -91,6 +89,9 @@ def start_latepayment(db: client):
                             else:
                                 add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
                                     contract['ContractName'], None)
+                        else:
+                            send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])))
+                            print('retry failed - skip')
                 else:
                     print('sms not sent because of "--read-only" flag.')
 

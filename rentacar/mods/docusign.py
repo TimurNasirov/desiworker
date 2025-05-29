@@ -8,7 +8,7 @@ print = logdata.print
 def sign(name: str, email: str, document: str):
     print(f'sending email to {email}')
     api_client = ApiClient()
-    api_client.set_oauth_host_name("account-d.docusign.com")
+    api_client.set_oauth_host_name("account.docusign.com")
 
     try:
         with open('private_key.pem', "r") as key_file:
@@ -17,7 +17,7 @@ def sign(name: str, email: str, document: str):
         token_response = api_client.request_jwt_user_token(
             client_id=INTEGRATION_KEY,
             user_id=USER_ID,
-            oauth_host_name="account-d.docusign.com",
+            oauth_host_name="account.docusign.com",
             private_key_bytes=private_key,
             expires_in=3600,
             scopes=["signature", "impersonation"]

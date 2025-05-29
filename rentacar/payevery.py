@@ -22,20 +22,24 @@ def start_payevery(db: client):
     pays = [p for p in to_dict_all(db.collection('Pay_contract').get()) if has_key(p, 'category') and has_key(p, 'ContractName')]
     now = dt.now(texas_tz).date()
 
+    for pay in pays.copy():
+        if has_key(pay, 'income'):
+            if pay['income']:
+                pays.remove(pay)
+
     pays_count = 0
     for contract in contracts:
         daily_rent_pays = [p for p in pays if p['ContractName'] == contract['ContractName'] and p['category'] == 'daily rent']
-        is_payday = contract['pay_day'].strftime('%d') == now.strftime('%d')
 
-        if is_payday or daily_rent_pays:
+        if contract['pay_day'].strftime('%d') == now.strftime('%d') or daily_rent_pays:
             car = get_car(db, contract['nickname'])
             last_date = max([p['date'] for p in daily_rent_pays]).date() if daily_rent_pays else now - timedelta(days=1)
             days_missed = (now - last_date).days
 
             if days_missed >= 0:
-                for day in range(days_missed + 1):  # Include today
-                    pay_date = last_date + timedelta(days=day + 1)  # Normalize to date only
-                    if pay_date <= now:  # Compare dates only
+                for day in range(days_missed + 1):
+                    pay_date = last_date + timedelta(days=day + 1)
+                    if pay_date <= now:
                         create_payevery(db, contract, car['odometer'], dt.now(texas_tz).replace(year=pay_date.year, month=pay_date.month, day=pay_date.day))
                         pays_count += 1
 
@@ -76,9 +80,8 @@ def start_payevery2(db: client):
     tasks_count = 0
     for contract in contracts:
         if (contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and\
-            contract['last_saldo'] < -contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
-            pay['category'] == 'daily rent']) or (contract['pay_day'].strftime('%d') == dt.now().strftime('%d') and contract['ContractName']\
-            not in [pay['ContractName'] for pay in pays if pay['category'] == 'daily rent']):
+            contract['last_saldo'] < contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
+            pay['category'] == 'daily rent']):
             create_payevery2(db, contract)
             tasks_count += 1
 

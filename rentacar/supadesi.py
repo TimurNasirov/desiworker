@@ -330,6 +330,10 @@ def start_supadesi(db: client):
     except KeyError: pass
     try: data['excel_end_date'] = data['excel_end_date'].isoformat()
     except KeyError: pass
+    try: data['incomes_start_date'] = data['incomes_start_date'].isoformat()
+    except KeyError: pass
+    try: data['incomes_end_date'] = data['incomes_end_date'].isoformat()
+    except KeyError: pass
     add_data(data, 'setting_app')
 
     print('Get Temp_APP table.')

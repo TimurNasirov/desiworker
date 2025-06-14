@@ -141,7 +141,7 @@ def start_rentacar(run):
         start_payday(db)
     if 'insurance' in run:
         start_insurance(db)
-    if 'registartion' in run:
+    if 'registration' in run:
         start_registration(db)
     if 'post' in run:
         start_post(db)

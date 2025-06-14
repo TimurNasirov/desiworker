@@ -32,7 +32,7 @@ try:
             'extoll', 'owner', 'payevery', 'imei', 'statement', 'card', 'debt', 'incomes']
 
     if '--rentacar-only' in argv:
-        run = ['changeoil', 'insurance', 'registartion', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
+        run = ['changeoil', 'insurance', 'registration', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
     if '--supadesi-only' in argv:
         run = ['supadesi']
     if '--exword-only' in argv:
@@ -41,8 +41,8 @@ try:
         run = ['payevery']
     if '--saldo-only' in argv:
         run = ['saldo']
-    if '--registartion-only' in argv:
-        run = ['registartion']
+    if '--registration-only' in argv:
+        run = ['registration']
     if '--post-only' in argv:
         run = ['post']
     if '--payday-only' in argv:
@@ -86,8 +86,8 @@ try:
         run.remove('payday')
     if '--no-post' in argv:
         run.remove('post')
-    if '--no-registartion' in argv:
-        run.remove('registartion')
+    if '--no-registration' in argv:
+        run.remove('registration')
     if '--no-saldo' in argv:
         run.remove('saldo')
     if '--no-owner' in argv:

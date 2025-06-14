@@ -1,6 +1,6 @@
 '''
 REGISTRATION
-If car need registartion (TO), this program will create registration task and send sms tp renter about he need to come to office and do T/O.
+If car need registration (TO), this program will create registration task and send sms tp renter about he need to come to office and do T/O.
 If main process don`t launch longer than 24 hours, and after that it starts, this program will start immediately.
 After check all cars, registration_last_update will update to current time.
 

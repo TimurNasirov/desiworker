@@ -116,16 +116,18 @@ def start_toll(db: client):
             if car['nickname'] != None:
                 if toll['plate'] != '' or toll['plate'] != '-':
                     contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
-                    print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]}, id: {toll["id"]}.')
+                    print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]},\
+                        id: {toll["id"]}, sum: {toll['sum'].replace('-', '')}.')
                     if '--read-only' not in argv:
                         db.collection('Pay_contract').add({
                             'date': toll['date'],
                             'id': toll['id'],
-                            'sum': float(toll['sum'].replace('-', '')),
+                            'sum': float(toll['sum'].replace('-', '')) * 1.1,
                             'plate': toll['plate'],
                             'name_pay': TOLL_NAME_PAY,
                             'category': TOLL_CATEGORY,
-                            'comment': TOLL_COMMENT_PAY.replace('{location}', toll['location']).replace('{type}', toll['type']),
+                            'comment': f"Original sum: {float(toll['sum'].replace('-', ''))}. " + TOLL_COMMENT_PAY.replace('{location}',\
+                                toll['location']).replace('{type}', toll['type']),
                             'income': False,
                             'expense': True,
                             'owner': False,

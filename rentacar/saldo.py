@@ -17,7 +17,7 @@ path.append(dirname(SCRIPT_DIR))
 
 from traceback import format_exception
 from rentacar.mods.firemod import has_key, to_dict_all, client, get_car, get_contract, document, init_db
-from rentacar.mods.timemod import dt, texas_tz, time
+from rentacar.mods.timemod import dt, texas_tz, time, timedelta, sleep
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 from requests import get
@@ -58,7 +58,7 @@ def start_saldo(db: client):
                             toll_sum += toll['transaction']
 
         summ = round(income - expense - toll_sum, 2)
-        print(f'write saldo - ContractName: {contract["ContractName"]}, sum: {summ}.')
+        # print(f'write saldo - ContractName: {contract["ContractName"]}, sum: {summ}.')
         if '--read-only' not in argv:
             db.collection('Contract').document(contract['_firebase_document_id']).update({'last_saldo': summ})
         else:

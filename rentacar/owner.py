@@ -19,15 +19,15 @@ Marks: listener
 
 from sys import path, argv
 from os.path import dirname, abspath, join
-from os import get_terminal_size, _exit
+from os import _exit
 from traceback import format_exception
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from openpyxl.styles import Font, Border, Side, Alignment
 from openpyxl import Workbook
-from rentacar.mods.firemod import has_key, client, init_db, document, bucket, to_dict_all
-from rentacar.mods.timemod import dt, sleep, timedelta, texas_tz
+from rentacar.mods.firemod import has_key, client, document, to_dict_all
+from rentacar.mods.timemod import dt, timedelta, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 from requests import get
@@ -196,7 +196,7 @@ class ExcelData:
         Returns:
             float: total
         """
-        return self.get_subtotal() - self.get_percent(20 if self.owner != 'D+R' else 10)
+        return self.get_subtotal() - self.get_percent()
 
 def build(data: ExcelData):
     """Build a workbook from the data
@@ -208,8 +208,8 @@ def build(data: ExcelData):
     ws = wb.active
     ws.column_dimensions['A'].width = 12
     ws.column_dimensions['B'].width = 28
-    ws.column_dimensions['D'].width = 10
-    ws.column_dimensions['J'].width = 10
+    ws.column_dimensions['D'].width = 12 if data.owner == 'D+R' else 10
+    ws.column_dimensions['J'].width = 12 if data.owner == 'D+R' else 10
     ws.column_dimensions['G'].width = 26
     ws.column_dimensions['H'].width = 37
     ws.freeze_panes = 'A7'
@@ -252,7 +252,7 @@ def build(data: ExcelData):
     ws['B4'] = '=SUM(L:L)'
     ws['B4'].number_format = '#,##0.0'
     ws['B4'].border = short_border
-    ws['C4'].value = '20%' if data.owner != 'D+R' else '10%'
+    ws['C4'].value = '20%'
     ws['C4'].border = short_border
 
     ws['A5'].value = 'Total'
@@ -324,19 +324,12 @@ def build(data: ExcelData):
 
             count += 1
 
-        ws[f'D{row + length - 2}'].value = 'Subtotal:'
+        ws[f'D{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
         ws[f'D{row + length - 2}'].font = bold_font
 
-        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row})' #B
+        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'E{row + length - 2}'].font = expense_font
         ws[f'E{row + length - 2}'].number_format = '#,##0.0'
-
-
-        if data.owner == 'D+R':
-            ws[f'F{row + length - 2}'] = f'=E{row + length - 2}/2' #A (b/2)
-            ws[f'F{row + length - 2}'].font = expense_font
-            ws[f'F{row + length - 2}'].number_format = '#,##0.0'
-
 
         ws[f'H{row + 1}'].value = 'Income'
         ws[f'H{row + 1}'].font = income_bold_font
@@ -370,10 +363,10 @@ def build(data: ExcelData):
             ws[f'J{row + 3 + count}'].border = short_border
             count += 1
 
-        ws[f'J{row + length - 2}'].value = 'Subtotal:'
+        ws[f'J{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
         ws[f'J{row + length - 2}'].font = bold_font
 
-        ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row})' #C
+        ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'K{row + length - 2}'].font = income_font
         ws[f'K{row + length - 2}'].number_format = '#,##0.0'
 
@@ -381,7 +374,7 @@ def build(data: ExcelData):
         ws[f'K{row + length - 1}'].value = 'Service:'
         ws[f'K{row + length - 1}'].font = bold_font
 
-        ws[f'L{row + length - 1}'] = f'=K{row + length - 2}*C4' #D (c*20%)
+        ws[f'L{row + length - 1}'] = f'=K{row + length - 2}*C4'
         ws[f'L{row + length - 1}'].font = expense_font
         ws[f'L{row + length - 1}'].number_format = '#,##0.0'
 
@@ -389,7 +382,7 @@ def build(data: ExcelData):
         ws[f'L{row + length - 2}'].value = 'Total:'
         ws[f'L{row + length - 2}'].font = bold_font
 
-        ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}' #E (c-d-a)
+        ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}'
         ws[f'M{row + length - 2}'].font = total_font
         ws[f'M{row + length - 2}'].number_format = '#,##0.0'
 
@@ -399,7 +392,7 @@ def build(data: ExcelData):
 
         row += length
 
-    name = 'owner.xlsx'#f'OWNER-{data.owner}-{dt.now(texas_Tx).strftime("%d-%m-%H-%M-%S")}.xlsx'
+    name = 'owner.xlsx'#f'OWNER-{data.owner}-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.xlsx'
     wb.save(join(folder, name))
     wb.close()
     return name
@@ -432,7 +425,7 @@ def get_data(date, owner, db):
         incomes = []
         expenses = []
         for pay in pay_data:
-            if pay['nickname'] == nick and pay['date'].strftime('%d.%m.%Y') in date:
+            if pay['nickname'] == nick and pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
                 amount = pay['amount'] if has_key(pay, 'amount') else 1
                 invoice = None
                 if has_key(pay, 'photo'):
@@ -441,13 +434,13 @@ def get_data(date, owner, db):
 
                 if has_key(pay, 'income'):
                     if pay['income']:
-                        incomes.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                        incomes.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
                 if has_key(pay, 'expense'):
                     if pay['expense']:
-                        expenses.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                        expenses.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
 
         for pay_contract in pay_contract_data:
-            if pay_contract['nickname'] == nick and pay_contract['date'].strftime('%d.%m.%Y') in date:
+            if pay_contract['nickname'] == nick and pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
                 if has_key(pay_contract, 'owner'):
                     if not pay_contract['owner']:
                         continue
@@ -471,10 +464,10 @@ def get_data(date, owner, db):
 
                 if has_key(pay_contract, 'expense'):
                     if pay_contract['expense']:
-                        incomes.append(Work(pay_contract['date'].strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
+                        incomes.append(Work(pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
 
         for repire in repire_data:
-            if repire['nickname'] == nick and repire['date_time'].strftime('%d.%m.%Y') in date:
+            if repire['nickname'] == nick and repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
                 amount = repire['amount'] if has_key(repire, 'amount') else 1
                 invoice = None
                 if has_key(repire, 'photo'):
@@ -483,7 +476,7 @@ def get_data(date, owner, db):
 
                 if has_key(repire, 'expense'):
                     if repire['expense']:
-                        expenses.append(Work(repire['date_time'].strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
+                        expenses.append(Work(repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
 
         daily_rents = []
         for income in incomes.copy():
@@ -524,7 +517,7 @@ def get_single_data(date, nick: str, db):
     incomes = []
     expenses = []
     for pay in pay_data:
-        if pay['nickname'] == nick and pay['date'].strftime('%d.%m.%Y') in date:
+        if pay['nickname'] == nick and pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
             amount = pay['amount'] if has_key(pay, 'amount') else 1
             invoice = None
             if has_key(pay, 'photo'):
@@ -533,13 +526,13 @@ def get_single_data(date, nick: str, db):
 
             if has_key(pay, 'income'):
                 if pay['income']:
-                    incomes.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                    incomes.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
             if has_key(pay, 'expense'):
                 if pay['expense']:
-                    expenses.append(Work(pay['date'].strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+                    expenses.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
 
     for pay_contract in pay_contract_data:
-        if pay_contract['nickname'] == nick and pay_contract['date'].strftime('%d.%m.%Y') in date:
+        if pay_contract['nickname'] == nick and pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
             if has_key(pay_contract, 'owner'):
                 if not pay_contract['owner']:
                     continue
@@ -563,10 +556,10 @@ def get_single_data(date, nick: str, db):
 
             if has_key(pay_contract, 'expense'):
                 if pay_contract['expense']:
-                    incomes.append(Work(pay_contract['date'].strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
+                    incomes.append(Work(pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
 
     for repire in repire_data:
-        if repire['nickname'] == nick and repire['date_time'].strftime('%d.%m.%Y') in date:
+        if repire['nickname'] == nick and repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
             amount = repire['amount'] if has_key(repire, 'amount') else 1
             invoice = None
             if has_key(repire, 'photo'):
@@ -575,7 +568,7 @@ def get_single_data(date, nick: str, db):
 
             if has_key(repire, 'expense'):
                 if repire['expense']:
-                    expenses.append(Work(repire['date_time'].strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
+                    expenses.append(Work(repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
 
     daily_rents = []
     for income in incomes.copy():
@@ -600,10 +593,10 @@ def get_single_data(date, nick: str, db):
         else:
             str_date += i + '; '
 
-    incomes.sort(key=lambda income: dt.strptime(income.date.split(' - ')[0], '%d.%m.%Y') if '-' in income.date else dt.strptime(income.date,\
-        '%d.%m.%Y'))
-    expenses.sort(key=lambda expense: dt.strptime(expense.date.split(' - ')[0], '%d.%m.%Y') if '-' in expense.date else\
-        dt.strptime(expense.date, '%d.%m.%Y'))
+    incomes.sort(key=lambda income: dt.strptime(income.date.split(' - ')[0], '%d.%m.%Y').astimezone(texas_tz) if '-' in income.date\
+        else dt.strptime(income.date, '%d.%m.%Y').astimezone(texas_tz))
+    expenses.sort(key=lambda expense: dt.strptime(expense.date.split(' - ')[0], '%d.%m.%Y').astimezone(texas_tz) if '-' in expense.date else\
+        dt.strptime(expense.date, '%d.%m.%Y').astimezone(texas_tz))
 
     return ExcelData(str_date, '-', [Car(nick, incomes, expenses)])
 
@@ -617,8 +610,8 @@ def get_range_periods(start_period, end_period):
     Returns:
         str: period (thought comma)
     """
-    start_date = dt.strptime(start_period, '%d.%m.%Y')
-    end_date = dt.strptime(end_period, '%d.%m.%Y')
+    start_date = dt.strptime(start_period, '%d.%m.%Y').astimezone(texas_tz)
+    end_date = dt.strptime(end_period, '%d.%m.%Y').astimezone(texas_tz)
     if start_date > end_date:
         return []
     range_periods = []
@@ -685,44 +678,3 @@ def owner_listener(db: client, bucket):
         except KeyboardInterrupt:
             print('main process stopped.')
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess owner.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--listener: activate owner listener')
-        print('')
-        print('default flags:')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --owner-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('OWNER REPORT')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--listener' in argv:
-            owner_listener(db, bucket())
-            while True:
-                sleep(52)
-
-    print('owner subprocess stopped successfully.')

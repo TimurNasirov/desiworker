@@ -40,7 +40,7 @@ def start_latepayment(db: client):
     tasks: list[dict] = to_dict_all(db.collection('Task').get())
 
     for pay in pays.copy():
-        if to_mime_format(pay['date']) != to_mime_format(dt.now(texas_tz)):
+        if to_mime_format(pay['date'].astimezone(texas_tz)) != to_mime_format(dt.now(texas_tz)):
             pays.remove(pay)
         elif not has_key(pay, 'ContractName'):
             pays.remove(pay)
@@ -68,29 +68,29 @@ def start_latepayment(db: client):
             car = car[0]
 
         now = dt.now()
-        contract_tasks = [task['date'] for task in tasks if task['ContractName'] == contract['ContractName']]
+        contract_tasks = [task['date'].astimezone(texas_tz) for task in tasks if task['ContractName'] == contract['ContractName']]
         if contract_tasks != []:
             target_date = now.replace(day=min(max(contract_tasks).day, get_last_day()))
-            if now.day == (target_date + timedelta(days=5)).day and contract['last_saldo'] < -contract['renta_price'] / 30:
+            if now.day == (target_date + timedelta(days=5)).day and contract['last_saldo'] < -contract['renta_price'] / 30.5:
                 latepayment_count += 1
                 create_pay(db, contract, car)
 
-            elif now.day >= (target_date + timedelta(days=3)).day and contract['last_saldo'] < -contract['renta_price'] / 30 and \
+            elif now.day >= (target_date + timedelta(days=3)).day and contract['last_saldo'] < -contract['renta_price'] / 30.5 and \
                     has_key(contract, 'renternumber'):
 
                 prelatepayment_count += 1
                 print(f'send pre-latepayment sms - nickname: {contract["nickname"]}')
                 if '--read-only' not in argv:
                     if sms_block_check(contract):
-                        if send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo']))):
+                        if send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT):
                             if has_key(contract, 'renter'):
-                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
+                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT,
                                     contract['ContractName'], contract['renter'])
                             else:
-                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])),
+                                add_inbox(db, contract['renternumber'][0], LATEPAYMENT_TEXT,
                                     contract['ContractName'], None)
                         else:
-                            send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT.replace('{debt}', str(contract['last_saldo'])))
+                            send_sms(contract['renternumber'][0], LATEPAYMENT_TEXT)
                             print('retry failed - skip')
                 else:
                     print('sms not sent because of "--read-only" flag.')

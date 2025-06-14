@@ -14,3 +14,6 @@
 /rentacar/logs/*
 /toll/logs/*
 /rentacar/exword_results/*
+/rentacar/private_key.pem
+/rentacar/card_images/
+/rentacar/mos/intuit.json

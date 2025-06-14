@@ -10,6 +10,6 @@ TOLL_CATEGORY = 'toll'
 TOLL_NAME_PAY = 'Toll'
 TOLL_NAME_TASK = 'Found unknown car'
 TOLL_COMMENT_TASK = 'found unknown car when handling tolls. Plate: {plate}, id: {id}, sum: {sum}'
-TOLL_COMMENT_PAY = 'location: {location}, type: {type}'
+TOLL_COMMENT_PAY = 'Location: {location}, Type: {type}'
 
 USER = 'python'

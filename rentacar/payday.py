@@ -38,9 +38,9 @@ def start_payday(db: client):
 
     # filtering contracts
     for contract in contracts.copy():
-        payday = min(contract['pay_day'].day, get_last_day())
+        payday = min(contract['pay_day'].astimezone(texas_tz).day, get_last_day())
         if has_key(contract, 'last_payday'):
-            if to_mime_format(contract['last_payday']) == to_mime_format(dt.now(texas_tz)) or contract['pay_day'].day > dt.now(texas_tz).day:
+            if to_mime_format(contract['last_payday']) == to_mime_format(dt.now(texas_tz)) or contract['pay_day'].astimezone(texas_tz).day > dt.now(texas_tz).day:
                 contracts.remove(contract)
                 continue
         if payday != dt.now(texas_tz).day or not contract['Active'] or to_mime_format(contract['begin_time']) == to_mime_format(dt.now(texas_tz)):

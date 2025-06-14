@@ -1,4 +1,4 @@
-from mods.firemod import init_db, client, to_dict_al, has_key, get_contract
+from mods.firemod import init_db, client, to_dict_all, has_key, get_contract
 
 db: client = init_db()
 tolls: list[dict] = to_dict_all(db.collection('Toll').get())

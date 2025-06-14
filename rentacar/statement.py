@@ -11,7 +11,7 @@ path.append(dirname(SCRIPT_DIR))
 from openpyxl.styles import Border, Side, Font, Alignment
 from openpyxl import Workbook
 from rentacar.mods.firemod import has_key, client, init_db, document, bucket, to_dict_all
-from rentacar.mods.timemod import dt, sleep
+from rentacar.mods.timemod import dt, sleep, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 from requests import get
@@ -184,7 +184,7 @@ def get_data(db: client, contract: str):
                 pays.remove(pay)
 
     for pay in pays.copy():
-        pays[pays.index(pay)]['date'] = pay['date'].date()
+        pays[pays.index(pay)]['date'] = pay['date'].astimezone(texas_tz).date()
 
     incomes = []
     expenses = []

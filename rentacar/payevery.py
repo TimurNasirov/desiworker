@@ -31,9 +31,9 @@ def start_payevery(db: client):
     for contract in contracts:
         daily_rent_pays = [p for p in pays if p['ContractName'] == contract['ContractName'] and p['category'] == 'daily rent']
 
-        if contract['pay_day'].strftime('%d') == now.strftime('%d') or daily_rent_pays:
+        if contract['pay_day'].astimezone(texas_tz).strftime('%d') == now.strftime('%d') or daily_rent_pays:
             car = get_car(db, contract['nickname'])
-            last_date = max([p['date'] for p in daily_rent_pays]).date() if daily_rent_pays else now - timedelta(days=1)
+            last_date = max([p['date'].astimezone(texas_tz) for p in daily_rent_pays]).date() if daily_rent_pays else now - timedelta(days=1)
             days_missed = (now - last_date).days
 
             if days_missed >= 0:
@@ -58,7 +58,7 @@ def create_payevery(db: client, contract: dict, odometer: int, pay_date: dt):
             'nickname': contract['nickname'],
             'ContractName': contract['ContractName'],
             'date': pay_date,
-            'sum': contract['renta_price'] / 30,
+            'sum': contract['renta_price'] / 30.5,
             'name_pay': PAYDAY_NAME_PAY,
             'expense': True,
             'odometer': odometer,
@@ -80,7 +80,7 @@ def start_payevery2(db: client):
     tasks_count = 0
     for contract in contracts:
         if (contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and\
-            contract['last_saldo'] < contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
+            contract['last_saldo'] < contract['renta_price'] / 30.5 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
             pay['category'] == 'daily rent']):
             create_payevery2(db, contract)
             tasks_count += 1

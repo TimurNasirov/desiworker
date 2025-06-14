@@ -176,15 +176,15 @@ def get_data(db: client, periods: list):
                 continue
             if not pay['income']:
                 continue
-            if pay['date'].strftime('%d.%m.%Y') not in periods:
+            if pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y') not in periods:
                 continue
 
             if pay['ContractName'] == contract['ContractName']:
                 if has_key(pay, 'comment'):
-                    contract_pays.append(Pay(pay['date'], pay['name_pay'], pay['comment'], pay['user'], pay['sum'], contract['zalog'] if\
+                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], pay['comment'], pay['user'], pay['sum'], contract['zalog'] if\
                         pay['name_pay'] == 'First Pay' else 0))
                 else:
-                    contract_pays.append(Pay(pay['date'], pay['name_pay'], '-', pay['user'], pay['sum'], contract['zalog'] if pay['name_pay'] ==\
+                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], '-', pay['user'], pay['sum'], contract['zalog'] if pay['name_pay'] ==\
                         'First Pay' else 0))
 
         if len(contract_pays) > 0:

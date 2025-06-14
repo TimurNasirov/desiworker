@@ -104,7 +104,7 @@ def get_data(db: client, owner: str):
 def build(data: list[Item]):
     wb = Workbook()
     ws = wb.active
-    ws.column_dimensions['A'].width = 20
+    ws.column_dimensions['A'].width = 22
     ws.column_dimensions['F'].width = 17
 
     for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', "J", 'K', 'L', 'M']:
@@ -112,31 +112,31 @@ def build(data: list[Item]):
             j[0].font = Font(name='Arial')
             j[0].alignment = Alignment(horizontal='center', vertical='center')
 
-    ws['A1'].value = 'contract name'
+    ws['A1'].value = 'Contract name'
     ws['A1'].font = bold_font
     ws['A1'].border = tall_border
 
-    ws['B1'].value = 'rent'
+    ws['B1'].value = 'Rent'
     ws['B1'].font = bold_font
     ws['B1'].border = tall_border
 
-    ws['C1'].value = 'toll'
+    ws['C1'].value = 'Toll'
     ws['C1'].font = bold_font
     ws['C1'].border = tall_border
 
-    ws['D1'].value = 'extra'
+    ws['D1'].value = 'Extra'
     ws['D1'].font = bold_font
     ws['D1'].border = tall_border
 
-    ws['E1'].value = 'other'
+    ws['E1'].value = 'Other'
     ws['E1'].font = bold_font
     ws['E1'].border = tall_border
 
-    ws['F1'].value = 'balance'
+    ws['F1'].value = 'Balance'
     ws['F1'].font = bold_font
     ws['F1'].border = tall_border
 
-    ws['G1'].value = 'owner'
+    ws['G1'].value = 'Owner'
     ws['G1'].font = bold_font
     ws['G1'].border = tall_border
 

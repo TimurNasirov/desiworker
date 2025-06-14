@@ -2,7 +2,6 @@
 from sys import argv
 
 from requests import post
-from requests.exceptions import ConnectionError
 from config import INFOBIP_PHONE, INFOBIP_TOKEN, INFOBIP_URL
 from rentacar.mods.firemod import client, has_key, document
 from rentacar.mods.timemod import dt
@@ -16,8 +15,7 @@ ent. Thank you!"
 CHANGE_OIL_TEXT = "DESICARS: Hi. It's time to change the oil in the car. Please come to the office to take care of this. Thank you!"
 INSURANCE_TEXT = "DESICARS: Hi. It's time to renew the car insurance. Please send me the new policy via TG t.me/Desi_rental_cars once it's read\
 y. Thank you!"
-LATEPAYMENT_TEXT = "DESICARS: Hi! Payment was due 3 days ago. Confirm via TG: t.me/Desi_rental_cars after payment. Debt: ${debt}. Late fee in 2\
- days."
+LATEPAYMENT_TEXT = "DESICARS: Hi! Payment was due 3 days ago. Confirm via TG: t.me/Desi_rental_cars after payment. Late fee in 2 days."
 REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Please visit the office to complete this. Thank you!"
 
 def send_sms(phone: str, text: str):

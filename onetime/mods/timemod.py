@@ -1,6 +1,8 @@
 """Mod that helps work with time"""
 from datetime import datetime as dt
+from datetime import date
 from datetime import timedelta
+from datetime import time as dtime
 from time import sleep, time
 from calendar import monthrange
 

@@ -43,6 +43,7 @@ def to_dict_all(data: list[document]):
     for i in data:
         i_data: dict = i.to_dict()
         i_data['_firebase_document_id'] = i.id
+        i_data['_firebase_reference'] = i.reference
         dict_data.append(i_data)
     return dict_data
 

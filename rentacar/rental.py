@@ -96,7 +96,7 @@ def build(db: client, contract_name: str, add_sign: bool):
         if contract['discount_month'] > 0:
             discount = RichText()
             discount.add('5.1 EXCLUSIVE AGREEMENT AND MINIMUM RENTAL TERM. ', bold=True)
-            discount.add(f'Agreement is deemed exclusive due to the discounted rental payment of ${round(contract["renta_price"] / 30.5, 1)} per \
+            discount.add(f'Agreement is deemed exclusive due to the discounted rental payment of ${round(contract["renta_price"] / 30, 1)} per \
 day provided to the Rentee. As a condition of this exclusivity and discount, the Rentee agrees to a minimum rental term of \
 {contract["discount_month"]} months from the effective date of this Agreement. If the Rentee terminates this Agreement prior to the completion \
 of this {contract["discount_month"]} month minimum term, the Rentee shall be subject to an early termination penalty of $100, payable to the \
@@ -120,7 +120,7 @@ Rentor immediately upon termination, in addition to any other obligations or fee
         'vin': car['vin'],
         'insurance': contract['insurance'],
         'insurance_number': contract['insurance_number'],
-        'sum': str(round(contract["renta_price"] / 30.5, 1)),
+        'sum': str(round(contract["renta_price"] / 30, 1)),
         'payday': contract['pay_day'].astimezone(texas_tz).strftime('%#d'),
         'deposit': str(contract['zalog']),
         'limit': limit,

@@ -71,11 +71,11 @@ def start_latepayment(db: client):
         contract_tasks = [task['date'].astimezone(texas_tz) for task in tasks if task['ContractName'] == contract['ContractName']]
         if contract_tasks != []:
             target_date = now.replace(day=min(max(contract_tasks).day, get_last_day()))
-            if now.day == (target_date + timedelta(days=5)).day and contract['last_saldo'] < -contract['renta_price'] / 30.5:
+            if now.day == (target_date + timedelta(days=5)).day and contract['last_saldo'] < -contract['renta_price'] / 30:
                 latepayment_count += 1
                 create_pay(db, contract, car)
 
-            elif now.day >= (target_date + timedelta(days=3)).day and contract['last_saldo'] < -contract['renta_price'] / 30.5 and \
+            elif now.day >= (target_date + timedelta(days=3)).day and contract['last_saldo'] < -contract['renta_price'] / 30 and \
                     has_key(contract, 'renternumber'):
 
                 prelatepayment_count += 1

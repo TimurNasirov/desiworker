@@ -58,7 +58,7 @@ def create_payevery(db: client, contract: dict, odometer: int, pay_date: dt):
             'nickname': contract['nickname'],
             'ContractName': contract['ContractName'],
             'date': pay_date,
-            'sum': contract['renta_price'] / 30.5,
+            'sum': contract['renta_price'] / 30,
             'name_pay': PAYDAY_NAME_PAY,
             'expense': True,
             'odometer': odometer,
@@ -80,7 +80,7 @@ def start_payevery2(db: client):
     tasks_count = 0
     for contract in contracts:
         if (contract['nickname'] not in [task['nickname'] for task in tasks if task['name_task'] == 'PayDay' and task['status']] and\
-            contract['last_saldo'] < contract['renta_price'] / 30.5 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
+            contract['last_saldo'] < contract['renta_price'] / 30 and contract['ContractName'] in [pay['ContractName'] for pay in pays if\
             pay['category'] == 'daily rent']):
             create_payevery2(db, contract)
             tasks_count += 1

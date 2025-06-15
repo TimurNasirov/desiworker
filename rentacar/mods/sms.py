@@ -10,11 +10,9 @@ from rentacar.log import Log
 logdata = Log('rentacar/mods/sms.py')
 print = logdata.print
 
-PAYDAY_TEXT = "DESICARS: Hi. It's time to pay for the rental car. Please send a confirmation via TG t.me/Desi_rental_cars after making the paym\
-ent. Thank you!"
-CHANGE_OIL_TEXT = "DESICARS: Hi. It's time to change the oil in the car. Please come to the office to take care of this. Thank you!"
-INSURANCE_TEXT = "DESICARS: Hi. It's time to renew the car insurance. Please send me the new policy via TG t.me/Desi_rental_cars once it's read\
-y. Thank you!"
+PAYDAY_TEXT = "DesiCars: Pay your rental debt or the car will be disabled. Act now! Contact: t.me/Desi_rental_cars or call +16199747568"
+CHANGE_OIL_TEXT = "DesiCars: Come for an oil change or your rental will be disabled. Contact: t.me/Desi_rental_cars or call +16199747568"
+INSURANCE_TEXT = "DesiCars: Renew or arrange insurance or the car will be disabled. Contact: t.me/Desi_rental_cars or call +16199747568"
 LATEPAYMENT_TEXT = "DESICARS: Hi! Payment was due 3 days ago. Confirm via TG: t.me/Desi_rental_cars after payment. Late fee in 2 days."
 REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Please visit the office to complete this. Thank you!"
 

@@ -585,7 +585,7 @@ def get_single_data(date, nick: str, db):
         incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays), rent.summ, None, 'daily rent'))
 
     if [i for i in rent.dates if i.startswith('01.')]:
-        expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', len(date), (8.53 * len(date) / 30) + (6 * len(date) / 30)))
+        expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', len(date), 14.53 * len([i for i in rent.dates if i.startswith('01.')])))
     #expenses.append(Work(date[0], 'SIM Relay', len(date), 6 * len(date) / 30))
 
     str_date = ''

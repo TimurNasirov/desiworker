@@ -8,8 +8,8 @@ count = 0
 start = time()
 for pay in pays:
     if has_key(pay, 'category'):
-        if dt(2025, 6, 4, 0, 0, 15).replace(tzinfo=None) < pay['date'].astimezone(texas_tz).replace(tzinfo=None) <\
-            dt(2025, 6, 4, 0, 2, 55).replace(tzinfo=None) and pay['category'] == 'daily rent':
+        if dt(2025, 6, 16, 0, 2, 40).replace(tzinfo=None) < pay['date'].astimezone(texas_tz).replace(tzinfo=None) <\
+            dt(2025, 6, 16, 0, 3, 16).replace(tzinfo=None) and pay['category'] == 'daily rent':
             pay['_firebase_reference'].update({'sum': pay['sum'] * 30.5 / 30})
             print('update pay for contract', pay['ContractName'])
             count += 1

@@ -40,13 +40,14 @@ bottom_line = Border(
 )
 
 class Pay:
-    def __init__(self, date: dt, name: str, comment: str, user: str, summ: float, deposit: int):
+    def __init__(self, date: dt, name: str, comment: str, user: str, summ: float, deposit: int, method: str):
         self.date = date
         self.name = name
         self.comment = comment
         self.user = user
         self.summ = round(summ, 2)
         self.deposit = deposit
+        self.method = method
 
 class Contract:
     def __init__(self, name: str, pays: list[Pay]):
@@ -59,8 +60,8 @@ def build(items: list[Contract], start_period: dt, end_period: dt):
     ws = wb.active
     ws.column_dimensions['A'].width = 22
     ws.column_dimensions['B'].width = 13
-    ws.column_dimensions['C'].width = 20
-    ws.column_dimensions['D'].width = 70
+    ws.column_dimensions['C'].width = 30
+    ws.column_dimensions['E'].width = 70
 
     ws.freeze_panes = 'A5'
 
@@ -99,21 +100,25 @@ def build(items: list[Contract], start_period: dt, end_period: dt):
     ws['C4'].border = tall_border
     ws['C4'].font = bold_font
 
-    ws['D4'].value = 'Comment'
+    ws['D4'].value = 'Method'
     ws['D4'].border = tall_border
     ws['D4'].font = bold_font
 
-    ws['E4'].value = 'User'
+    ws['E4'].value = 'Comment'
     ws['E4'].border = tall_border
     ws['E4'].font = bold_font
 
-    ws['F4'].value = 'Sum'
+    ws['F4'].value = 'User'
     ws['F4'].border = tall_border
     ws['F4'].font = bold_font
 
-    ws['G4'].value = 'Deposit'
+    ws['G4'].value = 'Sum'
     ws['G4'].border = tall_border
     ws['G4'].font = bold_font
+
+    ws['H4'].value = 'Deposit'
+    ws['H4'].border = tall_border
+    ws['H4'].font = bold_font
 
     row = 5
     for item in items:
@@ -128,20 +133,23 @@ def build(items: list[Contract], start_period: dt, end_period: dt):
             ws[f'C{row}'].value = pay.name
             ws[f'C{row}'].border = short_border
 
-            ws[f'D{row}'].value = pay.comment
+            ws[f'D{row}'].value = pay.method
             ws[f'D{row}'].border = short_border
-            if pay.comment != '-':
-                ws[f'D{row}'].font = Font(size=8, name='Arial')
 
-            ws[f'E{row}'].value = pay.user
+            ws[f'E{row}'].value = pay.comment
             ws[f'E{row}'].border = short_border
+            if pay.comment != '-':
+                ws[f'E{row}'].font = Font(size=8, name='Arial')
 
-            ws[f'F{row}'].value = pay.summ
+            ws[f'F{row}'].value = pay.user
             ws[f'F{row}'].border = short_border
 
+            ws[f'G{row}'].value = pay.summ
+            ws[f'G{row}'].border = short_border
+
             if pay.deposit != 0:
-                ws[f'G{row}'].value = pay.deposit
-                ws[f'G{row}'].border = short_border
+                ws[f'H{row}'].value = pay.deposit
+                ws[f'H{row}'].border = short_border
 
             if pay != item.pays[-1]:
                 row += 1
@@ -181,11 +189,11 @@ def get_data(db: client, periods: list):
 
             if pay['ContractName'] == contract['ContractName']:
                 if has_key(pay, 'comment'):
-                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], pay['comment'], pay['user'], pay['sum'], contract['zalog'] if\
-                        pay['name_pay'] == 'First Pay' else 0))
+                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], pay['comment'], pay['user'], pay['sum'],\
+                        contract['zalog'] if pay['name_pay'] == 'First Pay' else 0, pay['method'] if has_key(pay, 'method') else ''))
                 else:
-                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], '-', pay['user'], pay['sum'], contract['zalog'] if pay['name_pay'] ==\
-                        'First Pay' else 0))
+                    contract_pays.append(Pay(pay['date'].astimezone(texas_tz), pay['name_pay'], '-', pay['user'], pay['sum'],\
+                        contract['zalog'] if pay['name_pay'] == 'First Pay' else 0, pay['method'] if has_key(pay, 'method') else ''))
 
         if len(contract_pays) > 0:
             items.append(Contract(contract['ContractName'], contract_pays))

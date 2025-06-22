@@ -184,8 +184,12 @@ def lease_listener(db: client, bucket):
                     contract = get_contract(db, doc['word_contract'], 'ContractName', False)
                     if has_key(contract, 'email'):
                         db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'sending'})
-                        sign(contract['renter'], contract['email'], join(result_folder, name))
-                        db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'sent'})
+                        try:
+                            sign(contract['renter'], contract['email'], join(result_folder, name))
+                            db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'sent'})
+                        except Exception as e:
+                            print(f'document send error: {e}')
+                            db.collection('Contract').document(contract['_firebase_document_id']).update({'document_status': 'fail'})
 
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]

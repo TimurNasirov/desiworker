@@ -84,7 +84,7 @@ class Work:
         self.date: str = date
         self.work: str = work
         self.amount: int = amount
-        self.sum_: float = round(sum_, 1)
+        self.sum_: float = round(sum_, 2)
         self.invoice: str = invoice
         self.category: str = category
 

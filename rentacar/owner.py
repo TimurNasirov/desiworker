@@ -84,7 +84,7 @@ class Work:
         self.date: str = date
         self.work: str = work
         self.amount: int = amount
-        self.sum_: float = round(sum_, 2)
+        self.sum_: float = sum_#round(sum_, 2)
         self.invoice: str = invoice
         self.category: str = category
 
@@ -238,19 +238,19 @@ def build(data: ExcelData):
     ws['B2'] = '=SUM(E:E)'
     ws['B2'].border = short_border
     ws['B2'].font = expense_font
-    ws['B2'].number_format = '#,##0.0'
+    ws['B2'].number_format = '#,##0.00'
 
     ws['A3'].value = 'Income'
     ws['A3'].border = short_border
     ws['B3'] = '=SUM(K:K)'
     ws['B3'].border = short_border
     ws['B3'].font = income_font
-    ws['B3'].number_format = '#,##0.0'
+    ws['B3'].number_format = '#,##0.00'
 
     ws['A4'].value = 'Service'
     ws['A4'].border = short_border
     ws['B4'] = '=SUM(L:L)'
-    ws['B4'].number_format = '#,##0.0'
+    ws['B4'].number_format = '#,##0.00'
     ws['B4'].border = short_border
     ws['C4'].value = '20%'
     ws['C4'].border = short_border
@@ -260,7 +260,7 @@ def build(data: ExcelData):
     ws['B5'] = '=SUM(M:M)'
     ws['B5'].border = short_border
     ws['B5'].font = total_font
-    ws['B5'].number_format = '#,##0.0'
+    ws['B5'].number_format = '#,##0.00'
 
     row = 7
     for i in data.cars:
@@ -310,12 +310,16 @@ def build(data: ExcelData):
             ws[f'A{row + 3 + count}'].value = j.date
             ws[f'A{row + 3 + count}'].border = short_border
             ws[f'A{row + 3 + count}'].number_format = 'dd.mm.yy'
+
             ws[f'B{row + 3 + count}'].value = j.work
             ws[f'B{row + 3 + count}'].border = short_border
+
             ws[f'C{row + 3 + count}'].value = j.amount
             ws[f'C{row + 3 + count}'].border = short_border
+
             ws[f'D{row + 3 + count}'].value = j.sum_
             ws[f'D{row + 3 + count}'].border = short_border
+            ws[f'D{row + 3 + count}'].number_format = '#,##0.00'
 
             if j.invoice:
                 ws[f'E{row + 3 + count}'].value = 'Invoice'
@@ -329,7 +333,7 @@ def build(data: ExcelData):
 
         ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'E{row + length - 2}'].font = expense_font
-        ws[f'E{row + length - 2}'].number_format = '#,##0.0'
+        ws[f'E{row + length - 2}'].number_format = '#,##0.00'
 
         ws[f'H{row + 1}'].value = 'Income'
         ws[f'H{row + 1}'].font = income_bold_font
@@ -355,12 +359,16 @@ def build(data: ExcelData):
             ws[f'G{row + 3 + count}'].value = j.date
             ws[f'G{row + 3 + count}'].border = short_border
             ws[f'G{row + 3 + count}'].number_format = 'dd.mm.yy'
+
             ws[f'H{row + 3 + count}'].value = j.work
             ws[f'H{row + 3 + count}'].border = short_border
+
             ws[f'I{row + 3 + count}'].value = j.amount
             ws[f'I{row + 3 + count}'].border = short_border
+
             ws[f'J{row + 3 + count}'].value = j.sum_
             ws[f'J{row + 3 + count}'].border = short_border
+            ws[f'J{row + 3 + count}'].number_format = '#,##0.00'
             count += 1
 
         ws[f'J{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
@@ -368,7 +376,7 @@ def build(data: ExcelData):
 
         ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'K{row + length - 2}'].font = income_font
-        ws[f'K{row + length - 2}'].number_format = '#,##0.0'
+        ws[f'K{row + length - 2}'].number_format = '#,##0.00'
 
 
         ws[f'K{row + length - 1}'].value = 'Service:'
@@ -376,7 +384,7 @@ def build(data: ExcelData):
 
         ws[f'L{row + length - 1}'] = f'=K{row + length - 2}*C4'
         ws[f'L{row + length - 1}'].font = expense_font
-        ws[f'L{row + length - 1}'].number_format = '#,##0.0'
+        ws[f'L{row + length - 1}'].number_format = '#,##0.00'
 
 
         ws[f'L{row + length - 2}'].value = 'Total:'
@@ -384,7 +392,7 @@ def build(data: ExcelData):
 
         ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}'
         ws[f'M{row + length - 2}'].font = total_font
-        ws[f'M{row + length - 2}'].number_format = '#,##0.0'
+        ws[f'M{row + length - 2}'].number_format = '#,##0.00'
 
         if i.name == data.cars[len(data.cars) - 1].name:
             for j in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']:

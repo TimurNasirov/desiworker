@@ -45,7 +45,7 @@ class Pay:
         self.name = name
         self.comment = comment
         self.user = user
-        self.summ = round(summ, 2)
+        self.summ = summ
         self.deposit = deposit
         self.method = method
 
@@ -146,6 +146,7 @@ def build(items: list[Contract], start_period: dt, end_period: dt):
 
             ws[f'G{row}'].value = pay.summ
             ws[f'G{row}'].border = short_border
+            ws[f'G{row}'].number_format = '#,##0.00'
 
             if pay.deposit != 0:
                 ws[f'H{row}'].value = pay.deposit

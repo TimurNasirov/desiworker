@@ -95,7 +95,7 @@ def get_data(db: client, owner: str):
                     if has_key(pay_contract, 'expense'):
                         if pay_contract['expense']: other -= pay_contract['sum']
 
-        items.append(Item(contract['ContractName'], round(rent, 2), round(toll, 2), round(extra, 2), round(other, 2), car['owner']))
+        items.append(Item(contract['ContractName'], rent, toll, extra, other, car['owner']))
 
     items.sort(key=lambda item: item.summ)
     return items
@@ -159,6 +159,7 @@ def build(data: list[Item]):
 
         ws[f'F{row}'].value = item.summ
         ws[f'F{row}'].border = short_border
+        ws[f'F{row}'].number_format = '#,##0.00'
 
         ws[f'G{row}'].value = item.owner
         ws[f'G{row}'].border = short_border

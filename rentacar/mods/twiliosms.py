@@ -1,5 +1,5 @@
 from twilio.rest import Client
-from config import TWILIO_KEY, TWILIO_SECRET, TWILIO_SID, TWILIO_PHONE
+from config import TWILIO_TOKEN, TWILIO_SID, TWILIO_PHONE
 from sys import argv
 from rentacar.mods.firemod import client as fclient, has_key, document
 from rentacar.mods.timemod import dt
@@ -16,7 +16,7 @@ y. Thank you!"
 LATEPAYMENT_TEXT = "DESICARS: Hi! Payment was due 3 days ago. Confirm via TG: t.me/Desi_rental_cars after payment. Late fee in 2 days."
 REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Please visit the office to complete this. Thank you!"
 
-client = Client(TWILIO_KEY, TWILIO_SECRET, TWILIO_SID)
+client = Client(TWILIO_SID, TWILIO_TOKEN)
 
 def send(phone: str, text: str):
     if '--no-sms' in argv:
@@ -92,3 +92,5 @@ def sms_block_check(contract: dict):
     if not accept:
         print('sms sending canceled: renter declined subscription')
     return accept
+
+send('+12172105897')

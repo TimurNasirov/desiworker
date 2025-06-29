@@ -21,7 +21,7 @@ path.append(dirname(SCRIPT_DIR))
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db
-from rentacar.mods.sms import send_sms, add_inbox, LATEPAYMENT_TEXT, sms_block_check
+from rentacar.mods.twiliosms import send_sms, add_inbox, LATEPAYMENT_TEXT, sms_block_check
 from rentacar.str_config import LATEPAYMENT_NAME_PAY, USER
 
 logdata = Log('latepayment.py')

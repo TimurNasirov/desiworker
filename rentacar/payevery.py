@@ -8,7 +8,7 @@ path.append(dirname(SCRIPT_DIR))
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, time
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_car
-from rentacar.mods.sms import send_sms, add_inbox, PAYDAY_TEXT, sms_block_check
+from rentacar.mods.twiliosms import send_sms, add_inbox, PAYDAY_TEXT, sms_block_check
 from rentacar.str_config import PAYDAY_IMAGE, PAYDAY_NAME_PAY, PAYDAY_TASK_COMMENT, USER
 
 logdata = Log('payevery.py')

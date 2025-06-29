@@ -21,7 +21,7 @@ path.append(dirname(SCRIPT_DIR))
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
-from rentacar.mods.sms import send_sms, add_inbox, CHANGE_OIL_TEXT, sms_block_check
+from rentacar.mods.twiliosms import send_sms, add_inbox, CHANGE_OIL_TEXT, sms_block_check
 from rentacar.str_config import CHANGE_OIL_TASK_COMMENT, CHANGE_OIL_NAME_TASK, USER, CHANGE_OIL_IMAGE
 
 logdata = Log('changeoil.py')

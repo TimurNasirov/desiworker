@@ -254,7 +254,7 @@ s from watcher.py (use --debt-only -t)')
         print('Description:')
         instruction = __doc__.split('\n')
         instruction.remove('')
-        instruction.remove('OWNER REPORT')
+        instruction.remove('DEBT REPORT')
         for i in instruction:
             print(i)
     else:

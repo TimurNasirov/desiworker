@@ -35,8 +35,8 @@ def get_odometer(key, imei):
     """
     #print(f'get odometer from {imei} imei.')
     try:
-        starts = dt.now().strftime('%Y-%m-%d 23:59:59')
-        ends = (dt.now() - timedelta(days=6)).strftime('%Y-%m-%d 23:59:59')
+        starts = dt.now(texas_tz).strftime('%Y-%m-%d 23:59:59')
+        ends = (dt.now(texas_tz) - timedelta(days=6)).strftime('%Y-%m-%d 23:59:59')
         data = loads(get(BOUNCIE_TRIP_URL, headers={
             'Authorization': key
         }, params={

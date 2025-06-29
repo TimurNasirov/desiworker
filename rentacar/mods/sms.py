@@ -66,7 +66,7 @@ def add_inbox(db: client, phone: str, text: str, contract_name: str, renter: str
         renter (str): renter
     """
     phone = phone.replace('(', '').replace('+', '').replace(')', '').replace('-', '')
-    now = dt.now()
+    now = dt.now(texas_tz)
 
     if '--no-sms' not in argv:
         inboxes: list[document] = db.collection('InboxSMS').get()

@@ -251,7 +251,7 @@ def statement_listener(db: client, bucket):
                 print(f'write xlsx {contract} (statement)')
                 name = build(get_data(db, contract), contract)
                 if '--read-only' not in argv:
-                    blob = bucket.blob(f'excel/{contract}-{dt.now().strftime("%d-%m-%H-%M-%S")}.xlsx')
+                    blob = bucket.blob(f'excel/{contract}-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.xlsx')
                     blob.upload_from_filename(join(folder, name))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')

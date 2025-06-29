@@ -90,7 +90,7 @@ def start_toll(db: client):
 
         tolls: list[list] = []
         for row in readed_data:
-            if row[0].strftime('%m.%d.%Y') in [(dt.now() - timedelta(days=i)).strftime('%m.%d.%Y') for i in range(4)]:
+            if row[0].strftime('%m.%d.%Y') in [(dt.now(texas_tz) - timedelta(days=i)).strftime('%m.%d.%Y') for i in range(4)]:
                 tolls.append({
                     'date': row[0],
                     'id': int(row[1]),

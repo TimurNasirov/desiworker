@@ -36,7 +36,7 @@ def update_tokens(auth_client):
         expires_at = dt.fromisoformat(tokens["expires_at"])
         auth_client.expires_in = (expires_at.astimezone(utc_tz) - dt.now(utc_tz)).total_seconds()
 
-    if dt.now() >= expires_at:
+    if dt.now(texas_tz) >= expires_at:
         print("refreshing access token")
         auth_client.refresh()
         tokens["access_token"] = auth_client.access_token
@@ -84,7 +84,7 @@ def refresh_token(auth_client):
     with open('intuit.json') as f:
         tokens = load(f)
     global quick_client
-    now = dt.now()
+    now = dt.now(texas_tz)
     if now >= dt.fromisoformat(tokens["expires_at"]):
         print("refreshing access token")
         auth_client.refresh()

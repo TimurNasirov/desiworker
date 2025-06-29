@@ -57,5 +57,5 @@ def get_last_day():
     Returns:
         [type]: [description]
     """
-    now = dt.now()
+    now = dt.now(texas_tz)
     return monthrange(now.year, now.month)[1]

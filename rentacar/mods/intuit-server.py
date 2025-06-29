@@ -150,7 +150,7 @@ def add_intuit(db, contract_name: str, data: list):
 
     contract.reference.update({'intuit_id': data[0]})
     contract.reference.collection('invoices').add({
-        'date': dt.now(),
+        'date': dt.now(texas_tz),
         'sum': data[6],
         'rent': data[1],
         'toll': data[2],

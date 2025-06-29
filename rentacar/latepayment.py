@@ -67,7 +67,7 @@ def start_latepayment(db: client):
         else:
             car = car[0]
 
-        now = dt.now()
+        now = dt.now(texas_tz)
         contract_tasks = [task['date'].astimezone(texas_tz) for task in tasks if task['ContractName'] == contract['ContractName']]
         if contract_tasks != []:
             target_date = now.replace(day=min(max(contract_tasks).day, get_last_day()))

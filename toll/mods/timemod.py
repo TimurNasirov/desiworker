@@ -16,7 +16,7 @@ def time_is(time: str):
     Returns:
         bool: return data
     """
-    return dt.now().strftime('%H:%M') == time
+    return dt.now(texas_tz).strftime('%H:%M') == time
 
 def wait():
     """Wait for a given 60 - bit amount of 60 seconds"""
@@ -39,5 +39,5 @@ def get_last_day():
     Returns:
         [type]: [description]
     """
-    now = dt.now()
+    now = dt.now(texas_tz)
     return monthrange(now.year, now.month)[1]

@@ -2,7 +2,7 @@ from twilio.rest import Client
 from config import TWILIO_TOKEN, TWILIO_SID, TWILIO_PHONE
 from sys import argv
 from rentacar.mods.firemod import client as fclient, has_key, document
-from rentacar.mods.timemod import dt
+from rentacar.mods.timemod import dt, texas_tz
 from rentacar.log import Log
 
 logdata = Log('rentacar/mods/twilio.py')
@@ -36,7 +36,7 @@ def add_inbox(db: fclient, phone: str, text: str, contract_name: str, renter: st
         renter (str): renter
     """
     phone = phone.replace('(', '').replace('+', '').replace(')', '').replace('-', '')
-    now = dt.now()
+    now = dt.now(texas_tz)
 
     if '--no-sms' not in argv:
         inboxes: list[document] = db.collection('InboxSMS').get()

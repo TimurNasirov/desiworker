@@ -18,7 +18,7 @@ REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Plea
 
 client = Client(TWILIO_SID, TWILIO_TOKEN)
 
-def send(phone: str, text: str):
+def send_sms(phone: str, text: str):
     if '--no-sms' in argv:
         print('SMS not sent because of "--no-sms" flag.')
         return
@@ -92,5 +92,3 @@ def sms_block_check(contract: dict):
     if not accept:
         print('sms sending canceled: renter declined subscription')
     return accept
-
-send('+12172105897')

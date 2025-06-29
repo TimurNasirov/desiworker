@@ -18,7 +18,7 @@ SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
 from rentacar.log import Log
-from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, time
+from rentacar.mods.timemod import dt, timedelta, texas_tz, time
 from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, get_contract
 from rentacar.mods.twiliosms import send_sms, add_inbox, REGISTRATION_TEXT, sms_block_check
 from rentacar.str_config import REGISTRATION_TASK_COMMENT, REGISTRATION_NAME_TASK, USER, REGISTRATION_IMAGE

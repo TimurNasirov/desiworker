@@ -9,7 +9,7 @@ from pytz import utc as utc_tz
 
 texas_tz = timezone('US/Central')
 
-# logdata = Log('rentacar.mods/timemod.py')
+# logdata = Log('rentacar/mods/timemod.py')
 # print = logdata.print
 
 def time_is(time: str):

@@ -3,10 +3,10 @@ from json import loads
 from requests import post, get
 from rentacar.log import Log
 from config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_VEHICLES_URL, BOUNCIE_TRIP_URL
-from .firemod import has_key
-from .timemod import dt, timedelta
+from rentacar.mods.firemod import has_key
+from rentacar.mods.timemod import dt, timedelta, texas_tz
 
-logdata = Log('rentacar.mods/bouncie.py')
+logdata = Log('rentacar/mods/bouncie.py')
 print = logdata.print
 
 def get_apikey(code: str):

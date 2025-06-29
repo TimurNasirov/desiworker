@@ -12,7 +12,7 @@ from config import INTUIT_ID, INTUIT_URI, INTUIT_SECRET, INTUIT_REALM
 from log import Log
 from quickbooks import QuickBooks
 
-# logdata = Log('rentacar.mods/intuit_refresh.py')
+# logdata = Log('rentacar/mods/intuit_refresh.py')
 # print = logdata.print
 
 def get_auth_client():

@@ -4,7 +4,7 @@ from sys import argv
 from requests import post
 from config import INFOBIP_PHONE, INFOBIP_TOKEN, INFOBIP_URL
 from rentacar.mods.firemod import client, has_key, document
-from rentacar.mods.timemod import dt
+from rentacar.mods.timemod import dt, texas_tz
 from rentacar.log import Log
 
 logdata = Log('rentacar/mods/sms.py')

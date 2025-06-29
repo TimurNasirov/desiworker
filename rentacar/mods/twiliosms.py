@@ -5,7 +5,7 @@ from rentacar.mods.firemod import client as fclient, has_key, document
 from rentacar.mods.timemod import dt, texas_tz
 from rentacar.log import Log
 
-logdata = Log('rentacar/mods/twilio.py')
+logdata = Log('rentacar/mods/twiliosms.py')
 print = logdata.print
 
 PAYDAY_TEXT = "DESICARS: Hi. It's time to pay for the rental car. Please send a confirmation via TG t.me/Desi_rental_cars after making the paym\

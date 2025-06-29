@@ -12,7 +12,7 @@ from log import Log
 
 intuit_base_url = f'https://quickbooks.api.intuit.com/v3/company/{INTUIT_REALM}/'
 intuit_version = '?minorversion=75'
-# logdata = Log('rentacar.mods/intuit.py')
+# logdata = Log('rentacar/mods/intuit.py')
 # print = logdata.print
 
 auth_client = get_auth_client()

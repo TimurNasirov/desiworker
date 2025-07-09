@@ -117,7 +117,7 @@ def start_toll(db: client):
                 if toll['plate'] != '' or toll['plate'] != '-':
                     contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
                     print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]},\
-                        id: {toll["id"]}, sum: {toll['sum'].replace('-', '')}.')
+                        id: {toll["id"]}, sum: {toll["sum"].replace("-", "")}.')
                     if '--read-only' not in argv:
                         db.collection('Pay_contract').add({
                             'date': toll['date'],

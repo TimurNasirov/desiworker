@@ -1,7 +1,8 @@
 '''
 OWNER REPORT
-If somebody want to get owner reports from DesiCars app, this program will create owner file with all cars and these pays (incomes and expenses)
-of chosen owner. This program will get all cars from db, get pay and toll data for cars, counting total income, and print it in excel file.
+If somebody want to get owner reports from DesiCars app, this program will create owner file with
+all cars and these pays (incomes and expenses) of chosen owner. This program will get all cars
+from db, get pay and toll data for cars, counting total income, and lprint it in excel file.
 owner file will appear in firebase storage and its link will be in setting_app.
 Activate:
  1. Choose start and end date (excel_start_date, excel_end_date) in setting_app.
@@ -15,28 +16,34 @@ Old name: excel
 Group: exword
 Launch time: - [exword] (snapshots only)
 Marks: listener
-'''
 
+read exploit: fixed
+linting: 9.72
+'''
 from sys import path, argv
 from os.path import dirname, abspath, join
 from os import _exit
 from traceback import format_exception
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+from typing import Literal
 
+from requests import get
 from openpyxl.styles import Font, Border, Side, Alignment
 from openpyxl import Workbook
-from rentacar.mods.firemod import has_key, client, document, to_dict_all
+
+from config import TELEGRAM_LINK
+from rentacar.mods.firemod import has_key, to_dict_all, FieldFilter
 from rentacar.mods.timemod import dt, timedelta, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
-from requests import get
-from config import TELEGRAM_LINK
+
+SCRIPT_DIR = dirname(abspath(__file__))
+path.append(dirname(SCRIPT_DIR))
 
 logdata = Log('owner.py')
-print = logdata.print
+lprint = logdata.print
 
-folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_results')
+folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)),
+    'exword_results')
 
 bold_font = Font(bold=True, name='Arial')
 income_font = Font(color='00b121', name='Arial')
@@ -70,47 +77,26 @@ top_right_line = Border(
 )
 
 class Work:
-    """Payment (Work) class"""
-    def __init__(self, date, work, amount, sum_, invoice=None, category='default'):
-        """Initialize the object for the payment
-
-        Args:
-            date (str): date
-            work (str): name of pay
-            amount (str): amount of pay
-            sum_ (float): pay summ
-            invoice (str, optional): invoice of pay. Defaults to None.
-        """
+    """payment/work object"""
+    def __init__(self, date, work, amount, sum_, invoice=None, category='default') -> None:
+        """Initialize the object for the payment"""
         self.date: str = date
         self.work: str = work
         self.amount: int = amount
         self.sum_: float = sum_#round(sum_, 2)
-        self.invoice: str = invoice
+        self.invoice: str | None = invoice
         self.category: str = category
 
 class Car:
-    """A class for the Car class"""
-    def __init__(self, name, work_income, work_expense):
-        """Initialize the car class
-
-        Args:
-            name (str): car nickname
-            work_income (list[Work]): incomes
-            work_expense (list[Work]): expenses
-        """
+    """car object"""
+    def __init__(self, name, work_income, work_expense) -> None:
+        """Initialize the car class"""
         self.name: str = name
         self.work_income: list[Work] = work_income
         self.work_expense: list[Work] = work_expense
 
-    def get_subtotal(self, income: bool):
-        """Get the subtotal of the car
-
-        Args:
-            income (bool): is need to calc incomes
-
-        Returns:
-            float: subtotal
-        """
+    def get_subtotal(self, income: bool) -> float | Literal[0]:
+        """Get the subtotal of the car"""
         subtotal = 0
         if income:
             for i in self.work_income:
@@ -120,92 +106,63 @@ class Car:
                 subtotal += i.sum_
         return subtotal
 
-    def get_total(self):
-        """Get the total from subtotal
-
-        Returns:
-            float: total
-        """
-        return self.get_subtotal(1) - self.get_subtotal(0)
+    def get_total(self) -> float | int:
+        """Get the total from subtotal"""
+        return self.get_subtotal(True) - self.get_subtotal(False)
 
 class DailyRent:
-    def __init__(self, contract_name, pay):
+    """daily rents of contract"""
+    def __init__(self, contract_name, pay) -> None:
         self.contract_name: str = contract_name
         self.pays: list[Work] = [pay]
         self.dates: list[str] = [pay.date]
         self.summ: float = pay.sum_
 
-    def calc(self):
-        summ = 0
-        for pay in self.pays:
-            summ += pay.sum_
-        return summ
-
-    def add(self, pay):
+    def add(self, pay) -> None:
+        """add payment"""
         self.pays.append(pay)
         self.dates.append(pay.date)
         self.summ += pay.sum_
 
-    def sort(self):
+    def sort(self) -> None:
+        """sort dates"""
         dates = [dt.strptime(date, '%d.%m.%Y') for date in self.dates]
         dates.sort()
         self.dates = [date.strftime('%d.%m.%Y') for date in dates]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Daily rent ({self.contract_name})'
 
 class ExcelData:
-    """Class to handle ExcelData objects"""
-    def __init__(self, date, owner, cars):
-        """Initialize the owner object
-
-        Args:
-            date (str): current date
-            owner (str): owner of cars
-            cars (list[Car]): cars list
-        """
+    """excel data for building"""
+    def __init__(self, date, owner, cars) -> None:
+        """Initialize the owner object"""
         self.date: str = date
         self.cars: list[Car] = cars
         self.owner: str = owner
 
-    def get_subtotal(self):
-        """Get the subtotal of all cars
-
-        Returns:
-            float: subtotal
-        """
+    def get_subtotal(self) -> float | int:
+        """subtotal"""
         subtotal = 0
         for i in self.cars:
             subtotal += i.get_total()
         return subtotal
 
-    def get_percent(self, percent=20):
-        """Returns the percentage of the current subtotal
-
-        Args:
-            percent (int, optional): percent. Defaults to 20.
-
-        Returns:
-            float: subtotal - percent
-        """
+    def get_percent(self, percent=20) -> float:
+        """subtotal with percent"""
         return self.get_subtotal() * percent / 100
 
-    def get_total(self):
-        """Get the total sum
-
-        Returns:
-            float: total
-        """
+    def get_total(self) -> float:
+        """get total sum"""
         return self.get_subtotal() - self.get_percent()
 
-def build(data: ExcelData):
-    """Build a workbook from the data
-
-    Args:
-        data (ExcelData): data for build
-    """
+def build(data: ExcelData) -> Literal['owner.xlsx']:
+    """build excel from data"""
     wb = Workbook()
     ws = wb.active
+    if not ws:
+        raise ValueError('WS is null')
+
     ws.column_dimensions['A'].width = 12
     ws.column_dimensions['B'].width = 28
     ws.column_dimensions['D'].width = 12 if data.owner == 'D+R' else 10
@@ -331,7 +288,8 @@ def build(data: ExcelData):
         ws[f'D{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
         ws[f'D{row + length - 2}'].font = bold_font
 
-        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R" else ""}'
+        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R"
+            else ""}'
         ws[f'E{row + length - 2}'].font = expense_font
         ws[f'E{row + length - 2}'].number_format = '#,##0.00'
 
@@ -371,13 +329,14 @@ def build(data: ExcelData):
             ws[f'J{row + 3 + count}'].number_format = '#,##0.00'
             count += 1
 
-        ws[f'J{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
-        ws[f'J{row + length - 2}'].font = bold_font
+        row2 = row + length - 2
+        ws[f'J{row2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
+        ws[f'J{row2}'].font = bold_font
 
-        ws[f'K{row + length - 2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R" else ""}'
-        ws[f'K{row + length - 2}'].font = income_font
-        ws[f'K{row + length - 2}'].number_format = '#,##0.00'
-
+        ws[f'K{row2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R"
+            else ""}'
+        ws[f'K{row2}'].font = income_font
+        ws[f'K{row2}'].number_format = '#,##0.00'
 
         ws[f'K{row + length - 1}'].value = 'Service:'
         ws[f'K{row + length - 1}'].font = bold_font
@@ -386,13 +345,12 @@ def build(data: ExcelData):
         ws[f'L{row + length - 1}'].font = expense_font
         ws[f'L{row + length - 1}'].number_format = '#,##0.00'
 
+        ws[f'L{row2}'].value = 'Total:'
+        ws[f'L{row2}'].font = bold_font
 
-        ws[f'L{row + length - 2}'].value = 'Total:'
-        ws[f'L{row + length - 2}'].font = bold_font
-
-        ws[f'M{row + length - 2}'] = f'=K{row + length - 2}-L{row + length - 1}-E{row + length - 2}'
-        ws[f'M{row + length - 2}'].font = total_font
-        ws[f'M{row + length - 2}'].number_format = '#,##0.00'
+        ws[f'M{row2}'] = f'=K{row2}-L{row + length - 1}-E{row2}'
+        ws[f'M{row2}'].font = total_font
+        ws[f'M{row2}'].number_format = '#,##0.00'
 
         if i.name == data.cars[len(data.cars) - 1].name:
             for j in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M']:
@@ -406,222 +364,199 @@ def build(data: ExcelData):
     return name
 
 
-def get_data(date, owner, db):
-    """Get all the data for a particular date
-
-    Args:
-        date (date): current date
-        owner (str): owner of cars
-        db (client): database
-
-    Returns:
-        ExcelData: data for build
-    """
-    pay_data = to_dict_all(db.collection('Pay').get())
-    pay_contract_data = to_dict_all(db.collection('Pay_contract').get())
-    repire_data = to_dict_all(db.collection('Repire').get())
-    doc = db.collection('cars').get()
+def get_data(date, owner, db) -> ExcelData:
+    """get excel data for owner"""
+    cars_docs = db.collection('cars').where(filter=FieldFilter('owner', '==', owner)).get()
     cars = []
-    for i in doc:
-        data = i.to_dict()
-        if not has_key(data, 'owner'):
-            continue
-        if data['owner'] != owner:
+
+    for car_doc in cars_docs:
+        data = car_doc.to_dict()
+        if 'nickname' not in data:
             continue
 
         nick = data['nickname']
+        pay_data = to_dict_all(db.collection('Pay')
+            .where(filter=FieldFilter('nickname', '==', nick)).get())
+        pay_contract_data = to_dict_all(db.collection('Pay_contract')
+            .where(filter=FieldFilter('nickname', '==', nick)).get())
+        repire_data = to_dict_all(db.collection('Repire')
+            .where(filter=FieldFilter('nickname', '==', nick)).get())
+
         incomes = []
         expenses = []
-        for pay in pay_data:
-            if pay['nickname'] == nick and pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-                amount = pay['amount'] if has_key(pay, 'amount') else 1
-                invoice = None
-                if has_key(pay, 'photo'):
-                    if len(pay['photo']) > 0:
-                        invoice = pay['photo'][-1]
 
-                if has_key(pay, 'income'):
-                    if pay['income']:
-                        incomes.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
-                if has_key(pay, 'expense'):
-                    if pay['expense']:
-                        expenses.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+        for pay in pay_data:
+            pay['date'] = pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y')
+            if pay['date'] not in date:
+                continue
+
+            amount = pay['amount'] if has_key(pay, 'amount') else 1
+            invoice = pay['photo'][-1] if has_key(pay, 'photo') and pay['photo'] else None
+
+            if pay.get('income'):
+                incomes.append(Work(pay['date'], pay['name_pay'], amount, pay['sum'], invoice))
+            if pay.get('expense'):
+                expenses.append(Work(pay['date'], pay['name_pay'], amount, pay['sum'], invoice))
 
         for pay_contract in pay_contract_data:
-            if pay_contract['nickname'] == nick and pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-                if has_key(pay_contract, 'owner'):
-                    if not pay_contract['owner']:
-                        continue
-                else:
-                    continue
-                amount = pay_contract['amount'] if has_key(pay_contract, 'amount') else 1
+            pay_contract['date'] = pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y')
+            if pay_contract['date'] not in date:
+                continue
+            if not pay_contract.get('owner'):
+                continue
+
+            amount = pay_contract.get('amount', 1)
+            if has_key(pay_contract, 'photo_pay') and pay_contract['photo_pay']:
+                invoice = pay_contract['photo_pay'][-1]
+            else:
                 invoice = None
-                if has_key(pay_contract, 'photo_pay'):
-                    if len(pay_contract['photo_pay']) > 0:
-                        invoice = pay_contract['photo_pay'][-1]
+            category = pay_contract.get('category', 'default')
+            name_pay = pay_contract['name_pay']
 
-                category = 'default'
-                if has_key(pay_contract, 'category'):
-                    category = pay_contract['category']
+            if category == 'daily rent':
+                name_pay = pay_contract['ContractName']
+            elif category == 'extra':
+                name_pay += f' ({pay_contract["ContractName"]})'
 
-                name_pay = pay_contract['name_pay']
-                if category == 'daily rent':
-                    name_pay = pay_contract['ContractName']
-                if category == 'extra':
-                    name_pay += f' ({pay_contract["ContractName"]})'
-
-                if has_key(pay_contract, 'expense'):
-                    if pay_contract['expense']:
-                        incomes.append(Work(pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
+            if pay_contract.get('expense'):
+                incomes.append(Work(pay_contract['date'], name_pay, amount,
+                    pay_contract['sum'], invoice, category))
 
         for repire in repire_data:
-            if repire['nickname'] == nick and repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-                amount = repire['amount'] if has_key(repire, 'amount') else 1
-                invoice = None
-                if has_key(repire, 'photo'):
-                    if len(repire['photo']) > 0:
-                        invoice = repire['photo'][-1]
+            repire['date_time'] = repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y')
+            if repire['date_time'] not in date:
+                continue
 
-                if has_key(repire, 'expense'):
-                    if repire['expense']:
-                        expenses.append(Work(repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
+            amount = repire.get('amount', 1)
+            invoice = repire['photo'][-1] if has_key(repire, 'photo') and repire['photo'] else None
+
+            if repire.get('expense'):
+                expenses.append(Work(repire['date_time'], repire['work_type'], amount,
+                    repire['sum'], invoice))
 
         daily_rents = []
         for income in incomes.copy():
             if income.category == 'daily rent':
-                if income.work not in [rent.contract_name for rent in daily_rents]:
-                    daily_rents.append(DailyRent(income.work, income))
+                match = next((r for r in daily_rents if r.contract_name == income.work), None)
+                if match:
+                    match.add(income)
                 else:
-                    daily_rents[daily_rents.index([rent for rent in daily_rents if income.work == rent.contract_name][0])].add(income)
+                    daily_rents.append(DailyRent(income.work, income))
                 incomes.remove(income)
 
         for rent in daily_rents:
             rent.sort()
-            incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays), rent.summ, None, 'daily rent'))
+            incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays),
+                rent.summ, None, 'daily rent'))
 
-        if [i for i in date if i.startswith('01.')]:
-            expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', len([i for i in date if i.startswith('01.')]),\
-                14.53 * len([i for i in date if i.startswith('01.')])))
-        #expenses.append(Work(date[0], 'SIM Relay', len(date), 6 * len(date) / 30))
-        incomes.sort(key=lambda income: dt.strptime(income.date.split(' - ')[0], '%d.%m.%Y') if '-' in income.date else dt.strptime(income.date,\
-        '%d.%m.%Y'))
-        expenses.sort(key=lambda expense: dt.strptime(expense.date.split(' - ')[0], '%d.%m.%Y') if '-' in expense.date else\
-            dt.strptime(expense.date, '%d.%m.%Y'))
+        if any(i.startswith('01.') for i in date):
+            sim_days = len([i for i in date if i.startswith('01.')])
+            expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', sim_days,
+                14.53 * sim_days))
+
+        def pay_sort(i) -> dt:
+            """sort incomes and expenses"""
+            if '-' in i.date:
+                return dt.strptime(i.date.split(' - ')[0], '%d.%m.%Y')
+            return dt.strptime(i.date, '%d.%m.%Y')
+
+        incomes.sort(key=pay_sort)
+        expenses.sort(key=pay_sort)
 
         cars.append(Car(nick, incomes, expenses))
 
-    str_date = ''
-    for i in date:
-        if i == date[-1]:
-            str_date += i
-        else:
-            str_date += i + '; '
-
+    str_date = '; '.join(date)
     return ExcelData(str_date, owner, cars)
 
 
-def get_single_data(date, nick: str, db):
-    pay_data = to_dict_all(db.collection('Pay').get())
-    pay_contract_data = to_dict_all(db.collection('Pay_contract').get())
-    repire_data = to_dict_all(db.collection('Repire').get())
+def get_single_data(date, nick: str, db) -> ExcelData:
+    """get excel data for car"""
+    pay_data = to_dict_all(db.collection('Pay').where(filter=FieldFilter('nickname', '==', nick))
+        .get())
+    pay_contract_data = to_dict_all(db.collection('Pay_contract')
+        .where(filter=FieldFilter('nickname', '==', nick)).get())
+    repire_data = to_dict_all(db.collection('Repire')
+        .where(filter=FieldFilter('nickname', '==', nick)).get())
+
     incomes = []
     expenses = []
-    for pay in pay_data:
-        if pay['nickname'] == nick and pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-            amount = pay['amount'] if has_key(pay, 'amount') else 1
-            invoice = None
-            if has_key(pay, 'photo'):
-                if len(pay['photo']) > 0:
-                    invoice = pay['photo'][-1]
 
-            if has_key(pay, 'income'):
-                if pay['income']:
-                    incomes.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
-            if has_key(pay, 'expense'):
-                if pay['expense']:
-                    expenses.append(Work(pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), pay['name_pay'], amount, pay['sum'], invoice))
+    for pay in pay_data:
+        pay_date = pay['date'].astimezone(texas_tz).strftime('%d.%m.%Y')
+        if pay_date not in date:
+            continue
+
+        amount = pay.get('amount', 1)
+        invoice = pay['photo'][-1] if has_key(pay, 'photo') and pay['photo'] else None
+
+        if pay.get('income'):
+            incomes.append(Work(pay_date, pay['name_pay'], amount, pay['sum'], invoice))
+        if pay.get('expense'):
+            expenses.append(Work(pay_date, pay['name_pay'], amount, pay['sum'], invoice))
 
     for pay_contract in pay_contract_data:
-        if pay_contract['nickname'] == nick and pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-            if has_key(pay_contract, 'owner'):
-                if not pay_contract['owner']:
-                    continue
-            else:
-                continue
-            amount = pay_contract['amount'] if has_key(pay_contract, 'amount') else 1
+        pay_date = pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y')
+        if pay_date not in date:
+            continue
+
+        if not pay_contract.get('owner'):
+            continue
+
+        amount = pay_contract.get('amount', 1)
+        if has_key(pay_contract, 'photo_pay') and pay_contract['photo_pay']:
+            invoice = pay_contract['photo_pay'][-1]
+        else:
             invoice = None
-            if has_key(pay_contract, 'photo_pay'):
-                if len(pay_contract['photo_pay']) > 0:
-                    invoice = pay_contract['photo_pay'][-1]
+        category = pay_contract.get('category', 'default')
 
-            category = 'default'
-            if has_key(pay_contract, 'category'):
-                category = pay_contract['category']
+        name_pay = pay_contract['name_pay']
+        if category == 'daily rent':
+            name_pay = pay_contract['ContractName']
+        elif category == 'extra':
+            name_pay += f' ({pay_contract['ContractName']})'
 
-            name_pay = pay_contract['name_pay']
-            if category == 'daily rent':
-                name_pay = pay_contract['ContractName']
-            if category == 'extra':
-                name_pay += f' ({pay_contract["ContractName"]})'
-
-            if has_key(pay_contract, 'expense'):
-                if pay_contract['expense']:
-                    incomes.append(Work(pay_contract['date'].astimezone(texas_tz).strftime('%d.%m.%Y'), name_pay, amount, pay_contract['sum'], invoice, category))
+        if pay_contract.get('expense'):
+            incomes.append(Work(pay_date, name_pay, amount, pay_contract['sum'], invoice,
+                category))
 
     for repire in repire_data:
-        if repire['nickname'] == nick and repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y') in date:
-            amount = repire['amount'] if has_key(repire, 'amount') else 1
-            invoice = None
-            if has_key(repire, 'photo'):
-                if len(repire['photo']) > 0:
-                    invoice = repire['photo'][-1]
+        repire_date = repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y')
+        if repire_date not in date:
+            continue
 
-            if has_key(repire, 'expense'):
-                if repire['expense']:
-                    expenses.append(Work(repire['date_time'].astimezone(texas_tz).strftime('%d.%m.%Y'), repire['work_type'], amount, repire['sum'], invoice))
+        amount = repire.get('amount', 1)
+        invoice = repire['photo'][-1] if has_key(repire, 'photo') and repire['photo'] else None
+
+        if repire.get('expense'):
+            expenses.append(Work(repire_date, repire['work_type'], amount, repire['sum'], invoice))
 
     daily_rents = []
     for income in incomes.copy():
         if income.category == 'daily rent':
-            if income.work not in [rent.contract_name for rent in daily_rents]:
-                daily_rents.append(DailyRent(income.work, income))
+            match = next((r for r in daily_rents if r.contract_name == income.work), None)
+            if match:
+                match.add(income)
             else:
-                daily_rents[daily_rents.index([rent for rent in daily_rents if income.work == rent.contract_name][0])].add(income)
+                daily_rents.append(DailyRent(income.work, income))
             incomes.remove(income)
 
     for rent in daily_rents:
         rent.sort()
-        incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays), rent.summ, None, 'daily rent'))
+        incomes.append(Work(f'{rent.dates[0]} - {rent.dates[-1]}', str(rent), len(rent.pays),
+            rent.summ, None, 'daily rent'))
 
-    if [i for i in date if i.startswith('01.')]:
-        expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', len([i for i in date if i.startswith('01.')]),\
-            14.53 * len([i for i in date if i.startswith('01.')])))
-    #expenses.append(Work(date[0], 'SIM Relay', len(date), 6 * len(date) / 30))
+    if any(i.startswith('01.') for i in date):
+        sim_days = len([i for i in date if i.startswith('01.')])
+        expenses.append(Work(date[0], 'SIM Service (bouncie, relay)', sim_days, 14.53 * sim_days))
 
-    str_date = ''
-    for i in date:
-        if i == date[-1]:
-            str_date += i
-        else:
-            str_date += i + '; '
+    incomes.sort(key=lambda i: dt.strptime(i.date.split(' - ')[0], '%d.%m.%Y'))
+    expenses.sort(key=lambda e: dt.strptime(e.date.split(' - ')[0], '%d.%m.%Y'))
 
-    incomes.sort(key=lambda income: dt.strptime(income.date.split(' - ')[0], '%d.%m.%Y').astimezone(texas_tz) if '-' in income.date\
-        else dt.strptime(income.date, '%d.%m.%Y').astimezone(texas_tz))
-    expenses.sort(key=lambda expense: dt.strptime(expense.date.split(' - ')[0], '%d.%m.%Y').astimezone(texas_tz) if '-' in expense.date else\
-        dt.strptime(expense.date, '%d.%m.%Y').astimezone(texas_tz))
-
+    str_date = '; '.join(date)
     return ExcelData(str_date, '-', [Car(nick, incomes, expenses)])
 
-def get_range_periods(start_period, end_period):
-    """Given a period between start and end preiods
-
-    Args:
-        start_period (str): start period
-        end_period (str): end period
-
-    Returns:
-        str: period (thought comma)
-    """
+def get_range_periods(start_period, end_period) -> list[dt]:
+    """Given a period between start and end preiods"""
     start_date = dt.strptime(start_period, '%d.%m.%Y').astimezone(texas_tz)
     end_date = dt.strptime(end_period, '%d.%m.%Y').astimezone(texas_tz)
     if start_date > end_date:
@@ -634,59 +569,63 @@ def get_range_periods(start_period, end_period):
     return range_periods
 
 
-def owner_listener(db: client, bucket):
-    """Start the owner listener
+def owner_listener(db, bucket) -> None:
+    """Start the owner listener"""
+    lprint('initialize owner listener.')
 
-    Args:
-        db (client): databse
-        bucket (bucket): bucket to upload data
-    """
-    print('initialize owner listener.')
-
-    def snapshot(document: list[document], changes, read_time):
-        """snapshot the document
-
-        Args:
-            document (list[document]): list of docuemnts
-            changes: nothing
-            read_time: nothing
-        """
+    def snapshot(document, _, __) -> None:
+        """snapshot the document"""
         try:
             doc = document[0].to_dict()
+            if not doc:
+                raise ValueError('doc is null')
 
             if doc['excel_active']:
-                print(f'write xlsx {doc["excel_car"] if doc["excel_single"] else doc["excel_owner"]} (owner)')
+                if doc['excel_single']:
+                    lprint(f'write xlsx {doc["excel_car"]} (owner)')
+                else:
+                    lprint(f'write xlsx {doc["excel_owner"]} (owner)')
 
-                periods = get_range_periods(doc["excel_start_date"].astimezone(texas_tz).strftime('%d.%m.%Y'), doc["excel_end_date"]\
-                    .astimezone(texas_tz).strftime('%d.%m.%Y'))
-                data = get_single_data(periods, doc['excel_car'], db) if doc['excel_single'] else get_data(periods, doc['excel_owner'], db)
+                periods = get_range_periods(
+                    doc["excel_start_date"].astimezone(texas_tz).strftime('%d.%m.%Y'),
+                    doc["excel_end_date"].astimezone(texas_tz).strftime('%d.%m.%Y'))
+                if doc['excel_single']:
+                    data = get_single_data(periods, doc['excel_car'], db)
+                else:
+                    data = get_data(periods, doc['excel_owner'], db)
                 name = build(data)
 
                 if '--read-only' not in argv:
-                    blob = bucket.blob(f'excel/{doc["excel_car"] if doc["excel_single"] else doc["excel_owner"]}-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.xlsx')
+                    blob = bucket.blob(f'excel/\
+{doc["excel_car"] if doc["excel_single"] else doc["excel_owner"]}-\
+{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.xlsx')
+
                     blob.upload_from_filename(join(folder, name))
                     blob.make_public()
-                    print(f'write url to firestore: {blob.public_url}')
+                    lprint(f'write url to firestore: {blob.public_url}')
                 else:
-                    print('file not upload because of "--read-only" flag.')
+                    lprint('file not upload because of "--read-only" flag.')
 
                 if '--read-only' not in argv:
+                    #f'http://nta.desicarscenter.com:8000/files/{name}'
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'excel_active': False,
-                        'excel_url': blob.public_url #f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'excel_url': blob.public_url
                     })
                 else:
-                    print('excel_active not reseted because of "--read-only" flag.')
+                    lprint('excel_active not reseted because of "--read-only" flag.')
 
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
-            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from owner snapshot]')
+            lprint(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).\
+[from owner snapshot]')
             if '--no-tg' not in argv:
-                get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
+                get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module}\
+({e.__class__.__name__})', timeout=10)
             _exit(1)
 
         except KeyboardInterrupt:
-            print('main process stopped.')
+            lprint('main process stopped.')
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)

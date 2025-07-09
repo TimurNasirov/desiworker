@@ -1,7 +1,7 @@
 from twilio.rest import Client
 from config import TWILIO_TOKEN, TWILIO_SID, TWILIO_PHONE
 from sys import argv
-from rentacar.mods.firemod import client as fclient, has_key, document
+from rentacar.mods.firemod import has_key, document
 from rentacar.mods.timemod import dt, texas_tz
 from rentacar.log import Log
 
@@ -19,13 +19,18 @@ REGISTRATION_TEXT = "DESICARS: Hi. It's time to renew the car registration. Plea
 client = Client(TWILIO_SID, TWILIO_TOKEN)
 
 def send_sms(phone: str, text: str):
-    if '--no-sms' in argv:
-        print('SMS not sent because of "--no-sms" flag.')
-        return
-    client.messages.create(phone, body=text, from_=TWILIO_PHONE)
-    print(f'send SMS - phone: {phone}')
+    try:
+        if '--no-sms' in argv:
+            print('SMS not sent because of "--no-sms" flag.')
+            return
+        client.messages.create(phone, body=text, from_=TWILIO_PHONE)
+        print(f'send SMS - phone: {phone}')
+        return True
+    except Exception as e:
+        print(f'error while send sms: {e}')
+        return False
 
-def add_inbox(db: fclient, phone: str, text: str, contract_name: str, renter: str):
+def add_inbox(db, phone: str, text: str, contract_name: str, renter: str):
     """Add a message to the database
 
     Args:
@@ -44,8 +49,8 @@ def add_inbox(db: fclient, phone: str, text: str, contract_name: str, renter: st
             inbox_dict: dict = inbox.to_dict()
             if has_key(inbox_dict, 'ContractName'):
                 if inbox_dict['ContractName'] == contract_name:
-                    db.collection('InboxSMS').document(inbox.id).update({'changed_time': now})
-                    db.collection('InboxSMS').document(inbox.id).collection('messages').add({
+                    inbox.reference.update({'changed_time': now})
+                    inbox.reference.collection('messages').add({
                         'created_time': now,
                         'is_our': True,
                         'readed': True,

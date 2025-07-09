@@ -9,6 +9,7 @@ toll: 23:45, 12:10
 
 from sys import path
 from os.path import dirname, abspath
+from typing import NoReturn
 SCRIPT_DIR = dirname(abspath(__file__))
 path.append(dirname(SCRIPT_DIR))
 
@@ -40,16 +41,14 @@ from rentacar.incomes import incomes_listener
 logdata = Log('runner.py')
 print = logdata.print
 
-db: client = init_db()
+db = init_db()
 bucket = bucket()
 
-def run_checking(run):
-    """Run all subprocesses in a run
-
-    Args:
-        run (list): objects that should run
-    """
-    last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
+def run_checking(run) -> None:
+    """Run all subprocesses in a run"""
+    last_update_data = db.collection('Last_update_python').document('last_update').get().to_dict()
+    if not last_update_data:
+        raise ValueError('last update data is null')
 
     print('checking subprocesses on last update.')
     if 'changeoil' in run:
@@ -117,24 +116,16 @@ def run_checking(run):
 
         wait()
 
-def start_all(run):
-    """Start all of the things in the run
-
-    Args:
-        run (list): objects that should run
-    """
+def start_all(run) -> None:
+    """Start all of the things in the run"""
     if 'odometer' in run:
         start_odometer(db)
     start_rentacar(run)
     if 'supadesi' in run:
         start_supadesi(db)
 
-def start_rentacar(run):
-    """Starts the various boilerplate functions in the run
-
-    Args:
-        run (list): objects that should run
-    """
+def start_rentacar(run) -> None:
+    """Starts rentacar subprocesses"""
     if 'changeoil' in run:
         start_changeoil(db)
     if 'payday' in run:

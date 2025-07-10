@@ -1,6 +1,6 @@
 from traceback import format_exception
 from requests import get
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 from sys import argv
 
 try:
@@ -17,7 +17,7 @@ try:
     if '-t' in argv:
         print('-t: immediately activate. Process will stop after all subprocesses finished.')
     if '--no-tg' in argv:
-        print('--no-tg: no telegram notifications sneding on errors')
+        print('--no-tg: no telegram notifications sending on errors')
 
     if '-t' in argv:
         start_toll(db)

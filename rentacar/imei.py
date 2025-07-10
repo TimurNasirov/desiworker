@@ -10,11 +10,8 @@ Launch time: 12:00 [imei]
 Marks: bouncie
 '''
 
-from sys import path, argv
-from os.path import dirname, abspath
-from os import get_terminal_size
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+from sys import argv
+from typing import Literal
 
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, texas_tz, time
@@ -25,7 +22,7 @@ from rentacar.mods.bouncie import get_apikey, get_imei
 logdata = Log('imei.py')
 print = logdata.print
 
-def start_imei(db: client):
+def start_imei(db: client) -> None:
     """Update imei
 
     Args:
@@ -55,7 +52,7 @@ def start_imei(db: client):
     print(f' - lost cars: {lost_count}')
     print(f' - time: {round(time() - start_time, 2)} seconds.')
 
-def compare_imei(db: client, bcar: dict, car: dict):
+def compare_imei(db: client, bcar: dict, car: dict) -> Literal[False] | Literal[True]:
     """Update the imei for a given car
 
     Args:
@@ -78,46 +75,7 @@ def compare_imei(db: client, bcar: dict, car: dict):
                 })
             else:
                 print('imei task not created because of "--read-only" flag.')
-            return 1
+            return True
         else:
-            return 0
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess imei.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--test: test (start imei).')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --imei-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('imei')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--test' in argv:
-            start_imei(db)
-
-    print('imei subprocess stopped successfully.')
+            return False
+    return False

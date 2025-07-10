@@ -30,14 +30,13 @@ from requests import get
 from openpyxl.styles import Font, Border, Side, Alignment
 from openpyxl import Workbook
 
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 from rentacar.mods.firemod import has_key, to_dict_all, FieldFilter
 from rentacar.mods.timemod import dt, timedelta, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 logdata = Log('owner.py')
 lprint = logdata.print
@@ -288,8 +287,7 @@ def build(data: ExcelData) -> Literal['owner.xlsx']:
         ws[f'D{row + length - 2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
         ws[f'D{row + length - 2}'].font = bold_font
 
-        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R"
-            else ""}'
+        ws[f'E{row + length - 2}'] = f'=SUM(D{row}:D{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'E{row + length - 2}'].font = expense_font
         ws[f'E{row + length - 2}'].number_format = '#,##0.00'
 
@@ -333,8 +331,7 @@ def build(data: ExcelData) -> Literal['owner.xlsx']:
         ws[f'J{row2}'].value = 'Subtotal / 2:' if data.owner == 'D+R' else 'Subtotal:'
         ws[f'J{row2}'].font = bold_font
 
-        ws[f'K{row2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R"
-            else ""}'
+        ws[f'K{row2}'] = f'=SUM(J{row}:J{length + row}){"/2" if data.owner == "D+R" else ""}'
         ws[f'K{row2}'].font = income_font
         ws[f'K{row2}'].number_format = '#,##0.00'
 
@@ -513,7 +510,7 @@ def get_single_data(date, nick: str, db) -> ExcelData:
         if category == 'daily rent':
             name_pay = pay_contract['ContractName']
         elif category == 'extra':
-            name_pay += f' ({pay_contract['ContractName']})'
+            name_pay += f' ({pay_contract["ContractName"]})'
 
         if pay_contract.get('expense'):
             incomes.append(Work(pay_date, name_pay, amount, pay_contract['sum'], invoice,

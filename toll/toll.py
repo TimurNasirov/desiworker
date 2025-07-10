@@ -1,20 +1,27 @@
 """
-When renter is driving thought toll road or park in paid place, NTTA system get this data and publish it on their site. This program take this
-data from their website and add it in firebase collection Toll. After that owner can see about renter need to pay for this because NTTA
-automaticly get money from owner and pay for this paid things. Often, renter pay for paid things when today is pay day.
+When renter is driving thought toll road or park in paid place, NTTA system get this data and
+publish it on their site. This program take this data from their website and add it in firebase
+collection Toll. After that owner can see about renter need to pay for this because NTTA
+automaticly get money from owner and pay for this paid things. Often, renter pay for paid things
+when today is pay day.
 TOLL
 Collection: Toll
 Group: toll
 Launch time: 23:45, 12:10 [toll]
 Marks: last-update, selenium
 """
-
 from sys import path, argv
 from os.path import dirname, abspath
+from os import remove
 from csv import reader
-from os import get_terminal_size, remove
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+from log import Log
+
+from mods.firemod import to_dict_all, get_car, has_key, get_contract, FieldFilter
+from mods.timemod import sleep, dt, timedelta, texas_tz
+from rentacar.config import NTTA_URL, NTTA_LOGIN, NTTA_PASSWORD, NTTA_HISTORY_URL
+from str_config import TOLL_USERNAME_ID, TOLL_PASSWORD_NAME, TOLL_LOGIN_BUTTON_SELECTOR,\
+    TOLL_CSV_XPATH, TOLL_FILENAME, USER, TOLL_CATEGORY, TOLL_COMMENT_TASK, TOLL_NAME_PAY,\
+    TOLL_NAME_TASK, TOLL_COMMENT_PAY, TOLL_DOWNLOAD_PATH
 
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
@@ -22,21 +29,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from log import Log
-from mods.firemod import client, to_dict_all, get_car, has_key, get_contract, init_db
-from mods.timemod import sleep, dt, timedelta, texas_tz
-from config import NTTA_URL, NTTA_LOGIN, NTTA_PASSWORD, NTTA_HISTORY_URL
-from str_config import TOLL_USERNAME_ID, TOLL_PASSWORD_NAME, TOLL_LOGIN_BUTTON_SELECTOR, TOLL_CSV_XPATH, TOLL_FILENAME, USER, TOLL_CATEGORY,\
-    TOLL_COMMENT_TASK, TOLL_NAME_PAY, TOLL_NAME_TASK, TOLL_COMMENT_PAY, TOLL_DOWNLOAD_PATH
+
+
+
 logdata = Log('toll.py')
 print = logdata.print
 
-def start_toll(db: client):
+def start_toll(db) -> None:
+    """start toll"""
     print('start toll.')
     #download.py
     options = Options()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--headless')
+    # options.add_argument('--no-sandbox')
+    # options.add_argument('--headless')
     if '-d' in argv:
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option("prefs", {
@@ -72,7 +77,7 @@ def start_toll(db: client):
     driver.quit()
 
     #read.py
-    with open(TOLL_FILENAME, 'r') as fl:
+    with open(TOLL_FILENAME, 'r', encoding='utf-8') as fl:
         print('reading csv file.')
         csv_fl = reader(fl)
 
@@ -85,12 +90,15 @@ def start_toll(db: client):
 
         for row in readed_data:
             for col in row:
-                row[row.index(col)] = col.replace('=Text("', '').replace('","mm/dd/yyyy HH:mm:SS")', '').replace('$', '')
+                row[row.index(col)] = col.replace('=Text("', '')\
+                    .replace('","mm/dd/yyyy HH:mm:SS")', '').replace('$', '')
             row[0] = dt.strptime(row[0], '%m/%d/%Y %H:%M:%S')
 
-        tolls: list[list] = []
+        tolls: list[dict] = []
         for row in readed_data:
-            if row[0].strftime('%m.%d.%Y') in [(dt.now(texas_tz) - timedelta(days=i)).strftime('%m.%d.%Y') for i in range(4)]:
+            if row[0].strftime('%m.%d.%Y') in [
+                (dt.now(texas_tz) - timedelta(days=i)).strftime('%m.%d.%Y') for i in range(4)
+            ]:
                 tolls.append({
                     'date': row[0],
                     'id': int(row[1]),
@@ -104,20 +112,31 @@ def start_toll(db: client):
 
     #send.py
     print('writing tolls to firebase.')
-    tasks: list[dict] = to_dict_all(db.collection('Task').get())
-    exists_tolls_dict: list[dict] = to_dict_all(db.collection('Toll').get())
-    exists_tolls: list[int] = []
-    for toll in exists_tolls_dict:
-        exists_tolls.append(int(toll['ID']))
+    reads = 0
+    tasks: list[dict] = to_dict_all(db.collection('Task')
+        .where(field=FieldFilter('name_task', '==', TOLL_NAME_TASK))
+        .where(filter=FieldFilter('status', '==', True)).get())
+    reads += len(tasks)
+    exists_tolls_dict: list[dict] = to_dict_all(db.collection('Toll')\
+        .where(filter=FieldFilter('date', '>=', dt.now(texas_tz) - timedelta(days=31))).get())
+    reads += len(exists_tolls_dict)
+    exists_tolls: list[int] = [int(toll['ID']) for toll in exists_tolls_dict]
 
     for toll in tolls:
+        if toll['plate'] == '' or toll['plate'] == '-':
+            continue
         if toll['id'] not in exists_tolls:
             car = get_car(db, toll['plate'], 'plate')
-            if car['nickname'] != None:
+            reads += 1
+            if car['nickname'] is not None:
                 if toll['plate'] != '' or toll['plate'] != '-':
-                    contract_name = get_contract(db, car['nickname'], check_active=False)['ContractName']
-                    print(f'write toll {toll["id"]}, nickname: {car["nickname"] if has_key(car, "nickname") else "-"}, date: {toll["date"]},\
-                        id: {toll["id"]}, sum: {toll["sum"].replace("-", "")}.')
+                    contract_name = get_contract(db, car['nickname'], check_active=False)\
+                        ['ContractName']
+                    reads += 1
+                    print(
+                        f'write toll {toll["id"]}, nickname: '
+                        f'{car["nickname"] if has_key(car, "nickname") else "-"}, date: '
+                        f'{toll["date"]}, id: {toll["id"]}, sum: {toll["sum"].replace("-", "")}.')
                     if '--read-only' not in argv:
                         db.collection('Pay_contract').add({
                             'date': toll['date'],
@@ -126,8 +145,9 @@ def start_toll(db: client):
                             'plate': toll['plate'],
                             'name_pay': TOLL_NAME_PAY,
                             'category': TOLL_CATEGORY,
-                            'comment': f"Original sum: {float(toll['sum'].replace('-', ''))}. " + TOLL_COMMENT_PAY.replace('{location}',\
-                                toll['location']).replace('{type}', toll['type']),
+                            'comment': f"Original sum: {float(toll['sum'].replace('-', ''))}. " +
+                            TOLL_COMMENT_PAY.replace('{location}', toll['location'])\
+                                .replace('{type}', toll['type']),
                             'income': False,
                             'expense': True,
                             'owner': False,
@@ -150,12 +170,15 @@ def start_toll(db: client):
                     else:
                         print('toll not writed because of "--read-only" flag.')
             else:
-                if toll['plate'] not in [task['plate'] for task in tasks if task['name_task'] == TOLL_NAME_TASK and has_key(task, 'plate') and task['status']]:
+                if toll['plate'] not in [
+                    task['plate'] for task in tasks if (has_key(task, 'plate'))
+                ]:
                     print(f'write unknown toll task - plate: {toll["plate"]}, id: {toll["id"]}')
                     db.collection('Task').add({
                         'date': dt.now(texas_tz),
                         'name_task': TOLL_NAME_TASK,
-                        'comment': TOLL_COMMENT_TASK.replace('{sum}', str(toll['sum'])).replace('{id}', str(toll['id'])).replace('{plate}', toll['plate']),
+                        'comment': TOLL_COMMENT_TASK.replace('{sum}', str(toll['sum']))\
+                            .replace('{id}', str(toll['id'])).replace('{plate}', toll['plate']),
                         'user': USER,
                         'plate': toll['plate'],
                         'status': True,
@@ -171,57 +194,14 @@ def start_toll(db: client):
     else:
         print('toll last update not updated because of "--read-only" flag.')
 
-def check_toll(last_update_data: dict, db: client, log: bool = False):
+def check_toll(last_update_data: dict, db, log: bool = False) -> None:
+    """check toll last update"""
     if log:
         print('check toll last update.')
-    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=3) <= dt.now(texas_tz):
+    if last_update_data['toll_update'].astimezone(texas_tz) + timedelta(hours=3)\
+        <= dt.now(texas_tz):
         print('toll has not been started for a long time: starting...')
         start_toll(db)
     else:
         if log:
             print('toll was started recently. All is ok.')
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess toll.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--test: test (start toll).')
-        print('--check: check toll last update.')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --toll-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('TOLL')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--test' in argv:
-            start_toll(db)
-        elif '--check' in argv:
-            last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
-            check_toll(last_update_data, db, True)
-
-    print('toll subprocess stopped successfully.')

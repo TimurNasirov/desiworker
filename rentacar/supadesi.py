@@ -11,20 +11,19 @@ from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
 from random import randint
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from rentacar.mods.timemod import time, sleep, dt
 from rentacar.mods.firemod import client, init_db
 from rentacar.log import Log
 from supabase import create_client
-from config import SUPABASE_URL, SUPABASE_KEY
+from rentacar.config import SUPABASE_URL, SUPABASE_KEY
 
 logdata = Log('supadesi.py')
 print = logdata.print
 db = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-def add_data(data: list, table: str):
+def add_data(data: list, table: str) -> None:
     start = time()
     if '--read-only' not in argv:
         db.table(table).delete().gt('id', 0).execute()
@@ -45,10 +44,12 @@ def add_data(data: list, table: str):
     end = time()
     print(f'Successfully updated {len(data)} rows. Time: {round(end - start, 2)} seconds')
 
-def start_supadesi(db: client):
+def start_supadesi(db) -> None:
+    reads = 0
     start_time = time()
     print('Get Contract table.')
     contract = db.collection('Contract').get()
+    reads += len(contract)
     data2 = []
     for i in contract:
         data = i.to_dict()
@@ -82,6 +83,7 @@ def start_supadesi(db: client):
 
     print('Get Contract.ContractComment table.')
     comments = db.collection_group('ContractComment').get()
+    reads += len(comments)
     data2 = []
     for i in comments:
         data = i.to_dict()
@@ -98,6 +100,7 @@ def start_supadesi(db: client):
 
     print('Get Contract.Promo table.')
     comments = db.collection_group('Promo').get()
+    reads += len(comments)
     data2 = []
     for i in comments:
         data = i.to_dict()
@@ -112,6 +115,7 @@ def start_supadesi(db: client):
 
     print('Get History table.')
     history = db.collection('History').get()
+    reads += len(history)
     data2 = []
     for i in history:
         data = i.to_dict()
@@ -127,6 +131,7 @@ def start_supadesi(db: client):
 
     print('Get Last_update_python table.')
     last_update = db.collection('Last_update_python').document('last_update').get()
+    reads += 1
     data = last_update.to_dict()
     data2 = [
         {'name': 'toll', 'date': data['toll_update'].isoformat()},
@@ -144,6 +149,7 @@ def start_supadesi(db: client):
 
     print('Get Owner table.')
     owner = db.collection('Owner').get()
+    reads += len(owner)
     data2 = []
     for i in owner:
         data = i.to_dict()
@@ -155,6 +161,7 @@ def start_supadesi(db: client):
 
     print('Get Pay table.')
     pay = db.collection('Pay').get()
+    reads += len(pay)
     data2 = []
     for i in pay:
         data = i.to_dict()
@@ -176,6 +183,7 @@ def start_supadesi(db: client):
 
     print('Get Pay_contract table.')
     pay_contract = db.collection('Pay_contract').get()
+    reads += len(pay_contract)
     data2 = []
     for i in pay_contract:
         data = i.to_dict()
@@ -197,6 +205,7 @@ def start_supadesi(db: client):
 
     print('Get Repire table.')
     repire = db.collection('Repire').get()
+    reads += len(repire)
     data2 = []
     for i in repire:
         data = i.to_dict()
@@ -218,6 +227,7 @@ def start_supadesi(db: client):
 
     print('Get Task table.')
     task = db.collection('Task').get()
+    reads += len(task)
     data2 = []
     for i in task:
         data = i.to_dict()
@@ -239,6 +249,7 @@ def start_supadesi(db: client):
 
     print('Get Task.Parts table.')
     parts = db.collection_group('Parts').get()
+    reads += len(parts)
     data2 = []
     for i in parts:
         data = i.to_dict()
@@ -254,6 +265,7 @@ def start_supadesi(db: client):
 
     print('Get Toll table.')
     toll = db.collection('Toll').get()
+    reads += len(toll)
     data2 = []
     for i in toll:
         data = i.to_dict()
@@ -271,6 +283,7 @@ def start_supadesi(db: client):
 
     print('Get auth_user table.')
     auth_user = db.collection('auth_user').get()
+    reads += len(auth_user)
     data2 = []
     for i in auth_user:
         data = i.to_dict()
@@ -281,6 +294,7 @@ def start_supadesi(db: client):
 
     print('Get cars table.')
     cars = db.collection('cars').get()
+    reads += len(cars)
     data2 = []
     for i in cars:
         data = i.to_dict()
@@ -305,6 +319,7 @@ def start_supadesi(db: client):
 
     print('Get inspection table.')
     inspection = db.collection('inspection').get()
+    reads += len(inspection)
     data2 = []
     for i in inspection:
         data = i.to_dict()
@@ -323,6 +338,7 @@ def start_supadesi(db: client):
     print('Get setting_app table.')
     setting_app = db.collection('setting_app').document('Mo7VMvpoEdLB7ao9XnAo').get()
     data = setting_app.to_dict()
+    reads += 1
     if not data:
         print('error: incorrect data')
         quit()
@@ -339,6 +355,7 @@ def start_supadesi(db: client):
     print('Get Temp_APP table.')
     temp_app = db.collection('Temp_APP').document('vPHKtqC5mppukNZWplBl').get()
     data = temp_app.to_dict()
+    reads += 1
     if not data:
         print('error: incorrect data')
         quit()
@@ -346,6 +363,7 @@ def start_supadesi(db: client):
 
     print('Get InboxSMS table.')
     inboxsms = db.collection('InboxSMS').get()
+    reads += len(inboxsms)
     data2 = []
     for i in inboxsms:
         data = i.to_dict()
@@ -363,6 +381,7 @@ def start_supadesi(db: client):
 
     print('Get InboxSMS.messages table.')
     messages = db.collection_group('messages').get()
+    reads += len(messages)
     data2 = []
     for i in messages:
         data = i.to_dict()
@@ -380,47 +399,5 @@ def start_supadesi(db: client):
         if 'type' not in data.keys():
             data['type'] = 'chat'
     add_data(data2, 'InboxSMS.messages')
-    print(f'Supadesi work completed. Time: {round(time() - start_time, 2)} seconds')
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess supadesi.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--test: test (start supadesi).')
-        print('--check: check supadesi last update.')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --supadesi-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('SUPA DESI')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--test' in argv:
-            start_supadesi(db)
-        elif '--check' in argv:
-            last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
-            check_supadesi(last_update_data, db, True)
-
-    print('supadesi subprocess stopped successfully.')
+    total_time = round(time() - start_time, 2)
+    print(f'Supadesi work completed. Time: {total_time} seconds. Reads: {reads}')

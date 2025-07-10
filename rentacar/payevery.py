@@ -2,8 +2,7 @@ from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
 from random import randint
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, time
@@ -125,30 +124,3 @@ def check_payevery(last_update_data: dict, db: client, log: bool = False):
     else:
         if log:
             print('payevery was started recently. All is ok.')
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ' '.join(argv)
-    logdata.log_init(command)
-
-    print('start subprocess payevery.')
-    if len(argv) == 1:
-        print('not enough arguments. add -h for help.')
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('-> run watcher.py for main process')
-        print('--test: test (start payevery).')
-        print('--check: check payevery last update.')
-        print('flags: -h (help), --no-sms (disable SMS), --read-only (read-only mode)')
-        print('WARNING: errors not caught in subprocess, use watcher.py with --payevery-only -t to fix')
-        print('Description:')
-        for line in __doc__.split('\n')[1:]:
-            if line.strip() and line != 'PAY EVERY': print(line)
-    else:
-        db = init_db()
-        if '--test' in argv:
-            start_payevery(db)
-
-    print('payevery subprocess stopped successfully.')

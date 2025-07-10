@@ -1,20 +1,65 @@
+"""
+main.py
+=======
+
+Primary entry point for launching and controlling the DESI CARS automation system.
+
+Functions
+------------
+• **Parses command-line arguments**
+  - Allows full control over which processes run, when, and how.
+  - Supports:
+    - `--[task]-only`: run only the specified task
+    - `--no-[task]`: exclude a specific task
+    - `--no-sms`: disable SMS sending and inbox logging
+    - `--read-only`: disable all write operations (tasks, updates, SMS)
+    - `--no-tg`: disable Telegram error notifications
+
+• **Logs launch command and output**
+  - Captures the full CLI command into a log file
+  - Uses a consistent logging interface via `Log`
+
+• **Supports immediate execution**
+  - The `-t [module]` flag triggers one-time execution without waiting for scheduled time.
+  - Examples:
+    - `-t rentacar`
+    - `-t all`
+    - `-t supadesi`
+
+• **Displays help screen**
+  - The `-h` flag prints instructions for CLI usage, task options, and available flags
+
+• **Starts runtime coordination**
+  - If no `-t` flag is given, it delegates execution to `runner.py` via `run_checking(run)`
+
+• **Handles errors gracefully**
+  - Catches and formats exceptions with module name and line number
+  - Sends error alerts via Telegram (unless `--no-tg` is passed)
+linting: 9.87
+"""
+from sys import argv, path
+from os import get_terminal_size
+from os.path import abspath, dirname
+path.append(dirname(dirname(abspath(__file__))))# pylint: disable=wrong-import-position
+
 from traceback import format_exception
+
 from requests import get
-from config import TELEGRAM_LINK
-from sys import argv
+from rentacar.config import TELEGRAM_LINK
+
 try:
-    from log import Log
-    from os import get_terminal_size
-    from runner import start_all, start_rentacar, start_odometer, start_all, start_supadesi, run_checking, db
+    from rentacar.log import Log
+    from rentacar.runner import start_rentacar, start_odometer, start_all, start_supadesi,\
+        run_checking, db
 
     logdata = Log('main.py')
     print = logdata.print
     logdata.logfile('\n')
 
-    command = ''
+    COMMAND = ''
     for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
+        COMMAND += i + ' '
+    logdata.log_init(COMMAND)
 
     if '--read-only' in argv:
         print('--read-only: no sms sending, no task and pay creating, no last update updating.')
@@ -26,13 +71,16 @@ try:
         print('--no-tg: no telegram notifications sending on errors')
 
     if '--no-rentacar' in argv:
-        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner', 'statement', 'card', 'incomes', 'debt']
+        run = ['toll', 'supadesi', 'extoll', 'rental', 'lease', 'owner', 'statement', 'card',
+            'incomes', 'debt']
     else:
-        run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post', 'registration', 'saldo', 'supadesi', 'rental', 'lease',\
-            'extoll', 'owner', 'payevery', 'imei', 'statement', 'card', 'debt', 'incomes']
+        run = ['changeoil', 'insurance', 'latepayment', 'odometer', 'payday', 'post',
+            'registration', 'saldo', 'supadesi', 'rental', 'lease','extoll', 'owner',
+            'payevery', 'imei', 'statement', 'card', 'debt', 'incomes']
 
     if '--rentacar-only' in argv:
-        run = ['changeoil', 'insurance', 'registration', 'latepayment', 'odometer', 'payday', 'post', 'saldo']
+        run = ['changeoil', 'insurance', 'registration', 'latepayment', 'odometer', 'payday',
+            'post', 'saldo']
     if '--supadesi-only' in argv:
         run = ['supadesi']
     if '--exword-only' in argv:
@@ -125,35 +173,47 @@ try:
             elif argv[argv.index('-t') + 1] == 'supadesi':
                 start_supadesi(db)
             else:
-                print(f'ERROR unknown module "{argv[argv.index("-t") + 1]}". See watcher instructions (-h flag).')
+                print(f'ERROR unknown module "{argv[argv.index("-t") + 1]}". See watcher\
+instructions (-h flag).')
         else:
             start_all(run)
         print('main process stopped successfully.')
     elif '-h' in argv:
         size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 50) // 2)} WATCHER INSRUCTIONS {" " * ((size - 50) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('-t [process]: immediately activate main process (without checking time).')
-        print(' - process (str) (optional): name of process that will run.')
-        print('   - Available values: all, rentacar, exword, supadesi, odometer.')
-        print('   - Default: all')
-        print('--[subprocess]-only: run only this subprocess.')
-        print(' - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, sald\
-o, supadesi, toll.')
-        print(' - If you choose rentacar, these process will run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
-o.')
-        print('--no-[subprocess]: choose which subprocesses wont work.')
-        print(' - Available values: changeoil, owner, rental, lease, extoll, insurance, latepayment, odometer, payday, post, registration, sald\
-o, supadesi, toll.')
-        print(' - If you choose rentacar, these process wont run: changeoil, insurance, latepayment, odometer, payday, post, registration, sald\
-o.')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
+        print(f'{"=" * ((size - 43) // 2)} DESI WORKER {"=" * ((size - 43) // 2)}')
+        print(f'{" " * ((size - 50) // 2)} WATCHER INSTRUCTIONS {" " * ((size - 50) // 2)}\n')
+
+        print("Usage:")
+        print("  python main.py [flags]\n")
+
+        print("Flags:")
+        print("  -t [module]           Immediately run one module without waiting for schedule.")
+        print("                        Available values:")
+        print("                          all         – run all modules")
+        print("                          rentacar    – run core business tasks (oil, insurance, etc\
+.)")
+        print("                          supadesi    – run supadesi module")
+        print("                          odometer    – run odometer module\n")
+
+        print("  --[module]-only       Run only the specified module.")
+        print("                        Available modules:")
+        print("                          changeoil, insurance, latepayment, odometer, payday,")
+        print("                          post, registration, saldo, supadesi, rental, lease,")
+        print("                          owner, extoll, payevery, imei, statement, card, debt,\
+incomes\n")
+
+        print("  --no-[module]         Exclude the specified module from execution.")
+        print("                        Use the same module names as above.\n")
+
+        print("  --read-only           Disable all writes: no task creation, no updates, no SMS.")
+        print("  --no-sms              Disable SMS sending and inbox updates.")
+        print("  --no-tg               Suppress Telegram error notifications.")
+        print("  -h                    Show this help screen.\n")
+        print("  -d                    Switches to docker folder paths.")
+
+        print("Defaults:")
+        print("  By default, all modules are enabled unless excluded with --no-[module].")
+        print("  To fully control active modules, use --[module]-only or -t [module].")
     else:
         print('start main process.')
         run_checking(run)
@@ -164,7 +224,10 @@ except Exception as e:
     module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
     print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).')
     if '--no-tg' not in argv:
-        get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
+        get(
+            f'{TELEGRAM_LINK}DESI WORKER: raised error in module'
+            f' {module} ({e.__class__.__name__})', timeout=10
+        )
 
 except KeyboardInterrupt:
     print('main process stopped.')

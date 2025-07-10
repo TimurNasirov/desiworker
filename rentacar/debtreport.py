@@ -1,23 +1,71 @@
-from sys import path, argv
-from os.path import dirname, abspath, join
-from os import get_terminal_size, _exit
-from traceback import format_exception
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+"""
+debt.py
+=======
 
+Generates a debt summary Excel report for rental contracts, grouped by owner and categorized by
+type (rent, tolls, extra charges, other). Triggered automatically when `debt_active` is set to
+`true` in the Firestore `setting_app` document.
+
+Functions
+---------
+• **Collects contract financial data**
+  - Reads all active contracts
+  - Matches them with cars belonging to the specified owner (or all)
+  - Aggregates related transactions from `Pay_contract`, divided by category:
+    - `daily rent` → rent
+    - `toll` → toll
+    - `extra` → extra
+    - everything else → other
+  - Both `income` and `expense` entries are considered with appropriate signs.
+
+• **Builds an Excel file**
+  - Uses `openpyxl` to generate a `debt.xlsx` file with a summary:
+    - Contract name, rent, toll, extra, other, total balance, owner
+  - Styled with borders, font settings, alignment, and formatted number columns
+
+• **Uploads the Excel to the cloud bucket**
+  - If not in `--read-only` mode:
+    - Uploads to `/excel/` folder in bucket with timestamp
+    - Makes file public and stores the download URL in Firestore
+
+• **Resets trigger flag in Firestore**
+  - Sets `debt_active` to `false`
+  - Updates `debt_url` with the uploaded file’s public link
+
+• **Listens for trigger in real time**
+  - Subscribes to changes on `setting_app` document
+  - When `debt_active` is set to `true`, automatically processes and responds
+
+Flags
+-----
+`--read-only`
+    Prevents file upload and database updates. Still builds Excel locally.
+
+`-d`
+    Switches to docker folder paths.
+linting: 9.62
+"""
+from sys import argv
+from os.path import dirname, abspath, join
+from os import _exit
+from traceback import format_exception
+from typing import Literal
+
+from requests import get
 from openpyxl.styles import Font, Border, Side, Alignment
 from openpyxl import Workbook
-from rentacar.mods.firemod import has_key, client, init_db, document, bucket, to_dict_all, get_car
-from rentacar.mods.timemod import dt, sleep, texas_tz
+
+from rentacar.config import TELEGRAM_LINK
+from rentacar.mods.firemod import to_dict_all, FieldFilter, get_owner_car, get_car
+from rentacar.mods.timemod import dt, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
-from requests import get
-from config import TELEGRAM_LINK
 
 logdata = Log('debt.py')
 print = logdata.print
 
-folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)), 'exword_results')
+folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)),
+    'exword_results')
 
 bold_font = Font(bold=True, name='Arial')
 short_border = Border(
@@ -34,7 +82,14 @@ tall_border = Border(
 )
 
 class Item:
-    def __init__(self, name: str, rent: float, toll: float, extra: float, other: float, owner: str):
+    """
+    Represents a financial summary for a single rental contract.
+    This class is used in debt reports to group all financial transactions
+    by contract and categorize them. Positive values represent net income,
+    while negative values represent net expense.
+    """
+    def __init__(self, name: str, rent: float, toll: float, extra: float, other: float,
+            owner: str) -> None:
         self.name = name
         self.rent = rent
         self.toll = toll
@@ -43,67 +98,58 @@ class Item:
         self.summ = rent + toll + extra + other
         self.owner = owner
 
-def get_data(db: client, owner: str):
-    contracts: list[dict] = to_dict_all(db.collection('Contract').get())
-    cars: list[dict] = to_dict_all(db.collection('cars').get())
-    pay_contracts: list[dict] = to_dict_all(db.collection('Pay_contract').get())
+def get_data(db, owner: str) -> list[Item]:
+    """Retrieves contracts and summarizes financial transactions per contract."""
+    contracts: list[dict] = to_dict_all(db.collection('Contract')
+        .where(filter=FieldFilter('Active', '==', True)).get())
+    reads = len(contracts)
+    pay_contracts = [
+        p for p in to_dict_all(db.collection("Pay_contract").get())
+        if p.get("ContractName") and not p.get("delete")
+    ]
+    reads += len(pay_contracts)
+
     items: list[Item] = []
 
+    cat_map: dict = {
+        "daily rent": "rent",
+        "toll":        "toll",
+        "extra":       "extra",
+    }
+
     for contract in contracts:
-        if not contract['Active']:
-            continue
-        car = [car for car in cars if car['nickname'] == contract['nickname']][0]
-        if car['owner'] != owner and owner != 'all':
-            continue
-        rent = 0
-        toll = 0
-        extra = 0
-        other = 0
+        car = (
+            get_owner_car(db, contract["nickname"], owner)
+            if owner != "all"
+            else get_car(db, contract["nickname"])
+        )
+        reads += 1
 
-        for pay_contract in pay_contracts:
-            if not has_key(pay_contract, 'ContractName'):
+        acc = {"rent": 0, "toll": 0, "extra": 0, "other": 0}
+
+        for pay in pay_contracts:
+            if pay["ContractName"] != contract["ContractName"]:
                 continue
-            if has_key(pay_contract, 'delete'):
-                if pay_contract['delete']:
-                    continue
 
-            if pay_contract['ContractName'] == contract['ContractName']:
-                if has_key(pay_contract, 'category'):
-                    if pay_contract['category'] == 'daily rent':
-                        if has_key(pay_contract, 'income'):
-                            if pay_contract['income']: rent += pay_contract['sum']
-                        if has_key(pay_contract, 'expense'):
-                            if pay_contract['expense']: rent -= pay_contract['sum']
-                    elif pay_contract['category'] == 'toll':
-                        if has_key(pay_contract, 'income'):
-                            if pay_contract['income']: toll += pay_contract['sum']
-                        if has_key(pay_contract, 'expense'):
-                            if pay_contract['expense']: toll -= pay_contract['sum']
-                    elif pay_contract['category'] == 'extra':
-                        if has_key(pay_contract, 'income'):
-                            if pay_contract['income']: extra += pay_contract['sum']
-                        if has_key(pay_contract, 'expense'):
-                            if pay_contract['expense']: extra -= pay_contract['sum']
-                    else:
-                        if has_key(pay_contract, 'income'):
-                            if pay_contract['income']: other += pay_contract['sum']
-                        if has_key(pay_contract, 'expense'):
-                            if pay_contract['expense']: other -= pay_contract['sum']
-                else:
-                    if has_key(pay_contract, 'income'):
-                        if pay_contract['income']: other += pay_contract['sum']
-                    if has_key(pay_contract, 'expense'):
-                        if pay_contract['expense']: other -= pay_contract['sum']
+            bucket = cat_map.get(pay.get("category"), "other")
+            sign = 1 if pay.get("income") else -1 if pay.get("expense") else 0
+            acc[bucket] += sign * pay.get("sum", 0)
 
-        items.append(Item(contract['ContractName'], rent, toll, extra, other, car['owner']))
+        items.append(
+            Item(contract["ContractName"], acc["rent"], acc["toll"],
+                acc["extra"], acc["other"], car["owner"])
+        )
 
-    items.sort(key=lambda item: item.summ)
+    items.sort(key=lambda i: i.summ)
     return items
 
 
-def build(data: list[Item]):
+def build(data: list[Item]) -> Literal['debt.xlsx']:
+    """Generates and saves the Excel report as `debt.xlsx`."""
     wb = Workbook()
     ws = wb.active
+    if not ws:
+        raise ValueError('ws is null')
     ws.column_dimensions['A'].width = 22
     ws.column_dimensions['F'].width = 17
 
@@ -172,42 +218,33 @@ def build(data: list[Item]):
     return name
 
 
-def debt_listener(db: client, bucket):
-    """Start the debt listener
-
-    Args:
-        db (client): databse
-        bucket (bucket): bucket to upload data
-    """
+def debt_listener(db, bucket) -> None:
+    """Sets up the Firestore listener and handles generation, upload, and Firestore updates."""
     print('initialize debt listener.')
 
-    def snapshot(document: list[document], changes, read_time):
-        """snapshot the document
-
-        Args:
-            document (list[document]): list of docuemnts
-            changes: nothing
-            read_time: nothing
-        """
+    def snapshot(document: list, _, __) -> None:
+        """snapshot the document"""
         try:
             doc = document[0].to_dict()
+            if not doc:
+                raise ValueError('doc is null')
 
             if doc['debt_active']:
                 print(f'write xlsx {doc["debt_owner"]} (debtreport)')
                 name = build(get_data(db, doc['debt_owner']))
 
                 if '--read-only' not in argv:
-                    blob = bucket.blob(f'excel/debt-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.xlsx')
+                    blob = bucket.blob(
+                        f'excel/debt-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}'
+                        f'.xlsx'
+                    )
                     blob.upload_from_filename(join(folder, name))
                     blob.make_public()
                     print(f'write url to firestore: {blob.public_url}')
-                else:
-                    print('file not upload because of "--read-only" flag.')
-
-                if '--read-only' not in argv:
+                    #f'http://nta.desicarscenter.com:8000/files/{name}'
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'debt_active': False,
-                        'debt_url': blob.public_url #f'http://nta.desicarscenter.com:8000/files/{name}'
+                        'debt_url': blob.public_url
                     })
                 else:
                     print('debt_active not reseted because of "--read-only" flag.')
@@ -216,52 +253,16 @@ def debt_listener(db: client, bucket):
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
-            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}). [from debtreport snapshot]')
+            print(
+                f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).'
+                f' [from debtreport snapshot]')
             if '--no-tg' not in argv:
-                get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} ({e.__class__.__name__})')
+                get(
+                    f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module} '
+                    f'({e.__class__.__name__})', timeout=10
+                )
             _exit(1)
 
         except KeyboardInterrupt:
             print('main process stopped.')
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess debt.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--listener: activate debt listener')
-        print('')
-        print('default flags:')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --debt-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('DEBT REPORT')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--listener' in argv:
-            debt_listener(db, bucket())
-            while True:
-                sleep(52)
-
-    print('debt subprocess stopped successfully.')

@@ -16,8 +16,7 @@ Marks: last-update, sms, limit-28-upd
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from rentacar.log import Log
 from rentacar.mods.timemod import dt, timedelta, texas_tz, to_mime_format, get_last_day
@@ -189,47 +188,3 @@ def check_payday(last_update_data: dict, db: client, log: bool = False):
     else:
         if log:
             print('payday was started recently. All is ok.')
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess payday.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--test: test (start payday).')
-        print('--check: check payday last update.')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --no-sms: diasble SMS send (add inbox, send sms API)')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --payday-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('PAY DAY')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--test' in argv:
-            start_payday(db)
-        elif '--check' in argv:
-            last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
-            check_payday(last_update_data, db, True)
-
-    print('payday subprocess stopped successfully.')

@@ -17,8 +17,7 @@ Marks: listener
 from sys import path, argv
 from os.path import dirname, abspath, join
 from os import get_terminal_size, _exit
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from traceback import format_exception
 from docxtpl import DocxTemplate, RichText
@@ -28,7 +27,7 @@ from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.mods.firemod import document, init_db, has_key, get_car, get_contract, client, bucket
 from rentacar.mods.docusign import sign
 from requests import get
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 
 logdata = Log('rental.py')
 print = logdata.print
@@ -199,43 +198,3 @@ def rental_listener(db: client, bucket):
             _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    run = ''
-    for i in argv:
-        run += i + ' '
-    logdata.log_init(run)
-
-    print('start subprocess rental.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--listener: activate rental listener')
-        print('')
-        print('default flags:')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this\
-subprocess from watcher.py (use --rental-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('RENTAL AGREEMENT')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--listener' in argv:
-            rental_listener(db, bucket())
-            while True:
-                sleep(52)
-
-    print('rental subprocess stopped successfully.')

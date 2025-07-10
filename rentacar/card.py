@@ -1,8 +1,45 @@
-'''
-word renter information
-read exploit: fixed
-linitng: 9.84
-'''
+"""
+card.py
+=======
+
+Generates a Word document with renter and insurance information, including images, and uploads it
+to the cloud.
+
+Functions
+------------
+• **Builds a DOCX file from template**
+  - Uses `docxtpl` to fill a Word template (`card.docx`) with contract and renter data:
+    - Name, address, phone number
+    - Insurance number and expiration
+    - License number and expiration
+    - State and photo images
+
+• **Downloads document photos**
+  - Loads renter’s document images (from Firestore URLs) and saves them locally for insertion into
+the Word file.
+
+• **Uploads result to cloud storage**
+  - If not in `--read-only` mode, uploads the generated `.docx` to the bucket under the `word/`
+folder with a timestamped filename.
+
+• **Updates Firestore setting document**
+  - Resets the flag `card_active` to `False`
+  - Sets the `card_url` to the uploaded document's public link
+
+• **Listens for trigger**
+  - Uses Firestore listener on `setting_app/card_active == true`
+  - Automatically reacts when a card document needs to be created
+
+Flags
+-----
+`--read-only`
+    Prevents file upload and database update. Used for testing or dry runs.
+
+`-d`
+    Switches to docker folder paths (`/rentacar/exword_results/`, `/rentacar/exword_samples/`).
+
+linitng: 9.68
+"""
 from sys import argv
 from os.path import dirname, abspath, join
 from os import _exit
@@ -13,14 +50,14 @@ from docxtpl import DocxTemplate, InlineImage
 from docx.shared import Mm
 from requests import get
 
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 from rentacar.mods.firemod import has_key, get_contract
 from rentacar.mods.timemod import dt, time, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 
 logdata = Log('card.py')
-lprint = logdata.print
+print = logdata.print
 
 result_folder = '/rentacar/exword_results/' if '-d' in argv else join(dirname(abspath(__file__)),
     'exword_results')
@@ -28,7 +65,7 @@ sample_folder = '/rentacar/exword_samples/' if '-d' in argv else join(dirname(ab
     'exword_samples')
 
 def build(data: dict) -> Literal['card.docx']:
-    """build word"""
+    """Builds the `card.docx` file from the given data and saves it locally."""
     start_time = time()
     docx = DocxTemplate(join(sample_folder, 'card.docx'))
     context = {
@@ -49,12 +86,12 @@ def build(data: dict) -> Literal['card.docx']:
     docx.render(context)
     name = 'card.docx'#f'CARD-{contract_name}-{dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.docx'
     docx.save(join(result_folder, name))
-    lprint(f'card build completed. Built contract: {data["ContractName"]}. Time:\
+    print(f'card build completed. Built contract: {data["ContractName"]}. Time:\
         {round(time() - start_time, 2)} seconds.')
     return name
 
 def get_data(db, contract_name: str) -> dict:
-    """get renter data"""
+    """Retrieves contract data and downloads all associated document images."""
     contract = get_contract(db, contract_name, 'ContractName', check_active=False)
     images = []
     index = 0
@@ -67,8 +104,9 @@ def get_data(db, contract_name: str) -> dict:
     return contract
 
 def card_listener(db, bucket) -> None:
-    """listener for card"""
-    lprint('initialize card listener.')
+    """Subscribes to changes on the `setting_app` document and handles document generation/upload.
+    """
+    print('initialize card listener.')
 
     def snapshot(document, _, __) -> None:
         try:
@@ -76,30 +114,28 @@ def card_listener(db, bucket) -> None:
             if not doc:
                 raise ValueError('doc is null')
             if doc['card_active']:
-                lprint(f'write docx {doc["card_contract"]} (card)')
+                print(f'write docx {doc["card_contract"]} (card)')
                 name = build(get_data(db, doc['card_contract']))
                 if '--read-only' not in argv:
                     blob = bucket.blob(f'word/{doc["card_contract"]}-\
 {dt.now(texas_tz).strftime("%d-%m-%H-%M-%S")}.docx')
+
                     blob.upload_from_filename(join(result_folder, name))
                     blob.make_public()
-                    lprint(f'write url to firestore: {blob.public_url}')
-                else:
-                    lprint('file not upload because of "--read-only" flag.')
-                if '--read-only' not in argv:
-                    #f'http://nta.desicarscenter.com:8000/files/{name}'
+                    print(f'write url to firestore: {blob.public_url}')
+
                     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).update({
                         'card_active': False,
                         'card_url': blob.public_url
                     })
                 else:
-                    lprint('card_active not reseted because of "--read-only" flag.')
-
+                    print('file not uploaded and Firestore not updated because of "--read-only"\
+flag.')
         except Exception as e:
             exc_data = format_exception(e)[-2].split('\n')[0]
             line = exc_data[exc_data.find('line ') + 5:exc_data.rfind(',')]
             module = exc_data[exc_data.find('"') + 1:exc_data.rfind('"')]
-            lprint(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).\
+            print(f'ERROR in module {module}, line {line}: {e.__class__.__name__} ({e}).\
 [from card snapshot]')
             get(f'{TELEGRAM_LINK}DESI WORKER: raised error in module {module}\
 ({e.__class__.__name__})', timeout=10)

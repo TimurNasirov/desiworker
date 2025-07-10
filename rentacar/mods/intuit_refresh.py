@@ -1,14 +1,13 @@
 from sys import path
 from os.path import dirname, abspath, exists
 from os import _exit
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from json import dump, load
 from mods.timemod import dt, timedelta, utc_tz
 from intuitlib.client import AuthClient
 from intuitlib.enums import Scopes
-from config import INTUIT_ID, INTUIT_URI, INTUIT_SECRET, INTUIT_REALM
+from rentacar.config import INTUIT_ID, INTUIT_URI, INTUIT_SECRET, INTUIT_REALM
 from log import Log
 from quickbooks import QuickBooks
 

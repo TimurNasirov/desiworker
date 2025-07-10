@@ -1,10 +1,9 @@
 from sys import path
 from os.path import dirname, abspath
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from mods.timemod import dt, texas_tz, sleep
-from config import INTUIT_REALM
+from rentacar.config import INTUIT_REALM
 from mods.firemod import document
 from requests import get, post
 from mods.intuit_refresh import get_auth_client, load_tokens, is_token_expired, refresh_token

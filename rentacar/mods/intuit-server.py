@@ -2,7 +2,7 @@ from sys import path
 from os.path import dirname, abspath, exists
 from datetime import datetime as dt
 from time import sleep
-from config import INTUIT_REALM
+from rentacar.config import INTUIT_REALM
 from requests import get, post
 from intuit_refresh import get_auth_client, load_tokens, is_token_expired, refresh_token
 

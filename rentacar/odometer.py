@@ -13,8 +13,7 @@ Marks: last-update, listener
 from sys import path, argv
 from os.path import dirname, abspath
 from os import get_terminal_size, _exit
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from traceback import format_exception
 from rentacar.log import Log
@@ -23,7 +22,7 @@ from rentacar.mods.firemod import to_dict_all, has_key, client, init_db, documen
 from rentacar.str_config import TEMPAPP_DOCUMENT_ID, SETTINGAPP_DOCUMENT_ID
 from rentacar.mods.bouncie import get_apikey, get_odometer
 from requests import get
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 
 logdata = Log('odometer.py')
 print = logdata.print
@@ -111,52 +110,3 @@ def odometer_listener(db: client):
             _exit(1)
 
     db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess odometer.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--test: test (start odometer).')
-        print('--check: check odometer last update.')
-        print('--listener: activate odometer listener')
-        print('')
-        print('default flags:')
-        print(' - -h: show help')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --odometer-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('ODOMETER')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--test' in argv:
-            start_odometer(db)
-        elif '--check' in argv:
-            last_update_data: dict = db.collection('Last_update_python').document('last_update').get().to_dict()
-            check_odometer(last_update_data, db, True)
-        elif '--listener' in argv:
-            odometer_listener(db)
-            while True:
-                sleep(52)
-
-    print('odometer subprocess stopped successfully.')

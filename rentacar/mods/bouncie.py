@@ -2,7 +2,7 @@
 from json import loads
 from requests import post, get
 from rentacar.log import Log
-from config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_VEHICLES_URL, BOUNCIE_TRIP_URL
+from rentacar.config import BOUCNIE_HEADERS, BOUNCIE_API_URL, BOUNCIE_VEHICLES_URL, BOUNCIE_TRIP_URL
 from rentacar.mods.firemod import has_key
 from rentacar.mods.timemod import dt, timedelta, texas_tz
 

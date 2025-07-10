@@ -9,8 +9,8 @@ from firebase_admin import initialize_app
 from firebase_admin.storage import bucket
 from google.cloud import firestore
 from google.cloud.firestore_v1.base_document import DocumentSnapshot as document
-from google.cloud.firestore_v1.base_query import FieldFilter
-from config import FIREBASE_STORAGE
+from google.cloud.firestore_v1.base_query import FieldFilter, Or, And
+from rentacar.config import FIREBASE_STORAGE
 
 def init_db() -> firestore.Client:
     """Initialize the database"""
@@ -51,5 +51,13 @@ def get_car(db, data: str, by: str = 'nickname') -> dict:
     """get сar data"""
     car = db.collection('cars').where(filter=FieldFilter(by, '==', data)).limit(1).get()
     if car:
-        return car.to_dict()
+        return car[0].to_dict()
+    return {'nickname': None, 'odometer': 0}
+
+def get_owner_car(db, data: str, owner: str) -> dict:
+    """get сar data"""
+    car = db.collection('cars').where(filter=FieldFilter('nickname', '==', data))\
+        .where(filter=FieldFilter('owner', '==', owner)).limit(1).get()
+    if car:
+        return car[0].to_dict()
     return {'nickname': None, 'odometer': 0}

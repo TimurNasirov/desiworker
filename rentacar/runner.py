@@ -1,21 +1,38 @@
 """
-Main program thats launch every other programs (without watcher.py)
-Launch times:
-rentacar: 11:57
-odometer: 11:50, 23:51, 6:00
-supadesi: 23:57
-toll: 23:45, 12:10
+runner.py
+=======
+
+Main entry point that coordinates all periodic tasks and listeners in the DESI CARS automation
+system.
+
+Functions
+------------
+• **Launches checking functions**
+  - Checks when key services were last updated (via `Last_update_python/last_update`)
+  - Triggers `check_*` functions like `check_changeoil`, `check_insurance`, etc.
+
+• **Starts continuous listeners**
+  - Launches background listeners that react to Firestore or Firebase updates:
+    - Odometer updates
+    - Owner uploads
+    - Rental changes
+    - Toll activity
+    - Payment summaries, and more
+
+• **Schedules periodic tasks by time**
+  - Runs specific jobs at exact times throughout the day:
+    - 11:57 – rentacar block (change oil, payday, insurance, etc.)
+    - 11:45 / 23:51 / 06:00 – odometer
+    - 23:57 – supadesш
+    - 13:02 / 12:00 – payevery and IMEI
+
+• **Provides full start option**
+  - You can run `start_all()` to launch all key subsystems manually (used in tests or full boot)
+
 """
-
-from sys import path
-from os.path import dirname, abspath
-from typing import NoReturn
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
-
 from rentacar.log import Log
 from rentacar.mods.timemod import time_is, wait
-from rentacar.mods.firemod import init_db, bucket, client
+from rentacar.mods.firemod import init_db, bucket
 
 from rentacar.changeoil import start_changeoil, check_changeoil
 from rentacar.insurance import start_insurance, check_insurance
@@ -28,7 +45,6 @@ from rentacar.saldo import start_saldo, check_saldo, saldo_listener
 from rentacar.supadesi import start_supadesi
 from rentacar.payevery import start_payevery, start_payevery2, check_payevery
 from rentacar.imei import start_imei
-
 from rentacar.extoll import extoll_listener
 from rentacar.owner import owner_listener
 from rentacar.lease import lease_listener
@@ -45,7 +61,7 @@ db = init_db()
 bucket = bucket()
 
 def run_checking(run) -> None:
-    """Run all subprocesses in a run"""
+    """Runs all checks and background listeners based on enabled features in `run`."""
     last_update_data = db.collection('Last_update_python').document('last_update').get().to_dict()
     if not last_update_data:
         raise ValueError('last update data is null')
@@ -69,6 +85,8 @@ def run_checking(run) -> None:
         check_registration(last_update_data, db)
     if 'payevery' in run:
         check_payevery(last_update_data, db)
+    if 'saldo' in run:
+        check_saldo(last_update_data, db)
 
     print('initialize listeners.')
     if 'odometer' in run:
@@ -104,7 +122,7 @@ def run_checking(run) -> None:
             if 'supadesi' in run:
                 start_supadesi(db)
 
-        elif time_is('00:02'):
+        elif time_is('13:02'):
             if 'payevery' in run:
                 start_payevery(db)
 
@@ -117,7 +135,7 @@ def run_checking(run) -> None:
         wait()
 
 def start_all(run) -> None:
-    """Start all of the things in the run"""
+    """Manually triggers the full startup for the selected modules."""
     if 'odometer' in run:
         start_odometer(db)
     start_rentacar(run)
@@ -125,7 +143,7 @@ def start_all(run) -> None:
         start_supadesi(db)
 
 def start_rentacar(run) -> None:
-    """Starts rentacar subprocesses"""
+    """Runs core rentacar modules like oil change, insurance, late payments, etc."""
     if 'changeoil' in run:
         start_changeoil(db)
     if 'payday' in run:

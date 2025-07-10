@@ -5,8 +5,7 @@ from sys import path, argv
 from os.path import dirname, abspath, join
 from os import get_terminal_size, _exit
 from traceback import format_exception
-SCRIPT_DIR = dirname(abspath(__file__))
-path.append(dirname(SCRIPT_DIR))
+
 
 from openpyxl.styles import Border, Side, Font, Alignment
 from openpyxl import Workbook
@@ -15,7 +14,7 @@ from rentacar.mods.timemod import dt, sleep, texas_tz
 from rentacar.str_config import SETTINGAPP_DOCUMENT_ID
 from rentacar.log import Log
 from requests import get
-from config import TELEGRAM_LINK
+from rentacar.config import TELEGRAM_LINK
 
 logdata = Log('statement.py')
 print = logdata.print
@@ -273,44 +272,3 @@ def statement_listener(db: client, bucket):
             _exit(1)
 
     doc = db.collection('setting_app').document(SETTINGAPP_DOCUMENT_ID).on_snapshot(snapshot)
-
-
-if __name__ == '__main__':
-    logdata.logfile('\n')
-    command = ''
-    for i in argv:
-        command += i + ' '
-    logdata.log_init(command)
-
-    print('start subprocess statement.')
-    if len(argv) == 1:
-        print('not enough arguments.')
-        print('add -h to arguments to get help.')
-
-    elif '-h' in argv:
-        size = get_terminal_size().columns
-        print(f'{"=" * ((size - 43) // 2)} DESIWORKER {"=" * ((size - 43) // 2)}')
-        print(f'{" " * ((size - 55) // 2)} SUBPROCESS INSRUCTIONS {" " * ((size - 55) // 2)}')
-        print('')
-        print('-> for start main process, run watcher.py')
-        print('--listener: activate statement listener')
-        print('')
-        print('default flags:')
-        print(' - --read-only: give access only on data reading (there is no task creating, last update updating, sms sending)')
-        print('WARNING: catching errors not work in subprocess, so if error raising you will see full stacktrace. To fix it, run this subproces\
-s from watcher.py (use --statement-only -t)')
-        print('')
-        print('Description:')
-        instruction = __doc__.split('\n')
-        instruction.remove('')
-        instruction.remove('STATEMENT')
-        for i in instruction:
-            print(i)
-    else:
-        db: client = init_db()
-        if '--listener' in argv:
-            statement_listener(db, bucket())
-            while True:
-                sleep(52)
-
-    print('statement subprocess stopped successfully.')

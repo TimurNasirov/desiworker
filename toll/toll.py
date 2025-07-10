@@ -40,8 +40,8 @@ def start_toll(db) -> None:
     print('start toll.')
     #download.py
     options = Options()
-    # options.add_argument('--no-sandbox')
-    # options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--headless')
     if '-d' in argv:
         options.add_argument('--disable-dev-shm-usage')
         options.add_experimental_option("prefs", {
